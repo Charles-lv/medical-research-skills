@@ -48,7 +48,7 @@ This ensures consistency, reliability, and integration potential.
 
 ---
 
-## 🦞 Install into OpenClaw
+## 🦞 Install into OpenClaw Plug-in
 
 [OpenClaw](https://openclaw.ai) is a self-hosted AI agent gateway. You can install all AIPOCH skills into OpenClaw with a single command.
 
