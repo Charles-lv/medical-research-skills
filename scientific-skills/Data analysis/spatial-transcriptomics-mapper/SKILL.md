@@ -1,298 +1,169 @@
 ---
 name: spatial-transcriptomics-mapper
-description: Map spatial transcriptomics data from 10x Genomics Visium/Xenium onto
-  tissue images
-version: 1.0.0
-category: Bioinfo
-tags: []
-author: AIPOCH
+description: Map spatial transcriptomics data from 10x Genomics Visium or Xenium onto tissue section images, visualizing gene expression and spatial clustering distributions.
 license: MIT
-status: Draft
-risk_level: Medium
-skill_type: Tool/Script
-owner: AIPOCH
-reviewer: ''
-last_updated: '2026-02-06'
+skill-author: AIPOCH
 ---
 
-# Spatial Transcriptomics Mapper (ID: 196)
+# Spatial Transcriptomics Mapper
 
-## Description
+Process 10x Genomics Visium or Xenium spatial transcriptomics data and project gene expression onto tissue section images. Supports single-gene visualization, multi-gene overlays, and spatial clustering maps.
 
-Spatial Transcriptomics analysis tool for processing 10x Genomics Visium or Xenium data, projecting gene expression data back onto tissue section images to draw "gene-space" distribution maps. Supports gene expression visualization, spatial clustering analysis, and morphological feature correlation.
+## Quick Check
+
+```bash
+python -m py_compile scripts/main.py
+```
+
+## Audit-Ready Commands
+
+```bash
+python -m py_compile scripts/main.py
+python scripts/main.py --help
+python scripts/main.py --platform visium --data-dir ./test_data/visium_sample --gene GENE_0000 --output ./test_output/
+```
+
+## When to Use
+
+- Visualize spatial gene expression from Visium or Xenium data
+- Overlay multiple gene expression maps on tissue images
+- Display spatial distribution of Seurat/Scanpy clustering results
+- Generate publication-quality spatial maps for research reports
+
+## Workflow
+
+1. Confirm platform (visium/xenium), data directory, target gene(s), and output path.
+2. **Platform auto-detection:** If `--platform` is missing, check the data directory for `filtered_feature_bc_matrix.h5` + `spatial/` (→ Visium) or `transcripts.parquet` (→ Xenium) and infer the platform automatically. Report the inferred platform before proceeding.
+3. Validate that the request involves spatial transcriptomics mapping; stop early if not.
+4. Run `scripts/main.py` with the appropriate platform and gene flags.
+5. Return a structured result separating assumptions, output files, and unresolved items.
+6. If execution fails or inputs are incomplete, switch to the Fallback Template below.
+
+## Fallback Template
+
+If `scripts/main.py` fails or required fields are missing, respond with:
+
+```
+FALLBACK REPORT
+───────────────────────────────────────
+Objective        : <mapping goal>
+Inputs Available : <platform, data-dir, gene(s) provided>
+Missing Inputs   : <list exactly what is missing>
+Partial Result   : <any steps completed safely>
+Blocked Steps    : <what could not be completed and why>
+Next Steps       : <minimum info needed to complete>
+───────────────────────────────────────
+```
+
+## Stress-Case Output Checklist
+
+For complex multi-constraint requests, always include these sections explicitly:
+
+- **Assumptions**: platform defaults, missing gene names substituted, DPI used
+- **Constraints**: data size limits, memory requirements, crop region applied
+- **Risks**: large Xenium datasets may require `--crop`; missing genes will be skipped
+- **Unresolved Items**: genes not found in dataset, files not present
 
 ## Features
 
-- **Visium Data Processing**: Supports Space Ranger output (filtered_feature_bc_matrix.h5, spatial/tissue_positions_list.csv, spatial/tissue_lowres_image.png)
-- **Xenium Data Processing**: Supports Xenium Explorer output (.h5, transcripts.parquet, nucleus_boundaries.parquet)
-- **Gene Expression Mapping**: Projects expression of specified genes onto tissue images
-- **Spatial Clustering Visualization**: Displays spatial distribution of Seurat/Scanpy clustering results
-- **Multi-gene Joint Analysis**: Supports combined visualization of multiple genes
-- **High-resolution Output**: Supports high-resolution image export
+- **Visium**: Space Ranger output (`.h5`, `tissue_positions_list.csv`, tissue images)
+- **Xenium**: Xenium Explorer output (`.h5`, `transcripts.parquet`, `nucleus_boundaries.parquet`)
+- **Gene Expression Mapping**: Projects expression onto tissue images
+- **Spatial Clustering**: Displays Seurat/Scanpy cluster distributions
+- **Multi-gene Joint Analysis**: Overlay or grid visualization
+- **High-resolution Output**: Configurable DPI up to 600+
 
-## Installation
-
-```bash
-# Required dependencies
-pip install scanpy squidpy matplotlib seaborn pillow numpy pandas h5py
-
-# Optional: For Xenium data processing
-pip install pyarrow dask
-
-# Optional: For advanced image processing
-pip install opencv-python scikit-image
-```
-
-## Quick Start - Test Data
-
-Generate sample Visium data to test the tool:
+## CLI Usage
 
 ```bash
-# Generate test data
-python scripts/generate_test_data.py \
-  --platform visium \
-  --output ./test_data/visium_sample \
-  --n-spots 500 \
-  --n-genes 1000
+# Single gene — Visium
+python scripts/main.py --platform visium --data-dir /path/to/spaceranger/outs/ \
+  --gene PIK3CA --output ./output/
 
-# Run analysis on test data
-python scripts/main.py \
-  --platform visium \
-  --data-dir ./test_data/visium_sample \
-  --gene GENE_0000 \
-  --output ./test_output/
+# Single gene — Xenium
+python scripts/main.py --platform xenium --data-dir /path/to/xenium/outs/ \
+  --gene PIK3CA --output ./output/
+
+# Multiple genes
+python scripts/main.py --platform visium --data-dir /path/to/data/ \
+  --genes PIK3CA,PTEN,EGFR --mode overlay --output ./output/
+
+# With clustering results
+python scripts/main.py --platform visium --data-dir /path/to/data/ \
+  --cluster-file ./clusters.csv --output ./output/
 ```
 
-## Usage
-
-### Basic - Visium Data
-
-```bash
-python scripts/main.py \
-  --platform visium \
-  --data-dir /path/to/spaceranger/outs/ \
-  --gene PIK3CA \
-  --output ./output/
-```
-
-### Basic - Xenium Data
-
-```bash
-python scripts/main.py \
-  --platform xenium \
-  --data-dir /path/to/xenium/outs/ \
-  --gene PIK3CA \
-  --output ./output/
-```
-
-### Multiple Genes
-
-```bash
-python scripts/main.py \
-  --platform visium \
-  --data-dir /path/to/data/ \
-  --genes PIK3CA,PTEN,EGFR \
-  --mode overlay \
-  --output ./output/
-```
-
-### With Clustering Results
-
-```bash
-python scripts/main.py \
-  --platform visium \
-  --data-dir /path/to/data/ \
-  --cluster-file ./clusters.csv \
-  --output ./output/
-```
-
-## Input File Structure
-
-### Visium (Space Ranger output)
-```
-outs/
-├── filtered_feature_bc_matrix.h5    # Gene expression matrix
-├── raw_feature_bc_matrix.h5         # Raw counts (optional)
-├── spatial/
-│   ├── tissue_positions_list.csv    # Spot positions
-│   ├── tissue_lowres_image.png      # Low-res H&E image
-│   ├── tissue_hires_image.png       # High-res H&E image
-│   └── scalefactors_json.json       # Scale factors
-└── web_summary.html
-```
-
-### Xenium
-```
-outs/
-├── cell_feature_matrix.h5           # Cell x gene matrix
-├── transcripts.parquet              # Transcript coordinates
-├── nucleus_boundaries.parquet       # Cell boundaries
-├── cell_boundaries.parquet
-├── morphology_focus.ome.tif         # Morphology image
-└── experiment.xenium
-```
-
-## Output Files
-
-- `{gene}_spatial_map.png`: Single gene spatial expression map
-- `{gene}_heatmap.png`: Gene expression heatmap
-- `multi_gene_overlay.png`: Multi-gene overlay map (if using --mode overlay)
-- `cluster_spatial_map.png`: Cluster spatial distribution map
-- `combined_report.html`: Comprehensive HTML report
-
-## Parameters
+## Key Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `--platform` | str | required | Platform type: visium or xenium |
+|---|---|---|---|
+| `--platform` | str | required | `visium` or `xenium` |
 | `--data-dir` | str | required | Data directory path |
 | `--gene` | str | optional | Single gene name |
 | `--genes` | list | optional | Multiple genes, comma-separated |
-| `--mode` | str | single | Mode: single/overlay/multi |
-| `--cluster-file` | str | optional | Clustering result CSV file path |
-| `--output` | str | ./output | Output directory |
+| `--mode` | str | `single` | `single` / `overlay` / `multi` / `cluster` |
+| `--cluster-file` | str | optional | Clustering result CSV |
+| `--output` | str | `./output` | Output directory |
 | `--dpi` | int | 300 | Output image DPI |
-| `--cmap` | str | viridis | Color map scheme |
-| `--spot-size` | float | 1.0 | Visium spot size factor |
-| `--alpha` | float | 0.8 | Transparency (0-1) |
-| `--min-count` | int | 0 | Minimum expression filter |
-| --crop | str | optional | Crop region (x1,y1,x2,y2) |
+| `--cmap` | str | `viridis` | Color map |
+| `--crop` | str | optional | Crop region `x1,y1,x2,y2` |
 
-## Examples
+→ Full parameter reference: [references/parameters.md](references/parameters.md)
 
-### Example 1: Single Gene Visualization
-```bash
-python scripts/main.py \
-  --platform visium \
-  --data-dir ./visium_sample/outs/ \
-  --gene EPCAM \
-  --cmap Reds \
-  --output ./results/
-```
+## Output Files
 
-### Example 2: Tumor Marker Combination
-```bash
-python scripts/main.py \
-  --platform visium \
-  --data-dir ./breast_cancer/outs/ \
-  --genes PIK3CA,ERBB2,ESR1,PGR \
-  --mode multi \
-  --cmap plasma \
-  --output ./tumor_markers/
-```
+- `{gene}_spatial_map.png` — Single gene spatial expression map
+- `{gene}_heatmap.png` — Gene expression heatmap
+- `multi_gene_overlay.png` — Multi-gene overlay (with `--mode overlay`)
+- `cluster_spatial_map.png` — Cluster spatial distribution
+- `combined_report.html` — Comprehensive HTML report
 
-### Example 3: Xenium Subcellular Resolution
-```bash
-python scripts/main.py \
-  --platform xenium \
-  --data-dir ./xenium_lung/outs/ \
-  --genes SFTPB,SFTPC,SCGB1A1 \
-  --dpi 600 \
-  --output ./xenium_results/
-```
+## Input Validation
 
-### Example 4: Spatial Clustering Visualization
-```bash
-python scripts/main.py \
-  --platform visium \
-  --data-dir ./sample/outs/ \
-  --cluster-file ./seurat_clusters.csv \
-  --output ./clusters/
-```
+This skill accepts: 10x Genomics Visium or Xenium output directories with valid Space Ranger or Xenium Explorer file structures, plus at least one gene name or cluster file.
 
-## API Usage
+If the request does not involve spatial transcriptomics mapping — for example, asking to perform bulk RNA-seq analysis, process scRNA-seq without spatial coordinates, or analyze non-genomics imaging data — do not proceed. Instead respond:
 
-```python
-from skills.spatial_transcriptomics_mapper.scripts.main import SpatialMapper
+> "`spatial-transcriptomics-mapper` is designed to map 10x Genomics Visium/Xenium spatial transcriptomics data onto tissue images. Your request appears to be outside this scope. Please provide a valid Visium or Xenium data directory, or use a more appropriate tool."
 
-# Initialize
-mapper = SpatialMapper(
-    platform="visium",
-    data_dir="/path/to/data",
-    output_dir="./output"
-)
+If the data is from a non-10x spatial platform (Slide-seq, MERFISH, seqFISH, etc.), note that this skill supports Visium and Xenium only, and recommend the appropriate platform-specific tool or pipeline.
 
-# Load data
-mapper.load_data()
+## Error Handling
 
-# Plot single gene
-mapper.plot_gene_spatial(
-    gene="PIK3CA",
-    cmap="viridis",
-    save_path="./output/pik3ca.png"
-)
+- If required inputs are missing, state exactly which fields are missing and request only the minimum additional information.
+- If the task goes outside documented scope, stop instead of guessing.
+- If `scripts/main.py` fails, use the Fallback Template above.
+- Do not fabricate gene expression values, output files, or execution outcomes.
 
-# Plot multiple genes
-mapper.plot_multi_genes(
-    genes=["PIK3CA", "PTEN", "EGFR"],
-    mode="grid",
-    save_path="./output/multi.png"
-)
+## Output Requirements
 
-# Get spatial statistics
-stats = mapper.get_spatial_stats(gene="PIK3CA")
-```
+Every final response must include:
+
+1. **Objective** — genes/clusters mapped and platform used
+2. **Inputs Received** — data directory, platform, gene list, parameters
+3. **Assumptions** — defaults applied (DPI, cmap, mode)
+4. **Result** — output file paths generated
+5. **Risks and Limits** — large datasets, missing genes, memory constraints
+6. **Next Checks** — verify gene names exist in dataset before full run
 
 ## Notes
 
-- Visium data uses low-resolution images by default to improve processing speed, can use --hires parameter to enable high resolution
-- For large Xenium datasets, it is recommended to use --crop parameter to specify region of interest
+- Visium uses low-resolution images by default; use `--hires` for high resolution
+- For large Xenium datasets, use `--crop` to specify region of interest
 - Color map reference: https://matplotlib.org/stable/tutorials/colors/colormaps.html
-- For large samples, consider using --downsample parameter to reduce resolution
 
-## References
+## Dependencies
 
-- 10x Genomics Visium: https://www.10xgenomics.com/products/spatial-gene-expression
-- 10x Genomics Xenium: https://www.10xgenomics.com/platforms/xenium
-- Scanpy: https://scanpy.readthedocs.io/
-- Squidpy: https://squidpy.readthedocs.io/
-
-## Risk Assessment
-
-| Risk Indicator | Assessment | Level |
-|----------------|------------|-------|
-| Code Execution | Python/R scripts executed locally | Medium |
-| Network Access | No external API calls | Low |
-| File System Access | Read input files, write output files | Medium |
-| Instruction Tampering | Standard prompt guidelines | Low |
-| Data Exposure | Output files saved to workspace | Low |
-
-## Security Checklist
-
-- [ ] No hardcoded credentials or API keys
-- [ ] No unauthorized file system access (../)
-- [ ] Output does not expose sensitive information
-- [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
-- [ ] Output directory restricted to workspace
-- [ ] Script execution in sandboxed environment
-- [ ] Error messages sanitized (no stack traces exposed)
-- [ ] Dependencies audited
-## Prerequisites
-
-```bash
-# Python dependencies
-pip install -r requirements.txt
 ```
-
-## Evaluation Criteria
-
-### Success Metrics
-- [ ] Successfully executes main functionality
-- [ ] Output meets quality standards
-- [ ] Handles edge cases gracefully
-- [ ] Performance is acceptable
-
-### Test Cases
-1. **Basic Functionality**: Standard input → Expected output
-2. **Edge Case**: Invalid input → Graceful error handling
-3. **Performance**: Large dataset → Acceptable processing time
-
-## Lifecycle Status
-
-- **Current Stage**: Draft
-- **Next Review Date**: 2026-03-06
-- **Known Issues**: None
-- **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support
+scanpy
+squidpy
+matplotlib
+seaborn
+pillow
+numpy
+pandas
+h5py
+pyarrow      # Xenium only
+dask         # Xenium only
+opencv-python  # optional, advanced image processing
+```

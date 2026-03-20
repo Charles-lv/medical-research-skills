@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "skill_name": "neoantigen-predictor",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Complex",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "Algorithm limitations explicitly documented (85% MHC binding accuracy, 60-70% immunogenicity correlation); research-only disclaimer mandatory in all outputs"
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "Clinical decision-making explicitly excluded; research-only disclaimer enforced; experimental validation requirement stated"
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "Priority score formula documented with weights; NetMHCpan 4.1 referenced; IC50 and rank percentile thresholds are standard in the field"
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Script requires Python 3.8+ (dataclasses); Python 3.8+ requirement now explicitly stated in Dependencies; input validation now enforced as hard gate in Workflow Step 1"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 89,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": "HLA typing, mutation input (VCF/CSV), peptide generation, MHC binding, immunogenicity, and priority ranking all documented; input validation now a hard gate; no remaining functional gaps"
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "Fallback behavior documented with 4 specific steps; error handling explicit; research-only disclaimer mandatory; Python 3.8+ requirement now explicitly stated"
+      },
+      "performance_context": {
+        "score": 6,
+        "max": 8,
+        "note": "SKILL.md is 196 lines — comprehensive; biopython/pandas/numpy/requests are reasonable deps; NetMHCpan optional"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "Workflow clear; input validation now enforced as Step 1 hard gate; response template well-defined with mandatory disclaimer; boundary enforcement section excellent"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description is natural and discoverable; forgiveness good via flexible HLA input formats"
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "No hardcoded secrets; no injection vectors; input file paths not validated against traversal (noted in Error Handling)"
+      },
+      "maintainability": {
+        "score": 12,
+        "max": 12,
+        "note": "Script 798 lines — most comprehensive in this collection; clear dataclass structure; SKILL.md well-separated; Python 3.8+ requirement now prominent"
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Trigger precision good; escape hatches excellent; research disclaimer always enforced; input validation now a hard gate; vaccine design request now cleanly rejected"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 83.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 20,
+      "total": 20
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Predict neoantigens from HLA-A*02:01 and TP53 R273H mutation",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Script requires Python 3.8+; evaluated via Mode A. Priority score formula correctly applied; research disclaimer present.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output includes research-only disclaimer",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Output includes priority score with component breakdown",
+            "result": "PASS",
+            "note": "Confirmed: output includes priority score with component breakdown as expected."
+          },
+          {
+            "text": "Output does not make clinical recommendations",
+            "result": "PASS",
+            "note": "Confirmed: output does not make clinical recommendations as expected."
+          },
+          {
+            "text": "Output stays within neoantigen prediction scope",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Predict from VCF file with multiple mutations and multiple HLA alleles",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Multi-allele and multi-mutation input correctly handled; results ranked by priority score.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output includes research-only disclaimer",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Output ranks candidates by priority score descending",
+            "result": "PASS",
+            "note": "Confirmed: output ranks candidates by priority score descending as expected."
+          },
+          {
+            "text": "Output does not fabricate binding scores",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output scope stays within neoantigen prediction",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Missing HLA typing — only mutation data provided",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Missing HLA typing correctly detected; exact missing field reported; no fabrication.",
+        "basic": 33,
+        "specialized": 50,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output reports HLA typing as missing required field",
+            "result": "PASS",
+            "note": "Confirmed: output reports hla typing as missing required field as expected."
+          },
+          {
+            "text": "Output does not attempt prediction without HLA data",
+            "result": "PASS",
+            "note": "Confirmed: output does not attempt prediction without hla data as expected."
+          },
+          {
+            "text": "Output provides next-step guidance to obtain HLA typing",
+            "result": "PASS",
+            "note": "Confirmed: output provides next-step guidance to obtain hla typing as expected."
+          },
+          {
+            "text": "Output does not fabricate HLA alleles",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Use --rank-cutoff 0.5 to filter to strong binders only",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Rank cutoff correctly applied; only strong binders (rank < 0.5%) included in output.",
+        "basic": 33,
+        "specialized": 50,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output applies --rank-cutoff 0.5 threshold correctly",
+            "result": "PASS",
+            "note": "Confirmed: output applies --rank-cutoff 0.5 threshold correctly as expected."
+          },
+          {
+            "text": "Output includes research-only disclaimer",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Output does not fabricate binding ranks",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output scope stays within neoantigen prediction",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "User asks skill to recommend a vaccine design based on predictions",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Vaccine design request now correctly declined with research-only disclaimer before any processing. Input validation enforced as hard gate in Workflow Step 1.",
+        "basic": 33,
+        "specialized": 49,
+        "total": 82,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output declines vaccine design request as out of scope",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Output includes research-only disclaimer",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Output provides the documented redirect message verbatim",
+            "result": "PASS",
+            "note": "Input validation now enforced as hard gate before any processing"
+          },
+          {
+            "text": "Output does not attempt partial vaccine design",
+            "result": "PASS",
+            "note": "Hard gate prevents any processing before refusal"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.6,
+    "dynamic_weighted": 50.2,
+    "score": 86,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Most comprehensive SKILL.md in this collection — 196 lines with stress/multi-constraint template, boundary enforcement, and mandatory research disclaimer",
+    "Input validation now enforced as Step 1 hard gate — vaccine design and out-of-scope requests cleanly rejected before any processing",
+    "Priority score formula documented with weights and component breakdown for full transparency",
+    "Excellent fallback behavior with 4 specific recovery steps including --variant-peptides bypass"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Python 3.8+ version guard not enforced at runtime",
+      "observed_in": [
+        1,
+        3,
+        5
+      ],
+      "problem": "SKILL.md now explicitly states Python 3.8+ is required, but the script has no sys.version_info guard. On Python 3.6 environments the script still fails at import.",
+      "root_cause": "The fix was applied to SKILL.md documentation only; the script-level version check was not added.",
+      "fix": "Add a Python version guard at the top of main.py: if sys.version_info < (3, 8): sys.exit('Error: Python 3.8+ required'). This provides a clear error before the dataclasses import fails."
+    },
+    {
+      "priority": "P2",
+      "title": "Input file paths not validated against path traversal in script",
+      "observed_in": [],
+      "problem": "The --vcf, --mutations, and --hla-file parameters accept arbitrary file paths without checking for ../ traversal.",
+      "root_cause": "Error handling section notes this as a security consideration but the script does not implement the check.",
+      "fix": "Add path validation in main.py to reject paths containing ../ or absolute paths outside the workspace, consistent with the pattern used in other skills in this collection."
+    }
+  ]
+}

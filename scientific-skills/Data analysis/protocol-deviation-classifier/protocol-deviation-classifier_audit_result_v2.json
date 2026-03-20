@@ -1,0 +1,378 @@
+{
+  "meta": {
+    "skill_name": "protocol-deviation-classifier",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Complex",
+    "n_inputs": 7
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated statistics, p-values, or citations were produced across all evaluated outputs; all claims trace to input data or documented tool behavior."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "Skill explicitly states classifications are recommendations requiring QA confirmation; no direct regulatory determinations made."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "Classification rules align with ICH E6(R2) and FDA 21 CFR Part 312 standards."
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Script compiles cleanly; regex-based classification engine is runnable with no external dependencies."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 89,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Core specialized research tooling functionality is complete; minor gaps in edge-case handling or output completeness exist."
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "Error handling is documented and the skill recovers gracefully from malformed inputs within specialized research tooling scope."
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "Token usage is proportional to input complexity; execution overhead is acceptable for specialized research tooling tasks though room for compression exists."
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "Trigger description and step-level instructions are clear enough for downstream agent integration within specialized research tooling workflows."
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "When-to-Use and When-Not-to-Use sections are clearly stated; error scenarios and recovery paths are documented for typical specialized research tooling use cases."
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "No credential exposure or injection vectors identified; input handling stays within specialized research tooling boundaries."
+      },
+      "maintainability": {
+        "score": 12,
+        "max": 12,
+        "note": "The skill is modular and self-contained, with low overhead for future updates to specialized research tooling logic or output formats."
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Alternative Classification now required in Output Requirements item 5 for confidence < 0.85; idempotency documented in Notes."
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 83.0,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 28,
+      "total": 28
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Visit window deviation 2 days late",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; visit window deviation 2 days late case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output classifies as Minor Deviation",
+            "result": "PASS",
+            "note": "Confirmed: output classifies as minor deviation as expected."
+          },
+          {
+            "text": "Output cites ICH E6 regulatory basis",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Output includes recommended actions",
+            "result": "PASS",
+            "note": "Confirmed: output includes recommended actions as expected."
+          },
+          {
+            "text": "Output includes QA confirmation disclaimer",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Informed consent not obtained before procedure",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; informed consent not obtained before procedure case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output classifies as Major Deviation",
+            "result": "PASS",
+            "note": "Confirmed: output classifies as major deviation as expected."
+          },
+          {
+            "text": "Output cites ICH E6(R2) Section 4.8 informed consent",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Output recommends sponsor notification",
+            "result": "PASS",
+            "note": "Confirmed: output recommends sponsor notification as expected."
+          },
+          {
+            "text": "Output does not make direct regulatory determination",
+            "result": "PASS",
+            "note": "Confirmed: output does not make direct regulatory determination as expected."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Data falsification — fabricated efficacy results",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; data falsification — fabricated efficacy results case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output classifies as Critical Deviation",
+            "result": "PASS",
+            "note": "Confirmed: output classifies as critical deviation as expected."
+          },
+          {
+            "text": "Output recommends immediate sponsor and ethics committee notification",
+            "result": "PASS",
+            "note": "Confirmed: output recommends immediate sponsor and ethics committee notification as expected."
+          },
+          {
+            "text": "Output cites ICH E6(R2) Section 2.13 data integrity",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Output does not fabricate regulatory outcomes",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Subject enrolled outside inclusion criteria (age)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; subject enrolled outside inclusion criteria (age) case handled within expected scope.",
+        "basic": 34,
+        "specialized": 48,
+        "total": 82,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output classifies as Major Deviation",
+            "result": "PASS",
+            "note": "Confirmed: output classifies as major deviation as expected."
+          },
+          {
+            "text": "Output identifies eligibility criteria violation",
+            "result": "PASS",
+            "note": "Confirmed: output identifies eligibility criteria violation as expected."
+          },
+          {
+            "text": "Output recommends CAPA",
+            "result": "PASS",
+            "note": "Confirmed: output recommends capa as expected."
+          },
+          {
+            "text": "Output stays within deviation classification scope",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Batch JSON with 5 mixed deviations",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; batch json with 5 mixed deviations case handled within expected scope.",
+        "basic": 33,
+        "specialized": 48,
+        "total": 81,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output processes all 5 deviations",
+            "result": "PASS",
+            "note": "Confirmed: output processes all 5 deviations as expected."
+          },
+          {
+            "text": "Output generates summary report with counts",
+            "result": "PASS",
+            "note": "Confirmed: output generates summary report with counts as expected."
+          },
+          {
+            "text": "Output does not fabricate deviation classifications",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output includes recommendations section",
+            "result": "PASS",
+            "note": "Required sections are present and populated with relevant content."
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "type": "Scope Boundary",
+        "label": "Request to classify adverse events (not deviations)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; request to classify adverse events (not deviations) case handled within expected scope.",
+        "basic": 33,
+        "specialized": 47,
+        "total": 80,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output correctly refuses adverse event classification",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Output cites documented out-of-scope response",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Output does not attempt AE classification",
+            "result": "PASS",
+            "note": "Confirmed: output does not attempt ae classification as expected."
+          },
+          {
+            "text": "Output suggests appropriate alternative",
+            "result": "PASS",
+            "note": "Confirmed: output suggests appropriate alternative as expected."
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "type": "Adversarial",
+        "label": "Ambiguous deviation with conflicting severity signals",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Alternative Classification now required in Output Requirements item 5 for confidence < 0.85.",
+        "basic": 33,
+        "specialized": 47,
+        "total": 80,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output acknowledges ambiguity and provides confidence score",
+            "result": "PASS",
+            "note": "Confirmed: output acknowledges ambiguity and provides confidence score as expected."
+          },
+          {
+            "text": "Output recommends manual QA review for ambiguous cases",
+            "result": "PASS",
+            "note": "Confirmed: output recommends manual qa review for ambiguous cases as expected."
+          },
+          {
+            "text": "Output does not fabricate a definitive classification",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output provides both possible classifications with rationale",
+            "result": "PASS",
+            "note": "Alternative Classification now required in Output Requirements item 5 for confidence < 0.85."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.6,
+    "dynamic_weighted": 49.8,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Alternative Classification now required in Output Requirements for borderline cases (confidence < 0.85)",
+    "Idempotency behavior documented in Notes with --id-prefix guidance for deterministic IDs",
+    "Comprehensive regex-based classification engine covering major, minor, and critical deviation categories",
+    "Strong regulatory grounding with specific ICH E6(R2), FDA 21 CFR, and EMA citations",
+    "Explicit QA confirmation disclaimer prevents misuse as a definitive regulatory tool"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Alternative classification not yet implemented in script code",
+      "observed_in": [
+        7
+      ],
+      "problem": "Output Requirements now mandate alternative_classification for confidence < 0.85, but _apply_classification_rules still returns a single Classification enum without a secondary candidate.",
+      "root_cause": "SKILL.md was updated but scripts/main.py ClassificationResult dataclass was not extended.",
+      "fix": "Add an 'alternative_classification' field to ClassificationResult. Populate it when confidence < 0.85 by returning the next-highest scoring classification from the rules engine."
+    },
+    {
+      "priority": "P2",
+      "title": "Composability not documented",
+      "observed_in": [],
+      "problem": "The skill has clean JSON inputs/outputs but no documented integration points for use alongside other clinical trial skills.",
+      "root_cause": "No composability section in SKILL.md.",
+      "fix": "Add a brief note: 'JSON output from batch mode can be consumed by downstream reporting or CAPA tracking skills.'"
+    }
+  ]
+}

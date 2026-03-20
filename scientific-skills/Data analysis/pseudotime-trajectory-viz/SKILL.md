@@ -1,286 +1,160 @@
 ---
 name: pseudotime-trajectory-viz
-description: Visualize single-cell developmental trajectories (pseudotime) to show
-  how cells differentiate from stem cells to mature cells. Includes trajectory inference,
-  pseudotime calculation, and publication-ready visualizations.
-version: 1.0.0
-category: Bioinfo
-tags: []
-author: AIPOCH
+description: Visualize single-cell developmental trajectories and cellular differentiation processes using pseudotime analysis on AnnData (.h5ad) files.
 license: MIT
-status: Draft
-risk_level: Medium
-skill_type: Tool/Script
-owner: AIPOCH
-reviewer: ''
-last_updated: '2026-02-06'
+skill-author: AIPOCH
+status: beta
 ---
-
 # Pseudotime Trajectory Visualization
 
 Visualize single-cell developmental trajectories showing cellular differentiation processes using pseudotime analysis.
 
-## Function
+## Input Validation
 
-- Infer developmental trajectories from single-cell RNA-seq data
-- Calculate pseudotime values representing cellular differentiation progress
-- Visualize trajectory trees and lineage branching
-- Overlay gene expression dynamics along pseudotime
-- Identify lineage-specific marker genes
-- Generate publication-ready trajectory plots
+This skill accepts: AnnData (.h5ad) files from single-cell RNA-seq experiments for pseudotime trajectory inference and visualization.
+
+If the request does not involve pseudotime analysis of single-cell data — for example, asking to perform bulk RNA-seq analysis, run differential expression, or process non-AnnData inputs — do not proceed. Instead respond:
+
+> "pseudotime-trajectory-viz is designed to visualize single-cell developmental trajectories using pseudotime analysis. Your request appears to be outside this scope. Please provide an AnnData (.h5ad) file with preprocessed single-cell data, or use a more appropriate tool for your task."
+
+## When to Use
+
+- Inferring developmental trajectories from single-cell RNA-seq data
+- Calculating pseudotime values representing cellular differentiation progress
+- Visualizing trajectory trees, lineage branching, and gene expression dynamics
+- Generating publication-ready trajectory plots from AnnData files
 
 ## Technical Difficulty
 
-**High** - Requires understanding of single-cell analysis, dimensionality reduction, trajectory inference algorithms, and Python visualization libraries.
+**High** — Requires understanding of single-cell analysis, dimensionality reduction, trajectory inference algorithms, and Python visualization libraries.
+
+## Workflow
+
+1. **Validate input** — confirm scope and path safety before any processing.
+2. Validate that the `--input` file path does not contain `../` or point outside the workspace. Reject with a path traversal warning if it does. Do not proceed with the traversal path.
+3. Confirm the user objective, required inputs, and non-negotiable constraints before doing detailed work.
+4. Use the packaged script path or the documented reasoning path with only the inputs that are actually available.
+5. Return a structured result that separates assumptions, deliverables, risks, and unresolved items.
+6. If execution fails or inputs are incomplete, switch to the fallback path and state exactly what blocked full completion.
 
 ## Usage
 
-```bash
+```text
 # Basic trajectory analysis from AnnData file
 python scripts/main.py --input data.h5ad --output ./results
 
-# Specify starting cells and lineage inference method
+# Specify starting cells and inference method
 python scripts/main.py --input data.h5ad --start-cell stem_cell_cluster --method diffusion --output ./results
 
 # Visualize specific gene expression along trajectories
-python scripts/main.py --input data.h5ad --genes SOX2,OCT4,NANOG --plot-genes --output ./results
-
-# Full analysis with custom parameters
-python scripts/main.py --input data.h5ad \
-    --embedding umap \
-    --method slingshot \
-    --start-cell-type progenitor \
-    --n-lineages 3 \
-    --genes MARKER1,MARKER2,MARKER3 \
-    --output ./results \
-    --format pdf
+python scripts/main.py --input data.h5ad --genes SOX2,OCT4,NANOG --output ./results
 ```
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `--input` | path | required | Input AnnData (.h5ad) file path |
-| `--output` | path | ./trajectory_output | Output directory for results |
-| `--embedding` | enum | umap | Embedding for visualization: `umap`, `tsne`, `pca`, `diffmap` |
-| `--method` | enum | diffusion | Trajectory inference: `diffusion`, `slingshot`, `paga`, `palantir` |
-| `--start-cell` | string | auto | Root cell ID or cluster name for trajectory origin |
-| `--start-cell-type` | string | - | Cell type annotation to use as starting point |
-| `--n-lineages` | int | auto | Number of expected lineage branches |
-| `--cluster-key` | string | leiden | AnnData obs key for cell clusters |
-| `--cell-type-key` | string | cell_type | AnnData obs key for cell type annotations |
-| `--genes` | string | - | Comma-separated gene names to plot along pseudotime |
-| `--plot-genes` | flag | false | Generate gene expression heatmaps along trajectories |
-| `--plot-branch` | flag | true | Show lineage branch probabilities |
-| `--format` | enum | png | Output format: `png`, `pdf`, `svg` |
-| `--dpi` | int | 300 | Figure resolution |
-| `--n-pcs` | int | 30 | Number of principal components for analysis |
-| `--n-neighbors` | int | 15 | Number of neighbors for graph construction |
-| `--diffmap-components` | int | 5 | Number of diffusion components to compute |
+| `--input` | path | Required | Input AnnData (.h5ad) file path |
+| `--output` | path | `./trajectory_output` | Output directory |
+| `--embedding` | enum | `umap` | Embedding: `umap`, `tsne`, `pca`, `diffmap` |
+| `--method` | enum | `diffusion` | Trajectory method: `diffusion`, `paga` |
+| `--start-cell` | str | auto | Root cell ID or cluster name |
+| `--genes` | str | - | Comma-separated gene names to plot along pseudotime |
+| `--format` | enum | `png` | Output format: `png`, `pdf`, `svg` |
+| `--dpi` | int | `300` | Figure resolution |
+| `--seed` | int | `42` | Random seed for reproducibility (passed to sc.pp.neighbors and sc.tl.umap) |
 
 ## Input Format
 
 Required AnnData (.h5ad) structure:
 ```
 AnnData object with n_obs × n_vars = n_cells × n_genes
-    obs: 'leiden', 'cell_type'  # Cluster and cell type annotations
-    var: 'highly_variable'       # Highly variable gene marker
-    obsm: 'X_umap', 'X_pca'      # Pre-computed embeddings (optional)
-    layers: 'spliced', 'unspliced'  # For RNA velocity (optional)
+    obs: 'leiden', 'cell_type'   # Cluster and cell type annotations
+    var: 'highly_variable'        # Highly variable gene marker
+    obsm: 'X_umap', 'X_pca'       # Pre-computed embeddings (optional)
 ```
+
+Assumes input data is already normalized and log-transformed.
 
 ## Output Files
 
 ```
 output_directory/
-├── trajectory_plot.{format}          # Main trajectory visualization
-├── pseudotime_distribution.{format}  # Pseudotime value distribution
-├── lineage_tree.{format}             # Branching lineage structure
-├── gene_expression_heatmap.{format}  # Gene dynamics heatmap (if --plot-genes)
-├── gene_trends/
-│   ├── {gene_name}_trend.{format}    # Individual gene expression trends
-│   └── ...
-├── pseudotime_values.csv             # Cell-level pseudotime values
-├── lineage_assignments.csv           # Cell lineage assignments
-└── analysis_report.json              # Analysis parameters and statistics
+├── trajectory_plot.{format}
+├── pseudotime_distribution.{format}
+├── lineage_tree.{format}
+├── pseudotime_values.csv
+├── lineage_assignments.csv
+└── analysis_report.json   # includes random seed used
 ```
 
-## Output Format Example
+## Quick Check
 
-### analysis_report.json
-```json
-{
-  "analysis_date": "2026-02-06T06:00:00",
-  "method": "diffusion",
-  "n_cells": 5000,
-  "n_lineages": 3,
-  "root_cell": "cell_1234",
-  "pseudotime_range": [0.0, 1.0],
-  "lineages": {
-    "lineage_1": {
-      "cell_count": 1500,
-      "terminal_state": "mature_type_A",
-      "mean_pseudotime": 0.75
-    },
-    "lineage_2": {
-      "cell_count": 1200,
-      "terminal_state": "mature_type_B",
-      "mean_pseudotime": 0.68
-    }
-  }
-}
+```bash
+python -m py_compile scripts/main.py
+python scripts/main.py --help
 ```
 
-### pseudotime_values.csv
-```csv
-cell_id,cluster,cell_type,pseudotime,lineage,branch_probability
-cell_001,0,progenitor,0.05,lineage_1,0.95
-cell_002,1,intermediate,0.42,lineage_1,0.88
-...
+## Error Handling
+
+- If `--input` is missing, state this and request the AnnData file path.
+- If the file path contains `../` or points outside the workspace, reject with a path traversal warning. Do not proceed with the traversal path. Provide corrected safe path guidance: use an absolute path within the workspace, e.g., `/workspace/data/sample.h5ad`.
+- If the AnnData object lacks required obs keys (`leiden` or `cell_type`), report the missing keys and stop.
+- If the task goes outside the documented scope, stop instead of guessing or silently widening the assignment.
+- If `scripts/main.py` fails (e.g., returncode=2 from unrecognized `--format` argument), report the exact error and provide the correct command syntax.
+- Do not fabricate pseudotime values, lineage assignments, or trajectory structures.
+
+## Fallback Template
+
+When execution fails or inputs are incomplete, respond with this structure:
+
 ```
-
-## Dependencies
-
-- Python 3.9+
-- `scanpy>=1.9.0` - Single-cell analysis framework
-- `scvelo>=0.2.5` - RNA velocity analysis
-- `palantir` - Trajectory inference and pseudotime
-- `scikit-learn` - Dimensionality reduction and clustering
-- `matplotlib>=3.5.0` - Plotting
-- `seaborn` - Statistical visualization
-- `pandas`, `numpy` - Data manipulation
-- `anndata` - Single-cell data structure
-
-Optional:
-- `slingshot` (R) via `rpy2` - Alternative trajectory method
-
-## Implementation Notes
-
-1. **Preprocessing**: Assumes input data is already normalized and log-transformed
-2. **Root Detection**: If start cell not specified, uses cell cycle or marker gene expression to infer progenitors
-3. **Diffusion Pseudotime**: Default method using diffusion maps for robust trajectory inference
-4. **Palantir**: Used for soft lineage assignments and fate probability estimation
-5. **Memory**: Large datasets (>50k cells) may require 16GB+ RAM
-
-## Methods
-
-### Diffusion Pseudotime (DPT)
-- Uses diffusion maps to capture non-linear cell relationships
-- Robust to noise and dataset size
-- Good for complex branching trajectories
-
-### Slingshot
-- Principal curve-based approach
-- Simultaneous inference of multiple lineages
-- Requires R installation with rpy2 bridge
-
-### PAGA (Partition-based Graph Abstraction)
-- Connects clusters based on transcriptome similarity
-- Provides coarse-grained trajectory overview
-- Fast and scalable
-
-### Palantir
-- Diffusion-based fate probability estimation
-- Soft lineage assignments
-- Best for fate bias analysis
+FALLBACK REPORT
+───────────────────────────────────────
+Objective      : [restate the goal]
+Blocked by     : [exact missing input or error]
+Partial result : [what can be completed — e.g., method selection guidance]
+Assumptions    : [embedding, method, start cell assumed]
+Constraints    : [preprocessing requirements, memory limits]
+Risks          : [batch effects, cell cycle confounding, sparse data]
+Unresolved     : [what still needs user input]
+Next step      : [minimum action needed to unblock]
+───────────────────────────────────────
+```
 
 ## Limitations
 
 - Requires high-quality single-cell data with good cell type coverage
 - Assumes differentiation is the main source of variation
-- May not capture rare transitional states with few cells
 - Circular or cyclic processes not well represented by linear pseudotime
-- RNA velocity requires spliced/unspliced counts in AnnData layers
+- Large datasets (>50k cells) may require 16GB+ RAM
+- **PAGA pseudotime reproducibility**: PAGA adds small random noise to pseudotime values. Use `--seed 42` (default) for reproducible results. The seed is recorded in `analysis_report.json`. The script must call `np.random.seed(args.seed)` before the noise addition step to ensure full reproducibility.
 
 ## Safety & Best Practices
 
-- **Validate trajectories** with known marker genes and biological knowledge
-- **Multiple methods** recommended for critical analyses
-- **Batch effects** should be corrected before trajectory inference
-- **Cell cycle** effects may confound differentiation trajectories
-- **Do not overinterpret** precise pseudotime values as absolute time
+- Validate trajectories with known marker genes and biological knowledge
+- Multiple methods recommended for critical analyses
+- Correct batch effects before trajectory inference
+- Do not overinterpret precise pseudotime values as absolute time
 
-## Example Workflow
+## Response Template
 
-```python
-# Preprocess data with scanpy (before using this tool)
-import scanpy as sc
+Use the following fixed structure for non-trivial requests:
 
-adata = sc.read_h5ad('raw_data.h5ad')
-sc.pp.normalize_total(adata)
-sc.pp.log1p(adata)
-sc.pp.highly_variable_genes(adata, n_top_genes=2000)
-sc.pp.scale(adata)
-sc.tl.pca(adata)
-sc.pp.neighbors(adata)
-sc.tl.umap(adata)
-sc.tl.leiden(adata)
-adata.write('data.h5ad')
+1. Objective
+2. Inputs Received
+3. Assumptions
+4. Workflow
+5. Deliverable
+6. Risks and Limits
+7. Next Checks
 
-# Then run this skill
-# python scripts/main.py --input data.h5ad --start-cell-type progenitor
-```
+If the request is simple, compress the structure but keep assumptions and limits explicit when they affect correctness.
 
-## References
-
-- Haghverdi et al. (2016) - Diffusion pseudotime
-- Street et al. (2018) - Slingshot
-- Wolf et al. (2019) - PAGA
-- Setty et al. (2019) - Palantir
-- La Manno et al. (2018) - RNA velocity
-
-## Version
-
-- Created: 2026-02-06
-- Status: Functional
-- Version: 1.0.0
-
-## Risk Assessment
-
-| Risk Indicator | Assessment | Level |
-|----------------|------------|-------|
-| Code Execution | Python/R scripts executed locally | Medium |
-| Network Access | No external API calls | Low |
-| File System Access | Read input files, write output files | Medium |
-| Instruction Tampering | Standard prompt guidelines | Low |
-| Data Exposure | Output files saved to workspace | Low |
-
-## Security Checklist
-
-- [ ] No hardcoded credentials or API keys
-- [ ] No unauthorized file system access (../)
-- [ ] Output does not expose sensitive information
-- [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
-- [ ] Output directory restricted to workspace
-- [ ] Script execution in sandboxed environment
-- [ ] Error messages sanitized (no stack traces exposed)
-- [ ] Dependencies audited
 ## Prerequisites
 
-```bash
-# Python dependencies
+```text
 pip install -r requirements.txt
 ```
 
-## Evaluation Criteria
-
-### Success Metrics
-- [ ] Successfully executes main functionality
-- [ ] Output meets quality standards
-- [ ] Handles edge cases gracefully
-- [ ] Performance is acceptable
-
-### Test Cases
-1. **Basic Functionality**: Standard input → Expected output
-2. **Edge Case**: Invalid input → Graceful error handling
-3. **Performance**: Large dataset → Acceptable processing time
-
-## Lifecycle Status
-
-- **Current Stage**: Draft
-- **Next Review Date**: 2026-03-06
-- **Known Issues**: None
-- **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support
+Dependencies: `scanpy>=1.9.0`, `palantir`, `scikit-learn`, `matplotlib>=3.5.0`, `seaborn`, `pandas`, `numpy`, `anndata`

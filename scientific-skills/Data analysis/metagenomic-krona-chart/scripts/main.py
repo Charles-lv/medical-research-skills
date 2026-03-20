@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Metagenomic Krona Chart Generator
-生成宏基因组数据的交互式Krona旭日图
+Generate interactive Krona sunburst charts for metagenomic data
 
 Author: OpenClaw
 Skill ID: 169
@@ -18,13 +18,13 @@ try:
     import plotly.graph_objects as go
     import pandas as pd
 except ImportError as e:
-    print(f"Error: 缺少必要的依赖 - {e}")
-    print("请运行: pip install plotly pandas")
+    print(f"Error: Missing required dependency - {e}")
+    print("Please run: pip install plotly pandas")
     sys.exit(1)
 
 
 class TaxonomyNode:
-    """分类树节点"""
+    """Taxonomy tree node"""
     def __init__(self, name, rank, tax_id, parent_id=None, reads=0, percent=0):
         self.name = name
         self.rank = rank
@@ -33,20 +33,20 @@ class TaxonomyNode:
         self.reads = reads
         self.percent = percent
         self.children = []
-        self.path = []  # 从根到当前节点的路径
+        self.path = []  # Path from root to current node
     
     def add_child(self, child):
         self.children.append(child)
     
     def get_full_path(self):
-        """获取完整路径字符串"""
+        """Get full path string"""
         return " | ".join(self.path + [self.name])
 
 
 def parse_kraken2_report(filepath):
     """
-    解析Kraken2/Bracken报告格式
-    格式: percent  reads  direct_reads  rank  tax_id  name
+    Parse Kraken2/Bracken report format
+    Format: percent  reads  direct_reads  rank  tax_id  name
     """
     nodes = {}
     root = None
@@ -58,10 +58,10 @@ def parse_kraken2_report(filepath):
             if not line:
                 continue
             
-            # 解析行 - 处理可能的前导空格
+            # Parse line - handle possible leading whitespace
             parts = line.split('\t')
             if len(parts) < 6:
-                # 尝试空格分隔
+                # Try space-separated
                 parts = line.split()
                 if len(parts) < 6:
                     continue
@@ -76,7 +76,7 @@ def parse_kraken2_report(filepath):
             except (ValueError, IndexError):
                 continue
             
-            # 计算缩进深度（前导空格数）
+            # Calculate indentation depth (number of leading spaces)
             leading_spaces = len(line) - len(line.lstrip())
             depth = leading_spaces // 2
             
@@ -89,13 +89,13 @@ def parse_kraken2_report(filepath):
             )
             nodes[tax_id] = node
             
-            # 确定父节点
+            # Determine parent node
             if rank == 'R' or name == 'root':
                 root = node
                 node.path = [name]
                 stack = [node]
             else:
-                # 根据深度确定父节点
+                # Determine parent node based on depth
                 while len(stack) > depth:
                     stack.pop()
                 
@@ -106,7 +106,7 @@ def parse_kraken2_report(filepath):
                     node.path = parent.path + [name]
                     stack.append(node)
                 else:
-                    # 没有root的情况
+                    # No root case
                     if root is None:
                         root = TaxonomyNode(name="root", rank="R", tax_id="1")
                         nodes["1"] = root
@@ -120,15 +120,15 @@ def parse_kraken2_report(filepath):
 
 def parse_custom_tsv(filepath):
     """
-    解析自定义TSV格式
-    列: taxon_id, name, rank, parent_id, reads, percent
+    Parse custom TSV format
+    Columns: taxon_id, name, rank, parent_id, reads, percent
     """
     df = pd.read_csv(filepath, sep='\t')
     
     nodes = {}
     root = None
     
-    # 首先创建所有节点
+    # First create all nodes
     for _, row in df.iterrows():
         tax_id = str(row.get('taxon_id', row.get('tax_id', '')))
         name = row.get('name', '')
@@ -150,13 +150,13 @@ def parse_custom_tsv(filepath):
         if rank in ['R', 'root', 'no rank'] or parent_id is None:
             root = node
     
-    # 建立父子关系
+    # Build parent-child relationships
     for tax_id, node in nodes.items():
         if node.parent_id and node.parent_id in nodes:
             parent = nodes[node.parent_id]
             parent.add_child(node)
     
-    # 计算路径
+    # Calculate paths
     def calc_path(node, current_path):
         node.path = current_path + [node.name]
         for child in node.children:
@@ -169,30 +169,30 @@ def parse_custom_tsv(filepath):
 
 
 def auto_detect_format(filepath):
-    """自动检测输入文件格式"""
+    """Auto-detect input file format"""
     with open(filepath, 'r') as f:
         first_line = f.readline().strip()
     
-    # 检查是否为TSV且包含列名
+    # Check if TSV with column headers
     if '\t' in first_line:
         parts = first_line.split('\t')
-        # 如果第一行是列名
+        # If first line is column names
         if any(col in first_line.lower() for col in ['taxon_id', 'name', 'rank']):
             return 'custom'
     
-    # Kraken2格式: 以百分比开头
+    # Kraken2 format: starts with percentage
     try:
         float(first_line.split()[0])
         return 'kraken2'
     except (ValueError, IndexError):
         pass
     
-    return 'kraken2'  # 默认
+    return 'kraken2'  # Default
 
 
 def flatten_tree(node, data, min_percent=0, max_depth=7, current_depth=0):
     """
-    将树结构扁平化为旭日图所需的数据格式
+    Flatten tree structure into data format required for sunburst chart
     """
     if current_depth > max_depth:
         return
@@ -200,7 +200,7 @@ def flatten_tree(node, data, min_percent=0, max_depth=7, current_depth=0):
     if node.percent < min_percent:
         return
     
-    # 跳过unclassified或root的重复计数
+    # Skip unclassified or duplicate root counts
     if node.name.lower() in ['unclassified', 'unclass'] and node.rank == 'U':
         return
     
@@ -215,44 +215,44 @@ def flatten_tree(node, data, min_percent=0, max_depth=7, current_depth=0):
         'depth': current_depth
     })
     
-    # 递归处理子节点
+    # Recursively process child nodes
     for child in sorted(node.children, key=lambda x: x.percent, reverse=True):
         flatten_tree(child, data, min_percent, max_depth, current_depth + 1)
 
 
 def get_rank_color(rank):
-    """根据分类等级获取颜色"""
+    """Get color based on taxonomic rank"""
     color_map = {
-        'R': '#2c3e50',      # root - 深蓝灰
-        'D': '#e74c3c',      # domain - 红
-        'K': '#e74c3c',      # kingdom - 红
-        'P': '#3498db',      # phylum - 蓝
-        'C': '#2ecc71',      # class - 绿
-        'O': '#f39c12',      # order - 橙
-        'F': '#9b59b6',      # family - 紫
-        'G': '#1abc9c',      # genus - 青
-        'S': '#e91e63',      # species - 粉红
+        'R': '#2c3e50',      # root - dark blue-gray
+        'D': '#e74c3c',      # domain - red
+        'K': '#e74c3c',      # kingdom - red
+        'P': '#3498db',      # phylum - blue
+        'C': '#2ecc71',      # class - green
+        'O': '#f39c12',      # order - orange
+        'F': '#9b59b6',      # family - purple
+        'G': '#1abc9c',      # genus - cyan
+        'S': '#e91e63',      # species - pink
     }
-    return color_map.get(rank, '#95a5a6')  # 默认灰色
+    return color_map.get(rank, '#95a5a6')  # Default gray
 
 
 def create_krona_chart(root, output_path, title="Metagenomic Krona Chart", 
                         min_percent=0.01, max_depth=7):
     """
-    创建Krona旭日图
+    Create Krona sunburst chart
     """
-    # 扁平化数据
+    # Flatten data
     data = []
     flatten_tree(root, data, min_percent, max_depth)
     
     if not data:
-        print("Warning: 没有数据可以绘制")
+        print("Warning: No data to plot")
         return False
     
     df = pd.DataFrame(data)
     
-    # 构建旭日图数据
-    # 使用sunburst需要id/parent格式
+    # Build sunburst chart data
+    # Sunburst requires id/parent format
     ids = []
     labels = []
     parents = []
@@ -260,17 +260,17 @@ def create_krona_chart(root, output_path, title="Metagenomic Krona Chart",
     hover_texts = []
     colors = []
     
-    # 创建唯一ID映射
+    # Create unique ID mapping
     id_map = {}
     
     for idx, row in df.iterrows():
         path_parts = row['path'].split(' | ')
         
-        # 创建唯一ID
+        # Create unique ID
         node_id = f"{row['path']}_{idx}"
         id_map[row['path']] = node_id
         
-        # 确定父节点
+        # Determine parent node
         if len(path_parts) > 1:
             parent_path = ' | '.join(path_parts[:-1])
             parent_id = id_map.get(parent_path, '')
@@ -282,17 +282,17 @@ def create_krona_chart(root, output_path, title="Metagenomic Krona Chart",
         parents.append(parent_id)
         values.append(row['reads'])
         
-        # 悬停信息
+        # Hover information
         hover_text = f"<b>{row['name']}</b><br>" \
                      f"Rank: {row['rank']}<br>" \
                      f"Reads: {row['reads']:,}<br>" \
                      f"Percent: {row['percent']:.2f}%"
         hover_texts.append(hover_text)
         
-        # 颜色
+        # Color
         colors.append(get_rank_color(row['rank']))
     
-    # 创建图表
+    # Create chart
     fig = go.Figure(go.Sunburst(
         ids=ids,
         labels=labels,
@@ -309,7 +309,7 @@ def create_krona_chart(root, output_path, title="Metagenomic Krona Chart",
         insidetextorientation='radial'
     ))
     
-    # 布局设置
+    # Layout settings
     total_reads = sum(df[df['depth'] == 0]['reads']) if len(df) > 0 else 0
     
     fig.update_layout(
@@ -328,7 +328,7 @@ def create_krona_chart(root, output_path, title="Metagenomic Krona Chart",
         height=800
     )
     
-    # 添加图例说明
+    # Add legend annotation
     rank_legend = [
         ("Domain (D)", "#e74c3c"),
         ("Phylum (P)", "#3498db"),
@@ -351,13 +351,13 @@ def create_krona_chart(root, output_path, title="Metagenomic Krona Chart",
             align='left'
         )
     
-    # 调整布局以适应图例
+    # Adjust layout to accommodate legend
     fig.update_layout(
         margin=dict(t=80, l=20, r=150, b=20),
         annotations=list(fig.layout.annotations) if fig.layout.annotations else []
     )
     
-    # 保存HTML
+    # Save HTML
     fig.write_html(output_path, include_plotlyjs='cdn')
     print(f"Krona chart saved to: {output_path}")
     return True
@@ -390,19 +390,19 @@ Examples:
     
     args = parser.parse_args()
     
-    # 检查输入文件
+    # Check input file
     input_path = Path(args.input)
     if not input_path.exists():
-        print(f"Error: 输入文件不存在: {args.input}")
+        print(f"Error: Input file not found: {args.input}")
         sys.exit(1)
     
-    # 自动检测格式
+    # Auto-detect format
     file_type = args.type
     if file_type == 'auto':
         file_type = auto_detect_format(args.input)
         print(f"Detected format: {file_type}")
     
-    # 解析输入文件
+    # Parse input file
     print(f"Parsing {file_type} format...")
     try:
         if file_type in ['kraken2', 'bracken']:
@@ -414,13 +414,13 @@ Examples:
         sys.exit(1)
     
     if root is None:
-        print("Error: 无法解析数据，请检查输入文件格式")
+        print("Error: Unable to parse data, please check input file format")
         sys.exit(1)
     
     print(f"Loaded {len(nodes)} taxonomy nodes")
     print(f"Root: {root.name} ({root.reads:,} reads, {root.percent:.2f}%)")
     
-    # 生成图表
+    # Generate chart
     print("Generating Krona chart...")
     success = create_krona_chart(
         root=root,

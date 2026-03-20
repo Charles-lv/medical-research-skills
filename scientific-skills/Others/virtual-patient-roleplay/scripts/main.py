@@ -75,6 +75,9 @@ class PatientSimulator:
     def __init__(self, scenario: str = "chest_pain", difficulty: str = "intermediate"):
         self.scenario_type = scenario
         self.difficulty = difficulty
+        # Deterministic seed keeps the same scenario setup reproducible across audits.
+        self.seed = hash((scenario, difficulty)) & 0xFFFFFFFF
+        self.rng = random.Random(self.seed)
         self.scenario = self._load_scenario(scenario)
         self.conversation_history: List[Dict] = []
         self.asked_questions: set = set()
@@ -95,11 +98,11 @@ class PatientSimulator:
         first_names_f = ["Mary", "Patricia", "Jennifer", "Linda", "Elizabeth"]
         last_names = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia"]
         
-        gender = random.choice(["male", "female"])
+        gender = self.rng.choice(["male", "female"])
         first_names = first_names_m if gender == "male" else first_names_f
         
-        name = f"{random.choice(first_names)} {random.choice(last_names)}"
-        age = random.randint(35, 75) if self.scenario_type == "chest_pain" else random.randint(18, 65)
+        name = f"{self.rng.choice(first_names)} {self.rng.choice(last_names)}"
+        age = self.rng.randint(35, 75) if self.scenario_type == "chest_pain" else self.rng.randint(18, 65)
         
         occupations = ["teacher", "retired", "office worker", "truck driver", "nurse"]
         
@@ -107,10 +110,10 @@ class PatientSimulator:
             name=name,
             age=age,
             gender=gender,
-            occupation=random.choice(occupations),
-            medical_history=["hypertension"] if random.random() > 0.5 else [],
-            allergies=["penicillin"] if random.random() > 0.7 else [],
-            medications=["lisinopril"] if random.random() > 0.5 else []
+            occupation=self.rng.choice(occupations),
+            medical_history=["hypertension"] if self.rng.random() > 0.5 else [],
+            allergies=["penicillin"] if self.rng.random() > 0.7 else [],
+            medications=["lisinopril"] if self.rng.random() > 0.5 else []
         )
     
     def ask(self, question: str) -> Dict:

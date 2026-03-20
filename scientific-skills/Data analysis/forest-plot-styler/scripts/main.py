@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Forest Plot Styler - 美化 Meta 分析森林图
+Forest Plot Styler - Beautify Meta-analysis Forest Plots
 ID: 157
 """
 
@@ -15,48 +15,48 @@ import pandas as pd
 
 
 def parse_args():
-    """解析命令行参数"""
+    """Parse command line arguments"""
     parser = argparse.ArgumentParser(
-        description='Forest Plot Styler - 美化 Meta 分析森林图',
+        description='Forest Plot Styler - Beautify Meta-analysis Forest Plots',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-示例:
+Examples:
   python main.py -i data.csv
   python main.py -i data.csv --point-color="#E63946" --ci-linewidth=3
   python main.py -i data.xlsx --subgroup group_col -f pdf -o output.pdf
         """
     )
     
-    parser.add_argument('-i', '--input', required=True, help='输入数据文件 (CSV 或 Excel)')
-    parser.add_argument('-o', '--output', default='forest_plot.png', help='输出文件路径 (默认: forest_plot.png)')
-    parser.add_argument('-f', '--format', choices=['png', 'pdf', 'svg'], default='png', help='输出格式')
-    parser.add_argument('--point-size', type=float, default=8, help='OR 点大小 (默认: 8)')
-    parser.add_argument('--point-color', default='#2E86AB', help='OR 点颜色 (默认: #2E86AB)')
-    parser.add_argument('--ci-color', default='#2E86AB', help='置信区间线条颜色 (默认: #2E86AB)')
-    parser.add_argument('--ci-linewidth', type=float, default=2, help='置信区间线条粗细 (默认: 2)')
-    parser.add_argument('--ci-capwidth', type=float, default=5, help='置信区间端点宽度 (默认: 5)')
-    parser.add_argument('--summary-color', default='#A23B72', help='汇总效应点颜色 (默认: #A23B72)')
+    parser.add_argument('-i', '--input', required=True, help='Input data file (CSV or Excel)')
+    parser.add_argument('-o', '--output', default='forest_plot.png', help='Output file path (default: forest_plot.png)')
+    parser.add_argument('-f', '--format', choices=['png', 'pdf', 'svg'], default='png', help='Output format')
+    parser.add_argument('--point-size', type=float, default=8, help='OR point size (default: 8)')
+    parser.add_argument('--point-color', default='#2E86AB', help='OR point color (default: #2E86AB)')
+    parser.add_argument('--ci-color', default='#2E86AB', help='Confidence interval line color (default: #2E86AB)')
+    parser.add_argument('--ci-linewidth', type=float, default=2, help='Confidence interval line width (default: 2)')
+    parser.add_argument('--ci-capwidth', type=float, default=5, help='Confidence interval cap width (default: 5)')
+    parser.add_argument('--summary-color', default='#A23B72', help='Summary effect point color (default: #A23B72)')
     parser.add_argument('--summary-shape', default='diamond', choices=['diamond', 'square', 'circle'], 
-                        help='汇总效应点形状 (默认: diamond)')
-    parser.add_argument('--subgroup', help='亚组分析列名')
-    parser.add_argument('-t', '--title', default='Forest Plot', help='图表标题')
-    parser.add_argument('-x', '--xlabel', default='Odds Ratio (95% CI)', help='X 轴标签')
-    parser.add_argument('--reference-line', type=float, default=1, help='参考线位置 (默认: 1)')
-    parser.add_argument('-W', '--width', type=float, default=12, help='图片宽度/英寸 (默认: 12)')
-    parser.add_argument('-H', '--height', type=float, default=None, help='图片高度/英寸 (默认: 自动)')
-    parser.add_argument('--dpi', type=int, default=300, help='图片分辨率 (默认: 300)')
-    parser.add_argument('--font-size', type=float, default=10, help='字体大小 (默认: 10)')
+                        help='Summary effect point shape (default: diamond)')
+    parser.add_argument('--subgroup', help='Subgroup analysis column name')
+    parser.add_argument('-t', '--title', default='Forest Plot', help='Chart title')
+    parser.add_argument('-x', '--xlabel', default='Odds Ratio (95% CI)', help='X-axis label')
+    parser.add_argument('--reference-line', type=float, default=1, help='Reference line position (default: 1)')
+    parser.add_argument('-W', '--width', type=float, default=12, help='Figure width in inches (default: 12)')
+    parser.add_argument('-H', '--height', type=float, default=None, help='Figure height in inches (default: auto)')
+    parser.add_argument('--dpi', type=int, default=300, help='Figure resolution (default: 300)')
+    parser.add_argument('--font-size', type=float, default=10, help='Font size (default: 10)')
     parser.add_argument('-s', '--style', choices=['default', 'minimal', 'dark'], default='default', 
-                        help='预设样式 (默认: default)')
+                        help='Preset style (default: default)')
     
     return parser.parse_args()
 
 
 def load_data(filepath):
-    """加载输入数据"""
+    """Load input data"""
     path = Path(filepath)
     if not path.exists():
-        raise FileNotFoundError(f"找不到文件: {filepath}")
+        raise FileNotFoundError(f"File not found: {filepath}")
     
     suffix = path.suffix.lower()
     if suffix == '.csv':
@@ -64,27 +64,27 @@ def load_data(filepath):
     elif suffix in ['.xlsx', '.xls']:
         return pd.read_excel(filepath)
     else:
-        raise ValueError(f"不支持的文件格式: {suffix}")
+        raise ValueError(f"Unsupported file format: {suffix}")
 
 
 def validate_data(df):
-    """验证数据格式"""
+    """Validate data format"""
     required_cols = ['study', 'or', 'ci_lower', 'ci_upper']
     missing = [col for col in required_cols if col not in df.columns]
     if missing:
-        raise ValueError(f"缺少必要列: {missing}")
+        raise ValueError(f"Missing required columns: {missing}")
     
-    # 检查数值列
+    # Check numeric columns
     numeric_cols = ['or', 'ci_lower', 'ci_upper']
     for col in numeric_cols:
         if not pd.api.types.is_numeric_dtype(df[col]):
-            raise ValueError(f"列 '{col}' 必须是数值类型")
+            raise ValueError(f"Column '{col}' must be numeric type")
     
     return True
 
 
 def apply_style(style_name):
-    """应用预设样式"""
+    """Apply preset style"""
     styles = {
         'default': {
             'bg_color': 'white',
@@ -112,21 +112,21 @@ def apply_style(style_name):
 
 
 def calculate_summary_effect(df):
-    """计算汇总效应值（逆方差加权）"""
-    # 使用对数尺度计算
+    """Calculate pooled effect size (inverse variance weighting)"""
+    # Calculate on log scale
     log_or = np.log(df['or'])
     
-    # 估计标准误（基于置信区间）
+    # Estimate standard error (based on confidence interval)
     se = (np.log(df['ci_upper']) - np.log(df['ci_lower'])) / (2 * 1.96)
     
-    # 逆方差权重
+    # Inverse variance weights
     weights = 1 / (se ** 2)
     
-    # 加权平均
+    # Weighted average
     pooled_log_or = np.sum(weights * log_or) / np.sum(weights)
     pooled_se = np.sqrt(1 / np.sum(weights))
     
-    # 转换回 OR 尺度
+    # Convert back to OR scale
     pooled_or = np.exp(pooled_log_or)
     ci_lower = np.exp(pooled_log_or - 1.96 * pooled_se)
     ci_upper = np.exp(pooled_log_or + 1.96 * pooled_se)
@@ -135,7 +135,7 @@ def calculate_summary_effect(df):
 
 
 def draw_diamond(ax, x, y, width, height, color):
-    """绘制菱形标记"""
+    """Draw diamond marker"""
     diamond = plt.Polygon([
         (x, y + height/2),
         (x + width/2, y),
@@ -146,55 +146,55 @@ def draw_diamond(ax, x, y, width, height, color):
 
 
 def create_forest_plot(df, args):
-    """创建森林图"""
+    """Create forest plot"""
     style = apply_style(args.style)
     
-    # 自动计算高度
+    # Auto-calculate height
     n_studies = len(df)
     if args.height is None:
         height = max(6, n_studies * 0.5 + 3)
     else:
         height = args.height
     
-    # 创建图形
+    # Create figure
     fig, ax = plt.subplots(figsize=(args.width, height))
     fig.patch.set_facecolor(style['bg_color'])
     ax.set_facecolor(style['bg_color'])
     
-    # 设置文字颜色
+    # Set text colors
     ax.tick_params(colors=style['text_color'])
     ax.xaxis.label.set_color(style['text_color'])
     ax.yaxis.label.set_color(style['text_color'])
     ax.title.set_color(style['text_color'])
     
-    # 准备数据
+    # Prepare data
     y_positions = np.arange(n_studies, 0, -1)
     or_values = df['or'].values
     ci_lower = df['ci_lower'].values
     ci_upper = df['ci_upper'].values
     
-    # 使用权重调整点大小
+    # Adjust point size using weights
     if 'weight' in df.columns:
         weights = df['weight'].values
         point_sizes = args.point_size * (weights / weights.max()) * 2
     else:
         point_sizes = [args.point_size] * n_studies
     
-    # 绘制置信区间
+    # Draw confidence intervals
     for i, (y, or_val, ci_l, ci_u) in enumerate(zip(y_positions, or_values, ci_lower, ci_upper)):
-        # 绘制横线
+        # Draw horizontal line
         ax.plot([ci_l, ci_u], [y, y], color=args.ci_color, linewidth=args.ci_linewidth, zorder=2)
-        # 绘制端点
+        # Draw caps
         ax.plot([ci_l, ci_l], [y - args.ci_capwidth/100, y + args.ci_capwidth/100], 
                 color=args.ci_color, linewidth=args.ci_linewidth, zorder=2)
         ax.plot([ci_u, ci_u], [y - args.ci_capwidth/100, y + args.ci_capwidth/100], 
                 color=args.ci_color, linewidth=args.ci_linewidth, zorder=2)
     
-    # 绘制 OR 点
+    # Draw OR points
     ax.scatter(or_values, y_positions, s=point_sizes, color=args.point_color, 
                zorder=3, edgecolor='white', linewidth=1)
     
-    # 亚组分析
+    # Subgroup analysis
     subgroup_offsets = 0
     if args.subgroup and args.subgroup in df.columns:
         subgroups = df[args.subgroup].unique()
@@ -204,7 +204,7 @@ def create_forest_plot(df, args):
             if len(subgroup_df) > 0:
                 pooled_or, pooled_ci_l, pooled_ci_u = calculate_summary_effect(subgroup_df)
                 y_pos = y_positions[mask].min() - 0.5
-                # 绘制亚组汇总
+                # Draw subgroup summary
                 ax.plot([pooled_ci_l, pooled_ci_u], [y_pos, y_pos], 
                         color=args.summary_color, linewidth=args.ci_linewidth + 1, zorder=4)
                 if args.summary_shape == 'diamond':
@@ -217,7 +217,7 @@ def create_forest_plot(df, args):
                                color=args.summary_color, zorder=4)
         subgroup_offsets = len(subgroups) * 0.5
     
-    # 总体汇总效应
+    # Overall pooled effect
     pooled_or, pooled_ci_l, pooled_ci_u = calculate_summary_effect(df)
     summary_y = 0.5 - subgroup_offsets
     
@@ -233,10 +233,10 @@ def create_forest_plot(df, args):
         ax.scatter(pooled_or, summary_y, s=args.point_size * 4, marker='o', 
                    color=args.summary_color, zorder=4)
     
-    # 参考线
+    # Reference line
     ax.axvline(x=args.reference_line, color='#E63946', linestyle='--', linewidth=1.5, zorder=1, alpha=0.7)
     
-    # 设置标签
+    # Set labels
     study_labels = df['study'].tolist()
     if args.subgroup and args.subgroup in df.columns:
         study_labels.append('Overall')
@@ -250,61 +250,61 @@ def create_forest_plot(df, args):
     ax.set_xlabel(args.xlabel, fontsize=args.font_size + 1, color=style['text_color'])
     ax.set_title(args.title, fontsize=args.font_size + 3, fontweight='bold', pad=15, color=style['text_color'])
     
-    # 设置边框
+    # Set spines
     for spine in ax.spines.values():
         spine.set_color(style['spine_color'])
     
-    # 网格线
+    # Grid lines
     ax.grid(True, axis='x', alpha=style['grid_alpha'], color=style['grid_color'], linestyle='-', linewidth=0.5)
     ax.set_axisbelow(True)
     
-    # 添加数值标签列
-    # 右侧添加 OR (95% CI) 列
+    # Add numeric label column
+    # Add OR (95% CI) column on the right
     or_labels = [f"{or_val:.2f} [{ci_l:.2f}-{ci_u:.2f}]" for or_val, ci_l, ci_u in zip(or_values, ci_lower, ci_upper)]
     or_labels.append(f"{pooled_or:.2f} [{pooled_ci_l:.2f}-{pooled_ci_u:.2f}]")
     
-    # 在右侧添加文本
+    # Add text on the right side
     for y, label in zip(all_y_positions, or_labels):
         ax.text(ax.get_xlim()[1] * 1.02, y, label, va='center', ha='left', 
                 fontsize=args.font_size - 1, color=style['text_color'])
     
-    # 调整布局
+    # Adjust layout
     plt.tight_layout()
     
     return fig, ax
 
 
 def main():
-    """主函数"""
+    """Main function"""
     try:
         args = parse_args()
         
-        # 加载数据
-        print(f"正在加载数据: {args.input}")
+        # Load data
+        print(f"Loading data: {args.input}")
         df = load_data(args.input)
         
-        # 验证数据
+        # Validate data
         validate_data(df)
-        print(f"成功加载 {len(df)} 个研究")
+        print(f"Successfully loaded {len(df)} studies")
         
-        # 创建森林图
-        print("正在生成森林图...")
+        # Create forest plot
+        print("Generating forest plot...")
         fig, ax = create_forest_plot(df, args)
         
-        # 保存
+        # Save
         output_path = args.output
         if not output_path.endswith(f".{args.format}"):
             output_path = f"{output_path}.{args.format}"
         
         fig.savefig(output_path, format=args.format, dpi=args.dpi, 
                     bbox_inches='tight', facecolor=fig.get_facecolor())
-        print(f"森林图已保存: {output_path}")
+        print(f"Forest plot saved: {output_path}")
         
         plt.close(fig)
         return 0
         
     except Exception as e:
-        print(f"错误: {e}", file=sys.stderr)
+        print(f"Error: {e}", file=sys.stderr)
         return 1
 
 

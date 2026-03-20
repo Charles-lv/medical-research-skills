@@ -1,30 +1,54 @@
 ---
 name: upset-plot-converter
-description: Convert complex Venn diagrams with more than 4 sets to clearer Upset
-  plots
-version: 1.0.0
-category: Visual
-tags: []
-author: AIPOCH
+description: Convert complex Venn diagrams with more than 4 sets into clearer UpSet plots for publication-ready set intersection visualization.
 license: MIT
-status: Draft
-risk_level: Medium
-skill_type: Tool/Script
-owner: AIPOCH
-reviewer: ''
-last_updated: '2026-02-06'
+skill-author: AIPOCH
 ---
+# UpSet Plot Converter
 
-# Upset Plot Converter
+Convert complex multi-set Venn diagrams (4+ sets) into clearer UpSet plots. Automatically sorts intersections by size and generates publication-ready figures.
 
-Convert complex Venn diagrams (more than 4 sets) to clearer Upset Plots.
+## Input Validation
+
+This skill accepts: set membership data (dicts of sets or paired name/list inputs) for converting multi-set Venn diagrams into UpSet plots.
+
+If the request does not involve set intersection visualization — for example, asking to perform statistical tests on set overlaps, generate heatmaps, or create bar charts of non-set data — do not proceed. Instead respond:
+
+> "upset-plot-converter is designed to visualize set intersections as UpSet plots. Your request appears to be outside this scope. Please provide set membership data with 4+ sets, or use a more appropriate tool for your task."
+
+## Quick Check
+
+```bash
+python -m py_compile scripts/main.py
+python scripts/main.py
+```
+
+## Audit-Ready Commands
+
+```bash
+python -m py_compile scripts/main.py
+python scripts/main.py --help
+# Inline test with 5 sets:
+python -c "
+from scripts.main import convert_venn_to_upset
+sets = {'A':{1,2,3},'B':{2,3,4},'C':{3,4,5},'D':{4,5,6},'E':{5,6,7}}
+convert_venn_to_upset(sets, output_path='test_upset.png')
+print('OK')
+"
+```
+
+## When to Use
+
+- Visualizing intersections across 4+ gene sets, sample groups, or feature lists
+- Replacing unreadable Venn diagrams in manuscripts
+- Comparing overlap patterns across multiple experimental conditions
+- Any set intersection analysis where clarity matters
 
 ## Usage
 
 ```python
 from skills.upset_plot_converter.scripts.main import convert_venn_to_upset
 
-# From set data
 sets = {
     'A': {1, 2, 3, 4, 5},
     'B': {4, 5, 6, 7, 8},
@@ -33,94 +57,88 @@ sets = {
     'E': {1, 3, 5, 7, 9}
 }
 convert_venn_to_upset(sets, output_path="upset_plot.png")
-
-# From list data
-from skills.upset_plot_converter.scripts.main import upset_from_lists
-set_names = ['Genes A', 'Genes B', 'Genes C', 'Genes D', 'Genes E']
-lists = [
-    ['gene1', 'gene2', 'gene3'],
-    ['gene2', 'gene4', 'gene5'],
-    ['gene3', 'gene5', 'gene6'],
-    ['gene7', 'gene8', 'gene9'],
-    ['gene1', 'gene10', 'gene11']
-]
-upset_from_lists(set_names, lists, output_path="gene_upset.png", title="Gene Intersections")
 ```
 
-## Input
+## Parameters
 
-- **sets**: Dictionary of set names to sets/lists of elements, OR
-- **set_names**: List of set names
-- **lists**: List of lists (each containing elements)
-- **output_path**: Path to save the output figure
-- **title**: Optional title for the plot
-- **min_subset_size**: Minimum subset size to display (default: 1)
-- **max_intersections**: Maximum number of intersections to show (default: 30)
+| Parameter | Required | Default | Description |
+|-----------|----------|---------|-------------|
+| `sets` | Yes* | — | Dict of set names → sets/lists of elements |
+| `set_names` | Yes* | — | List of set names (alternative input) |
+| `lists` | Yes* | — | List of lists (paired with set_names) |
+| `output_path` | Yes | — | Path to save output figure |
+| `title` | No | None | Optional plot title |
+| `min_subset_size` | No | 1 | Minimum intersection size to display |
+| `max_intersections` | No | 30 | Maximum intersections to show |
+
+*Provide either `sets` dict OR `set_names` + `lists` pair.
+
+## Workflow
+
+1. Confirm objective, required inputs, and constraints before proceeding.
+2. Validate request matches documented scope; stop early if unsupported assumptions are needed.
+3. Run `scripts/main.py` with available inputs, or use the documented reasoning path.
+4. Return structured result separating assumptions, deliverables, risks, and unresolved items.
+5. On execution failure or incomplete inputs, switch to fallback path and state exactly what blocked completion.
+
+## Fallback Template
+
+If `scripts/main.py` cannot run (missing inputs, environment error), respond with:
+
+```
+FALLBACK REPORT
+───────────────────────────────────────
+Objective      : <stated goal>
+Blocked by     : <exact missing input or error>
+Partial result : <what can still be assessed manually>
+Next step      : <minimum action to unblock>
+───────────────────────────────────────
+```
 
 ## Output
 
-PNG file of the Upset Plot visualization.
+PNG file of the UpSet plot visualization with:
+- Bar chart showing intersection sizes (top)
+- Dot matrix showing which sets participate in each intersection (bottom)
+- Intersections sorted by size for readability
 
-## Notes
+## Output Requirements
 
-- When Venn diagrams exceed 4 sets, they become difficult to read
-- Upset Plots provide a clearer alternative for visualizing set intersections
-- The x-axis shows set intersections as dot patterns
-- Bar heights represent the size of each intersection
-- Automatically sorts intersections by size for better readability
+Every response must make these explicit when relevant:
 
-## Requirements
+- Objective or requested deliverable
+- Inputs used and assumptions introduced (including which input mode was used: dict or set_names+lists)
+- Workflow or decision path
+- Core result, recommendation, or artifact
+- Constraints, risks, caveats, or validation needs
+- Unresolved items and next-step checks
 
-- matplotlib
-- numpy
-- pandas
+## Error Handling
 
-## Risk Assessment
+- If required inputs are missing, state exactly which fields are missing and request only the minimum additional information.
+- If any set in the input is empty, emit a warning: "Warning: set [name] is empty and will appear with no intersections. Consider removing it or verifying your data."
+- If an empty set causes a rendering error, invoke the Fallback Template with Blocked Steps noting the empty set issue.
+- If the task goes outside documented scope, stop instead of guessing or silently widening the assignment.
+- If `scripts/main.py` fails, report the failure point, summarize what can still be completed safely, and provide the manual fallback above.
+- Do not fabricate files, citations, data, search results, or execution outcomes.
 
-| Risk Indicator | Assessment | Level |
-|----------------|------------|-------|
-| Code Execution | Python/R scripts executed locally | Medium |
-| Network Access | No external API calls | Low |
-| File System Access | Read input files, write output files | Medium |
-| Instruction Tampering | Standard prompt guidelines | Low |
-| Data Exposure | Output files saved to workspace | Low |
+## Response Template
 
-## Security Checklist
+Use this fixed structure for non-trivial requests:
 
-- [ ] No hardcoded credentials or API keys
-- [ ] No unauthorized file system access (../)
-- [ ] Output does not expose sensitive information
-- [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
-- [ ] Output directory restricted to workspace
-- [ ] Script execution in sandboxed environment
-- [ ] Error messages sanitized (no stack traces exposed)
-- [ ] Dependencies audited
+1. Objective
+2. Inputs Received
+3. Assumptions (always state which input mode was used: dict or set_names+lists; list all non-default parameter values)
+4. Workflow
+5. Deliverable
+6. Risks and Limits
+7. Next Checks
+
+For simple requests, compress the structure but keep assumptions and limits explicit when they affect correctness.
+
 ## Prerequisites
 
 ```bash
-# Python dependencies
 pip install -r requirements.txt
+# Requires: matplotlib, numpy, pandas
 ```
-
-## Evaluation Criteria
-
-### Success Metrics
-- [ ] Successfully executes main functionality
-- [ ] Output meets quality standards
-- [ ] Handles edge cases gracefully
-- [ ] Performance is acceptable
-
-### Test Cases
-1. **Basic Functionality**: Standard input → Expected output
-2. **Edge Case**: Invalid input → Graceful error handling
-3. **Performance**: Large dataset → Acceptable processing time
-
-## Lifecycle Status
-
-- **Current Stage**: Draft
-- **Next Review Date**: 2026-03-06
-- **Known Issues**: None
-- **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Neoantigen Predictor Module
-基于患者HLA分型和肿瘤突变预测新抗原
-支持MHC-I类分子结合预测和免疫原性评估
+Predict neoantigens based on patient HLA typing and tumor mutations
+Supports MHC class I binding prediction and immunogenicity assessment
 """
 
 import json
@@ -22,73 +22,73 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class MHC_Binding:
-    """MHC结合预测结果"""
-    rank_percentile: float = 100.0  # 结合排名百分比 (越低越好)
-    affinity_nM: Optional[float] = None  # 结合亲和力(nM)
+    """MHC binding prediction result"""
+    rank_percentile: float = 100.0  # Binding rank percentile (lower is better)
+    affinity_nM: Optional[float] = None  # Binding affinity (nM)
     binding_level: str = "Non-binder"  # Strong/Weak/Non-binder
-    core_peptide: str = ""  # 核心结合序列
-    anchor_residues: List[int] = field(default_factory=list)  # 锚定残基位置
+    core_peptide: str = ""  # Core binding sequence
+    anchor_residues: List[int] = field(default_factory=list)  # Anchor residue positions
     score_el: Optional[float] = None  # EL (Eluted Ligand) score
     score_ba: Optional[float] = None  # BA (Binding Affinity) score
 
 
 @dataclass
 class Immunogenicity:
-    """免疫原性评估结果"""
-    foreignness_score: float = 0.0  # 外源性评分 (0-1)
-    self_similarity: float = 1.0  # 自身相似度 (越低越好)
-    amino_acid_change: str = ""  # 氨基酸变化
-    anchor_mutation: bool = False  # 突变是否在锚定位置
-    hydrophobicity_change: float = 0.0  # 疏水性变化
-    recognition_probability: float = 0.0  # 被T细胞识别的概率
+    """Immunogenicity assessment result"""
+    foreignness_score: float = 0.0  # Foreignness score (0-1)
+    self_similarity: float = 1.0  # Self-similarity (lower is better)
+    amino_acid_change: str = ""  # Amino acid change
+    anchor_mutation: bool = False  # Whether mutation is at anchor position
+    hydrophobicity_change: float = 0.0  # Hydrophobicity change
+    recognition_probability: float = 0.0  # Probability of T cell recognition
 
 
 @dataclass
 class Clinical_Info:
-    """临床相关信息"""
-    variant_allele_frequency: Optional[float] = None  # 变异等位基因频率
-    expression_level: Optional[str] = None  # 基因表达水平
-    clonality: Optional[str] = None  # 克隆性 (Clonal/Subclonal)
-    rna_editing: bool = False  # 是否为RNA编辑位点
-    germline_risk: bool = False  # 是否可能为胚系变异
+    """Clinically relevant information"""
+    variant_allele_frequency: Optional[float] = None  # Variant allele frequency
+    expression_level: Optional[str] = None  # Gene expression level
+    clonality: Optional[str] = None  # Clonality (Clonal/Subclonal)
+    rna_editing: bool = False  # Whether it is an RNA editing site
+    germline_risk: bool = False  # Whether it may be a germline variant
 
 
 @dataclass
 class Neoantigen_Candidate:
-    """新抗原候选完整信息"""
-    # 标识信息
+    """Complete neoantigen candidate information"""
+    # Identification information
     mutation_id: str = ""
     gene: str = ""
     chromosome: str = ""
     position: int = 0
     
-    # 变异信息
+    # Variant information
     ref_aa: str = ""
     alt_aa: str = ""
-    protein_change: str = ""  # 如 p.R273H
+    protein_change: str = ""  # e.g. p.R273H
     
-    # HLA信息
+    # HLA information
     hla_allele: str = ""
     
-    # 肽段信息
+    # Peptide information
     peptide_sequence: str = ""
     peptide_length: int = 9
-    mutant_position: int = 0  # 突变氨基酸在肽段中的位置 (1-based)
-    wildtype_peptide: str = ""  # 野生型肽段
+    mutant_position: int = 0  # Position of mutant amino acid in peptide (1-based)
+    wildtype_peptide: str = ""  # Wild-type peptide
     
-    # 预测结果
+    # Prediction results
     mhc_binding: MHC_Binding = field(default_factory=MHC_Binding)
     immunogenicity: Immunogenicity = field(default_factory=Immunogenicity)
     clinical_info: Clinical_Info = field(default_factory=Clinical_Info)
     
-    # 综合评分
+    # Composite score
     priority_score: float = 0.0
     rank: int = 0
 
 
 @dataclass
 class Prediction_Result:
-    """完整预测结果"""
+    """Complete prediction result"""
     patient_hla: List[str] = field(default_factory=list)
     prediction_method: str = "NetMHCpan 4.1"
     total_predictions: int = 0
@@ -99,9 +99,9 @@ class Prediction_Result:
 
 
 class NetMHC_Predictor:
-    """NetMHC结合预测模拟器 (实际部署时替换为真实API调用或本地程序)"""
+    """NetMHC binding prediction simulator (replace with real API calls or local program in production)"""
     
-    # HLA锚定位置残基偏好 (基于已知结合基序)
+    # HLA anchor position residue preferences (based on known binding motifs)
     ANCHOR_PREFERENCES = {
         'HLA-A*01:01': {2: ['S', 'T', 'Y'], 9: ['A', 'V', 'I', 'L']},
         'HLA-A*02:01': {2: ['L', 'M', 'I', 'V'], 9: ['V', 'L', 'I', 'A']},
@@ -117,7 +117,7 @@ class NetMHC_Predictor:
         'HLA-B*58:01': {2: ['A', 'T', 'S'], 9: ['F', 'W']},
     }
     
-    # 疏水性标度 (Kyte-Doolittle)
+    # Hydrophobicity scale (Kyte-Doolittle)
     HYDROPATHY = {
         'I': 4.5, 'V': 4.2, 'L': 3.8, 'F': 2.8, 'C': 2.5,
         'M': 1.9, 'A': 1.8, 'G': -0.4, 'T': -0.7, 'S': -0.8,
@@ -131,22 +131,22 @@ class NetMHC_Predictor:
     
     def predict_binding(self, peptide: str, hla_allele: str) -> MHC_Binding:
         """
-        预测肽段与HLA的结合亲和力
-        注：此为简化模拟实现，实际应调用NetMHCpan程序
+        Predict binding affinity between peptide and HLA
+        Note: This is a simplified simulation; real deployment should call NetMHCpan program
         """
         peptide = peptide.upper()
         length = len(peptide)
         
-        # 标准化HLA命名
+        # Normalize HLA nomenclature
         hla_normalized = self._normalize_hla(hla_allele)
         
-        # 基于锚定残基和物理化学性质的简化评分
+        # Simplified scoring based on anchor residues and physicochemical properties
         score = self._calculate_binding_score(peptide, hla_normalized, length)
         
-        # 转换为rank百分比 (模拟)
+        # Convert to rank percentile (simulated)
         rank = self._score_to_rank(score)
         
-        # 确定结合等级
+        # Determine binding level
         if rank <= 0.5:
             binding_level = "Strong"
         elif rank <= 2:
@@ -154,10 +154,10 @@ class NetMHC_Predictor:
         else:
             binding_level = "Non-binder"
         
-        # 计算IC50 (模拟)
+        # Calculate IC50 (simulated)
         affinity = self._rank_to_ic50(rank) if rank < 10 else None
         
-        # 识别锚定残基位置
+        # Identify anchor residue positions
         anchors = self._identify_anchors(hla_normalized, length)
         
         return MHC_Binding(
@@ -171,81 +171,81 @@ class NetMHC_Predictor:
         )
     
     def _normalize_hla(self, hla: str) -> str:
-        """标准化HLA命名"""
+        """Normalize HLA nomenclature"""
         hla = hla.strip().upper()
-        # 移除HLA-前缀
+        # Remove HLA- prefix
         if hla.startswith("HLA-"):
             hla = hla[4:]
-        # 添加HLA-前缀用于匹配
+        # Add HLA- prefix for matching
         return f"HLA-{hla}"
     
     def _calculate_binding_score(self, peptide: str, hla: str, length: int) -> float:
-        """计算结合评分 (简化模型)"""
-        score = 0.5  # 基础分
+        """Calculate binding score (simplified model)"""
+        score = 0.5  # Base score
         
-        # 长度惩罚 (8-11mer为MHC-I最佳)
+        # Length penalty (8-11mer is optimal for MHC-I)
         if length < 8 or length > 11:
             score -= 0.3
         elif 9 <= length <= 10:
             score += 0.1
         
-        # 锚定位置偏好
+        # Anchor position preferences
         if hla in self.ANCHOR_PREFERENCES:
             prefs = self.ANCHOR_PREFERENCES[hla]
-            # 位置2
+            # Position 2
             if 2 in prefs and len(peptide) > 2:
                 if peptide[1] in prefs[2]:
                     score += 0.25
                 elif peptide[1] in ['A', 'V', 'L', 'I', 'F', 'W', 'Y', 'M']:
                     score += 0.1
-            # C末端 (位置length)
+            # C-terminus (position length)
             if length in prefs:
                 if peptide[-1] in prefs[length]:
                     score += 0.25
                 elif peptide[-1] in ['V', 'L', 'I', 'F', 'Y']:
                     score += 0.1
         
-        # GC含量检查 (最佳40-60%)
+        # GC content check (optimal 40-60%)
         gc_count = peptide.count('G') + peptide.count('C')
         gc_percent = gc_count / length
         if 0.3 <= gc_percent <= 0.7:
             score += 0.1
         
-        # 疏水性检查 (C末端偏好疏水性)
+        # Hydrophobicity check (C-terminus prefers hydrophobic)
         if peptide and peptide[-1] in self.HYDROPATHY:
             if self.HYDROPATHY[peptide[-1]] > 0:
                 score += 0.1
         
-        # Proline惩罚 (破坏螺旋)
+        # Proline penalty (disrupts helix)
         if 'P' in peptide[2:-1]:
             score -= 0.1
         
         return min(max(score, 0.0), 1.0)
     
     def _score_to_rank(self, score: float) -> float:
-        """将评分转换为rank百分比 (模拟)"""
-        # 线性映射 (简化)
+        """Convert score to rank percentile (simulated)"""
+        # Linear mapping (simplified)
         rank = (1 - score) * 10
         return max(0.01, min(100, rank))
     
     def _rank_to_ic50(self, rank: float) -> float:
-        """将rank转换为IC50值 (nM)"""
-        # 近似转换: rank 0.5% ≈ 50nM, rank 2% ≈ 500nM
+        """Convert rank to IC50 value (nM)"""
+        # Approximate conversion: rank 0.5% ≈ 50nM, rank 2% ≈ 500nM
         if rank <= 0.5:
             return rank * 100
         else:
             return 50 + (rank - 0.5) * 300
     
     def _identify_anchors(self, hla: str, length: int) -> List[int]:
-        """识别锚定残基位置"""
-        anchors = [2, length]  # MHC-I通常为位置2和C末端
+        """Identify anchor residue positions"""
+        anchors = [2, length]  # MHC-I typically positions 2 and C-terminus
         return anchors
 
 
 class NeoantigenPredictor:
-    """新抗原预测主类"""
+    """Main class for neoantigen prediction"""
     
-    # 氨基酸单字母代码
+    # Amino acid single-letter codes
     AA_3TO1 = {
         'ALA': 'A', 'ARG': 'R', 'ASN': 'N', 'ASP': 'D', 'CYS': 'C',
         'GLN': 'Q', 'GLU': 'E', 'GLY': 'G', 'HIS': 'H', 'ILE': 'I',
@@ -272,33 +272,33 @@ class NeoantigenPredictor:
         transcript_sequences: Dict[str, str] = None
     ) -> Prediction_Result:
         """
-        执行新抗原预测
+        Execute neoantigen prediction
         
         Args:
-            hla_alleles: 患者HLA等位基因列表
-            mutations: 突变信息列表
-            peptide_length: 肽段长度列表 (默认 [9, 10])
-            transcript_sequences: 转录本序列字典 (可选)
+            hla_alleles: List of patient HLA alleles
+            mutations: List of mutation information
+            peptide_length: List of peptide lengths (default [9, 10])
+            transcript_sequences: Transcript sequence dictionary (optional)
         
         Returns:
-            Prediction_Result: 完整预测结果
+            Prediction_Result: Complete prediction result
         """
         if peptide_length is None:
             peptide_length = [9, 10]
         
-        # 标准化HLA命名
+        # Normalize HLA nomenclature
         normalized_hla = [self._normalize_hla(hla) for hla in hla_alleles]
         
         candidates = []
         
         for mutation in mutations:
-            # 生成变异肽段
+            # Generate variant peptides
             variant_peptides = self._generate_variant_peptides(
                 mutation, peptide_length, transcript_sequences
             )
             
             for var_pep, wt_pep, mut_pos in variant_peptides:
-                # 对每个HLA等位基因进行预测
+                # Predict for each HLA allele
                 for hla in normalized_hla:
                     candidate = self._predict_candidate(
                         mutation=mutation,
@@ -309,14 +309,14 @@ class NeoantigenPredictor:
                     )
                     candidates.append(candidate)
         
-        # 优先级排序
+        # Priority ranking
         ranked_candidates = self._rank_candidates(candidates)
         
-        # 统计
+        # Statistics
         strong_binders = sum(1 for c in candidates if c.mhc_binding.binding_level == "Strong")
         weak_binders = sum(1 for c in candidates if c.mhc_binding.binding_level == "Weak")
         
-        # 构建结果
+        # Build result
         result = Prediction_Result(
             patient_hla=normalized_hla,
             total_predictions=len(candidates),
@@ -336,12 +336,12 @@ class NeoantigenPredictor:
         return result
     
     def _normalize_hla(self, hla: str) -> str:
-        """标准化HLA命名格式"""
+        """Normalize HLA nomenclature format"""
         hla = hla.strip().upper()
         
-        # 确保有HLA-前缀
+        # Ensure HLA- prefix
         if not hla.startswith("HLA-"):
-            # 检查是否是A/B/C格式
+            # Check if it is A/B/C format
             if hla[0] in ['A', 'B', 'C'] and (len(hla) == 1 or not hla[1].isdigit()):
                 hla = f"HLA-{hla[0]}*{hla[1:3]}:{hla[3:]}"
             elif hla[0] in ['A', 'B', 'C']:
@@ -351,17 +351,17 @@ class NeoantigenPredictor:
     
     def _parse_protein_change(self, protein_change: str) -> Tuple[str, int, str]:
         """
-        解析蛋白质变化 (如 p.R273H -> (R, 273, H))
+        Parse protein change (e.g. p.R273H -> (R, 273, H))
         Returns: (ref_aa, position, alt_aa)
         """
-        # 移除 p. 前缀
+        # Remove p. prefix
         if protein_change.startswith('p.'):
             protein_change = protein_change[2:]
         
-        # 匹配模式: R273H, Arg273His等
+        # Match patterns: R273H, Arg273His, etc.
         patterns = [
-            r'([A-Za-z]{3})(\d+)([A-Za-z]{3})',  # 三字母: Arg273His
-            r'([A-Za-z])(\d+)([A-Za-z*])',         # 单字母: R273H, R273*
+            r'([A-Za-z]{3})(\d+)([A-Za-z]{3})',  # Three-letter: Arg273His
+            r'([A-Za-z])(\d+)([A-Za-z*])',         # Single-letter: R273H, R273*
         ]
         
         for pattern in patterns:
@@ -371,7 +371,7 @@ class NeoantigenPredictor:
                 pos = int(match.group(2))
                 alt = match.group(3)
                 
-                # 转换三字母为单字母
+                # Convert three-letter to single-letter
                 if len(ref) == 3:
                     ref = self.AA_3TO1.get(ref.upper(), 'X')
                 if len(alt) == 3:
@@ -379,7 +379,7 @@ class NeoantigenPredictor:
                 
                 return (ref.upper(), pos, alt.upper())
         
-        raise ValueError(f"无法解析蛋白质变化: {protein_change}")
+        raise ValueError(f"Cannot parse protein change: {protein_change}")
     
     def _generate_variant_peptides(
         self,
@@ -388,8 +388,8 @@ class NeoantigenPredictor:
         transcript_sequences: Dict[str, str] = None
     ) -> List[Tuple[str, str, int]]:
         """
-        生成变异肽段
-        Returns: [(变异肽段, 野生型肽段, 突变位置), ...]
+        Generate variant peptides
+        Returns: [(variant_peptide, wildtype_peptide, mutation_position), ...]
         """
         peptides = []
         
@@ -400,28 +400,28 @@ class NeoantigenPredictor:
         try:
             ref_aa, mut_pos, alt_aa = self._parse_protein_change(protein_change)
         except ValueError:
-            logger.warning(f"无法解析突变: {protein_change}")
+            logger.warning(f"Cannot parse mutation: {protein_change}")
             return peptides
         
         gene = mutation.get('gene', 'Unknown')
         
-        # 获取蛋白质序列 (简化:使用模拟序列)
-        # 实际应用应从Ensembl/Uniprot获取真实序列
+        # Get protein sequence (simplified: use simulated sequence)
+        # Real application should fetch actual sequence from Ensembl/Uniprot
         protein_seq = self._get_protein_sequence(gene, transcript_sequences)
         
         if not protein_seq or mut_pos > len(protein_seq):
-            logger.warning(f"无法获取蛋白质序列或位置超出范围: {gene} pos {mut_pos}")
-            # 生成模拟肽段用于演示
+            logger.warning(f"Cannot get protein sequence or position out of range: {gene} pos {mut_pos}")
+            # Generate mock peptides for demonstration
             return self._generate_mock_peptides(ref_aa, alt_aa, peptide_lengths)
         
-        # 验证参考氨基酸
+        # Validate reference amino acid
         if protein_seq[mut_pos - 1] != ref_aa:
-            logger.warning(f"参考氨基酸不匹配: 期望 {ref_aa}, 实际 {protein_seq[mut_pos - 1]}")
+            logger.warning(f"Reference amino acid mismatch: expected {ref_aa}, actual {protein_seq[mut_pos - 1]}")
         
-        # 生成变异序列
+        # Generate variant sequence
         variant_seq = protein_seq[:mut_pos - 1] + alt_aa + protein_seq[mut_pos:]
         
-        # 提取各长度的肽段
+        # Extract peptides for each length
         for length in peptide_lengths:
             for start in range(max(0, mut_pos - length), min(mut_pos, len(protein_seq) - length + 1)):
                 end = start + length
@@ -429,11 +429,11 @@ class NeoantigenPredictor:
                 wt_peptide = protein_seq[start:end]
                 var_peptide = variant_seq[start:end]
                 
-                # 确保突变包含在肽段中
+                # Ensure mutation is included in the peptide
                 if ref_aa != alt_aa and var_peptide == wt_peptide:
                     continue
                 
-                mut_in_peptide = mut_pos - start  # 1-based位置
+                mut_in_peptide = mut_pos - start  # 1-based position
                 peptides.append((var_peptide, wt_peptide, mut_in_peptide))
         
         return peptides
@@ -443,16 +443,16 @@ class NeoantigenPredictor:
         gene: str,
         transcript_sequences: Dict[str, str] = None
     ) -> Optional[str]:
-        """获取蛋白质序列 (简化实现)"""
+        """Get protein sequence (simplified implementation)"""
         if transcript_sequences and gene in transcript_sequences:
             return transcript_sequences[gene]
         
-        # 返回模拟序列 (实际应从数据库获取)
+        # Return mock sequence (real application should fetch from database)
         return self._generate_mock_protein(gene)
     
     def _generate_mock_protein(self, gene: str) -> str:
-        """生成模拟蛋白质序列 (演示用)"""
-        # 基于基因名生成伪随机但一致的序列
+        """Generate mock protein sequence (for demonstration)"""
+        # Generate pseudo-random but consistent sequence based on gene name
         import random
         random.seed(gene)
         amino_acids = 'ACDEFGHIKLMNPQRSTVWY'
@@ -465,14 +465,14 @@ class NeoantigenPredictor:
         alt_aa: str,
         lengths: List[int]
     ) -> List[Tuple[str, str, int]]:
-        """生成模拟肽段 (演示用)"""
+        """Generate mock peptides (for demonstration)"""
         peptides = []
         amino_acids = 'ACDEFGHIKLMNPQRSTVWY'
         import random
         random.seed(f"{ref_aa}{alt_aa}")
         
         for length in lengths:
-            for _ in range(3):  # 每种长度生成3个
+            for _ in range(3):  # Generate 3 per length
                 flank = (length - 1) // 2
                 left = ''.join(random.choice(amino_acids) for _ in range(flank))
                 right = ''.join(random.choice(amino_acids) for _ in range(length - flank - 1))
@@ -491,17 +491,17 @@ class NeoantigenPredictor:
         mutant_position: int,
         hla_allele: str
     ) -> Neoantigen_Candidate:
-        """预测单个候选新抗原"""
+        """Predict a single neoantigen candidate"""
         
-        # MHC结合预测
+        # MHC binding prediction
         mhc_binding = self.mhc_predictor.predict_binding(peptide, hla_allele)
         
-        # 免疫原性评估
+        # Immunogenicity assessment
         immunogenicity = self._assess_immunogenicity(
             peptide, wildtype_peptide, mutant_position, mhc_binding.anchor_residues
         )
         
-        # 构建候选对象
+        # Build candidate object
         candidate = Neoantigen_Candidate(
             mutation_id=f"{mutation.get('gene', 'Unknown')}_{mutation.get('protein_change', '')}",
             gene=mutation.get('gene', 'Unknown'),
@@ -519,7 +519,7 @@ class NeoantigenPredictor:
             immunogenicity=immunogenicity
         )
         
-        # 计算优先级评分
+        # Calculate priority score
         candidate.priority_score = self._calculate_priority_score(candidate)
         
         return candidate
@@ -531,26 +531,26 @@ class NeoantigenPredictor:
         mutant_position: int,
         anchor_positions: List[int]
     ) -> Immunogenicity:
-        """评估免疫原性"""
+        """Assess immunogenicity"""
         
-        # 计算外源性评分 (与野生型的差异)
+        # Calculate foreignness score (difference from wildtype)
         diff_count = sum(1 for a, b in zip(variant_peptide, wildtype_peptide) if a != b)
         foreignness = min(1.0, diff_count / len(variant_peptide))
         
-        # 检查突变是否在锚定位置
+        # Check if mutation is at anchor position
         anchor_mutation = mutant_position in anchor_positions
         
-        # 计算疏水性变化
+        # Calculate hydrophobicity change
         hyd_var = sum(NetMHC_Predictor.HYDROPATHY.get(aa, 0) for aa in variant_peptide)
         hyd_wt = sum(NetMHC_Predictor.HYDROPATHY.get(aa, 0) for aa in wildtype_peptide)
         hyd_change = (hyd_var - hyd_wt) / len(variant_peptide)
         
-        # 氨基酸变化
+        # Amino acid change
         ref_aa = wildtype_peptide[mutant_position - 1] if mutant_position <= len(wildtype_peptide) else ''
         alt_aa = variant_peptide[mutant_position - 1] if mutant_position <= len(variant_peptide) else ''
         aa_change = f"{ref_aa}->{alt_aa}"
         
-        # 识别概率估算
+        # Recognition probability estimation
         recognition_prob = self._estimate_recognition_probability(
             foreignness, anchor_mutation, abs(hyd_change)
         )
@@ -570,7 +570,7 @@ class NeoantigenPredictor:
         anchor_mutation: bool,
         hyd_change: float
     ) -> float:
-        """估算T细胞识别概率 (简化模型)"""
+        """Estimate T cell recognition probability (simplified model)"""
         prob = foreignness * 0.5
         if anchor_mutation:
             prob += 0.3
@@ -578,22 +578,22 @@ class NeoantigenPredictor:
         return min(1.0, max(0.0, prob))
     
     def _calculate_priority_score(self, candidate: Neoantigen_Candidate) -> float:
-        """计算综合优先级评分"""
+        """Calculate composite priority score"""
         
-        # MHC结合评分 (基于rank)
+        # MHC binding score (based on rank)
         binding_score = max(0, (2 - candidate.mhc_binding.rank_percentile) / 2)
         
-        # 免疫原性评分
+        # Immunogenicity score
         immuno_score = (
             candidate.immunogenicity.foreignness_score * 0.4 +
             (1.0 if candidate.immunogenicity.anchor_mutation else 0.0) * 0.3 +
             candidate.immunogenicity.recognition_probability * 0.3
         )
         
-        # 临床评分 (简化)
+        # Clinical score (simplified)
         clinical_score = 0.5
         
-        # 加权综合
+        # Weighted composite
         priority = (
             self.WEIGHTS['mhc_binding'] * binding_score +
             self.WEIGHTS['immunogenicity'] * immuno_score +
@@ -603,19 +603,19 @@ class NeoantigenPredictor:
         return round(priority, 3)
     
     def _rank_candidates(self, candidates: List[Neoantigen_Candidate]) -> List[Neoantigen_Candidate]:
-        """对候选新抗原进行优先级排序"""
-        # 按优先级评分降序
+        """Rank neoantigen candidates by priority"""
+        # Sort by priority score descending
         sorted_candidates = sorted(
             candidates,
             key=lambda x: (
                 x.priority_score,
-                2 - x.mhc_binding.rank_percentile,  # rank越小越好
+                2 - x.mhc_binding.rank_percentile,  # Lower rank is better
                 x.immunogenicity.foreignness_score
             ),
             reverse=True
         )
         
-        # 分配排名
+        # Assign ranks
         for i, candidate in enumerate(sorted_candidates, 1):
             candidate.rank = i
         
@@ -627,7 +627,7 @@ class NeoantigenPredictor:
         rank_threshold: float = 2.0,
         binding_level: str = None
     ) -> List[Neoantigen_Candidate]:
-        """根据MHC结合亲和力筛选候选"""
+        """Filter candidates by MHC binding affinity"""
         filtered = []
         
         for candidate in result.neoantigens:
@@ -638,7 +638,7 @@ class NeoantigenPredictor:
         return filtered
     
     def to_dict(self, result: Prediction_Result) -> Dict[str, Any]:
-        """将结果转换为字典格式"""
+        """Convert result to dictionary format"""
         return {
             "patient_hla": result.patient_hla,
             "prediction_method": result.prediction_method,
@@ -651,7 +651,7 @@ class NeoantigenPredictor:
 
 
 def parse_hla_input(hla_string: str) -> List[str]:
-    """解析HLA输入字符串"""
+    """Parse HLA input string"""
     hla_list = []
     for hla in hla_string.split(','):
         hla = hla.strip()
@@ -661,7 +661,7 @@ def parse_hla_input(hla_string: str) -> List[str]:
 
 
 def parse_mutations_csv(file_path: str) -> List[Dict[str, Any]]:
-    """从CSV文件解析突变数据"""
+    """Parse mutation data from CSV file"""
     import csv
     mutations = []
     
@@ -682,71 +682,71 @@ def parse_mutations_csv(file_path: str) -> List[Dict[str, Any]]:
 
 
 def main():
-    """命令行入口"""
+    """Command-line entry point"""
     parser = argparse.ArgumentParser(
-        description="Neoantigen Predictor - 基于HLA和突变预测新抗原",
+        description="Neoantigen Predictor - Predict neoantigens based on HLA and mutations",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-示例:
+Examples:
   python main.py --hla "HLA-A*02:01,A*11:01" --mutations mutations.csv --output results.json
   python main.py --hla-file hla.txt --vcf variants.vcf --peptide-length 9,10 --rank-cutoff 0.5
         """
     )
     
-    # HLA输入
+    # HLA input
     hla_group = parser.add_mutually_exclusive_group(required=True)
-    hla_group.add_argument('--hla', help='HLA等位基因,逗号分隔 (如: HLA-A*02:01,A*11:01)')
-    hla_group.add_argument('--hla-file', help='包含HLA列表的文件')
+    hla_group.add_argument('--hla', help='HLA alleles, comma-separated (e.g.: HLA-A*02:01,A*11:01)')
+    hla_group.add_argument('--hla-file', help='File containing list of HLA alleles')
     
-    # 突变输入
+    # Mutation input
     mut_group = parser.add_mutually_exclusive_group(required=True)
-    mut_group.add_argument('--mutations', help='突变数据CSV文件')
-    mut_group.add_argument('--vcf', help='VCF格式突变文件')
-    mut_group.add_argument('--variant-peptides', help='变异肽段FASTA文件')
+    mut_group.add_argument('--mutations', help='Mutation data CSV file')
+    mut_group.add_argument('--vcf', help='VCF format mutation file')
+    mut_group.add_argument('--variant-peptides', help='Variant peptide FASTA file')
     
-    # 预测参数
+    # Prediction parameters
     parser.add_argument('--peptide-length', default='9,10',
-                       help='肽段长度,逗号分隔 (默认: 9,10)')
+                       help='Peptide lengths, comma-separated (default: 9,10)')
     parser.add_argument('--rank-cutoff', type=float, default=2.0,
-                       help='MHC结合rank阈值 (默认: 2.0)')
+                       help='MHC binding rank threshold (default: 2.0)')
     parser.add_argument('--mhc-method', default='netmhcpan',
                        choices=['netmhcpan', 'mhcflurry', 'custom'],
-                       help='MHC预测方法')
+                       help='MHC prediction method')
     
-    # 输出
-    parser.add_argument('--output', '-o', help='输出文件路径')
+    # Output
+    parser.add_argument('--output', '-o', help='Output file path')
     parser.add_argument('--format', choices=['json', 'csv'], default='json',
-                       help='输出格式')
-    parser.add_argument('--top-n', type=int, help='仅输出前N个候选')
+                       help='Output format')
+    parser.add_argument('--top-n', type=int, help='Output only top N candidates')
     
     args = parser.parse_args()
     
-    # 解析HLA
+    # Parse HLA
     if args.hla:
         hla_alleles = parse_hla_input(args.hla)
     else:
         with open(args.hla_file, 'r') as f:
             hla_alleles = parse_hla_input(f.read())
     
-    logger.info(f"HLA分型: {hla_alleles}")
+    logger.info(f"HLA typing: {hla_alleles}")
     
-    # 解析突变
+    # Parse mutations
     if args.mutations:
         mutations = parse_mutations_csv(args.mutations)
     elif args.vcf:
-        # 简化: VCF解析应使用专用库如pysam
-        logger.error("VCF解析功能需安装pysam, 请使用CSV格式")
+        # Simplified: VCF parsing should use dedicated library such as pysam
+        logger.error("VCF parsing requires pysam, please use CSV format")
         return 1
     else:
-        logger.error("FASTA肽段输入尚未实现")
+        logger.error("FASTA peptide input not yet implemented")
         return 1
     
-    logger.info(f"突变数量: {len(mutations)}")
+    logger.info(f"Number of mutations: {len(mutations)}")
     
-    # 解析肽段长度
+    # Parse peptide lengths
     peptide_lengths = [int(x) for x in args.peptide_length.split(',')]
     
-    # 执行预测
+    # Execute prediction
     predictor = NeoantigenPredictor(mhc_method=args.mhc_method)
     
     result = predictor.predict(
@@ -755,21 +755,21 @@ def main():
         peptide_length=peptide_lengths
     )
     
-    # 筛选强结合
+    # Filter strong binders
     filtered = predictor.filter_by_binding(result, rank_threshold=args.rank_cutoff)
-    logger.info(f"强结合候选: {len(filtered)}")
+    logger.info(f"Strong binding candidates: {len(filtered)}")
     
-    # 应用top-n限制
+    # Apply top-n limit
     if args.top_n:
         result.neoantigens = result.neoantigens[:args.top_n]
     
-    # 输出结果
+    # Output results
     output_data = predictor.to_dict(result)
     
     if args.format == 'json':
         output = json.dumps(output_data, indent=2, ensure_ascii=False)
     else:
-        # CSV格式
+        # CSV format
         import csv
         import io
         output_io = io.StringIO()
@@ -787,7 +787,7 @@ def main():
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
             f.write(output)
-        logger.info(f"结果已保存到: {args.output}")
+        logger.info(f"Results saved to: {args.output}")
     else:
         print(output)
     

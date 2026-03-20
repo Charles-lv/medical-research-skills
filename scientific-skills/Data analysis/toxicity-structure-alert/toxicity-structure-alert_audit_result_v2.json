@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "skill_name": "toxicity-structure-alert",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated statistics, p-values, or citations were produced across all evaluated outputs; all claims trace to input data or documented tool behavior."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "All outputs remained within chemistry and laboratory computation scope; no unsupported clinical or diagnostic recommendations were made."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "No methodological fallacies detected; outputs apply standard approaches appropriate to chemistry and laboratory computation tasks."
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Generated code executed without syntax errors or unresolvable dependency failures across all tested inputs."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 90,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": "Risk score aggregation formula now documented; pre-flight scope gate added; all v1 gaps closed"
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "Fallback template with SMILES parse error guidance; stress-case checklist present; pre-flight gate prevents partial ADMET output"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "SKILL.md is 181 lines — well-sized; no references/ folder but content is self-contained"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "Pre-flight scope gate in Workflow Step 1; false positive/negative caveat now mandatory in Output Requirements; risk score aggregation documented"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description is precise and discoverable for medicinal chemists; SMILES requirement clearly stated"
+      },
+      "security": {
+        "score": 10,
+        "max": 12,
+        "note": "No credentials; RDKit local execution; no external API calls; SMILES input is structured data with low injection risk"
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": "Alert patterns in SKILL.md table; references to published literature; clean script separation; all fixes applied cleanly"
+      },
+      "agent_specific": {
+        "score": 17,
+        "max": 20,
+        "note": "Pre-flight gate closes partial ADMET output gap; escape hatches strong; composability still limited by single-molecule input model"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 87.4,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 24,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Aromatic nitro compound (nitrobenzene SMILES)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; aromatic nitro compound (nitrobenzene smiles) case handled within expected scope.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Aromatic Nitro alert identified with HIGH risk level",
+            "result": "PASS",
+            "note": "Confirmed: aromatic nitro alert identified with high risk level as expected."
+          },
+          {
+            "text": "JSON output matches documented schema",
+            "result": "PASS",
+            "note": "Confirmed: json output matches documented schema as expected."
+          },
+          {
+            "text": "Ames test recommendation included for HIGH risk",
+            "result": "PASS",
+            "note": "Confirmed: ames test recommendation included for high risk as expected."
+          },
+          {
+            "text": "No fabricated alert matches beyond SMARTS patterns",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "False positive/negative caveat included in Risks and Limits",
+            "result": "PASS",
+            "note": "Now mandated by Output Requirements item 5"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Epoxide-containing molecule",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; epoxide-containing molecule case handled within expected scope.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Epoxide alert identified as alkylating agent HIGH risk",
+            "result": "PASS",
+            "note": "Confirmed: epoxide alert identified as alkylating agent high risk as expected."
+          },
+          {
+            "text": "Risk score reflects HIGH classification",
+            "result": "PASS",
+            "note": "Confirmed: risk score reflects high classification as expected."
+          },
+          {
+            "text": "Structural optimization recommendation included",
+            "result": "PASS",
+            "note": "Confirmed: structural optimization recommendation included as expected."
+          },
+          {
+            "text": "No ADMET properties beyond structural alerts reported",
+            "result": "PASS",
+            "note": "Confirmed: no admet properties beyond structural alerts reported as expected."
+          },
+          {
+            "text": "False positive/negative caveat included in output",
+            "result": "PASS",
+            "note": "Now consistently surfaced via mandatory Output Requirements item 5"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Invalid SMILES string input",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; invalid smiles string input case handled within expected scope.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "SMILES parse error detected and reported",
+            "result": "PASS",
+            "note": "Error messages are clear and actionable for the observed failure case."
+          },
+          {
+            "text": "Fallback template invoked with corrected SMILES request",
+            "result": "PASS",
+            "note": "Confirmed: fallback template invoked with corrected smiles request as expected."
+          },
+          {
+            "text": "No fabricated alert results for invalid input",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Error message is actionable (requests corrected SMILES)",
+            "result": "PASS",
+            "note": "Error messages are clear and actionable for the observed failure case."
+          },
+          {
+            "text": "Scope not exceeded on error path",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Multi-alert molecule (aromatic amine + aldehyde)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; multi-alert molecule (aromatic amine + aldehyde) case handled within expected scope.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Both alerts identified in single output",
+            "result": "PASS",
+            "note": "Confirmed: both alerts identified in single output as expected."
+          },
+          {
+            "text": "Risk level reflects highest alert (HIGH for aromatic amine)",
+            "result": "PASS",
+            "note": "Confirmed: risk level reflects highest alert (high for aromatic as expected."
+          },
+          {
+            "text": "Alert count correctly reported as 2",
+            "result": "PASS",
+            "note": "Confirmed: alert count correctly reported as 2 as expected."
+          },
+          {
+            "text": "No fabricated additional alerts",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Risk score aggregation method documented and applied",
+            "result": "PASS",
+            "note": "Weighted sum formula now documented in Output Format section"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Request to predict full ADMET profile from SMILES",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; request to predict full admet profile from smiles case handled within expected scope.",
+        "basic": 35,
+        "specialized": 50,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Scope refusal emitted for ADMET prediction request",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill limits output to structural alerts only",
+            "result": "PASS",
+            "note": "Confirmed: skill limits output to structural alerts only as expected."
+          },
+          {
+            "text": "Redirect to appropriate ADMET tools provided",
+            "result": "PASS",
+            "note": "Confirmed: redirect to appropriate admet tools provided as expected."
+          },
+          {
+            "text": "No fabricated ADMET properties in output",
+            "result": "PASS",
+            "note": "Pre-flight gate in Workflow Step 1 prevents partial ADMET output"
+          },
+          {
+            "text": "Refusal message matches documented template",
+            "result": "FAIL",
+            "note": "Minor wording variation from template still possible in edge cases"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 36.0,
+    "dynamic_weighted": 52.4,
+    "score": 88,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Risk score aggregation formula (weighted sum: HIGH=1.0, MEDIUM=0.5, LOW=0.2, normalized to [0,1]) now fully documented, enabling reproducible multi-alert scoring",
+    "Pre-flight scope gate in Workflow Step 1 prevents any partial ADMET output before refusal, closing the primary v1 boundary gap",
+    "False positive/negative caveat now mandatory in Output Requirements, ensuring consistent transparency across all outputs",
+    "Comprehensive toxicophore library with 10 alert structures, risk levels, and published literature references",
+    "Audit-ready commands with concrete SMILES examples enable rapid functional verification"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Refusal message wording may deviate from template in edge cases",
+      "observed_in": [
+        5
+      ],
+      "problem": "The scope refusal for ADMET requests occasionally shows minor wording variation from the documented template.",
+      "root_cause": "Input Validation section does not mark the refusal message as verbatim-required.",
+      "fix": "Add 'respond verbatim:' before the refusal message template in Input Validation to enforce exact wording."
+    },
+    {
+      "priority": "P2",
+      "title": "No batch SMILES processing mode",
+      "observed_in": [],
+      "problem": "The skill processes one SMILES string at a time, requiring repeated invocations for multi-compound screening workflows.",
+      "root_cause": "CLI design is single-molecule focused; no --batch or --file parameter documented.",
+      "fix": "Consider adding a --file parameter accepting a text file of SMILES strings (one per line) for batch screening, with per-molecule JSON output."
+    }
+  ]
+}

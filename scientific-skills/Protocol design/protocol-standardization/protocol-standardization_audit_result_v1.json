@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "skill_name": "protocol-standardization",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Protocol Design",
+    "execution_mode": "A",
+    "complexity": "Simple",
+    "n_inputs": 3
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "The evaluated outputs remained hypothesis- and protocol-design oriented and did not fabricate empirical results."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "The package stays within research planning scope and does not cross into clinical or diagnostic decision-making."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "Methods, controls, and validation logic are framed as proposals to be tested rather than established facts."
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "The package focuses on design logic and narrative outputs rather than executable scientific code."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 91,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": "The package fully covers the SOP standardization task from fragmented notes to validated, checklist-auditable protocol documents."
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "The no-fabrication rule and placeholder pattern make the package dependable for messy inputs."
+      },
+      "performance_context": {
+        "score": 8,
+        "max": 8,
+        "note": "The documentation-only execution model requires no runtime overhead beyond the LLM call needed to process the raw experimental notes."
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "The skill is immediately understandable and backed by a strong before/after example."
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": "The transformation from raw notes to standardized SOP is easy to inspect."
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "Safety and waste notes are part of the contract, not an afterthought."
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": "The template-and-guide structure is clean and low-risk."
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "The package is highly deterministic and resistant to unsupported inference."
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 88.3,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 12,
+      "total": 12
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Fragmented wet-lab notes",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The transformation stayed disciplined and did not invent values.",
+        "basic": 36,
+        "specialized": 54,
+        "total": 90,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "Missing experimental parameters are marked explicitly instead of being inferred.",
+            "result": "PASS",
+            "note": "The no-fabrication contract is preserved throughout the output."
+          },
+          {
+            "text": "The standardized protocol includes operational checkpoints such as safety or quality-control notes.",
+            "result": "PASS",
+            "note": "The output carries beyond pure step formatting into operability checks."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Cross-operator SOP cleanup",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The output improved reproducibility without pretending missing details were known.",
+        "basic": 35,
+        "specialized": 53,
+        "total": 88,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "Missing experimental parameters are marked explicitly instead of being inferred.",
+            "result": "PASS",
+            "note": "The no-fabrication contract is preserved throughout the output."
+          },
+          {
+            "text": "The standardized protocol includes operational checkpoints such as safety or quality-control notes.",
+            "result": "PASS",
+            "note": "The output carries beyond pure step formatting into operability checks."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Heavily underspecified method",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The skill remained safely conservative under sparse input.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "Missing experimental parameters are marked explicitly instead of being inferred.",
+            "result": "PASS",
+            "note": "The no-fabrication contract is preserved throughout the output."
+          },
+          {
+            "text": "The standardized protocol includes operational checkpoints such as safety or quality-control notes.",
+            "result": "PASS",
+            "note": "The output carries beyond pure step formatting into operability checks."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 36.4,
+    "dynamic_weighted": 53.0,
+    "score": 89,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "*",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "The package has a strong no-fabrication contract for missing experimental parameters.",
+    "The example transformation clearly demonstrates the expected protocol shape and review checkpoints.",
+    "Safety, waste, and quality-control fields are integrated into the standardization flow."
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Add one example from a molecular assay workflow",
+      "observed_in": [
+        2
+      ],
+      "problem": "The current example is strong, but it represents only one wet-lab pattern.",
+      "root_cause": "Example diversity is narrower than the documented task scope.",
+      "fix": "Add a second worked example for PCR, staining, or cell-culture workflows to widen transfer confidence."
+    }
+  ]
+}

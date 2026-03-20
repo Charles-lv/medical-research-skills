@@ -2,9 +2,9 @@
 """
 Code Refactor for Reproducibility
 =================================
-将生物学家写的杂乱R/Python脚本重构为模块化、可复现的代码。
+Refactor messy R/Python scripts written by biologists into modular, reproducible code.
 
-符合Nature/Science等顶级期刊对代码开源的要求。
+Meets open-source code requirements of top journals such as Nature/Science.
 
 Usage:
     python main.py --input /path/to/messy_scripts --output /path/to/refactored --language python --template nature
@@ -22,7 +22,7 @@ from typing import Dict, List, Optional, Set, Tuple
 
 
 class CodeAnalyzer:
-    """代码分析器：解析原始脚本结构"""
+    """Code analyzer: parses the structure of original scripts"""
     
     def __init__(self, language: str):
         self.language = language.lower()
@@ -32,7 +32,7 @@ class CodeAnalyzer:
         self.data_files = []
         
     def analyze_file(self, filepath: Path) -> Dict:
-        """分析单个文件的结构"""
+        """Analyze the structure of a single file"""
         content = filepath.read_text(encoding='utf-8', errors='ignore')
         
         if self.language == 'python':
@@ -43,7 +43,7 @@ class CodeAnalyzer:
             raise ValueError(f"Unsupported language: {self.language}")
     
     def _analyze_python(self, content: str, filepath: Path) -> Dict:
-        """解析Python代码"""
+        """Parse Python code"""
         try:
             tree = ast.parse(content)
         except SyntaxError as e:
@@ -71,7 +71,7 @@ class CodeAnalyzer:
             elif isinstance(node, ast.ClassDef):
                 classes.append(node.name)
         
-        # 检测数据文件引用
+        # Detect data file references
         data_patterns = [
             r'["\'](.+\.(csv|tsv|txt|fasta|fastq|json|xlsx|h5ad|rds|h5))["\']',
             r'pd\.read_(csv|excel|table)\(["\'](.+?)["\']',
@@ -93,11 +93,11 @@ class CodeAnalyzer:
         }
     
     def _analyze_r(self, content: str, filepath: Path) -> Dict:
-        """解析R代码"""
+        """Parse R code"""
         functions = []
         imports = []
         
-        # 提取函数定义
+        # Extract function definitions
         func_pattern = r'(\w+)\s*\u003c-\s*function\s*\(([^)]*)\)'
         for match in re.finditer(func_pattern, content):
             functions.append({
@@ -105,11 +105,11 @@ class CodeAnalyzer:
                 'args': [a.strip() for a in match.group(2).split(',') if a.strip()]
             })
         
-        # 提取library/require
+        # Extract library/require
         lib_pattern = r'(?:library|require)\(["\']?(\w+)["\']?\)'
         imports = re.findall(lib_pattern, content)
         
-        # 检测数据文件
+        # Detect data files
         data_patterns = [
             r'read\.(csv|tsv|table|RDS|rds)\(["\'](.+?)["\']',
             r'load\(["\'](.+?)["\']',
@@ -129,7 +129,7 @@ class CodeAnalyzer:
 
 
 class ProjectTemplate:
-    """项目模板生成器"""
+    """Project template generator"""
     
     TEMPLATES = {
         'nature': {
@@ -159,13 +159,13 @@ class ProjectTemplate:
         self.config = self.TEMPLATES.get(template, self.TEMPLATES['nature'])
     
     def generate_structure(self, output_dir: Path, analysis_results: List[Dict]):
-        """生成项目结构"""
-        # 创建目录
+        """Generate project structure"""
+        # Create directories
         dirs = ['src', 'tests', 'data/raw', 'data/processed', 'results', 'docs', 'notebooks']
         for d in dirs:
             (output_dir / d).mkdir(parents=True, exist_ok=True)
         
-        # 生成文件
+        # Generate files
         self._generate_readme(output_dir, analysis_results)
         self._generate_license(output_dir)
         self._generate_citation(output_dir)
@@ -180,7 +180,7 @@ class ProjectTemplate:
         self._generate_github_actions(output_dir)
     
     def _generate_readme(self, output_dir: Path, analysis_results: List[Dict]):
-        """生成README.md"""
+        """Generate README.md"""
         today = datetime.now().strftime('%Y-%m-%d')
         total_lines = sum(r.get('line_count', 0) for r in analysis_results)
         
@@ -275,7 +275,7 @@ This project is licensed under the {self.config['license']} License - see [LICEN
         (output_dir / 'README.md').write_text(content)
     
     def _generate_license(self, output_dir: Path):
-        """生成LICENSE文件"""
+        """Generate LICENSE file"""
         year = datetime.now().year
         if self.config['license'] == 'MIT':
             content = f"""MIT License
@@ -322,7 +322,7 @@ limitations under the License.
         (output_dir / 'LICENSE').write_text(content)
     
     def _generate_citation(self, output_dir: Path):
-        """生成CITATION.cff"""
+        """Generate CITATION.cff"""
         content = f"""cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "{self.project_name}"
@@ -339,7 +339,7 @@ type: software
         (output_dir / 'CITATION.cff').write_text(content)
     
     def _generate_environment(self, output_dir: Path):
-        """生成环境配置文件"""
+        """Generate environment configuration files"""
         # environment.yml
         env_content = f"""name: {self.project_name}
 channels:
@@ -392,7 +392,7 @@ mypy==1.4.1
         (output_dir / 'requirements.txt').write_text(req_content)
     
     def _generate_src_init(self, output_dir: Path):
-        """生成src/__init__.py"""
+        """Generate src/__init__.py"""
         content = '''"""
 {project_name} Analysis Package
 
@@ -420,7 +420,7 @@ __all__ = [
         (src_dir / '__init__.py').write_text(content)
     
     def _generate_data_loading(self, output_dir: Path, analysis_results: List[Dict]):
-        """生成数据加载模块"""
+        """Generate data loading module"""
         content = '''"""Data loading and validation module.
 
 This module handles all data input operations with validation
@@ -596,8 +596,8 @@ def save_processed_data(
         (output_dir / 'src' / 'data_loading.py').write_text(content)
     
     def _generate_analysis_module(self, output_dir: Path, analysis_results: List[Dict]):
-        """生成分析模块"""
-        # 提取原始函数名用于重构
+        """Generate analysis module"""
+        # Extract original function names for refactoring
         all_functions = []
         for result in analysis_results:
             all_functions.extend(result.get('functions', []))
@@ -739,7 +739,7 @@ def correlation_analysis(
         (output_dir / 'src' / 'analysis.py').write_text(content)
     
     def _generate_utils(self, output_dir: Path):
-        """生成工具模块"""
+        """Generate utility module"""
         content = '''"""Utility functions.
 
 Common utilities for logging, random seed management,
@@ -901,7 +901,7 @@ def save_reproducibility_info(output_dir: str) -> None:
         (output_dir / 'src' / 'utils.py').write_text(content)
     
     def _generate_main_script(self, output_dir: Path, analysis_results: List[Dict]):
-        """生成主执行脚本"""
+        """Generate main execution script"""
         content = '''#!/usr/bin/env python3
 """Main analysis script.
 
@@ -1010,7 +1010,7 @@ if __name__ == '__main__':
         os.chmod(output_dir / 'src' / 'main.py', 0o755)
     
     def _generate_tests(self, output_dir: Path):
-        """生成测试文件"""
+        """Generate test files"""
         # tests/__init__.py
         (output_dir / 'tests' / '__init__.py').touch()
         
@@ -1152,7 +1152,7 @@ addopts = -v --tb=short
         (output_dir / 'pytest.ini').write_text(pytest_ini)
     
     def _generate_dockerfile(self, output_dir: Path):
-        """生成Dockerfile"""
+        """Generate Dockerfile"""
         content = '''# Dockerfile for reproducible analysis
 FROM python:3.10-slim
 
@@ -1182,7 +1182,7 @@ CMD ["python", "src/main.py", "--help"]
         (output_dir / 'Dockerfile').write_text(content)
     
     def _generate_github_actions(self, output_dir: Path):
-        """生成GitHub Actions配置"""
+        """Generate GitHub Actions configuration"""
         workflow_dir = output_dir / '.github' / 'workflows'
         workflow_dir.mkdir(parents=True, exist_ok=True)
         
@@ -1302,7 +1302,7 @@ Thumbs.db
 
 
 def main():
-    """主函数"""
+    """Main function"""
     parser = argparse.ArgumentParser(
         description="Refactor messy scripts into reproducible, journal-compliant code"
     )

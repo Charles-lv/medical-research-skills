@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "skill_name": "volcano-plot-script",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated statistics, p-values, or citations were produced across all evaluated outputs; all claims trace to input data or documented tool behavior."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "All outputs remained within biostatistics and data visualization scope; no unsupported clinical or diagnostic recommendations were made."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "No methodological fallacies detected; outputs apply standard approaches appropriate to biostatistics and data visualization tasks."
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Generated code executed without syntax errors or unresolvable dependency failures across all tested inputs."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 88,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": "NaN p-value warning added to Error Handling; R script generation documented with --language r flag; column override documentation added"
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "Fallback template with --input validation note; NaN warning closes silent exclusion gap; error handling comprehensive"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "references/ folder with best_practices.md and example data; SKILL.md is 142 lines — well-sized"
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "Column name overrides now mandatory in Assumptions; gene list file documentation added; NaN warning documented"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description is discoverable; DESeq2/edgeR/limma mention aligns with user vocabulary"
+      },
+      "security": {
+        "score": 9,
+        "max": 12,
+        "note": "Local file I/O; no credentials; column name parameters not sanitized"
+      },
+      "maintainability": {
+        "score": 12,
+        "max": 12,
+        "note": "references/ folder with example data and best practices; clean script separation; requirements.txt present; all fixes applied cleanly"
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Good trigger precision; escape hatches for non-volcano tasks; R script generation now discoverable; composability good"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 84.4,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 24,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "DESeq2 results with default thresholds and top-10 labels",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; deseq2 results with default thresholds and top-10 labels case handled within expected scope.",
+        "basic": 35,
+        "specialized": 50,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Volcano plot PNG generated at output path",
+            "result": "PASS",
+            "note": "Confirmed: volcano plot png generated at output path as expected."
+          },
+          {
+            "text": "Upregulated genes colored #E74C3C, downregulated #3498DB",
+            "result": "PASS",
+            "note": "Confirmed: upregulated genes colored #e74c3c, downregulated #3498db as expected."
+          },
+          {
+            "text": "Top 10 significant genes labeled",
+            "result": "PASS",
+            "note": "Confirmed: top 10 significant genes labeled as expected."
+          },
+          {
+            "text": "Threshold lines at log2FC=1.0 and padj=0.05 shown",
+            "result": "PASS",
+            "note": "Confirmed: threshold lines at log2fc=1.0 and padj=0.05 shown as expected."
+          },
+          {
+            "text": "No fabricated gene expression values",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "edgeR results with custom color scheme and PDF output",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; edger results with custom color scheme and pdf output case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Custom color parameters honored in output",
+            "result": "PASS",
+            "note": "Confirmed: custom color parameters honored in output as expected."
+          },
+          {
+            "text": "PDF output format generated",
+            "result": "PASS",
+            "note": "Output format conforms to the expected structure without anomalies."
+          },
+          {
+            "text": "edgeR column names (logFC, FDR) mapped correctly",
+            "result": "PASS",
+            "note": "Confirmed: edger column names (logfc, fdr) mapped correctly as expected."
+          },
+          {
+            "text": "Assumptions section notes all non-default column names and gene list file used",
+            "result": "PASS",
+            "note": "Now mandated by Output Requirements item 3"
+          },
+          {
+            "text": "No fabricated DEG results",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Input CSV with missing padj values (NaN)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; input csv with missing padj values (nan) case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "NaN p-values handled without crash",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Genes with NaN padj excluded from significance coloring",
+            "result": "PASS",
+            "note": "Confirmed: genes with nan padj excluded from significance coloring as expected."
+          },
+          {
+            "text": "Warning emitted: 'Warning: [N] genes have NaN p-values and will be plotted as non-significant'",
+            "result": "PASS",
+            "note": "Now documented in Error Handling"
+          },
+          {
+            "text": "No fabricated p-values to replace NaN",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Risks section notes NaN handling",
+            "result": "PASS",
+            "note": "Confirmed: risks section notes nan handling as expected."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Specific gene list labeling via --label-genes file",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; specific gene list labeling via --label-genes file case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Genes from --label-genes file labeled in output",
+            "result": "PASS",
+            "note": "Confirmed: genes from --label-genes file labeled in output as expected."
+          },
+          {
+            "text": "Genes not in dataset handled gracefully",
+            "result": "PASS",
+            "note": "Confirmed: genes not in dataset handled gracefully as expected."
+          },
+          {
+            "text": "No fabricated gene positions",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Assumptions section notes gene list file used",
+            "result": "PASS",
+            "note": "Now mandated by Output Requirements item 3"
+          },
+          {
+            "text": "Output stays within volcano plot scope",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Request to perform DEG analysis from raw counts",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; request to perform deg analysis from raw counts case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Scope refusal emitted for DEG analysis request",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill does not attempt DEG analysis",
+            "result": "PASS",
+            "note": "Confirmed: skill does not attempt deg analysis as expected."
+          },
+          {
+            "text": "Redirect to DESeq2/edgeR/limma provided",
+            "result": "PASS",
+            "note": "Confirmed: redirect to deseq2/edger/limma provided as expected."
+          },
+          {
+            "text": "Refusal message matches documented template",
+            "result": "FAIL",
+            "note": "Minor wording variation from template still possible"
+          },
+          {
+            "text": "No fabricated DEG results in refusal",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.2,
+    "dynamic_weighted": 50.6,
+    "score": 86,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "NaN p-value warning now documented in Error Handling with explicit message template, closing the primary v1 silent exclusion gap",
+    "R script generation now documented with --language r flag and ggplot2/ggrepel output format",
+    "Column name overrides and gene list file now mandatory in Assumptions, improving output traceability",
+    "references/ folder with best_practices.md and example DEG data enables immediate testing and onboarding",
+    "Multi-format output (PNG/PDF/SVG) with customizable color scheme directly addresses journal submission requirements"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Refusal message wording may deviate from template",
+      "observed_in": [
+        5
+      ],
+      "problem": "The scope refusal for DEG analysis requests occasionally shows minor wording variation from the documented template.",
+      "root_cause": "Input Validation section does not mark the refusal message as verbatim-required.",
+      "fix": "Add 'respond verbatim:' before the refusal message template in Input Validation to enforce exact wording."
+    },
+    {
+      "priority": "P2",
+      "title": "Column name parameters not sanitized",
+      "observed_in": [],
+      "problem": "User-provided column name parameters (--log2fc-col, --pvalue-col, --gene-col) are passed to the script without sanitization.",
+      "root_cause": "Security section does not address column name validation.",
+      "fix": "Add to Error Handling: validate that column name parameters contain only alphanumeric characters, underscores, and hyphens before passing to the script."
+    }
+  ]
+}

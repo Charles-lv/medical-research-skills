@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "skill_name": "hypogenic",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Protocol Design",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "The evaluated outputs remained hypothesis- and protocol-design oriented and did not fabricate empirical results."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "The package stays within research planning scope and does not cross into clinical or diagnostic decision-making."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "Methods, controls, and validation logic are framed as proposals to be tested rather than established facts."
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "The package focuses on design logic and narrative outputs rather than executable scientific code."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 84,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "The package gives a coherent end-to-end workflow for hypothesis generation and testing."
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "The package depends on external services, but the staged config-driven workflow still gives users a reproducible operating path."
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "Caching and adaptive selection are acknowledged as cost-control levers."
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "The config examples are concrete and reduce ambiguity during setup."
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "The YAML config template and CLI examples lower the barrier for non-expert users to set up their first hypothesis-generation run."
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "No unsafe execution pattern is documented, and the package stays bounded to analytical hypothesis generation."
+      },
+      "maintainability": {
+        "score": 10,
+        "max": 12,
+        "note": "The workflow is modular, though it depends on several external tools and services."
+      },
+      "agent_specific": {
+        "score": 14,
+        "max": 20,
+        "note": "The skill is strong on procedural guidance but lighter on refusal behavior and bounded defaults."
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 19,
+      "total": 20
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Observation-to-hypothesis conversion",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The output stayed falsifiable rather than collapsing into descriptive speculation.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output frames hypotheses as falsifiable and experimentally differentiable.",
+            "result": "PASS",
+            "note": "Predictions and validation logic remain central."
+          },
+          {
+            "text": "Weak-evidence cases are labeled cautiously rather than overstated as established mechanisms.",
+            "result": "PASS",
+            "note": "The hypothesis framing remains appropriately scoped."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Literature-informed refinement",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package preserved the difference between literature support and empirical testing.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output frames hypotheses as falsifiable and experimentally differentiable.",
+            "result": "PASS",
+            "note": "Predictions and validation logic remain central."
+          },
+          {
+            "text": "Weak-evidence cases are labeled cautiously rather than overstated as established mechanisms.",
+            "result": "PASS",
+            "note": "The hypothesis framing remains appropriately scoped."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Weak evidence base",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package was appropriately cautious, though a stronger fallback example would help.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 3,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output frames hypotheses as falsifiable and experimentally differentiable.",
+            "result": "PASS",
+            "note": "Predictions and validation logic remain central."
+          },
+          {
+            "text": "Weak-evidence cases are labeled cautiously rather than overstated as established mechanisms.",
+            "result": "FAIL",
+            "note": "The package is cautious, but a stronger explicit fallback template would improve consistency."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Comparative experiment plan",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package preserved the decision-oriented nature of hypothesis testing.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output frames hypotheses as falsifiable and experimentally differentiable.",
+            "result": "PASS",
+            "note": "Predictions and validation logic remain central."
+          },
+          {
+            "text": "Weak-evidence cases are labeled cautiously rather than overstated as established mechanisms.",
+            "result": "PASS",
+            "note": "The hypothesis framing remains appropriately scoped."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Complex, multi-factor request",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The structure held under higher information density.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output frames hypotheses as falsifiable and experimentally differentiable.",
+            "result": "PASS",
+            "note": "Predictions and validation logic remain central."
+          },
+          {
+            "text": "Weak-evidence cases are labeled cautiously rather than overstated as established mechanisms.",
+            "result": "PASS",
+            "note": "The hypothesis framing remains appropriately scoped."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 33.6,
+    "dynamic_weighted": 51.4,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "*",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "The package treats hypotheses as testable objects rather than generic brainstorm items.",
+    "Config-driven examples make the workflow more reproducible than ordinary prompt-only hypothesis generation.",
+    "The union workflow concept is documented clearly enough to support comparative runs."
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Clarify minimum dataset hygiene and privacy expectations",
+      "observed_in": [
+        1,
+        3
+      ],
+      "problem": "Users can start the workflow without clear guidance on label quality, leakage checks, or sensitive fields.",
+      "root_cause": "The package focuses on mechanics before data-governance boundaries.",
+      "fix": "Add a preflight checklist covering label definitions, train/validation separation, and prohibited identifiers."
+    }
+  ]
+}

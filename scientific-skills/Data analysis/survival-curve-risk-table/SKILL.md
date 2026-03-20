@@ -1,402 +1,150 @@
 ---
 name: survival-curve-risk-table
-description: Automatically align and add "Number at risk" table below Kaplan-Meier
-  survival curves, meeting clinical oncology journal standards. Use when generating
-  risk tables for survival curves that meet top-tier journal standards such as NEJM/Lancet/JCO,
-  automatically calculating the number at risk at each time point.
-version: 1.0.0
-category: Visual
-tags: []
-author: AIPOCH
+description: Generate publication-quality Kaplan-Meier survival curves with aligned "Number at risk" tables meeting NEJM, Lancet, and JCO journal standards.
 license: MIT
-status: Draft
-risk_level: Medium
-skill_type: Tool/Script
-owner: AIPOCH
-reviewer: ''
-last_updated: '2026-02-06'
+skill-author: AIPOCH
 ---
 
 # Survival Curve Risk Table Generator
 
-## Function Overview
+Automatically add "Number at risk" tables to Kaplan-Meier survival curves. Aligns time points precisely with the curve X-axis and generates publication-quality combined figures for clinical oncology journals.
 
-Automatically add "Number at risk" tables to Kaplan-Meier survival curves that meet clinical oncology journal standards. Automatically align time points and generate publication-quality combined figures.
-
-## Usage Trigger Conditions
-
-- Need to add number at risk tables to KM survival curves
-- Generate survival plots that meet journal requirements such as NEJM, Lancet, JCO
-- Risk tables needed in clinical trial reports
-- Medical paper chart standardization before submission
-- Precise alignment of risk tables with survival curve time axis
-
-## Core Functions
-
-### 1. Automatic Number at Risk Calculation
-- Automatically calculate number at risk at each time point from survival data
-- Support right-censored data processing
-- Count remaining observed subjects by group
-- Automatic handling of censoring events
-
-### 2. Journal Standard Formats
-- **NEJM Standard**: Clean time axis, groups arranged horizontally
-- **Lancet Standard**: Complete statistical information, vertical alignment
-- **JCO Standard**: Censoring symbols marked, group comparison
-- Support custom journal templates
-
-### 3. Precise Alignment
-- Time axis precisely aligned with curve X-axis
-- Automatic adjustment of table spacing and font size
-- Responsive layout adapts to different image sizes
-- Support horizontal/vertical layouts
-
-### 4. Output Formats
-- High-quality PNG/JPEG images
-- PDF vector graphics
-- SVG editable format
-- PowerPoint embeddable format
-
-## Usage
-
-### Example 1: Basic Risk Table Generation
+## Quick Check
 
 ```bash
-python scripts/main.py \
-    --input survival_data.csv \
-    --time-col time \
-    --event-col event \
-    --group-col treatment \
-    --output risk_table.png
+python -m py_compile scripts/main.py
+python scripts/main.py --help
+python scripts/main.py --input survival_data.csv --time-col time --event-col event --group-col treatment --output risk_table.png
 ```
 
-### Example 2: Specify Journal Style
+## When to Use
+
+- Add "Number at risk" tables to existing KM survival curves
+- Generate survival plots meeting NEJM, Lancet, or JCO requirements
+- Produce risk tables for clinical trial reports
+- Standardize medical paper charts before journal submission
+
+## Workflow
+
+1. Confirm input CSV path, time column, event column, and optional group column.
+2. Validate that the request involves KM survival curve risk table generation; stop early if not.
+3. Run `scripts/main.py` with the appropriate style and time-point flags.
+4. Return a structured result separating assumptions, output files, and unresolved items.
+5. If execution fails or inputs are incomplete, switch to the Fallback Template below.
+
+**Group count check:** If more than 6 groups are provided, emit a warning, split into pages of 6 groups each, and name paginated output files as `risk_table_page1.png`, `risk_table_page2.png`, etc.
+
+## Fallback Template
+
+If `scripts/main.py` fails or required fields are missing, respond with:
+
+```
+FALLBACK REPORT
+───────────────────────────────────────
+Objective        : <risk table generation goal>
+Inputs Available : <file, columns, style provided>
+Missing Inputs   : <list exactly what is missing>
+Partial Result   : <any steps completed safely>
+Blocked Steps    : <what could not be completed and why>
+  Note: If lifelines is not installed, survival analysis features are limited.
+        Install with: pip install lifelines
+Next Steps       : <minimum info needed to complete>
+───────────────────────────────────────
+```
+
+## Stress-Case Output Checklist
+
+For complex multi-constraint requests, always include these sections explicitly:
+
+- **Assumptions**: style defaults (NEJM), time points auto-calculated, DPI=300; always state the journal style applied, noting if it differs from the NEJM default
+- **Constraints**: max 6 groups per page; >6 groups triggers pagination (see Group count check above)
+- **Risks**: `lifelines` optional but required for full survival analysis
+- **Unresolved Items**: missing columns, unsupported file formats
+
+## CLI Usage
 
 ```bash
+# Basic risk table
 python scripts/main.py \
-    --input survival_data.csv \
-    --time-col time \
-    --event-col status \
-    --group-col arm \
-    --style NEJM \
-    --time-points 0,6,12,18,24,30,36 \
-    --output figure_1a.pdf
-```
+  --input survival_data.csv \
+  --time-col time --event-col event --group-col treatment \
+  --output risk_table.png
 
-### Example 3: Combined Figure Generation (Curve + Risk Table)
-
-```bash
+# Journal style
 python scripts/main.py \
-    --input survival_data.csv \
-    --time-col months \
-    --event-col death \
-    --group-col group \
-    --km-plot km_curve.png \
-    --combine \
-    --output combined_figure.png
-```
+  --input survival_data.csv \
+  --time-col time --event-col status --group-col arm \
+  --style NEJM --time-points 0,6,12,18,24,30,36 \
+  --output figure_1a.pdf
 
-### Example 4: Batch Generate Multi-Timepoint Tables
-
-```bash
+# Combined figure (KM curve + risk table)
 python scripts/main.py \
-    --input survival_data.csv \
-    --time-col time \
-    --event-col event \
-    --group-col treatment \
-    --time-points 0,12,24,36,48,60 \
-    --format both \
-    --output-dir ./output/
+  --input survival_data.csv \
+  --time-col months --event-col death --group-col group \
+  --km-plot km_curve.png --combine \
+  --output combined_figure.png
 ```
 
-### Example 5: Using Existing Survival Data (Python API)
+## Required Input Columns
 
-```python
-from scripts.main import RiskTableGenerator
-
-# Initialize generator
-generator = RiskTableGenerator(
-    style="JCO",
-    time_points=[0, 6, 12, 18, 24, 30],
-    figure_size=(8, 6)
-)
-
-# Load survival data
-generator.load_data(
-    df=survival_df,
-    time_col="time",
-    event_col="event",
-    group_col="treatment_arm"
-)
-
-# Generate risk table
-generator.generate_risk_table(
-    output_path="risk_table.png",
-    show_censored=True
-)
-
-# Generate combined figure (KM curve + risk table)
-generator.generate_combined_plot(
-    km_plot_path="km_curve.png",
-    output_path="combined_figure.pdf"
-)
-```
-
-## Input Data Format
-
-### CSV Format Example
-
-```csv
-time,event,treatment_arm
-0,0,Experimental
-3.2,1,Experimental
-5.1,0,Experimental
-12.3,1,Control
-18.7,0,Control
-24.0,1,Experimental
-...
-```
-
-### Required Columns
-
-| Column Name | Description | Type |
-|------|------|------|
+| Column | Description | Type |
+|---|---|---|
 | time | Follow-up time (months) | Numeric |
-| event | Event occurrence flag | 0=Censored, 1=Event |
+| event | Event flag | 0=Censored, 1=Event |
 | group | Treatment group (optional) | Text/Categorical |
 
-### Supported Data Formats
+Supported file formats: CSV, Excel (.xlsx/.xls), SAS (.sas7bdat), RData (.rda/.rds), pickle (.pkl)
 
-- CSV (.csv)
-- Excel (.xlsx, .xls)
-- SAS (.sas7bdat)
-- RData (.rda, .rds)
-- Python pickle (.pkl)
+## Key Parameters
 
-## Journal Style Configuration
+| Parameter | Description | Default |
+|---|---|---|
+| `--input` | Input data file | required |
+| `--time-col` | Time column name | required |
+| `--event-col` | Event column name | required |
+| `--group-col` | Group column name | None (single-arm: labeled "All patients") |
+| `--style` | Journal style: NEJM/Lancet/JCO | NEJM |
+| `--time-points` | Comma-separated time points | auto |
+| `--format` | Output format: png/pdf/svg | png |
+| `--dpi` | Image resolution | 300 |
+| `--combine` | Combine with KM curve | False |
 
-### NEJM Style
+→ Full parameter and journal style reference: [references/parameters.md](references/parameters.md)
 
-```json
-{
-  "style": "NEJM",
-  "font_family": "Helvetica",
-  "font_size": 8,
-  "time_points": [0, 6, 12, 18, 24, 30, 36],
-  "table_height": 0.15,
-  "show_grid": false,
-  "separator_lines": true
-}
-```
+## Input Validation
 
-### Lancet Style
+This skill accepts: CSV or tabular survival data files with time-to-event and event indicator columns, for generating Kaplan-Meier risk tables.
 
-```json
-{
-  "style": "Lancet",
-  "font_family": "Times New Roman",
-  "font_size": 9,
-  "time_points": [0, 12, 24, 36, 48, 60],
-  "table_height": 0.18,
-  "show_grid": true,
-  "header_bold": true
-}
-```
+If the request does not involve KM survival curve risk table generation — for example, asking to perform Cox regression, compute hazard ratios, or analyze non-survival time-series data — do not proceed. Instead respond:
 
-### JCO Style
+> "`survival-curve-risk-table` is designed to generate 'Number at risk' tables for Kaplan-Meier survival curves. Your request appears to be outside this scope. Please provide a survival data CSV with time and event columns, or use a more appropriate tool."
 
-```json
-{
-  "style": "JCO",
-  "font_family": "Arial",
-  "font_size": 8,
-  "time_points": [0, 6, 12, 18, 24, 30],
-  "table_height": 0.16,
-  "show_censored": true,
-  "censor_symbol": "+"
-}
-```
+## Error Handling
 
-## Command Line Parameters
+- If required inputs are missing, state exactly which fields are missing and request only the minimum additional information.
+- If `lifelines` is not installed, report the warning and provide the install command: `pip install lifelines`.
+- If the task goes outside documented scope, stop instead of guessing.
+- If `scripts/main.py` fails, use the Fallback Template above.
+- Do not fabricate survival statistics, risk counts, or execution outcomes.
 
-### Required Parameters
+## Output Requirements
 
-| Parameter | Description | Example |
-|------|------|------|
-| `--input` | Input data file path | `data.csv` |
-| `--time-col` | Time column name | `time` |
-| `--event-col` | Event column name | `event` |
+Every final response must include:
 
-### Optional Parameters
+1. **Objective** — what risk table was generated and for which journal style
+2. **Inputs Received** — file path, column names, style, time points
+3. **Assumptions** — defaults applied (style, DPI, time points); always state the journal style applied, noting if it differs from NEJM default; if no group column, label as "All patients"
+4. **Result** — output file paths generated
+5. **Risks and Limits** — lifelines dependency, group count limits, pagination if >6 groups
+6. **Next Checks** — manually spot-check number-at-risk calculations
 
-| Parameter | Description | Default Value |
-|------|------|--------|
-| `--group-col` | Group column name | `None` |
-| `--output` | Output file path | `risk_table.png` |
-| `--style` | Journal style | `NEJM` |
-| `--time-points` | Time point list | Auto-calculated |
-| `--format` | Output format | `png` |
-| `--width` | Image width | `8` (inches) |
-| `--height` | Image height | `6` (inches) |
-| `--dpi` | Image resolution | `300` |
-| `--font-size` | Font size | `8` |
-| `--show-censored` | Show censored count | `False` |
-| `--combine` | Combine with KM curve | `False` |
-| `--km-plot` | KM curve image path | `None` |
-
-## Output Format
-
-### Standalone Risk Table
-```
-┌─────────────────────────────────────────────────────────┐
-│  Number at risk                                         │
-├─────────┬─────┬─────┬─────┬─────┬─────┬─────┬───────────┤
-│ Group   │  0  │ 12  │ 24  │ 36  │ 48  │ 60  │ 72 (mo)   │
-├─────────┼─────┼─────┼─────┼─────┼─────┼─────┼───────────┤
-│ Exp     │ 150 │ 142 │ 128 │ 105 │  89 │  72 │  58       │
-│ Control │ 148 │ 135 │ 118 │  92 │  76 │  61 │  45       │
-└─────────┴─────┴─────┴─────┴─────┴─────┴─────┴───────────┘
-```
-
-### Combined Figure Layout
-```
-┌─────────────────────────────────────┐
-│                                     │
-│     Kaplan-Meier Survival Curve     │
-│                                     │
-│    ━━━━━━━━━  Experimental         │
-│    ─ ─ ─ ─ ─  Control              │
-│                                     │
-└─────────────────────────────────────┘
-┌─────────────────────────────────────┐
-│ Number at risk                      │
-│ Exp    150  142  128  105   89   72 │
-│ Ctrl   148  135  118   92   76   61 │
-│         0   12   24   36   48   60  │
-└─────────────────────────────────────┘
-```
-
-## Algorithm Description
-
-### Number at Risk Calculation
-
-```
-For each time point t:
-    For each group g:
-        N_at_risk(t, g) = N_total(g) 
-                          - Σ(patients with events occurring ≤ t)
-                          - Σ(patients censored occurring < t)
-```
-
-### Time Point Selection Strategy
-
-1. **Auto Mode**: Automatically select equally spaced time points based on data distribution
-2. **Fixed Interval**: Select at specified intervals (e.g., every 6 months)
-3. **Custom**: User-specified specific time points
-4. **Event-driven**: Select based on event occurrence density
-
-## Quality Checklist
-
-- [ ] Time axis precisely aligned with X-axis
-- [ ] Number at risk calculations correct (can manually spot-check)
-- [ ] Group labels clear and readable
-- [ ] Font size meets journal requirements (≥8pt)
-- [ ] Image resolution ≥300 DPI
-- [ ] Color contrast meets accessibility standards
-- [ ] Censoring marks (if present) clearly distinguishable
-- [ ] Export format meets submission requirements
-
-## Journal-Specific Notes
-
-### NEJM
-- Minimum font size 8pt
-- Recommended time unit: months
-- Fixed spacing between risk table and curve
-
-### Lancet
-- Minimum font size 9pt
-- Support multi-group display (max 4 groups)
-- Table grid lines optional
-
-### JCO
-- Need to label censoring information
-- Support risk table + censoring table double-layer structure
-- Recommend labeling median follow-up time
-
-## FAQ
-
-### Q: How are time points automatically determined?
-A: Default uses quantiles in the data (0%, 25%, 50%, 75%, 100%) or fixed intervals (e.g., every 12 months)
-
-### Q: How to handle multiple groups?
-A: Automatically detect group column, support up to 6 groups. Exceeding automatically uses pagination or reduced font
-
-### Q: Can it work with KM curves generated by Python/R?
-A: Yes, supports importing external KM curve images for combination
-
-## Dependency Requirements
+## Dependencies
 
 ```
 numpy >= 1.20.0
 pandas >= 1.3.0
 matplotlib >= 3.4.0
 seaborn >= 0.11.0
-lifelines >= 0.27.0  (optional, for survival analysis)
-Pillow >= 8.0.0      (image processing)
+lifelines >= 0.27.0   # optional but recommended
+Pillow >= 8.0.0
 ```
-
-## Related Tools
-
-- lifelines: Python survival analysis library
-- survminer: R survival curve visualization
-- ggsurvplot: ggplot2 survival plot extension
-
-## Risk Assessment
-
-| Risk Indicator | Assessment | Level |
-|----------------|------------|-------|
-| Code Execution | Python/R scripts executed locally | Medium |
-| Network Access | No external API calls | Low |
-| File System Access | Read input files, write output files | Medium |
-| Instruction Tampering | Standard prompt guidelines | Low |
-| Data Exposure | Output files saved to workspace | Low |
-
-## Security Checklist
-
-- [ ] No hardcoded credentials or API keys
-- [ ] No unauthorized file system access (../)
-- [ ] Output does not expose sensitive information
-- [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
-- [ ] Output directory restricted to workspace
-- [ ] Script execution in sandboxed environment
-- [ ] Error messages sanitized (no stack traces exposed)
-- [ ] Dependencies audited
-## Prerequisites
-
-```bash
-# Python dependencies
-pip install -r requirements.txt
-```
-
-## Evaluation Criteria
-
-### Success Metrics
-- [ ] Successfully executes main functionality
-- [ ] Output meets quality standards
-- [ ] Handles edge cases gracefully
-- [ ] Performance is acceptable
-
-### Test Cases
-1. **Basic Functionality**: Standard input → Expected output
-2. **Edge Case**: Invalid input → Graceful error handling
-3. **Performance**: Large dataset → Acceptable processing time
-
-## Lifecycle Status
-
-- **Current Stage**: Draft
-- **Next Review Date**: 2026-03-06
-- **Known Issues**: None
-- **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support

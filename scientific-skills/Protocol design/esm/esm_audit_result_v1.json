@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "skill_name": "esm",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Protocol Design",
+    "execution_mode": "C",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "The evaluated workflows stayed within protein-design and representation-learning scope without claiming experimental validation."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "The package does not present design candidates as clinically validated biological products."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "Generation, inverse folding, and embeddings were described as model workflows rather than wet-lab conclusions."
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "The included code examples are actionable at a documentation level, subject to local environment setup."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 84,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "The package is rich in examples and covers the main ESM3 and ESM C workflows well."
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "The examples are helpful, and the package distinguishes local and hosted paths clearly enough for bounded execution planning."
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "The skill acknowledges local versus Forge execution tradeoffs clearly."
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "Examples are strong, though the package behaves more like a workflow note set than a strict agent contract."
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Track-level separation and annotated code examples make it easy for protein-ML practitioners to identify the right entry point."
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "Token use is documented, and the package keeps hosted and local workflows operationally separated."
+      },
+      "maintainability": {
+        "score": 10,
+        "max": 12,
+        "note": "The package depends on fast-moving upstream APIs and model names."
+      },
+      "agent_specific": {
+        "score": 14,
+        "max": 20,
+        "note": "Composability is high, but refusal boundaries and exact invocation discipline are lighter than in stricter skill packages."
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 19,
+      "total": 20
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Sequence completion",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The workflow stayed aligned with the documented local inference path.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The response distinguishes the correct model workflow for the requested task.",
+            "result": "PASS",
+            "note": "Generation, embeddings, and inverse folding are kept distinct."
+          },
+          {
+            "text": "Operational dependencies such as tokens or GPU/runtime needs are surfaced when relevant.",
+            "result": "PASS",
+            "note": "Dependencies are named at the right level for the task."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Inverse folding workflow",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The output differentiated inverse folding from plain sequence completion clearly.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The response distinguishes the correct model workflow for the requested task.",
+            "result": "PASS",
+            "note": "Generation, embeddings, and inverse folding are kept distinct."
+          },
+          {
+            "text": "Operational dependencies such as tokens or GPU/runtime needs are surfaced when relevant.",
+            "result": "PASS",
+            "note": "Dependencies are named at the right level for the task."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Missing token or unsupported environment",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package surfaced the operational dependency rather than hiding it.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 3,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The response distinguishes the correct model workflow for the requested task.",
+            "result": "PASS",
+            "note": "Generation, embeddings, and inverse folding are kept distinct."
+          },
+          {
+            "text": "Operational dependencies such as tokens or GPU/runtime needs are surfaced when relevant.",
+            "result": "FAIL",
+            "note": "The package surfaces environment constraints, but troubleshooting guidance is still thinner than ideal."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Embeddings workflow",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package preserved the distinction between generation and representation workflows.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The response distinguishes the correct model workflow for the requested task.",
+            "result": "PASS",
+            "note": "Generation, embeddings, and inverse folding are kept distinct."
+          },
+          {
+            "text": "Operational dependencies such as tokens or GPU/runtime needs are surfaced when relevant.",
+            "result": "PASS",
+            "note": "Dependencies are named at the right level for the task."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Batch design request",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The response remained coherent under a more operationally demanding scenario.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The response distinguishes the correct model workflow for the requested task.",
+            "result": "PASS",
+            "note": "Generation, embeddings, and inverse folding are kept distinct."
+          },
+          {
+            "text": "Operational dependencies such as tokens or GPU/runtime needs are surfaced when relevant.",
+            "result": "PASS",
+            "note": "Dependencies are named at the right level for the task."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 33.6,
+    "dynamic_weighted": 51.4,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "*",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "The package covers multiple protein-model workflows without collapsing them into a single vague prompt.",
+    "Local and hosted execution paths are both documented clearly enough for advanced users.",
+    "The examples preserve task-level specificity across generation, inverse folding, and embeddings."
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Add explicit environment and secret-failure recovery notes",
+      "observed_in": [
+        2,
+        5
+      ],
+      "problem": "Real-world failures are more likely to come from CUDA, package, or token issues than from prompt ambiguity.",
+      "root_cause": "The package prioritizes capability coverage over operational failure handling.",
+      "fix": "Add a short troubleshooting section for missing GPU support, invalid Forge tokens, and rate-limit fallback behavior."
+    }
+  ]
+}

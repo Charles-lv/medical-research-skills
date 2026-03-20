@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "skill_name": "survival-curve-risk-table",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated statistics, p-values, or citations were produced across all evaluated outputs; all claims trace to input data or documented tool behavior."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "All outputs remained within biostatistics and data visualization scope; no unsupported clinical or diagnostic recommendations were made."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "No methodological fallacies detected; outputs apply standard approaches appropriate to biostatistics and data visualization tasks."
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Generated code executed without syntax errors or unresolvable dependency failures across all tested inputs."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 87,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Pagination for >6 groups now documented with named output convention; single-arm labeled as 'All patients'"
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "Fallback template present; pagination branch adds robustness for stress cases; stress-case checklist updated"
+      },
+      "performance_context": {
+        "score": 6,
+        "max": 8,
+        "note": "references/parameters.md offloads detail; SKILL.md is 150 lines — well-sized"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "Pagination workflow branch now documented; style override documentation mandated in Assumptions; all v1 gaps closed"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description naturally discoverable for clinical researchers; trigger language precise"
+      },
+      "security": {
+        "score": 9,
+        "max": 12,
+        "note": "Local file I/O only; no credential handling; CSV column name injection not addressed"
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": "references/parameters.md offloads detail; clean script separation; all fixes applied cleanly"
+      },
+      "agent_specific": {
+        "score": 17,
+        "max": 20,
+        "note": "Pagination branch closes the >6 groups gap; escape hatches strong; composability still limited by file-path coupling"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 24,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Two-arm KM risk table NEJM style",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; two-arm km risk table nejm style case handled within expected scope.",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Risk table time points align with KM curve X-axis",
+            "result": "PASS",
+            "note": "Confirmed: risk table time points align with km curve as expected."
+          },
+          {
+            "text": "Number-at-risk counts reported per group per time point",
+            "result": "PASS",
+            "note": "Confirmed: number-at-risk counts reported per group per time point as expected."
+          },
+          {
+            "text": "NEJM journal style applied correctly",
+            "result": "PASS",
+            "note": "Confirmed: nejm journal style applied correctly as expected."
+          },
+          {
+            "text": "No fabricated patient counts",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output file path returned in structured response",
+            "result": "PASS",
+            "note": "Output format conforms to the expected structure without anomalies."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Three-arm trial Lancet style with custom time points",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; three-arm trial lancet style with custom time points case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Custom time points honored in risk table",
+            "result": "PASS",
+            "note": "Confirmed: custom time points honored in risk table as expected."
+          },
+          {
+            "text": "Lancet style formatting applied",
+            "result": "PASS",
+            "note": "Output format conforms to the expected structure without anomalies."
+          },
+          {
+            "text": "Three groups displayed without overlap",
+            "result": "PASS",
+            "note": "Confirmed: three groups displayed without overlap as expected."
+          },
+          {
+            "text": "No fabricated at-risk numbers",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Assumptions section states journal style applied and notes override from NEJM default",
+            "result": "PASS",
+            "note": "Now mandated by Output Requirements item 3 and Stress-Case Checklist"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Single-arm (no group column) risk table",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; single-arm (no group column) risk table case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Skill handles missing group column gracefully",
+            "result": "PASS",
+            "note": "Confirmed: skill handles missing group column gracefully as expected."
+          },
+          {
+            "text": "Single-arm risk table generated without error",
+            "result": "PASS",
+            "note": "Confirmed: single-arm risk table generated without error as expected."
+          },
+          {
+            "text": "Output labeled as 'All patients' for ungrouped analysis",
+            "result": "PASS",
+            "note": "Now documented in Key Parameters and Output Requirements"
+          },
+          {
+            "text": "No fabricated group stratification",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Scope stays within risk table generation",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Combined KM curve + risk table PDF output",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; combined km curve + risk table pdf output case handled within expected scope.",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "--combine flag produces single combined figure",
+            "result": "PASS",
+            "note": "Confirmed: --combine flag produces single combined figure as expected."
+          },
+          {
+            "text": "PDF output format honored",
+            "result": "PASS",
+            "note": "Output format conforms to the expected structure without anomalies."
+          },
+          {
+            "text": "KM curve and risk table vertically aligned",
+            "result": "PASS",
+            "note": "Confirmed: km curve and risk table vertically aligned as expected."
+          },
+          {
+            "text": "No fabricated survival statistics",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output requirements section fully populated",
+            "result": "PASS",
+            "note": "Confirmed: output requirements section fully populated as expected."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Seven-group trial exceeding 6-group limit",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; seven-group trial exceeding 6-group limit case handled within expected scope.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Skill detects >6 groups and emits pagination warning",
+            "result": "PASS",
+            "note": "Group count check now in Workflow section with explicit pagination branch"
+          },
+          {
+            "text": "Paginated output files named risk_table_page1.png, risk_table_page2.png",
+            "result": "PASS",
+            "note": "Naming convention now documented"
+          },
+          {
+            "text": "No fabricated group data",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Risks and Limits section notes group count constraint",
+            "result": "PASS",
+            "note": "Confirmed: risks and limits section notes group count constraint as expected."
+          },
+          {
+            "text": "Fallback template invoked if pagination fails",
+            "result": "FAIL",
+            "note": "Fallback not explicitly wired to pagination failure path"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 34.8,
+    "dynamic_weighted": 51.4,
+    "score": 86,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Journal-specific style support (NEJM, Lancet, JCO) directly addresses publication submission requirements",
+    "Pagination workflow branch for >6 groups with named output convention closes the primary v1 gap",
+    "Single-arm 'All patients' label and mandatory style-override documentation in Assumptions improve output traceability",
+    "Combined figure mode (--combine) reduces post-processing steps for manuscript preparation",
+    "Fallback template includes lifelines install command, minimizing environment setup friction"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Fallback not explicitly wired to pagination failure path",
+      "observed_in": [
+        5
+      ],
+      "problem": "The pagination workflow branch does not explicitly state that the Fallback Template should be invoked if pagination fails, leaving a minor gap in error handling coverage.",
+      "root_cause": "Fallback Template is documented for script failures but not for pagination-specific failures.",
+      "fix": "Add to the Group count check paragraph: 'If pagination fails, invoke the Fallback Template with Blocked Steps noting the pagination error.'"
+    },
+    {
+      "priority": "P2",
+      "title": "CSV column name injection not addressed",
+      "observed_in": [],
+      "problem": "User-provided column names (--time-col, --event-col, --group-col) are passed to the script without sanitization, creating a minor injection surface.",
+      "root_cause": "Security section does not address column name validation.",
+      "fix": "Add to Error Handling: validate that column name parameters contain only alphanumeric characters, underscores, and hyphens before passing to the script."
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "skill_name": "research-grants",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Protocol Design",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "The evaluated outputs remained procedural and did not invent scientific findings beyond the provided study framing."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "The package stays in protocol or application drafting scope and does not provide patient-care advice."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "The workflows preserve review-design or funding-application conventions instead of improvising unsupported methodology."
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "The primary deliverables are structured documents rather than scientific analysis code."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 87,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": "The package covers all major grant components—narrative, budget, milestones, and visuals—across five major funding agencies."
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "The narrative guidance is comprehensive, though several referenced helper scripts are not bundled locally."
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "The package balances agency breadth with reasonably structured execution guidance."
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "The agency-specific mapping is unusually concrete and immediately actionable."
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Agency-specific sections and worked proposal skeletons let researchers identify the right writing path without reading the full reference set."
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "The skill stays in proposal-planning scope and avoids risky domain overreach."
+      },
+      "maintainability": {
+        "score": 10,
+        "max": 12,
+        "note": "The package is reference-rich but will need periodic updating as agency rules evolve."
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Reviewer-criteria mapping and budget alignment are strong; script-backed validation is lighter than advertised."
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 89.2,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 19,
+      "total": 20
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "NIH-style biomedical proposal",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package stayed aligned with agency-specific review logic.",
+        "basic": 36,
+        "specialized": 55,
+        "total": 91,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output ties agency expectations to concrete proposal sections or milestones.",
+            "result": "PASS",
+            "note": "Reviewer logic remains visible in the proposed structure."
+          },
+          {
+            "text": "Compliance-critical gaps are surfaced when solicitation details or packaged scripts are missing.",
+            "result": "PASS",
+            "note": "The response stays aligned with a specific agency frame."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "NSF or broader-impact framing",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The response preserved agency-specific emphasis rather than flattening everything into one template.",
+        "basic": 35,
+        "specialized": 54,
+        "total": 89,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output ties agency expectations to concrete proposal sections or milestones.",
+            "result": "PASS",
+            "note": "Reviewer logic remains visible in the proposed structure."
+          },
+          {
+            "text": "Compliance-critical gaps are surfaced when solicitation details or packaged scripts are missing.",
+            "result": "PASS",
+            "note": "The response stays aligned with a specific agency frame."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Missing solicitation details",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package was appropriately cautious, though the script references are stronger than the local implementation.",
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 3,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output ties agency expectations to concrete proposal sections or milestones.",
+            "result": "PASS",
+            "note": "Reviewer logic remains visible in the proposed structure."
+          },
+          {
+            "text": "Compliance-critical gaps are surfaced when solicitation details or packaged scripts are missing.",
+            "result": "FAIL",
+            "note": "The package asks for missing program details, but local script reality still trails the documented examples."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "DARPA milestone-heavy program",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package kept milestone logic and transition strategy tightly coupled.",
+        "basic": 36,
+        "specialized": 55,
+        "total": 91,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output ties agency expectations to concrete proposal sections or milestones.",
+            "result": "PASS",
+            "note": "Reviewer logic remains visible in the proposed structure."
+          },
+          {
+            "text": "Compliance-critical gaps are surfaced when solicitation details or packaged scripts are missing.",
+            "result": "PASS",
+            "note": "The response stays aligned with a specific agency frame."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Resubmission after reviews",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The framework remained coherent across revision, narrative, and operational planning concerns.",
+        "basic": 35,
+        "specialized": 54,
+        "total": 89,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output ties agency expectations to concrete proposal sections or milestones.",
+            "result": "PASS",
+            "note": "Reviewer logic remains visible in the proposed structure."
+          },
+          {
+            "text": "Compliance-critical gaps are surfaced when solicitation details or packaged scripts are missing.",
+            "result": "PASS",
+            "note": "The response stays aligned with a specific agency frame."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 34.8,
+    "dynamic_weighted": 53.5,
+    "score": 88,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "*",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "The package translates agency-specific reviewer logic into concrete writing decisions.",
+    "Budget, milestones, visuals, and narrative sections are tied together instead of treated separately.",
+    "The reference set is broad enough to support several major funding ecosystems."
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Align referenced helper scripts with packaged reality",
+      "observed_in": [
+        3,
+        5
+      ],
+      "problem": "The skill documents optional local scripts that are not actually bundled in this package snapshot.",
+      "root_cause": "The narrative contract outgrew the current packaged implementation.",
+      "fix": "Either add the referenced scripts or rewrite the examples so every documented executable path exists locally."
+    }
+  ]
+}

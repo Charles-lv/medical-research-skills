@@ -1,54 +1,95 @@
-# 🏥 AIPOCH — Medical Research AI Skill Library
-### A structured, validated skill repository for AI-supported medical research
+<div align="center">
 
-A curated collection of **200+ medical research skills** designed for scientists, researchers, and AI agents.
+# AIPOCH Medical Research Skills
 
-This repository is part of the **AIPOCH ecosystem** — a community platform for sharing and discovering biomedical agent skills.
+Add Skills. Run Your Research.
 
-🌐 [Learn more](https://AIPOCH.com)
+<br>
 
----
+[![License](https://img.shields.io/badge/License-MIT-ff6b6b?style=for-the-badge)](./LICENSE)
+![Skills Count](https://img.shields.io/badge/Skills-200%2B-4dabf7?style=for-the-badge)
+![Work%20with](https://img.shields.io/badge/Work%20with-OpenClaw%20%7C%20Opencode%20%7C%20Claude-9775fa?style=for-the-badge)
+[![Follow on X](https://img.shields.io/badge/Follow%20on%20X-%40aipoch__ai-212529?style=for-the-badge&logo=x&logoColor=white)](https://x.com/aipoch_ai)
+[![YouTube](https://img.shields.io/badge/YouTube-%40AIPOCH__AI-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@AIPOCH_AI)
 
-## 🧠 About AIPOCH
+<br>
 
-AIPOCH is a professional AI skill library dedicated to medical research.
+*200+ medical research skills · Evidence Insights · Protocol Design · Data Analysis · Academic Writing*
 
-We curate and structure reusable research skills that support clinical investigation, biomedical analysis, and scientific reasoning. Each skill represents a well-defined medical research capability designed to be both human-understandable and AI-compatible.
-
-Our mission is to make medical research expertise:
-
-- Structured  
-- Reproducible  
-- Modular  
-- Integrable into AI systems  
-
-AIPOCH provides a foundational skill layer for next-generation medical research workflows.
+</div>
 
 ---
 
-## 📚 What Is a Medical Research AI Skill?
+## 🤔 What it is?
 
-A Medical Research AI Skill is a structured representation of a specific research capability, such as:
+AIPOCH is a curated library of 200+ Medical Research Agent Skills, built to work with**​ OpenClaw** and other AI agent platforms, including​**​ OpenCode and Claude**​.
 
-- Clinical data interpretation  
-- Study design evaluation  
-- Biomedical data analysis  
-- Literature synthesis  
-- Hypothesis development  
-- Research result structuring  
+It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing.
 
-Each skill includes:
+Equip your AI agent with Medical Research Skills, and turn it into a capable medical research assistant.
 
-- Clearly defined objectives  
-- Expected inputs and outputs  
-- Logical reasoning steps  
-- Reusable execution structure  
+AIPOCH also introduces **Medical ​Skill Auditor (in development) ​**​— a structured evaluation framework designed to score and validate skills, bringing measurable quality standards to the ecosystem.  [View evaluation report example here. ](https://www.aipoch.com/agent-skills/medical-research-literature-reader-pro/eval-result)
 
-This ensures consistency, reliability, and integration potential.
+> ⭐ If you find this repository useful, consider giving it a star! It helps more researchers discover Medical Research Agent Skills and supports the continued development of this library.
 
 ---
 
-## 🦞 Install into OpenClaw Plug-in
+## 🗂️ Skills Overview
+
+All skills in AIPOCH are ​**originally designed and developed in-house**​, built to reflect medical research workflows and standards.
+
+The library is primarily organized into five categories: ​**Evidence Insights, Protocol Design, ​Data Analysis,  Academic Writing**​, and Others.
+
+| 📚**Category** | **Highlights**                                                                                                                        |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+|🔍 **Evidence Insight**   | e.g., search strategy design, database selection, evidence-level prioritization, critical appraisal, literature synthesis and gap identification.|
+| 🧪 **Protocol Design**    |e.g., experimental design generation, study type selection, causal inference planning, statistical power calculation, validation strategy.        |
+|📊 **Data Analysis**      | e.g., R/Python bioinformatics code generation, statistical modeling, data cleaning pipelines, machine learning workflows, result visualization.  |
+|✍️ **Academic Writing**   |  e.g., SCI manuscript drafting, methods/results/discussion writing, meta-analysis narrative, cover letters, abstract generation.|
+| 🌍 **Other (General / Non-Research)**          | all general skills that do not fall into categories 1–4.                                                                                   |
+
+**📌 Total Skills in Library: 200+ and growing**
+
+
+## 🚀 How to Start?
+
+### ⚙️ Requirements
+
+​**Host Platform**​: **OpenClaw (installed and running)** or any compatible AI Agent framework that supports Skill integration.
+
+If you don't have OpenClaw,[ please follow the official OpenClaw setup guide.](https://github.com/openclaw/openclaw)
+
+​**Git**​: Required for cloning the repository. [Git LFS](https://git-lfs.com/)
+
+### 🦞 Connect with OpenClaw
+
+#### **Method 1:**
+
+**I'm a human**
+
+```markdown
+Read https://aipoch.com/skill.md and follow the instructions to join Aipoch
+```
+
+1. Run the command to initialize setup
+2. Select 'OpenClaw' as your target agent
+3. Follow the prompts to link your library
+
+**I'm an agent**
+
+```markdown
+curl -sL https://aipoch.com/skill.md > ./skills/aipoch.md
+```
+
+1. Download the integration guide
+2. Manually configure your agent's skill path
+3. Verify the connection in your dashboard
+
+---
+
+#### **Method 2:**
+
+**🦞 Install into OpenClaw Plug-in**
 
 [OpenClaw](https://openclaw.ai) is a self-hosted AI agent gateway. You can install all AIPOCH skills into OpenClaw with a single command.
 
@@ -66,6 +107,7 @@ bash /tmp/install.sh
 ```
 
 The script will:
+
 1. Clone this repository into a temporary directory
 2. Copy all `SKILL.md` skill folders into `~/.openclaw/skills/`
 3. Skip any skills that are already installed
@@ -77,83 +119,59 @@ openclaw gateway restart
 ```
 
 > **Tip:** Run with `--dry-run` first to preview what will be installed without making any changes.
->
+> 
 > ```bash
 > bash <(curl -s https://raw.githubusercontent.com/aipoch/medical-research-skills/main/scientific-skills/scripts/openclaw-install.sh) --dry-run
 > ```
 
 > **Note:** Skills are installed to `~/.openclaw/skills/` by default (visible to all agents). To install into a specific workspace instead, set the environment variable before running:
+> 
 > ```bash
 > OPENCLAW_SKILLS_DIR=~/.openclaw/workspace/skills bash <(curl -s https://raw.githubusercontent.com/aipoch/medical-research-skills/main/scientific-skills/scripts/openclaw-install.sh)
 > ```
 
 ---
 
-## 📦 What’s Inside This Repository
-
-### 🗂️ Skill Domains
-
-The library spans major domains of medical research:
-
-- 🏥 Clinical Research  
-- 🔬 Experimental Research  
-- 📊 Medical Data Analysis  
-- 🧬 Bioinformatics  
-- 📚 Literature & Evidence Synthesis  
-- 💊 Pharmaceutical & Translational Research  
-- 🧾 Grant & Research Strategy  
-- 🧠 Scientific Reasoning & Interpretation  
-
-The repository currently contains **200+ structured skills**, with validated modules continuously expanding.
 
 
+## 🧠 AIPOCH Medical Skill Auditor (in development)
 
-### 🗂️ Skill Categories
+### 🧩**What is Medical Skill Auditor?**
 
-This repository organizes medical agent skills into structured domains.  
-Each category represents a key area of biomedical research, professional practice, or scientific workflow.
+Skill Auditor is AIPOCH’s evaluation framework under active development for scoring Medical Research Agent Skills with ​**rigorous, multi‑dimensional quality metrics**​. It’s intended to go beyond static descriptions by measuring both **core capability** and ​**real execution performance**​—giving users and developers a clearer, data‑driven understanding of skill quality.
 
+### ⚙️**How does it work?**
 
-> 📌 *Skill counts will continue to grow as the community contributes.*
+#### 🧰 **Core Capability**
 
-| Category | Description | # of Skills |
-|----------|-------------|-------------|
-| 🏥 **Clinical** | Clinical research workflows, patient data interpretation, medical reasoning support | `20` |
-| 🎓 **Education** | Learning guides, training-oriented skills, and knowledge-building workflows | `11` |
-| 🔬 **Research** | Experimental design, research strategy, and scientific reasoning skills | `20` |
-| 🌍 **General** | Cross-domain biomedical workflows and foundational research utilities | `13` |
-| ✍️ **Writing** | Scientific writing, manuscript structuring, and academic communication skills | `9` |
-| 📊 **Data** | Biomedical data analysis, interpretation, and structured data workflows | `9` |
-| 💊 **Pharma** | Drug development, pharmacology insights, and translational research skills | `29` |
-| 🚀 **Career** | Academic career development, grant planning, and professional growth skills | `9` |
-| 🧬 **Bioinfo** | Bioinformatics analysis, omics interpretation, and computational biology workflows | `25` |
-| ℹ️ **Info** | Information extraction, literature processing, and knowledge structuring skills | `7` |
-| 🎤 **Present** | Scientific presentation, slide structuring, and research communication skills | `6` |
-| 🧪 **Wet Lab** | Experimental lab workflows, protocol reasoning, and bench research support | `12` |
-| 🧰 **Utility** | General-purpose biomedical utilities and cross-workflow helper skills | `7` |
-| 💰 **Grant** | Grant writing, funding strategy, and proposal development skills | `7` |
-| ⚙️ **Operations** | Research operations, project coordination, and lab or team management skills | `6` |
+Evaluates a skill’s design and contract against key dimensions such as **Functional Suitability​, reliability, performance & context, Agent Usability, human usability, Security, Agent-Specific and maintainability**​.
 
+#### 📊 **Medical Task**
 
-#### 📈 Total Skills in Library: **200+ and growing**
+Assesses actual outputs of a skill with layered criteria, weighting general competence and category‑specific behaviors to reflect real‑world execution quality.
 
----
+#### 🚫**Veto​ Gates**
 
-## 🤖 AI-Compatible by Design
+To enforce strict quality control, Skill Auditor is designed with two layers of ​**veto mechanisms**​. Any failure in these checks may lead to immediate rejection of a skill.
 
-All skills are formatted to support:
+##### **Skill ​Veto**
 
-- Programmatic parsing  
-- Workflow integration  
-- Multi-step reasoning pipelines  
-- Human–AI collaborative research  
+- Operational Stability
+- Structural Consistency
+- Result Determinism
+- System Security
 
-This makes AIPOCH not only a knowledge repository, but an infrastructure layer for AI-assisted medical research systems.
+##### **Research ​Veto**
 
----
+- Scientific Integrity
+- Practice Boundaries
+- Methodological Ground
+- Code Usability
 
-## ❤️ Built for the Medical Research Community
+### 👥**Who can use it?**
 
-Medical research increasingly depends on structured knowledge and intelligent systems.
+You can already view [evaluation results for selected AIPOCH skills on the website](https://www.aipoch.com/agent-skills/medical-research-literature-reader-pro/eval-result). In the future, Skill Auditor will extend to evaluate third-party skills, enabling a unified and transparent scoring system across the ecosystem.
 
-AIPOCH is building a professional, reusable AI skill foundation to support high-quality, scalable, and future-ready medical research.
+### 💡**Why it matters?**
+
+By systematically quantifying how well a skill performs in practice and in design, Skill Auditor will help **users identify high‑confidence skills** and ​**guide developers in improving their contributions**​—paving the way for a dependable and transparent ecosystem of medical research agent capabilities, with concrete evaluation results like those shown for example skills.

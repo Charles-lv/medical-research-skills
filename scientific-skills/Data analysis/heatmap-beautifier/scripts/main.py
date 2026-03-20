@@ -3,8 +3,9 @@
 """
 Heatmap Beautifier - Gene Expression Heatmap Visualization Tool
 
-针对基因表达热图的专业美化工具，自动添加聚类树、颜色注释条，
-并智能优化标签布局避免重叠。
+A professional beautification tool for gene expression heatmaps, automatically
+adding clustering dendrograms and color annotation bars, and intelligently
+optimizing label layout to avoid overlap.
 
 Author: Bioinformatics Visualization Team
 """
@@ -22,35 +23,35 @@ import pandas as pd
 import seaborn as sns
 from matplotlib.font_manager import FontProperties
 
-# 设置中文字体支持
+# Set font support
 matplotlib.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei', 'DejaVu Sans']
 matplotlib.rcParams['axes.unicode_minus'] = False
 
 
 class HeatmapBeautifier:
     """
-    基因表达热图美化器
+    Gene expression heatmap beautifier
     
-    功能：
-    - 自动添加层次聚类树
-    - 支持多组颜色注释条
-    - 智能标签字号优化
-    - 专业科研配色方案
+    Features:
+    - Automatically adds hierarchical clustering dendrograms
+    - Supports multiple color annotation bars
+    - Intelligent label font size optimization
+    - Professional scientific color schemes
     """
     
-    # 内置配色方案
+    # Built-in color palettes
     COLOR_PALETTES = {
-        "RdBu_r": "红蓝配色（经典差异表达）",
-        "viridis": "黄紫配色（连续数据）",
-        "RdYlBu_r": "红黄蓝配色",
-        "coolwarm": "冷暖配色",
-        "seismic": "地震图配色",
-        "bwr": "蓝白红配色",
-        "Spectral_r": "光谱配色",
-        "BrBG_r": "棕绿配色"
+        "RdBu_r": "Red-Blue (classic differential expression)",
+        "viridis": "Yellow-Purple (continuous data)",
+        "RdYlBu_r": "Red-Yellow-Blue",
+        "coolwarm": "Cool-Warm",
+        "seismic": "Seismic",
+        "bwr": "Blue-White-Red",
+        "Spectral_r": "Spectral",
+        "BrBG_r": "Brown-Green"
     }
     
-    # 默认注释颜色
+    # Default annotation colors
     DEFAULT_COLORS = [
         "#e74c3c", "#3498db", "#2ecc71", "#f39c12", "#9b59b6",
         "#1abc9c", "#e91e63", "#795548", "#607d8b", "#ff5722"
@@ -58,10 +59,10 @@ class HeatmapBeautifier:
     
     def __init__(self, style: str = "white"):
         """
-        初始化 HeatmapBeautifier
+        Initialize HeatmapBeautifier
         
         Args:
-            style: seaborn 样式 ("white", "dark", "whitegrid", "darkgrid", "ticks")
+            style: seaborn style ("white", "dark", "whitegrid", "darkgrid", "ticks")
         """
         sns.set_style(style)
         self.fig = None
@@ -69,19 +70,19 @@ class HeatmapBeautifier:
         
     def load_data(self, data_path: str) -> pd.DataFrame:
         """
-        加载表达矩阵数据
+        Load expression matrix data
         
         Args:
-            data_path: CSV 文件路径
+            data_path: CSV file path
             
         Returns:
-            DataFrame: 表达矩阵 (基因 x 样本)
+            DataFrame: Expression matrix (genes x samples)
         """
         path = Path(data_path)
         if not path.exists():
-            raise FileNotFoundError(f"数据文件不存在: {data_path}")
+            raise FileNotFoundError(f"Data file not found: {data_path}")
             
-        # 支持多种分隔符
+        # Support multiple separators
         try:
             df = pd.read_csv(data_path, index_col=0)
         except:
@@ -90,10 +91,10 @@ class HeatmapBeautifier:
             except:
                 df = pd.read_csv(data_path, index_col=0, sep=';')
                 
-        # 确保数据为数值型
+        # Ensure data is numeric
         df = df.apply(pd.to_numeric, errors='coerce')
         
-        print(f"✓ 加载数据: {df.shape[0]} 基因 × {df.shape[1]} 样本")
+        print(f"✓ Data loaded: {df.shape[0]} genes × {df.shape[1]} samples")
         return df
     
     def calculate_optimal_fontsizes(self, 
@@ -103,41 +104,41 @@ class HeatmapBeautifier:
                                      max_row_fontsize: float = 10,
                                      max_col_fontsize: float = 10) -> Tuple[float, float]:
         """
-        计算最优标签字号以避免重叠
+        Calculate optimal label font sizes to avoid overlap
         
         Args:
-            n_rows: 行数
-            n_cols: 列数
-            figsize: 图形尺寸
-            max_row_fontsize: 最大行标签字号
-            max_col_fontsize: 最大列标签字号
+            n_rows: Number of rows
+            n_cols: Number of columns
+            figsize: Figure size
+            max_row_fontsize: Maximum row label font size
+            max_col_fontsize: Maximum column label font size
             
         Returns:
-            (row_fontsize, col_fontsize): 最优字号元组
+            (row_fontsize, col_fontsize): Optimal font size tuple
         """
-        # 基于图形尺寸和元素数量计算
+        # Calculate based on figure size and number of elements
         fig_width, fig_height = figsize
         
-        # 估计可用空间（考虑聚类树和注释条占用的空间）
-        available_width = fig_width * 0.6  # 主热图约占 60% 宽度
-        available_height = fig_height * 0.6  # 主热图约占 60% 高度
+        # Estimate available space (accounting for dendrogram and annotation bar space)
+        available_width = fig_width * 0.6  # Main heatmap occupies ~60% of width
+        available_height = fig_height * 0.6  # Main heatmap occupies ~60% of height
         
-        # 计算每个单元格的平均大小（英寸）
+        # Calculate average cell size (inches)
         cell_width = available_width / max(n_cols, 1)
         cell_height = available_height / max(n_rows, 1)
         
-        # 转换为字号（近似转换：1英寸 ≈ 72点）
+        # Convert to font size (approximate conversion: 1 inch ≈ 72 points)
         points_per_inch = 72
         
-        # 行标签：基于单元格高度计算
+        # Row labels: calculate based on cell height
         row_fontsize = min(cell_height * points_per_inch * 0.8, max_row_fontsize)
-        row_fontsize = max(row_fontsize, 4)  # 最小字号 4
+        row_fontsize = max(row_fontsize, 4)  # Minimum font size 4
         
-        # 列标签：基于单元格宽度计算
+        # Column labels: calculate based on cell width
         col_fontsize = min(cell_width * points_per_inch * 0.8, max_col_fontsize)
-        col_fontsize = max(col_fontsize, 4)  # 最小字号 4
+        col_fontsize = max(col_fontsize, 4)  # Minimum font size 4
         
-        # 大数据集时进一步限制
+        # Further limit for large datasets
         if n_rows > 100:
             row_fontsize = min(row_fontsize, 6)
         if n_cols > 50:
@@ -150,15 +151,15 @@ class HeatmapBeautifier:
                            annotations: Optional[Dict[str, Dict[str, str]]],
                            axis: str = "row") -> Optional[pd.DataFrame]:
         """
-        准备注释数据
+        Prepare annotation data
         
         Args:
-            data: 主数据矩阵
-            annotations: 注释字典 {注释名: {条目: 值}}
-            axis: "row" 或 "col"
+            data: Main data matrix
+            annotations: Annotation dictionary {annotation_name: {entry: value}}
+            axis: "row" or "col"
             
         Returns:
-            注释 DataFrame 或 None
+            Annotation DataFrame or None
         """
         if annotations is None:
             return None
@@ -177,21 +178,21 @@ class HeatmapBeautifier:
                                    custom_colors: Optional[Dict[str, Dict[str, str]]] = None
                                    ) -> Dict[str, Dict[str, str]]:
         """
-        生成注释颜色映射
+        Generate annotation color mappings
         
         Args:
-            annotations: 注释 DataFrame
-            custom_colors: 用户自定义颜色 {注释名: {类别: 颜色}}
+            annotations: Annotation DataFrame
+            custom_colors: User-defined colors {annotation_name: {category: color}}
             
         Returns:
-            颜色映射字典
+            Color mapping dictionary
         """
         color_maps = {}
         
         for i, col in enumerate(annotations.columns):
             unique_vals = annotations[col].unique()
             
-            # 使用自定义颜色或自动生成
+            # Use custom colors or auto-generate
             if custom_colors and col in custom_colors:
                 color_maps[col] = custom_colors[col]
             else:
@@ -230,71 +231,71 @@ class HeatmapBeautifier:
                       cbar_label: str = "Expression",
                       show_plot: bool = False) -> None:
         """
-        创建美化热图
+        Create beautified heatmap
         
         Args:
-            data_path: 输入数据文件路径
-            output_path: 输出图片路径
-            title: 图表标题
-            cmap: 颜色映射名称
-            center: 颜色中心值
-            vmin: 最小值
-            vmax: 最大值
-            row_cluster: 是否进行行聚类
-            col_cluster: 是否进行列聚类
-            standard_scale: 标准化方式 ("row", "col", None)
-            z_score: Z-score 标准化 (0=行, 1=列, None=不标准化)
-            row_annotations: 行注释字典
-            col_annotations: 列注释字典
-            annotation_colors: 自定义注释颜色
-            max_row_label_fontsize: 最大行标签字号
-            max_col_label_fontsize: 最大列标签字号
-            rotate_col_labels: 列标签旋转角度
-            rotate_row_labels: 行标签旋转角度
-            hide_row_labels: 是否隐藏行标签
-            hide_col_labels: 是否隐藏列标签
-            figsize: 图形尺寸 (宽, 高)
-            dpi: 输出分辨率
-            linewidths: 单元格边框宽度
-            linecolor: 单元格边框颜色
-            cbar_label: 颜色条标签
-            show_plot: 是否显示图形（调试用）
+            data_path: Input data file path
+            output_path: Output image path
+            title: Chart title
+            cmap: Color map name
+            center: Color center value
+            vmin: Minimum value
+            vmax: Maximum value
+            row_cluster: Whether to perform row clustering
+            col_cluster: Whether to perform column clustering
+            standard_scale: Normalization method ("row", "col", None)
+            z_score: Z-score normalization (0=row, 1=col, None=no normalization)
+            row_annotations: Row annotation dictionary
+            col_annotations: Column annotation dictionary
+            annotation_colors: Custom annotation colors
+            max_row_label_fontsize: Maximum row label font size
+            max_col_label_fontsize: Maximum column label font size
+            rotate_col_labels: Column label rotation angle
+            rotate_row_labels: Row label rotation angle
+            hide_row_labels: Whether to hide row labels
+            hide_col_labels: Whether to hide column labels
+            figsize: Figure size (width, height)
+            dpi: Output resolution
+            linewidths: Cell border width
+            linecolor: Cell border color
+            cbar_label: Color bar label
+            show_plot: Whether to display the figure (for debugging)
         """
-        # 加载数据
+        # Load data
         data = self.load_data(data_path)
         n_rows, n_cols = data.shape
         
-        # 自动确定图形尺寸
+        # Auto-determine figure size
         if figsize is None:
-            # 基于数据量计算合适的尺寸
+            # Calculate appropriate size based on data volume
             base_width = 10
             base_height = 8
             width_per_col = 0.3
             height_per_row = 0.15
             
-            # 考虑注释条的空间
+            # Account for annotation bar space
             annot_height = 1.5 if col_annotations else 0
             annot_width = 2.0 if row_annotations else 0
             
             fig_width = max(base_width, n_cols * width_per_col + annot_width + 4)
             fig_height = max(base_height, n_rows * height_per_row + annot_height + 3)
             
-            # 限制最大尺寸
+            # Limit maximum size
             fig_width = min(fig_width, 24)
             fig_height = min(fig_height, 20)
             
             figsize = (fig_width, fig_height)
         
-        print(f"✓ 图形尺寸: {figsize[0]:.1f} × {figsize[1]:.1f} 英寸")
+        print(f"✓ Figure size: {figsize[0]:.1f} × {figsize[1]:.1f} inches")
         
-        # 计算最优字号
+        # Calculate optimal font sizes
         row_fontsize, col_fontsize = self.calculate_optimal_fontsizes(
             n_rows, n_cols, figsize,
             max_row_label_fontsize, max_col_label_fontsize
         )
-        print(f"✓ 字号: 行标签 {row_fontsize:.1f}pt, 列标签 {col_fontsize:.1f}pt")
+        print(f"✓ Font size: row labels {row_fontsize:.1f}pt, column labels {col_fontsize:.1f}pt")
         
-        # 准备注释数据
+        # Prepare annotation data
         row_colors = None
         col_colors = None
         
@@ -303,19 +304,19 @@ class HeatmapBeautifier:
             row_color_map = self.generate_annotation_colors(row_annot_df, annotation_colors)
             row_colors = pd.DataFrame({k: v.map(row_color_map[k]) 
                                        for k, v in row_annot_df.items()})
-            print(f"✓ 行注释: {list(row_annot_df.columns)}")
+            print(f"✓ Row annotations: {list(row_annot_df.columns)}")
             
         if col_annotations:
             col_annot_df = self.prepare_annotations(data, col_annotations, axis="col")
             col_color_map = self.generate_annotation_colors(col_annot_df, annotation_colors)
             col_colors = pd.DataFrame({k: v.map(col_color_map[k]) 
                                        for k, v in col_annot_df.items()})
-            print(f"✓ 列注释: {list(col_annot_df.columns)}")
+            print(f"✓ Column annotations: {list(col_annot_df.columns)}")
         
-        # 创建热图
-        print("✓ 正在生成热图...")
+        # Create heatmap
+        print("✓ Generating heatmap...")
         
-        # 调整布局参数
+        # Adjust layout parameters
         g = sns.clustermap(
             data,
             cmap=cmap,
@@ -339,7 +340,7 @@ class HeatmapBeautifier:
             xticklabels=not hide_col_labels
         )
         
-        # 设置标签
+        # Set labels
         if not hide_row_labels and n_rows <= 200:
             g.ax_heatmap.set_yticklabels(
                 g.ax_heatmap.get_ymajorticklabels(),
@@ -359,17 +360,17 @@ class HeatmapBeautifier:
         else:
             g.ax_heatmap.set_xticks([])
         
-        # 设置标题
+        # Set title
         plt.suptitle(title, fontsize=14, fontweight='bold', y=0.995)
         
-        # 调整布局
+        # Adjust layout
         plt.tight_layout()
         
-        # 保存图形
+        # Save figure
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # 支持多种格式
+        # Support multiple formats
         supported_formats = ['pdf', 'png', 'svg', 'eps', 'tiff']
         file_format = output_path.suffix.lstrip('.').lower()
         if file_format not in supported_formats:
@@ -377,7 +378,7 @@ class HeatmapBeautifier:
             output_path = output_path.with_suffix('.pdf')
         
         g.savefig(output_path, dpi=dpi, bbox_inches='tight', format=file_format)
-        print(f"✓ 已保存: {output_path}")
+        print(f"✓ Saved: {output_path}")
         
         if show_plot:
             plt.show()
@@ -389,12 +390,12 @@ class HeatmapBeautifier:
                      output_path: str,
                      **kwargs) -> None:
         """
-        快速生成热图（使用默认参数）
+        Quickly generate heatmap (using default parameters)
         
         Args:
-            data_path: 输入数据路径
-            output_path: 输出路径
-            **kwargs: 可选参数覆盖
+            data_path: Input data path
+            output_path: Output path
+            **kwargs: Optional parameter overrides
         """
         defaults = {
             'title': 'Gene Expression Heatmap',
@@ -410,18 +411,18 @@ class HeatmapBeautifier:
 
 
 def load_annotations_from_json(path: str) -> Dict[str, Dict[str, str]]:
-    """从 JSON 文件加载注释"""
+    """Load annotations from JSON file"""
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
 def main():
-    """命令行入口"""
+    """Command line entry point"""
     parser = argparse.ArgumentParser(
-        description='Heatmap Beautifier - 基因表达热图美化工具',
+        description='Heatmap Beautifier - Gene expression heatmap beautification tool',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-示例:
+Examples:
   %(prog)s -i expression.csv -o heatmap.pdf
   %(prog)s -i expression.csv -o heatmap.png --row-cluster --col-cluster
   %(prog)s -i expression.csv -o heatmap.pdf --row-annot row.json --col-annot col.json
@@ -429,47 +430,47 @@ def main():
     )
     
     parser.add_argument('-i', '--input', required=True, 
-                       help='输入表达矩阵 (CSV格式)')
+                       help='Input expression matrix (CSV format)')
     parser.add_argument('-o', '--output', required=True,
-                       help='输出图片路径')
+                       help='Output image path')
     parser.add_argument('-t', '--title', default='Gene Expression Heatmap',
-                       help='图表标题')
+                       help='Chart title')
     parser.add_argument('--cmap', default='RdBu_r',
-                       help='颜色映射 (默认: RdBu_r)')
+                       help='Color map (default: RdBu_r)')
     parser.add_argument('--center', type=float, default=0,
-                       help='颜色中心值 (默认: 0)')
+                       help='Color center value (default: 0)')
     parser.add_argument('--vmin', type=float,
-                       help='最小值')
+                       help='Minimum value')
     parser.add_argument('--vmax', type=float,
-                       help='最大值')
+                       help='Maximum value')
     parser.add_argument('--row-cluster', action='store_true',
-                       help='启用行聚类')
+                       help='Enable row clustering')
     parser.add_argument('--col-cluster', action='store_true',
-                       help='启用列聚类')
+                       help='Enable column clustering')
     parser.add_argument('--row-annot', 
-                       help='行注释 JSON 文件路径')
+                       help='Row annotation JSON file path')
     parser.add_argument('--col-annot',
-                       help='列注释 JSON 文件路径')
+                       help='Column annotation JSON file path')
     parser.add_argument('--z-score', type=int, choices=[0, 1],
-                       help='Z-score 标准化 (0=行, 1=列)')
+                       help='Z-score normalization (0=row, 1=col)')
     parser.add_argument('--standard-scale', choices=['row', 'col'],
-                       help='标准化方式 (row 或 col)')
+                       help='Normalization method (row or col)')
     parser.add_argument('--figsize', nargs=2, type=float,
-                       help='图形尺寸 (宽 高)')
+                       help='Figure size (width height)')
     parser.add_argument('--dpi', type=int, default=300,
-                       help='输出分辨率 (默认: 300)')
+                       help='Output resolution (default: 300)')
     parser.add_argument('--hide-row-labels', action='store_true',
-                       help='隐藏行标签')
+                       help='Hide row labels')
     parser.add_argument('--hide-col-labels', action='store_true',
-                       help='隐藏列标签')
+                       help='Hide column labels')
     parser.add_argument('--rotate-col', type=float, default=45,
-                       help='列标签旋转角度 (默认: 45)')
+                       help='Column label rotation angle (default: 45)')
     parser.add_argument('-v', '--verbose', action='store_true',
-                       help='详细输出')
+                       help='Verbose output')
     
     args = parser.parse_args()
     
-    # 加载注释
+    # Load annotations
     row_annotations = None
     col_annotations = None
     
@@ -478,7 +479,7 @@ def main():
     if args.col_annot:
         col_annotations = load_annotations_from_json(args.col_annot)
     
-    # 构建参数
+    # Build parameters
     kwargs = {
         'title': args.title,
         'cmap': args.cmap,
@@ -500,13 +501,13 @@ def main():
     if args.figsize:
         kwargs['figsize'] = tuple(args.figsize)
     
-    # 移除 None 值
+    # Remove None values
     kwargs = {k: v for k, v in kwargs.items() if v is not None}
     
-    # 执行
+    # Execute
     hb = HeatmapBeautifier()
     hb.create_heatmap(args.input, args.output, **kwargs)
-    print("✓ 完成!")
+    print("✓ Done!")
 
 
 if __name__ == '__main__':

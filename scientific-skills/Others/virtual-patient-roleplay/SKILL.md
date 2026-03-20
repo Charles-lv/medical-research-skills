@@ -1,135 +1,102 @@
 ---
 name: virtual-patient-roleplay
-description: AI-powered standardized patient simulator for clinical interview training.
-  Generates realistic patient responses based on medical history and symptoms, enabling
-  medical students to practice history-taking and communication skills in a safe environment.
-version: 1.0.0
-category: Education
-tags:
-- medical-education
-- clinical-training
-- standardized-patient
-- communication-skills
-author: AIPOCH
+description: Simulate standardized patient encounters for medical training, supporting OSCE-style history-taking practice, communication skills rehearsal, and educational debriefing.
 license: MIT
-status: Draft
-risk_level: Medium
-skill_type: Tool/Script
-owner: AIPOCH
-reviewer: ''
-last_updated: '2026-02-06'
+skill-author: AIPOCH
 ---
-
 # Virtual Patient Roleplay
 
-AI-powered standardized patient (SP) simulator for medical education. Roleplays various clinical scenarios to help students practice patient interview skills.
+Structured standardized-patient simulation for medical training and clinical interview practice.
 
-## Features
+> **Educational Disclaimer:** All output is for training simulation only. This skill does not provide real clinical diagnosis, treatment selection, or emergency instructions. Faculty supervision is required for formal assessment use.
 
-- Multiple patient personas with realistic medical histories
-- Dynamic response generation based on student questions
-- Physical exam findings and lab results simulation
-- Feedback on communication skills and diagnostic approach
-- Support for various clinical scenarios (cardiology, neurology, GI, etc.)
+## Quick Check
 
-## Use Cases
-
-- Medical student OSCE preparation
-- Clinical communication skills training
-- Differential diagnosis practice
-- Breaking bad news simulation
-
-## Input Parameters
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `scenario` | str | Yes | Clinical scenario type (e.g., "chest_pain", "headache", "abdominal_pain") |
-| `student_question` | str | Yes | Student's question to the patient |
-| `conversation_history` | list | No | Previous Q&A exchanges |
-| `difficulty` | str | No | Difficulty level ("beginner", "intermediate", "advanced") |
-
-## Output Format
-
-```json
-{
-  "patient_response": "string",
-  "emotional_state": "string",
-  "physical_cues": "string",
-  "hidden_information": "string",
-  "feedback": {
-    "communication_tips": ["string"],
-    "missed_questions": ["string"]
-  }
-}
+```bash
+python -m py_compile scripts/main.py
+python -c "from scripts.main import PatientSimulator; sim=PatientSimulator('chest_pain'); print(sim.ask('Where does the pain go?')['patient_response'])"
 ```
 
-## Example Usage
+## When to Use
 
-```python
-from virtual_patient_roleplay import PatientSimulator
+- Use this skill for OSCE-style history-taking practice, communication skills rehearsal, or debrief planning.
+- Use this skill when a learner needs to practice clinical interviewing with a simulated patient response.
+- Do not use this skill for real patient triage, clinical diagnosis, treatment selection, or emergency guidance.
 
-simulator = PatientSimulator(scenario="chest_pain")
-response = simulator.ask("Can you describe your pain?")
-print(response.patient_response)
+## Workflow
+
+1. Confirm the training goal, scenario type, learner level, and output focus (questioning, bedside manner, or debriefing).
+2. Check whether the request is for live roleplay, case setup, feedback, or post-encounter summary.
+3. Use the packaged simulator for supported scenarios; otherwise provide a manual roleplay scaffold without inventing unsupported medical certainty.
+4. Return the patient response or teaching artifact with assumptions, missed-question prompts, and debrief notes.
+5. If the request exceeds educational scope, stop and restate the boundary explicitly.
+
+## Usage
+
+```text
+python -c "from scripts.main import PatientSimulator; sim=PatientSimulator('chest_pain'); print(sim.ask('Where does the pain go?')['patient_response'])"
+python -c "from scripts.main import PatientSimulator; sim=PatientSimulator('headache'); print(sim.ask('Did the pain start suddenly?')['patient_response'])"
 ```
 
-## Limitations
+## Parameters
 
-- Does not replace real patient interaction
-- Limited physical exam simulation
-- Responses are generated, not from real patients
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `scenario` | string | No | `chest_pain` | Scenario: `chest_pain`, `headache`, `abdominal_pain` |
+| `student_question` | string | Yes (for interaction) | — | Learner question posed to the patient |
+| `difficulty` | string | No | `intermediate` | Scenario difficulty level |
+
+## Output
+
+- Simulated patient response
+- Scenario-specific cues and debrief elements
+- Explicit reminder that output is educational, not clinical advice
+
+## Scope Boundaries
+
+- This skill supports training simulations, not real clinical triage.
+- This skill does not provide diagnosis, treatment selection, or emergency instructions.
+- This skill should not be used as a substitute for faculty supervision or patient care.
+
+## Stress-Case Rules
+
+For complex multi-constraint requests, always include these explicit blocks:
+
+1. Training Objective
+2. Scenario Assumptions
+3. Roleplay Output
+4. Educational Limits
+5. Debrief and Next Checks
+
+## Error Handling
+
+- If required inputs are missing, state exactly which fields are missing and request only the minimum additional information.
+- If the task goes outside the documented scope, stop instead of guessing or silently widening the assignment.
+- If `scripts/main.py` fails, report the failure point, summarize what still can be completed safely, and provide a manual fallback.
+- Do not fabricate clinical certainty, real patient data, or verified diagnostic outcomes.
+
+## Input Validation
+
+This skill accepts: a scenario identifier and a learner question for standardized patient simulation in a medical training context.
+
+If the request does not involve educational patient simulation — for example, asking for real clinical diagnosis, treatment recommendations, emergency triage, or non-medical roleplay — do not proceed with the workflow. Instead respond:
+> "virtual-patient-roleplay is designed for medical training simulations only. Your request appears to be outside this scope. Please provide a scenario and learner question for educational practice, or use a more appropriate tool."
 
 ## References
 
-- Association of Standardized Patient Educators (ASPE) Standards
-- OSCE Best Practices in Medical Education
+- [references/references.md](references/references.md) — Educational standards and simulation frameworks
+- [references/audit-reference.md](references/audit-reference.md) — Supported scope, audit commands, and fallback boundaries
 
-## Risk Assessment
+## Response Template
 
-| Risk Indicator | Assessment | Level |
-|----------------|------------|-------|
-| Code Execution | Python/R scripts executed locally | Medium |
-| Network Access | No external API calls | Low |
-| File System Access | Read input files, write output files | Medium |
-| Instruction Tampering | Standard prompt guidelines | Low |
-| Data Exposure | Output files saved to workspace | Low |
+Use the following fixed structure for non-trivial requests:
 
-## Security Checklist
+1. Objective
+2. Inputs Received
+3. Assumptions
+4. Workflow
+5. Deliverable
+6. Risks and Limits
+7. Next Checks
 
-- [ ] No hardcoded credentials or API keys
-- [ ] No unauthorized file system access (../)
-- [ ] Output does not expose sensitive information
-- [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
-- [ ] Output directory restricted to workspace
-- [ ] Script execution in sandboxed environment
-- [ ] Error messages sanitized (no stack traces exposed)
-- [ ] Dependencies audited
-## Prerequisites
-
-```bash
-# Python dependencies
-pip install -r requirements.txt
-```
-
-## Evaluation Criteria
-
-### Success Metrics
-- [ ] Successfully executes main functionality
-- [ ] Output meets quality standards
-- [ ] Handles edge cases gracefully
-- [ ] Performance is acceptable
-
-### Test Cases
-1. **Basic Functionality**: Standard input → Expected output
-2. **Edge Case**: Invalid input → Graceful error handling
-3. **Performance**: Large dataset → Acceptable processing time
-
-## Lifecycle Status
-
-- **Current Stage**: Draft
-- **Next Review Date**: 2026-03-06
-- **Known Issues**: None
-- **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support
+If the request is simple, you may compress the structure, but still keep assumptions and limits explicit when they affect correctness.

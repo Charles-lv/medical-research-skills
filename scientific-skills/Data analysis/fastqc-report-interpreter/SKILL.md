@@ -1,124 +1,127 @@
 ---
 name: fastqc-report-interpreter
-description: Use when analyzing FASTQC quality reports from sequencing data, identifying quality issues in NGS datasets, or troubleshooting sequencing problems. Interprets quality metrics and provides actionable recommendations for RNA-seq, DNA-seq, and ChIP-seq data.
-allowed-tools: "Read Write Bash Edit"
+description: Interprets FastQC quality control reports for NGS data. Identifies quality issues, diagnoses root causes, and provides actionable recommendations for RNA-seq, DNA-seq, and ChIP-seq datasets.
 license: MIT
-metadata:
-  skill-author: AIPOCH
-  version: "1.0"
+skill-author: AIPOCH
+status: beta
 ---
-
 # FASTQC Report Interpreter
 
-Analyze FASTQC quality control reports for Next-Generation Sequencing (NGS) data to assess data quality and identify issues.
+Analyze FastQC quality control reports for Next-Generation Sequencing data. Identifies per-base quality issues, adapter contamination, duplication levels, and sequence bias, then provides application-specific remediation recommendations.
 
-## Quick Start
+## Input Validation
 
-```python
-from scripts.fastqc_interpreter import FASTQCInterpreter
+This skill accepts: FastQC HTML or JSON report files from Illumina, PacBio, or Oxford Nanopore sequencing runs.
 
-interpreter = FASTQCInterpreter()
+If the request does not involve FastQC report interpretation — for example, asking to perform alignment, call variants, or analyze non-sequencing data — do not proceed. Instead respond:
 
-# Analyze report
-analysis = interpreter.analyze("sample_fastqc.html")
-print(f"Overall Quality: {analysis.quality_status}")
-print(f"Issues Found: {analysis.issues}")
-```
+> "`fastqc-report-interpreter` is designed to interpret FastQC quality control reports for NGS data. Your request appears to be outside this scope. Please provide a FastQC report file, or use a more appropriate tool for your task."
 
-## Core Capabilities
+Do not generate any output or analysis before emitting this refusal. Validate scope first.
 
-### 1. Quality Metrics Analysis
+## When to Use
 
-```python
-metrics = interpreter.parse_metrics("fastqc_data.txt")
-```
+- Assessing sequencing data quality before downstream analysis
+- Diagnosing quality failures in RNA-seq, DNA-seq, or ChIP-seq datasets
+- Generating batch QC summaries across multiple samples
+- Deciding whether trimming or filtering is required before alignment
 
-**Key Metrics:**
-| Metric | Good | Warning | Fail |
-|--------|------|---------|------|
-| Per base sequence quality | Q > 28 | Q 20-28 | Q < 20 |
-| Per sequence quality scores | Peak at Q30 | Peak Q20-30 | Peak < Q20 |
-| Per base N content | < 5% | 5-20% | > 20% |
-| Sequence duplication | < 20% | 20-50% | > 50% |
-| Adapter content | < 5% | 5-10% | > 10% |
-
-### 2. Issue Diagnosis
-
-```python
-issues = interpreter.diagnose_issues(metrics)
-for issue in issues:
-    print(f"{issue.severity}: {issue.description}")
-    print(f"Recommendation: {issue.recommendation}")
-```
-
-**Common Issues:**
-
-**Low Quality at Read Ends**
-- **Cause**: Phasing effects, reagent depletion
-- **Solution**: Trim last 10-20 bases
-
-**Adapter Contamination**
-- **Cause**: Incomplete adapter removal
-- **Solution**: Re-run cutadapt/Trimmomatic with stricter parameters
-
-**High Duplication**
-- **Cause**: PCR over-amplification, low input
-- **Solution**: Use deduplication; consider library prep optimization
-
-**Per Base Sequence Content Bias**
-- **Cause**: Adapter dimers, non-random priming
-- **Solution**: Check for adapter contamination; randomize primers
-
-### 3. Batch Analysis
-
-```python
-batch_results = interpreter.analyze_batch(
-    fastqc_files=["sample1_fastqc.html", "sample2_fastqc.html", ...],
-    output_summary="batch_summary.csv"
-)
-```
-
-### 4. Recommendation Generation
-
-```python
-recommendations = interpreter.get_recommendations(
-    analysis,
-    application="rna_seq",  # or "dna_seq", "chip_seq"
-    quality_threshold="high"
-)
-```
-
-**Application-Specific Thresholds:**
-- **RNA-seq**: Acceptable duplication up to 40% (transcript abundance)
-- **DNA-seq**: Strict quality requirements (variant calling)
-- **ChIP-seq**: Moderate quality, focus on enrichment metrics
-
-## CLI Usage
+## Quick Check
 
 ```bash
-# Analyze single report
-python scripts/fastqc_interpreter.py --input sample_fastqc.html
-
-# Batch analysis
-python scripts/fastqc_interpreter.py --batch "*fastqc.html" --output report.pdf
-
-# With custom thresholds
-python scripts/fastqc_interpreter.py --input fastqc.html --application rna_seq
+python -m py_compile scripts/main.py
+python scripts/main.py --help
+python scripts/main.py --demo
 ```
 
-## Output Interpretation
+## Workflow
 
-**PASS (Green)**: Proceed with analysis
-**WARNING (Yellow)**: Review but likely acceptable
-**FAIL (Red)**: Requires action before downstream analysis
+1. **Validate input first** — confirm the request involves a FastQC report before any processing.
+2. Confirm the user objective, required inputs, and non-negotiable constraints.
+3. Use the packaged script path or the documented reasoning path with only the inputs that are actually available.
+4. Return a structured result that separates assumptions, deliverables, risks, and unresolved items.
+5. If execution fails or inputs are incomplete, switch to the fallback path and state exactly what blocked full completion.
 
-## Troubleshooting Guide
+**Fallback template:** If `scripts/main.py` fails or the report file is unreadable, report: (a) the failure point, (b) which metrics can still be assessed manually from the FastQC HTML, (c) the recommended manual review checklist.
 
-See `references/troubleshooting.md` for:
-- Platform-specific issues (Illumina, PacBio, Oxford Nanopore)
-- Library prep problem diagnosis
-- Downstream analysis impact assessment
+## Parameters
 
----
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--report`, `-r` | string | No* | FastQC JSON or HTML report file |
+| `--demo` | flag | No | Run with built-in demo data |
+| `--batch` | string | No | Glob pattern for batch analysis (e.g., `"*_fastqc.json"`) |
+| `--application` | string | No | Sequencing type: `rna_seq`, `dna_seq`, `chip_seq` |
+| `--output`, `-o` | string | No | Output file path (default: stdout) |
+| `--output-format` | string | No | `text` or `json` (default: `text`) |
 
-**Skill ID**: 205 | **Version**: 1.0 | **License**: MIT
+*Required unless `--demo` or `--batch` is used.
+
+**Implementation note:** `--batch` and `--application` flags are documented here and must be present in `scripts/main.py` argparse. If the script returns "unrecognized arguments", add these flags to the argparse definition and implement: (1) a batch processing loop for `--batch`, and (2) application-specific threshold overrides for `--application`.
+
+## Usage
+
+```text
+# Single report
+python scripts/main.py --report sample_fastqc.json --application rna_seq
+
+# Batch analysis
+python scripts/main.py --batch "*_fastqc.json" --output batch_summary.csv
+
+# Demo mode
+python scripts/main.py --demo
+
+# JSON output for agent consumption
+python scripts/main.py --report sample_fastqc.json --output-format json
+```
+
+## Key Quality Metrics
+
+| Metric | Good | Warning | Fail |
+|--------|------|---------|------|
+| Per base sequence quality | Q > 28 | Q 20–28 | Q < 20 |
+| Per sequence quality scores | Peak >= Q30 | Peak Q20–30 | Peak < Q20 |
+| Per base N content | < 5% | 5–20% | > 20% |
+| Sequence duplication | < 20% | 20–50% | > 50% |
+| Adapter content | < 5% | 5–10% | > 10% |
+
+**Application-specific thresholds:**
+- RNA-seq: duplication up to 40% acceptable (transcript abundance effect)
+- DNA-seq: strict quality required for variant calling
+- ChIP-seq: moderate quality; focus on enrichment metrics
+
+## Error Handling
+
+- If required inputs are missing, state exactly which fields are missing and request only the minimum additional information.
+- If the task goes outside the documented scope, stop instead of guessing or silently widening the assignment.
+- If `scripts/main.py` fails, report the failure point, summarize what still can be completed safely, and provide a manual fallback.
+- If the report file is not found, print a user-friendly error to stderr and exit with code 1 (do not show raw Python traceback): `Error: Report file not found: {path}`
+- Do not fabricate files, citations, data, search results, or execution outcomes.
+- Unicode symbols require `PYTHONIOENCODING=utf-8` on Python 3.6 terminals; ASCII fallbacks (PASS/WARN/FAIL) are used when encoding is unavailable.
+
+## Output Requirements
+
+Every response must make these explicit:
+
+- Objective and deliverable
+- Inputs used and assumptions introduced
+- Workflow or decision path taken
+- Core result: quality status per metric, issues found, recommendations
+- Constraints, risks, caveats (e.g., platform-specific artifacts)
+- Unresolved items and next-step checks
+
+## Response Template
+
+1. Objective
+2. Inputs Received
+3. Assumptions
+4. Workflow
+5. Deliverable
+6. Risks and Limits
+7. Next Checks
+
+## Prerequisites
+
+```bash
+pip install -r requirements.txt
+```

@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "skill_name": "prospero-registration-helper",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Protocol Design",
+    "execution_mode": "D",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "The evaluated outputs remained procedural and did not invent scientific findings beyond the provided study framing."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "The package stays in protocol or application drafting scope and does not provide patient-care advice."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "The workflows preserve review-design or funding-application conventions instead of improvising unsupported methodology."
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "The primary deliverables are structured documents rather than scientific analysis code."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 85,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "The package covers the core PROSPERO drafting sequence well."
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "The date helper is deterministic and easy to verify."
+      },
+      "performance_context": {
+        "score": 8,
+        "max": 8,
+        "note": "The date utility is lightweight, and the three-section generation pattern keeps total token usage proportional to registration complexity."
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "The workflow is concise and highlights placeholder-preservation rules clearly."
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "The staged PICO-extraction and placeholder-preservation rules are explained clearly enough for first-time PROSPERO applicants to follow."
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "The skill remains administrative and does not overreach into unsupported medical recommendations."
+      },
+      "maintainability": {
+        "score": 10,
+        "max": 12,
+        "note": "The package is small and stable, though reference prompts could be expanded."
+      },
+      "agent_specific": {
+        "score": 14,
+        "max": 20,
+        "note": "The rules are crisp, but refusal handling for underspecified titles could be more explicit."
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 86.0,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 19,
+      "total": 20
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Meta-analysis registry draft",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The response remained administrative and form-oriented.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output preserves registration-specific formatting constraints and placeholder handling.",
+            "result": "PASS",
+            "note": "Registry field behavior is kept explicit."
+          },
+          {
+            "text": "Missing title or PICO anchors trigger a constrained recovery path instead of fabricated registry content.",
+            "result": "PASS",
+            "note": "The request contained adequate registry anchors."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Protocol-assisted registration",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The output used extra context well while keeping to registry scope.",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output preserves registration-specific formatting constraints and placeholder handling.",
+            "result": "PASS",
+            "note": "Registry field behavior is kept explicit."
+          },
+          {
+            "text": "Missing title or PICO anchors trigger a constrained recovery path instead of fabricated registry content.",
+            "result": "PASS",
+            "note": "The request contained adequate registry anchors."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Weak or missing title",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package handled missing anchors reasonably but could use a stronger canonical refusal pattern.",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 3,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output preserves registration-specific formatting constraints and placeholder handling.",
+            "result": "PASS",
+            "note": "Registry field behavior is kept explicit."
+          },
+          {
+            "text": "Missing title or PICO anchors trigger a constrained recovery path instead of fabricated registry content.",
+            "result": "FAIL",
+            "note": "The package requests missing anchors, but a more stable refusal template would help."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Placeholder-sensitive run",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The placeholder-preservation rule stayed intact.",
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output preserves registration-specific formatting constraints and placeholder handling.",
+            "result": "PASS",
+            "note": "Registry field behavior is kept explicit."
+          },
+          {
+            "text": "Missing title or PICO anchors trigger a constrained recovery path instead of fabricated registry content.",
+            "result": "PASS",
+            "note": "The request contained adequate registry anchors."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Methods-dense registration",
+        "status": "COMPLETED",
+        "status_flag": "PASS",
+        "note": "The package remained stable under heavier registry detail.",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "The output stays within protocol-design scope rather than inventing completed study results.",
+            "result": "PASS",
+            "note": "The observed output is framed as a plan, workflow, or draft deliverable."
+          },
+          {
+            "text": "The response preserves a structured format that a downstream researcher or agent can review directly.",
+            "result": "PASS",
+            "note": "The output shape remains checklist-driven and audit-friendly."
+          },
+          {
+            "text": "The output preserves registration-specific formatting constraints and placeholder handling.",
+            "result": "PASS",
+            "note": "Registry field behavior is kept explicit."
+          },
+          {
+            "text": "Missing title or PICO anchors trigger a constrained recovery path instead of fabricated registry content.",
+            "result": "PASS",
+            "note": "The request contained adequate registry anchors."
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 34.0,
+    "dynamic_weighted": 51.6,
+    "score": 86,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "*",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "The package keeps registry drafting procedural and reproducible.",
+    "Date generation and placeholder-preservation rules reduce common form-entry mistakes.",
+    "The workflow is short enough for consistent execution across repeated requests."
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Add a title-quality refusal template",
+      "observed_in": [
+        3
+      ],
+      "problem": "The package tells users what information is needed but not how an edge-case refusal should be phrased.",
+      "root_cause": "Requirements are documented more clearly than failure messaging.",
+      "fix": "Add one concise response template for missing or non-review titles."
+    }
+  ]
+}

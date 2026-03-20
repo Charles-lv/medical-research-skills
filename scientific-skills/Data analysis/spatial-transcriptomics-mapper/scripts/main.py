@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Spatial Transcriptomics Mapper
-处理10x Visium或Xenium数据，将基因表达投射回组织切片图像
+Process 10x Visium or Xenium data and project gene expression back onto tissue section images
 
 Author: OpenClaw
 Version: 1.0.0
@@ -60,7 +60,7 @@ logger = logging.getLogger(__name__)
 
 class SpatialMapper:
     """
-    空间转录组数据映射器，支持Visium和Xenium平台
+    Spatial transcriptomics data mapper supporting Visium and Xenium platforms
     """
     
     def __init__(
@@ -72,20 +72,20 @@ class SpatialMapper:
         cmap: str = "viridis"
     ):
         """
-        初始化SpatialMapper
+        Initialize SpatialMapper
         
         Parameters
         ----------
         platform : str
-            平台类型: 'visium' 或 'xenium'
+            Platform type: 'visium' or 'xenium'
         data_dir : str
-            数据目录路径
+            Data directory path
         output_dir : str
-            输出目录路径
+            Output directory path
         dpi : int
-            输出图像DPI
+            Output image DPI
         cmap : str
-            颜色映射方案
+            Color map scheme
         """
         self.platform = platform.lower()
         self.data_dir = Path(data_dir)
@@ -116,14 +116,14 @@ class SpatialMapper:
         logger.info(f"Output directory: {output_dir}")
     
     def load_data(self) -> None:
-        """加载空间转录组数据"""
+        """Load spatial transcriptomics data"""
         if self.platform == "visium":
             self._load_visium_data()
         elif self.platform == "xenium":
             self._load_xenium_data()
     
     def _load_visium_data(self) -> None:
-        """加载Visium数据（Space Ranger输出）"""
+        """Load Visium data (Space Ranger output)"""
         if not SCANPY_AVAILABLE:
             raise ImportError("Scanpy is required for Visium data processing. Install with: pip install scanpy")
         
@@ -162,7 +162,7 @@ class SpatialMapper:
             logger.info(f"Loaded tissue image: {self.image.shape}")
     
     def _load_xenium_data(self) -> None:
-        """加载Xenium数据"""
+        """Load Xenium data"""
         logger.info("Loading Xenium data...")
         
         # Load cell feature matrix
@@ -210,26 +210,26 @@ class SpatialMapper:
         figsize: Tuple[int, int] = (10, 10)
     ) -> plt.Figure:
         """
-        绘制单个基因的空间表达图
+        Plot spatial expression map for a single gene
         
         Parameters
         ----------
         gene : str
-            基因名称
+            Gene name
         save_path : str, optional
-            保存路径
+            Save path
         title : str, optional
-            图表标题
+            Plot title
         spot_size : float
-            Spot大小系数
+            Spot size factor
         alpha : float
-            透明度
+            Transparency
         vmin, vmax : float, optional
-            颜色范围
+            Color range
         show_image : bool
-            是否显示组织图像
+            Whether to show tissue image
         figsize : tuple
-            图像尺寸
+            Figure size
             
         Returns
         -------
@@ -260,7 +260,7 @@ class SpatialMapper:
         show_image: bool,
         figsize: Tuple[int, int]
     ) -> plt.Figure:
-        """绘制Visium单基因空间图"""
+        """Plot Visium single-gene spatial map"""
         fig, ax = plt.subplots(figsize=figsize)
         
         # Get gene expression
@@ -328,7 +328,7 @@ class SpatialMapper:
         vmax: Optional[float],
         figsize: Tuple[int, int]
     ) -> plt.Figure:
-        """绘制Xenium单基因空间图"""
+        """Plot Xenium single-gene spatial map"""
         fig, ax = plt.subplots(figsize=figsize)
         
         if self.transcripts is not None:
@@ -383,22 +383,22 @@ class SpatialMapper:
         figsize_per_gene: Tuple[int, int] = (5, 5)
     ) -> plt.Figure:
         """
-        绘制多个基因的空间图
+        Plot spatial maps for multiple genes
         
         Parameters
         ----------
         genes : list
-            基因名称列表
+            List of gene names
         mode : str
-            布局模式: 'grid' 或 'overlay'
+            Layout mode: 'grid' or 'overlay'
         save_path : str, optional
-            保存路径
+            Save path
         spot_size : float
-            Spot大小
+            Spot size
         alpha : float
-            透明度
+            Transparency
         figsize_per_gene : tuple
-            每个基因的子图尺寸
+            Subplot size per gene
             
         Returns
         -------
@@ -455,7 +455,7 @@ class SpatialMapper:
         spot_size: float,
         alpha: float
     ) -> None:
-        """在指定axis上绘制基因表达"""
+        """Plot gene expression on the specified axis"""
         if self.platform != "visium" or self.adata is None:
             return
         
@@ -497,7 +497,7 @@ class SpatialMapper:
         spot_size: float,
         alpha: float
     ) -> None:
-        """叠加绘制多个基因（使用不同颜色）"""
+        """Overlay multiple genes on a single plot (using distinct colors)"""
         if self.platform != "visium" or self.adata is None:
             return
         
@@ -542,20 +542,20 @@ class SpatialMapper:
         figsize: Tuple[int, int] = (10, 10)
     ) -> plt.Figure:
         """
-        绘制空间聚类图
+        Plot spatial cluster map
         
         Parameters
         ----------
         cluster_file : str, optional
-            聚类结果CSV文件路径
+            Path to cluster result CSV file
         cluster_key : str
-            AnnData中的聚类obs key
+            Cluster obs key in AnnData
         save_path : str, optional
-            保存路径
+            Save path
         spot_size : float
-            Spot大小
+            Spot size
         figsize : tuple
-            图像尺寸
+            Figure size
             
         Returns
         -------
@@ -624,17 +624,17 @@ class SpatialMapper:
     
     def get_spatial_stats(self, gene: str) -> Dict:
         """
-        获取基因的空间统计信息
+        Get spatial statistics for a gene
         
         Parameters
         ----------
         gene : str
-            基因名称
+            Gene name
             
         Returns
         -------
         dict
-            统计信息字典
+            Statistics dictionary
         """
         if gene not in self.gene_names:
             raise ValueError(f"Gene '{gene}' not found")
@@ -673,19 +673,19 @@ class SpatialMapper:
         output_file: str = "spatial_report.html"
     ) -> str:
         """
-        生成HTML格式的综合报告
+        Generate a comprehensive HTML report
         
         Parameters
         ----------
         genes : list
-            要包含在报告中的基因列表
+            List of genes to include in the report
         output_file : str
-            输出HTML文件名
+            Output HTML filename
             
         Returns
         -------
         str
-            输出文件路径
+            Output file path
         """
         report_path = self.output_dir / output_file
         
@@ -810,19 +810,19 @@ class SpatialMapper:
 
 
 def parse_args() -> argparse.Namespace:
-    """解析命令行参数"""
+    """Parse command line arguments"""
     parser = argparse.ArgumentParser(
-        description="Spatial Transcriptomics Mapper - 将基因表达投射回组织切片图像",
+        description="Spatial Transcriptomics Mapper - project gene expression onto tissue section images",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Visium单基因分析
+  # Visium single-gene analysis
   python main.py --platform visium --data-dir ./visium/outs --gene PIK3CA --output ./results/
 
-  # Xenium多基因分析
+  # Xenium multi-gene analysis
   python main.py --platform xenium --data-dir ./xenium/outs --genes SFTPB,SFTPC --mode multi
 
-  # 空间聚类可视化
+  # Spatial cluster visualization
   python main.py --platform visium --data-dir ./data/outs --cluster-file ./clusters.csv
         """
     )
@@ -833,13 +833,13 @@ Examples:
         type=str,
         required=True,
         choices=["visium", "xenium"],
-        help="空间转录组平台类型"
+        help="Spatial transcriptomics platform type"
     )
     parser.add_argument(
         "--data-dir",
         type=str,
         required=True,
-        help="数据目录路径"
+        help="Data directory path"
     )
     
     # Gene selection
@@ -847,12 +847,12 @@ Examples:
     gene_group.add_argument(
         "--gene",
         type=str,
-        help="单个基因名称"
+        help="Single gene name"
     )
     gene_group.add_argument(
         "--genes",
         type=str,
-        help="多个基因，逗号分隔 (如: PIK3CA,PTEN,EGFR)"
+        help="Multiple genes, comma-separated (e.g.: PIK3CA,PTEN,EGFR)"
     )
     
     # Analysis options
@@ -861,12 +861,12 @@ Examples:
         type=str,
         default="single",
         choices=["single", "overlay", "multi", "cluster"],
-        help="分析模式 (default: single)"
+        help="Analysis mode (default: single)"
     )
     parser.add_argument(
         "--cluster-file",
         type=str,
-        help="聚类结果CSV文件路径 (barcode,cluster)"
+        help="Path to cluster result CSV file (barcode,cluster)"
     )
     
     # Output options
@@ -874,19 +874,19 @@ Examples:
         "--output",
         type=str,
         default="./output",
-        help="输出目录 (default: ./output)"
+        help="Output directory (default: ./output)"
     )
     parser.add_argument(
         "--dpi",
         type=int,
         default=300,
-        help="输出图像DPI (default: 300)"
+        help="Output image DPI (default: 300)"
     )
     parser.add_argument(
         "--cmap",
         type=str,
         default="viridis",
-        help="颜色映射方案 (default: viridis)"
+        help="Color map scheme (default: viridis)"
     )
     
     # Visualization options
@@ -894,43 +894,43 @@ Examples:
         "--spot-size",
         type=float,
         default=1.0,
-        help="Visium spot大小系数 (default: 1.0)"
+        help="Visium spot size factor (default: 1.0)"
     )
     parser.add_argument(
         "--alpha",
         type=float,
         default=0.8,
-        help="透明度 0-1 (default: 0.8)"
+        help="Transparency 0-1 (default: 0.8)"
     )
     parser.add_argument(
         "--min-count",
         type=int,
         default=0,
-        help="最小表达量过滤 (default: 0)"
+        help="Minimum expression count filter (default: 0)"
     )
     
     # Advanced options
     parser.add_argument(
         "--crop",
         type=str,
-        help="裁剪区域 (格式: x1,y1,x2,y2)"
+        help="Crop region (format: x1,y1,x2,y2)"
     )
     parser.add_argument(
         "--report",
         action="store_true",
-        help="生成HTML报告"
+        help="Generate HTML report"
     )
     parser.add_argument(
         "-v", "--verbose",
         action="store_true",
-        help="详细输出"
+        help="Verbose output"
     )
     
     return parser.parse_args()
 
 
 def main():
-    """主函数"""
+    """Main function"""
     args = parse_args()
     
     # Set log level

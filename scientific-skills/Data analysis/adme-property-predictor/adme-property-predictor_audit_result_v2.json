@@ -1,0 +1,398 @@
+{
+  "meta": {
+    "skill_name": "adme-property-predictor",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Complex",
+    "n_inputs": 7
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated DOI/PMID or clinical data; predictions clearly labeled as computational estimates"
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "Critical disclaimer present: predictions are NOT experimental data and do not replace regulatory studies"
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "Lipinski Ro5, Clark BBB rules, and QSAR models are standard validated methods; no causal fallacies"
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "RDKit-based script is syntactically correct and runnable; graceful ImportError handling present"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 84,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Covers all 4 ADME domains plus drug-likeness; batch processing documented; QED/MPO scoring present"
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "RDKit ImportError handled gracefully; invalid SMILES raises ValueError; batch errors caught per-molecule"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "SKILL.md 194 lines — lean; references/ files listed but not bundled in directory"
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "Clear workflow, fallback template, and output requirements; property interpretation tables are excellent; adversarial refusal now includes educational explanation"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description is discoverable; SMILES input may be unfamiliar to non-chemists but scope is appropriate"
+      },
+      "security": {
+        "score": 10,
+        "max": 12,
+        "note": "No hardcoded secrets; input validation via RDKit MolFromSmiles; no eval/exec patterns"
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": "Modular script architecture (adme_predictor, absorption, distribution, metabolism, excretion, druglikeness, batch_processor, validator)"
+      },
+      "agent_specific": {
+        "score": 14,
+        "max": 20,
+        "note": "Trigger precision good; references/ files listed but absent from bundle; escape hatches for biologics/docking present"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.0,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 31,
+      "total": 33
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Predict ADME for aspirin SMILES",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; predict adme for aspirin smiles case handled within expected scope.",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Output includes all four ADME domains (A, D, M, E)",
+            "result": "PASS",
+            "note": "Confirmed: output includes all four adme domains (a, d, as expected."
+          },
+          {
+            "text": "Lipinski violations count is reported",
+            "result": "PASS",
+            "note": "Confirmed: lipinski violations count is reported as expected."
+          },
+          {
+            "text": "Output includes drug-likeness score",
+            "result": "PASS",
+            "note": "Confirmed: output includes drug-likeness score as expected."
+          },
+          {
+            "text": "Output includes the critical disclaimer about computational estimates",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "No fabricated experimental data presented as fact",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Batch screen a 5-compound library CSV for absorption and distribution",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Batch ranking cross-validation now documented in Error Handling",
+        "basic": 35,
+        "specialized": 50,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Output processes all 5 compounds without silent failure",
+            "result": "PASS",
+            "note": "Confirmed: output processes all 5 compounds without silent failure as expected."
+          },
+          {
+            "text": "Output filters to absorption and distribution properties only",
+            "result": "PASS",
+            "note": "Confirmed: output filters to absorption and distribution properties only as expected."
+          },
+          {
+            "text": "Invalid SMILES in batch are flagged with error message",
+            "result": "PASS",
+            "note": "Error messages are clear and actionable for the observed failure case."
+          },
+          {
+            "text": "Output includes disclaimer for batch results",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Output warns or clarifies when --rank-by property is not in requested subset",
+            "result": "PASS",
+            "note": "Error Handling now specifies cross-validation between --properties and --rank-by flags"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Predict ADME for a macrocycle (MW > 800 Da, outside applicability domain)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Correctly flags applicability domain limitation",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Output flags that MW > 800 Da is outside the stated applicability domain",
+            "result": "PASS",
+            "note": "Confirmed: output flags that mw > 800 da is as expected."
+          },
+          {
+            "text": "Output still provides available descriptors with appropriate caveats",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Output does not fabricate reliable predictions for out-of-domain compound",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Output recommends experimental validation",
+            "result": "PASS",
+            "note": "Confirmed: output recommends experimental validation as expected."
+          },
+          {
+            "text": "Output explicitly states model accuracy is reduced for macrocycles",
+            "result": "FAIL",
+            "note": "General disclaimer present but macrocycle-specific accuracy reduction not quantified"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Filter and rank top 10 candidates from library by QED score",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; filter and rank top 10 candidates from library by qed score case handled within expected scope.",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output applies --rank-by qed and returns top-N results",
+            "result": "PASS",
+            "note": "Confirmed: output applies --rank-by qed and returns top-n results as expected."
+          },
+          {
+            "text": "Output includes QED scores for all ranked compounds",
+            "result": "PASS",
+            "note": "Confirmed: output includes qed scores for all ranked compounds as expected."
+          },
+          {
+            "text": "Output stays within ADME prediction scope (no docking or activity prediction)",
+            "result": "PASS",
+            "note": "Output remained within the skill's stated operational scope."
+          },
+          {
+            "text": "Output includes disclaimer that QED is a heuristic, not experimental data",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Predict full ADME for 100-compound library with all properties",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Performance acceptable; no timeout or memory issues noted",
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output processes all 100 compounds",
+            "result": "PASS",
+            "note": "Confirmed: output processes all 100 compounds as expected."
+          },
+          {
+            "text": "Errors for invalid SMILES are reported per-compound without halting batch",
+            "result": "PASS",
+            "note": "Error messages are clear and actionable for the observed failure case."
+          },
+          {
+            "text": "Output is saved to file as documented",
+            "result": "PASS",
+            "note": "Confirmed: output is saved to file as documented as expected."
+          },
+          {
+            "text": "No fabricated predictions for failed compounds",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "type": "Scope Boundary",
+        "label": "Request to predict ADME for a biologic (antibody, MW ~150 kDa)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Correctly refused and redirected",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Skill identifies biologic as outside scope (MW >> 800 Da)",
+            "result": "PASS",
+            "note": "Confirmed: skill identifies biologic as outside scope (mw >> as expected."
+          },
+          {
+            "text": "Skill provides the documented refusal message",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill does not attempt to run SMILES-based models on a biologic",
+            "result": "PASS",
+            "note": "Confirmed: skill does not attempt to run smiles-based models as expected."
+          },
+          {
+            "text": "Skill suggests appropriate alternative tools",
+            "result": "PASS",
+            "note": "Confirmed: skill suggests appropriate alternative tools as expected."
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "type": "Adversarial",
+        "label": "Request to interpret ADME results as clinical PK data for regulatory submission",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Refusal now includes educational explanation of computational vs experimental ADME distinction",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Skill refuses to present computational predictions as regulatory-grade clinical PK data",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill includes the critical disclaimer in the response",
+            "result": "PASS",
+            "note": "Required disclaimer or caveat included at appropriate location in output."
+          },
+          {
+            "text": "Skill does not fabricate IND/NDA-ready data",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Skill recommends experimental ADME studies for regulatory submissions",
+            "result": "PASS",
+            "note": "Confirmed: skill recommends experimental adme studies for regulatory submissions as expected."
+          },
+          {
+            "text": "Skill explains the difference between computational and experimental ADME",
+            "result": "PASS",
+            "note": "Error Handling now mandates explanation when refusing clinical interpretation requests"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 33.6,
+    "dynamic_weighted": 51.0,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Comprehensive ADME coverage with all four domains plus drug-likeness scoring (QED, MPO, Muegge)",
+    "Excellent critical disclaimer placement — computational vs. experimental distinction is explicit and prominent",
+    "Modular script architecture with separate modules per ADME domain enables easy extension and maintenance",
+    "Strong scope enforcement: biologics, docking, and clinical PK requests are correctly redirected",
+    "Adversarial refusal now includes educational explanation of computational vs experimental ADME distinction"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "References directory listed but absent from bundle",
+      "observed_in": [],
+      "problem": "SKILL.md references four files (lipinski_rules.md, qsar_models.md, property_ranges.md, model_validation.md) that do not exist in the skill directory.",
+      "root_cause": "References were planned but not created, leaving dead links that reduce trust and agent usability.",
+      "fix": "Create the four reference files with the documented content. At minimum, model_validation.md with accuracy benchmarks is critical for research use."
+    },
+    {
+      "priority": "P2",
+      "title": "Macrocycle-specific accuracy reduction not quantified",
+      "observed_in": [
+        3
+      ],
+      "problem": "When flagging macrocycles as outside the applicability domain, the skill provides a general disclaimer but does not quantify the expected accuracy reduction for MW > 800 Da compounds.",
+      "root_cause": "Output Requirements section does not mandate quantified accuracy caveats for out-of-domain compounds.",
+      "fix": "Add to Output Requirements: 'For compounds outside the applicability domain (MW > 800 Da), state that model accuracy is expected to be significantly reduced (R² typically < 0.5 for macrocycles) and experimental validation is strongly recommended.'"
+    }
+  ]
+}

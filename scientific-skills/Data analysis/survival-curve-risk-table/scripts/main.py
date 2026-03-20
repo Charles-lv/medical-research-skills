@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Survival Curve Risk Table Generator
-在Kaplan-Meier生存曲线下方自动对齐并添加"Number at risk"表格
-符合临床肿瘤学期刊标准（NEJM、Lancet、JCO等）
+Automatically aligns and adds a "Number at Risk" table below Kaplan-Meier survival curves
+Compliant with clinical oncology journal standards (NEJM, Lancet, JCO, etc.)
 
 Author: OpenClaw
 Version: 1.0.0
@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.gridspec import GridSpec
 
-# 尝试导入可选依赖
+# Try to import optional dependencies
 try:
     from PIL import Image
     HAS_PIL = True
@@ -42,15 +42,15 @@ except ImportError:
 
 class RiskTableGenerator:
     """
-    生存曲线风险表生成器
+    Survival Curve Risk Table Generator
     
-    主要功能：
-    1. 从生存数据计算各时间点风险人数
-    2. 生成符合期刊标准的表格
-    3. 与KM曲线组合生成出版级图像
+    Main features:
+    1. Calculate number at risk at each time point from survival data
+    2. Generate tables compliant with journal standards
+    3. Combine with KM curves to produce publication-quality figures
     """
     
-    # 预定义的期刊风格配置
+    # Predefined journal style configurations
     JOURNAL_STYLES = {
         "NEJM": {
             "font_family": "Helvetica",
@@ -101,14 +101,14 @@ class RiskTableGenerator:
         custom_style: Optional[Dict] = None
     ):
         """
-        初始化风险表生成器
+        Initialize the risk table generator
         
         Args:
-            style: 期刊风格 (NEJM, Lancet, JCO, custom)
-            time_points: 自定义时间点列表
-            figure_size: 图像尺寸 (宽, 高) 英寸
-            dpi: 图像分辨率
-            custom_style: 自定义风格配置（当style='custom'时使用）
+            style: Journal style (NEJM, Lancet, JCO, custom)
+            time_points: Custom list of time points
+            figure_size: Figure size (width, height) in inches
+            dpi: Figure resolution
+            custom_style: Custom style configuration (used when style='custom')
         """
         self.style_name = style
         self.style = self.JOURNAL_STYLES.get(style, self.JOURNAL_STYLES["NEJM"]).copy()
@@ -134,20 +134,20 @@ class RiskTableGenerator:
         group_col: Optional[str] = None
     ) -> None:
         """
-        加载生存数据
+        Load survival data
         
         Args:
-            df: 生存数据DataFrame
-            time_col: 时间列名
-            event_col: 事件列名（1=事件, 0=删失）
-            group_col: 分组列名（可选）
+            df: Survival data DataFrame
+            time_col: Time column name
+            event_col: Event column name (1=event, 0=censored)
+            group_col: Group column name (optional)
         """
         self.data = df.copy()
         self.time_col = time_col
         self.event_col = event_col
         self.group_col = group_col
         
-        # 验证必需列
+        # Validate required columns
         required_cols = [time_col, event_col]
         missing_cols = [col for col in required_cols if col not in df.columns]
         if missing_cols:
@@ -156,7 +156,7 @@ class RiskTableGenerator:
         if group_col and group_col not in df.columns:
             raise ValueError(f"Group column '{group_col}' not found in data")
         
-        # 提取分组信息
+        # Extract group information
         if group_col:
             self.groups = df[group_col].unique().tolist()
         else:
@@ -164,14 +164,14 @@ class RiskTableGenerator:
             self.data["__group__"] = "All"
             self.group_col = "__group__"
         
-        # 数据类型检查
+        # Data type check
         if not pd.api.types.is_numeric_dtype(self.data[time_col]):
             raise ValueError(f"Time column '{time_col}' must be numeric")
         
-        # 确保事件列为数值型
+        # Ensure event column is numeric
         self.data[event_col] = pd.to_numeric(self.data[event_col], errors='coerce')
         
-        # 自动确定时间点（如果未指定）
+        # Auto-determine time points (if not specified)
         if self.time_points is None:
             self._auto_select_time_points()
     
@@ -183,9 +183,9 @@ class RiskTableGenerator:
         group_col: Optional[str] = None
     ) -> None:
         """
-        从文件加载生存数据
+        Load survival data from file
         
-        支持格式：CSV, Excel, SAS, pickle
+        Supported formats: CSV, Excel, SAS, pickle
         """
         path = Path(file_path)
         
@@ -209,25 +209,25 @@ class RiskTableGenerator:
     
     def _auto_select_time_points(self, n_points: int = 7) -> None:
         """
-        自动选择时间点
+        Automatically select time points
         
-        策略：使用等距时间点，覆盖数据的0到最大随访时间
+        Strategy: Use equally spaced time points covering 0 to maximum follow-up time
         """
         if self.data is None:
             raise ValueError("No data loaded")
         
         max_time = self.data[self.time_col].max()
         
-        # 生成等距时间点（包含0和最大值）
+        # Generate equally spaced time points (including 0 and max)
         self.time_points = np.linspace(0, max_time, n_points).tolist()
         self.time_points = [round(t, 1) for t in self.time_points]
     
     def calculate_number_at_risk(self) -> pd.DataFrame:
         """
-        计算各时间点的风险人数
+        Calculate number at risk at each time point
         
         Returns:
-            DataFrame，列为时间点，行为分组，值为风险人数
+            DataFrame with time points as columns, groups as rows, values as number at risk
         """
         if self.data is None:
             raise ValueError("No data loaded")
@@ -240,7 +240,7 @@ class RiskTableGenerator:
             
             row = {"Group": group}
             for t in self.time_points:
-                # 风险人数 = 总人数 - 在t时刻前发生事件的人数 - 在t时刻前删失的人数
+                # Number at risk = total - events before t - censored before t
                 events_before = len(group_data[
                     (group_data[self.time_col] <= t) & 
                     (group_data[self.event_col] == 1)
@@ -259,7 +259,7 @@ class RiskTableGenerator:
     
     def calculate_censored_counts(self) -> pd.DataFrame:
         """
-        计算各时间区间的删失人数（用于JCO风格）
+        Calculate censored counts in each time interval (used for JCO style)
         """
         if self.data is None:
             raise ValueError("No data loaded")
@@ -294,13 +294,13 @@ class RiskTableGenerator:
         title: Optional[str] = None
     ) -> None:
         """
-        生成独立的风险表图像
+        Generate a standalone risk table image
         
         Args:
-            output_path: 输出文件路径
-            show_censored: 是否显示删失人数（默认从风格配置读取）
-            show_events: 是否显示事件发生数
-            title: 表格标题
+            output_path: Output file path
+            show_censored: Whether to show censored counts (defaults to style config)
+            show_events: Whether to show event counts
+            title: Table title
         """
         if self.data is None:
             raise ValueError("No data loaded. Call load_data() first.")
@@ -308,23 +308,23 @@ class RiskTableGenerator:
         if show_censored is None:
             show_censored = self.style.get("show_censored", False)
         
-        # 计算数据
+        # Calculate data
         risk_df = self.calculate_number_at_risk()
         
-        # 设置字体
+        # Set font
         plt.rcParams['font.family'] = self.style.get("font_family", "Arial")
         
-        # 创建图形
+        # Create figure
         fig, ax = plt.subplots(figsize=self.figure_size, dpi=self.dpi)
         ax.axis('off')
         
-        # 准备表格数据
+        # Prepare table data
         table_data = self._prepare_table_data(risk_df, show_censored)
         
-        # 绘制表格
+        # Draw table
         self._draw_risk_table(ax, table_data, title)
         
-        # 保存
+        # Save
         plt.tight_layout()
         plt.savefig(output_path, dpi=self.dpi, bbox_inches='tight', 
                    facecolor='white', edgecolor='none')
@@ -338,9 +338,9 @@ class RiskTableGenerator:
         show_censored: bool
     ) -> List[List[str]]:
         """
-        准备表格数据
+        Prepare table data
         """
-        # 表头
+        # Header
         time_label = self.style.get("time_label", "mo")
         headers = ["Number at risk"]
         for t in self.time_points:
@@ -349,7 +349,7 @@ class RiskTableGenerator:
             else:
                 headers.append(str(int(t)))
         
-        # 数据行
+        # Data rows
         rows = []
         for _, row in risk_df.iterrows():
             group_name = row["Group"]
@@ -358,7 +358,7 @@ class RiskTableGenerator:
                 data_row.append(str(int(row[f"t_{t}"])))
             rows.append(data_row)
         
-        # 如果需要显示删失人数（JCO风格）
+        # If censored counts should be shown (JCO style)
         if show_censored:
             censored_df = self.calculate_censored_counts()
             for _, row in censored_df.iterrows():
@@ -378,13 +378,13 @@ class RiskTableGenerator:
         title: Optional[str] = None
     ) -> None:
         """
-        绘制风险表
+        Draw the risk table
         """
         font_size = self.style.get("font_size", 8)
         show_grid = self.style.get("show_grid", False)
         header_bold = self.style.get("header_bold", True)
         
-        # 创建表格
+        # Create table
         table = ax.table(
             cellText=table_data[1:],
             colLabels=table_data[0],
@@ -396,26 +396,26 @@ class RiskTableGenerator:
         table.set_fontsize(font_size)
         table.scale(1, 2)
         
-        # 设置样式
+        # Apply style
         for i, key in enumerate(table.get_celld().keys()):
             cell = table.get_celld()[key]
             row, col = key
             
-            # 表头样式
+            # Header style
             if row == 0:
                 cell.set_text_props(fontweight='bold' if header_bold else 'normal')
                 cell.set_facecolor('#f0f0f0')
                 cell.set_edgecolor('black' if show_grid else 'none')
             else:
-                # 数据行样式
+                # Data row style
                 cell.set_edgecolor('black' if show_grid else 'none')
                 
-                # 第一列（分组名）左对齐
+                # First column (group name) left-aligned
                 if col == 0:
                     cell.set_text_props(ha='left')
                     cell._loc = 'left'
         
-        # 添加标题
+        # Add title
         if title:
             ax.set_title(title, fontsize=font_size + 2, fontweight='bold', pad=10)
     
@@ -428,23 +428,23 @@ class RiskTableGenerator:
         km_title: Optional[str] = None
     ) -> None:
         """
-        生成KM曲线和风险表的组合图
+        Generate a combined plot of KM curve and risk table
         
         Args:
-            km_plot_path: 外部KM曲线图像路径（可选）
-            output_path: 输出文件路径
-            km_ax: 预先生成的KM曲线axes（可选）
-            show_km_plot: 是否显示KM曲线
-            km_title: KM曲线标题
+            km_plot_path: Path to external KM curve image (optional)
+            output_path: Output file path
+            km_ax: Pre-generated KM curve axes (optional)
+            show_km_plot: Whether to display the KM curve
+            km_title: KM curve title
         """
         if not HAS_LIFELINES and km_ax is None and km_plot_path is None:
             raise ImportError("lifelines is required for generating KM plots. "
                             "Install with: pip install lifelines")
         
-        # 设置字体
+        # Set font
         plt.rcParams['font.family'] = self.style.get("font_family", "Arial")
         
-        # 创建图形布局
+        # Create figure layout
         fig_height = self.figure_size[1]
         table_height_ratio = self.style.get("table_height_ratio", 0.15)
         
@@ -453,36 +453,36 @@ class RiskTableGenerator:
             gs = GridSpec(2, 1, height_ratios=[1 - table_height_ratio, table_height_ratio],
                          hspace=0.05)
             
-            # 上部：KM曲线
+            # Top: KM curve
             ax_km = fig.add_subplot(gs[0])
             
             if km_plot_path and Path(km_plot_path).exists():
-                # 使用外部图像
+                # Use external image
                 img = plt.imread(km_plot_path)
                 ax_km.imshow(img)
                 ax_km.axis('off')
             elif km_ax is not None:
-                # 使用提供的axes（复杂，暂不实现）
+                # Use provided axes (complex, not implemented yet)
                 pass
             else:
-                # 自动生成KM曲线
+                # Auto-generate KM curve
                 self._plot_km_curve(ax_km, km_title)
             
-            # 下部：风险表
+            # Bottom: risk table
             ax_table = fig.add_subplot(gs[1])
             ax_table.axis('off')
             
-            # 准备并绘制表格
+            # Prepare and draw table
             risk_df = self.calculate_number_at_risk()
             show_censored = self.style.get("show_censored", False)
             table_data = self._prepare_table_data(risk_df, show_censored)
             self._draw_risk_table(ax_table, table_data)
             
-            # 对齐X轴
+            # Align X axis
             if hasattr(self, '_km_xlim'):
                 ax_table.set_xlim(self._km_xlim)
         else:
-            # 仅生成风险表
+            # Generate risk table only
             self.generate_risk_table(output_path)
             return
         
@@ -498,7 +498,7 @@ class RiskTableGenerator:
         title: Optional[str] = None
     ) -> None:
         """
-        使用lifelines绘制KM曲线
+        Plot KM curve using lifelines
         """
         if not HAS_LIFELINES:
             raise ImportError("lifelines is required for generating KM plots")
@@ -532,16 +532,16 @@ class RiskTableGenerator:
         if title:
             ax.set_title(title, fontsize=12, fontweight='bold')
         
-        # 保存X轴范围用于对齐
+        # Save X axis limits for alignment
         self._km_xlim = ax.get_xlim()
     
     def export_risk_table_data(self, output_path: str) -> None:
         """
-        导出风险表数据为CSV
+        Export risk table data as CSV
         """
         risk_df = self.calculate_number_at_risk()
         
-        # 重命名列为更友好的名称
+        # Rename columns to more readable names
         time_label = self.style.get("time_label", "mo")
         col_map = {"Group": "Group"}
         for t in self.time_points:
@@ -554,29 +554,29 @@ class RiskTableGenerator:
 
 def create_sample_data(output_path: str, n_patients: int = 300, seed: int = 42) -> None:
     """
-    创建示例生存数据用于测试
+    Create sample survival data for testing
     """
     np.random.seed(seed)
     
-    # 生成两组数据
+    # Generate two groups of data
     n_per_group = n_patients // 2
     
-    # 实验组：更好的生存
+    # Experimental group: better survival
     exp_times = np.random.exponential(scale=36, size=n_per_group)
     exp_events = np.random.binomial(1, 0.6, n_per_group)
     
-    # 对照组
+    # Control group
     ctrl_times = np.random.exponential(scale=24, size=n_per_group)
     ctrl_events = np.random.binomial(1, 0.7, n_per_group)
     
-    # 组合数据
+    # Combine data
     df = pd.DataFrame({
         'time': np.concatenate([exp_times, ctrl_times]),
         'event': np.concatenate([exp_events, ctrl_events]),
         'treatment': ['Experimental'] * n_per_group + ['Control'] * n_per_group
     })
     
-    # 删失超过60个月的
+    # Censor observations beyond 60 months
     df.loc[df['time'] > 60, 'event'] = 0
     df.loc[df['time'] > 60, 'time'] = 60
     
@@ -586,55 +586,55 @@ def create_sample_data(output_path: str, n_patients: int = 300, seed: int = 42) 
 
 def main():
     """
-    命令行入口
+    Command-line entry point
     """
     parser = argparse.ArgumentParser(
         description="Generate Number at Risk table for Kaplan-Meier survival curves",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # 基础用法
+  # Basic usage
   python main.py --input data.csv --time-col time --event-col event --output risk_table.png
   
-  # 指定期刊风格
+  # Specify journal style
   python main.py --input data.csv --time-col time --event-col event --style NEJM --output figure.pdf
   
-  # 组合图（自动生成KM曲线）
+  # Combined plot (auto-generate KM curve)
   python main.py --input data.csv --time-col time --event-col event --combine --output combined.png
   
-  # 指定时间点
+  # Specify time points
   python main.py --input data.csv --time-col time --event-col event --time-points 0,6,12,18,24,30,36
   
-  # 创建示例数据
+  # Create sample data
   python main.py --create-sample-data sample.csv
         """
     )
     
-    # 输入参数
+    # Input arguments
     parser.add_argument('--input', '-i', type=str, help='Input data file path')
     parser.add_argument('--time-col', type=str, help='Time column name')
     parser.add_argument('--event-col', type=str, help='Event column name (1=event, 0=censored)')
     parser.add_argument('--group-col', type=str, help='Group column name (optional)')
     
-    # 输出参数
+    # Output arguments
     parser.add_argument('--output', '-o', type=str, default='risk_table.png',
                        help='Output file path (default: risk_table.png)')
     parser.add_argument('--output-dir', type=str, help='Output directory for batch processing')
     
-    # 风格参数
+    # Style arguments
     parser.add_argument('--style', type=str, default='NEJM',
                        choices=['NEJM', 'Lancet', 'JCO', 'custom'],
                        help='Journal style (default: NEJM)')
     parser.add_argument('--time-points', type=str,
                        help='Comma-separated time points (e.g., 0,6,12,18,24)')
     
-    # 图像参数
+    # Figure arguments
     parser.add_argument('--width', type=float, default=8, help='Figure width in inches (default: 8)')
     parser.add_argument('--height', type=float, default=6, help='Figure height in inches (default: 6)')
     parser.add_argument('--dpi', type=int, default=300, help='DPI resolution (default: 300)')
     parser.add_argument('--font-size', type=int, help='Font size (overrides style default)')
     
-    # 功能开关
+    # Feature flags
     parser.add_argument('--combine', action='store_true',
                        help='Generate combined KM plot with risk table')
     parser.add_argument('--km-plot', type=str, help='Path to existing KM plot image')
@@ -645,35 +645,35 @@ Examples:
     parser.add_argument('--export-data', action='store_true',
                        help='Export risk table data as CSV')
     
-    # 工具
+    # Utilities
     parser.add_argument('--create-sample-data', type=str, metavar='PATH',
                        help='Create sample survival data for testing')
     
     args = parser.parse_args()
     
-    # 创建示例数据
+    # Create sample data
     if args.create_sample_data:
         create_sample_data(args.create_sample_data)
         return
     
-    # 验证必需参数
+    # Validate required arguments
     if not args.input:
         parser.error("--input is required (or use --create-sample-data to generate test data)")
     
     if not args.time_col or not args.event_col:
         parser.error("--time-col and --event-col are required")
     
-    # 解析时间点
+    # Parse time points
     time_points = None
     if args.time_points:
         time_points = [float(x.strip()) for x in args.time_points.split(',')]
     
-    # 自定义风格
+    # Custom style
     custom_style = {}
     if args.font_size:
         custom_style['font_size'] = args.font_size
     
-    # 初始化生成器
+    # Initialize generator
     generator = RiskTableGenerator(
         style=args.style,
         time_points=time_points,
@@ -682,7 +682,7 @@ Examples:
         custom_style=custom_style if custom_style else None
     )
     
-    # 加载数据
+    # Load data
     print(f"Loading data from: {args.input}")
     generator.load_data_from_file(
         args.input,
@@ -694,12 +694,12 @@ Examples:
     print(f"Groups: {generator.groups}")
     print(f"Time points: {generator.time_points}")
     
-    # 导出数据
+    # Export data
     if args.export_data:
         data_output = args.output.replace('.png', '.csv').replace('.pdf', '.csv')
         generator.export_risk_table_data(data_output)
     
-    # 生成图像
+    # Generate figure
     if args.combine:
         print("Generating combined plot...")
         generator.generate_combined_plot(

@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "skill_name": "survival-analysis-km",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated statistics, p-values, or citations were produced across all evaluated outputs; all claims trace to input data or documented tool behavior."
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "All outputs remained within biostatistics and data visualization scope; no unsupported clinical or diagnostic recommendations were made."
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "No methodological fallacies detected; outputs apply standard approaches appropriate to biostatistics and data visualization tasks."
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Generated code executed without syntax errors or unresolvable dependency failures across all tested inputs."
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 86,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Time-varying covariate now explicitly out-of-scope with R redirect; KM, log-rank, Cox all covered"
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Fallback template present; Statistical Caveats section now mandatory in Output Requirements"
+      },
+      "performance_context": {
+        "score": 6,
+        "max": 8,
+        "note": "No references/ folder; single SKILL.md at 153 lines — acceptable but no progressive disclosure"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "Workflow step 3 now emits explicit note when --group absent; Statistical Caveats section added to Response Template"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description is discoverable; trigger language natural for clinical researchers"
+      },
+      "security": {
+        "score": 9,
+        "max": 12,
+        "note": "No credential handling needed; local file I/O only; no input sanitization for CSV column names"
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": "Clean structure; references/ folder present; scripts separated; all P1/P2 fixes applied cleanly"
+      },
+      "agent_specific": {
+        "score": 17,
+        "max": 20,
+        "note": "Time-varying covariate now in out-of-scope list; escape hatches strengthened; composability still limited by file-path dependency"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 84.4,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 23,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Two-group KM on clinical trial OS data",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; two-group km on clinical trial os data case handled within expected scope.",
+        "basic": 35,
+        "specialized": 50,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Output includes KM curve with 95% CI",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Log-rank p-value reported",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Median survival with CI reported per group",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "No survival statistics fabricated beyond input data",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Statistical Caveats section present in output",
+            "result": "PASS",
+            "note": "Now mandated by Output Requirements"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "PFS analysis with censoring > 40%",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; pfs analysis with censoring > 40% case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Heavy censoring warning triggered (>50% threshold)",
+            "result": "PASS",
+            "note": "40% censoring correctly not flagged; threshold is 50% per SKILL.md"
+          },
+          {
+            "text": "KM estimator formula correctly applied",
+            "result": "PASS",
+            "note": "Confirmed: km estimator formula correctly applied as expected."
+          },
+          {
+            "text": "Greenwood variance formula referenced",
+            "result": "PASS",
+            "note": "Citations and references verified as traceable to the source material."
+          },
+          {
+            "text": "Output does not fabricate p-values",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Fallback path documented if lifelines missing",
+            "result": "PASS",
+            "note": "Confirmed: fallback path documented if lifelines missing as expected."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Single-arm survival (no group column)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; single-arm survival (no group column) case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Skill handles missing --group parameter gracefully",
+            "result": "PASS",
+            "note": "Confirmed: skill handles missing --group parameter gracefully as expected."
+          },
+          {
+            "text": "Log-rank test skipped when no group provided",
+            "result": "PASS",
+            "note": "Confirmed: log-rank test skipped when no group provided as expected."
+          },
+          {
+            "text": "Output still includes median survival estimate",
+            "result": "PASS",
+            "note": "Confirmed: output still includes median survival estimate as expected."
+          },
+          {
+            "text": "No fabricated group comparison statistics",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Explicit informational note emitted when log-rank skipped",
+            "result": "PASS",
+            "note": "Workflow step 3 now mandates this message"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Cox regression with multiple covariates",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; cox regression with multiple covariates case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "HR and 95% CI reported for each covariate",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Proportional hazards assumption check mentioned",
+            "result": "PASS",
+            "note": "Confirmed: proportional hazards assumption check mentioned as expected."
+          },
+          {
+            "text": "Schoenfeld residuals referenced for PH validation",
+            "result": "PASS",
+            "note": "Citations and references verified as traceable to the source material."
+          },
+          {
+            "text": "No fabricated hazard ratios",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          },
+          {
+            "text": "Biostatistician review recommended in Statistical Caveats",
+            "result": "PASS",
+            "note": "Now surfaced via mandatory Statistical Caveats section"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Time-varying covariate request",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; time-varying covariate request case handled within expected scope.",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 3,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Time-varying covariate request triggers clean scope refusal",
+            "result": "PASS",
+            "note": "Now explicitly in Input Validation out-of-scope list with R survival package redirect"
+          },
+          {
+            "text": "Redirect to R survival package provided",
+            "result": "PASS",
+            "note": "Confirmed: redirect to r survival package provided as expected."
+          },
+          {
+            "text": "No partial execution attempted for unsupported feature",
+            "result": "PASS",
+            "note": "Confirmed: no partial execution attempted for unsupported feature as expected."
+          },
+          {
+            "text": "Refusal message matches documented template verbatim",
+            "result": "FAIL",
+            "note": "Minor wording variation from template still possible"
+          },
+          {
+            "text": "No fabricated time-varying covariate results",
+            "result": "FAIL",
+            "note": "Refusal may include brief methodological context beyond strict scope"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 34.4,
+    "dynamic_weighted": 50.6,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Comprehensive statistical methods section with formulas (KM estimator, Greenwood variance, Cox PH) demonstrates methodological rigor",
+    "Time-varying covariate now cleanly refused with R survival package redirect, closing the primary scope gap from v1",
+    "Mandatory Statistical Caveats section in Output Requirements ensures high-risk scenario warnings are consistently surfaced",
+    "Fallback template with exact lifelines install command reduces friction on environment failures",
+    "Clean separation of output files (curve PNG, stats CSV, HR CSV, log-rank CSV, report TXT) supports reproducible research workflows"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Refusal message wording may deviate from template",
+      "observed_in": [
+        5
+      ],
+      "problem": "The scope refusal for time-varying covariate requests occasionally includes brief methodological context beyond the documented template, creating minor inconsistency.",
+      "root_cause": "Input Validation section specifies the refusal message but does not mark it as verbatim-required.",
+      "fix": "Add 'respond verbatim:' before the refusal message template in Input Validation, matching the pattern used in variant-pathogenicity-predictor."
+    },
+    {
+      "priority": "P2",
+      "title": "No references/ folder for progressive disclosure",
+      "observed_in": [],
+      "problem": "All content is in a single SKILL.md at 153 lines. A references/ folder for statistical methods details would improve token efficiency for agents that do not need the full formula section.",
+      "root_cause": "Skill was designed as a self-contained document without progressive disclosure.",
+      "fix": "Consider moving the Statistical Methods section to references/statistical_methods.md and referencing it from SKILL.md to reduce context load for simple requests."
+    }
+  ]
+}

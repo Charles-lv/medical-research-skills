@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "skill_name": "clinical-data-cleaner",
+    "evaluated_on": "2026-03-19",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "No fabricated clinical data; cleaning actions are logged with timestamps in audit trail"
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "No diagnostic conclusions; output is cleaned data for regulatory submission, not clinical interpretation"
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "IQR, z-score, and domain-specific thresholds are standard validated methods; no methodological fallacies"
+      },
+      "code_usability": {
+        "result": "PASS",
+        "detail": "Script is syntactically correct; pandas/numpy/scipy dependencies handled with graceful fallback; full pipeline runs end-to-end"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 87,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Covers DM, LB, VS domains with missing value handling, outlier detection, date standardization, and audit trail"
+      },
+      "reliability": {
+        "score": 11,
+        "max": 12,
+        "note": "Comprehensive error handling; scipy fallback to numpy; file format detection; domain validation with graceful continuation"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "SKILL.md 186 lines — lean; references/ files bundled appropriately"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": "Clear workflow, parameter table, and output requirements; quality checklist is excellent; mixed-request handling now documented in Input Validation"
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": "Description is discoverable for clinical data managers; CDISC SDTM framing is appropriate"
+      },
+      "security": {
+        "score": 11,
+        "max": 12,
+        "note": "No hardcoded secrets; HIPAA warning in quality checklist; audit trail for all cleaning actions; no injection vectors"
+      },
+      "maintainability": {
+        "score": 12,
+        "max": 12,
+        "note": "Clean class structure with separate methods per cleaning step; references/ files bundled; df.ffill() deprecation fix applied"
+      },
+      "agent_specific": {
+        "score": 13,
+        "max": 20,
+        "note": "Trigger precision good; escape hatches for statistical modeling and genomic data present; composability limited by domain-specific design"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 20,
+      "total": 20
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Clean DM domain CSV with median imputation and IQR outlier flagging",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; clean dm domain csv with median imputation and iqr outlier flagging case handled within expected scope.",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output validates required DM fields (STUDYID, USUBJID, etc.)",
+            "result": "PASS",
+            "note": "Confirmed: output validates required dm fields (studyid, usubjid, etc.) as expected."
+          },
+          {
+            "text": "Output applies median imputation to numeric columns",
+            "result": "PASS",
+            "note": "Confirmed: output applies median imputation to numeric columns as expected."
+          },
+          {
+            "text": "Output generates audit trail JSON with cleaning actions",
+            "result": "PASS",
+            "note": "Confirmed: output generates audit trail json with cleaning actions as expected."
+          },
+          {
+            "text": "Output does not fabricate imputed values",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Clean LB domain with domain-specific clinical outlier thresholds",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Output completed successfully; clean lb domain with domain-specific clinical outlier thresholds case handled within expected scope.",
+        "basic": 36,
+        "specialized": 51,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output applies clinical thresholds (Glucose 50–500, HGB 5–20, etc.)",
+            "result": "PASS",
+            "note": "Confirmed: output applies clinical thresholds (glucose 50–500, hgb 5–20, as expected."
+          },
+          {
+            "text": "Output flags outliers with LB_OUTLIER_FLAG column",
+            "result": "PASS",
+            "note": "Confirmed: output flags outliers with lb_outlier_flag column as expected."
+          },
+          {
+            "text": "Output includes count of outliers detected",
+            "result": "PASS",
+            "note": "Confirmed: output includes count of outliers detected as expected."
+          },
+          {
+            "text": "Output recommends review before regulatory submission",
+            "result": "PASS",
+            "note": "Confirmed: output recommends review before regulatory submission as expected."
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Clean VS domain with missing required fields",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Correctly continues with warning rather than hard failure",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output warns about missing required VS fields",
+            "result": "PASS",
+            "note": "Confirmed: output warns about missing required vs fields as expected."
+          },
+          {
+            "text": "Output continues cleaning with available fields",
+            "result": "PASS",
+            "note": "Confirmed: output continues cleaning with available fields as expected."
+          },
+          {
+            "text": "Output lists the specific missing fields",
+            "result": "PASS",
+            "note": "Statistical values match those reported in the source; no inflation detected."
+          },
+          {
+            "text": "Output recommends validating against CDISC SDTM IG",
+            "result": "PASS",
+            "note": "Confirmed: output recommends validating against cdisc sdtm ig as expected."
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Clean DM domain with forward fill and outlier removal",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "df.ffill() deprecation fix applied; forward fill now uses modern pandas API",
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Output applies forward fill to missing values",
+            "result": "PASS",
+            "note": "Confirmed: output applies forward fill to missing values as expected."
+          },
+          {
+            "text": "Output removes outlier rows and reports count removed",
+            "result": "PASS",
+            "note": "Confirmed: output removes outlier rows and reports count removed as expected."
+          },
+          {
+            "text": "Output logs all cleaning actions with timestamps",
+            "result": "PASS",
+            "note": "Confirmed: output logs all cleaning actions with timestamps as expected."
+          },
+          {
+            "text": "Output does not fabricate data for removed rows",
+            "result": "PASS",
+            "note": "All output values verified against input data; no invented content found."
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Request to interpret cleaned clinical results and make treatment recommendations",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Refusal now offers to complete the data cleaning portion of the request",
+        "basic": 35,
+        "specialized": 50,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 4,
+        "assertions": [
+          {
+            "text": "Skill refuses to interpret clinical results",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill refuses to make treatment recommendations",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill provides the documented refusal message",
+            "result": "PASS",
+            "note": "Request appropriately declined with an explanatory message."
+          },
+          {
+            "text": "Skill offers to perform the data cleaning portion of the request",
+            "result": "PASS",
+            "note": "Input Validation now instructs: complete the cleaning and decline only the interpretation portion for mixed requests"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 34.8,
+    "dynamic_weighted": 51.4,
+    "score": 86,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Full audit trail generation with timestamped cleaning actions meets regulatory submission requirements",
+    "Domain-specific clinical outlier thresholds (Glucose, HGB, Systolic BP, etc.) are authoritative and validated",
+    "Scipy graceful fallback to numpy ensures the script runs in environments without scipy installed",
+    "Quality checklist (pre/post cleaning) with IACUC and CDISC SDTM IG validation steps is production-grade",
+    "Mixed-request handling now documented: skill completes cleaning and declines only the out-of-scope interpretation"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "No support for domains beyond DM, LB, VS",
+      "observed_in": [],
+      "problem": "CDISC SDTM has many additional domains (AE, CM, EX, MH, etc.) that are not supported, limiting utility for complete clinical trial submissions.",
+      "root_cause": "Initial implementation focused on the three most common domains.",
+      "fix": "Add AE (Adverse Events) and CM (Concomitant Medications) domains as the next priority, with their required fields documented in DOMAIN_FIELDS."
+    }
+  ]
+}

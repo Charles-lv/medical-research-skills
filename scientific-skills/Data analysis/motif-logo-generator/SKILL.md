@@ -1,40 +1,51 @@
 ---
 name: motif-logo-generator
-description: Generate publication-quality sequence logos for DNA or protein motifs
-  to visualize conserved positions and sequence patterns.
-version: 1.0.0
-category: Bioinfo
-tags: []
-author: AIPOCH
+description: Generate publication-quality sequence logos for DNA or protein motifs from FASTA files or raw sequence lists.
 license: MIT
-status: Draft
-risk_level: Medium
-skill_type: Tool/Script
-owner: AIPOCH
-reviewer: ''
-last_updated: '2026-02-06'
+skill-author: AIPOCH
+status: beta
 ---
-
 # Motif Logo Generator
 
-Generate sequence logos for DNA or protein motifs to visualize conserved positions.
+Generate sequence logos for DNA or protein motifs to visualize conserved positions and information content.
 
-## Installation
+## Input Validation
+
+This skill accepts: aligned DNA or protein sequences in FASTA format or as a newline-separated string, for sequence logo generation.
+
+If the request does not involve generating a sequence logo from biological sequences — for example, asking to perform sequence alignment, run BLAST, or analyze non-sequence data — do not proceed. Instead respond:
+
+> "motif-logo-generator is designed to generate sequence logos for DNA or protein motifs. Your request appears to be outside this scope. Please provide aligned sequences in FASTA format or as a raw list, or use a more appropriate tool for your task. For sequence alignment, consider MUSCLE, MAFFT, or Clustal Omega."
+
+Do not generate any output, alignment, or sequence analysis before emitting this refusal. Validate scope first — this is the absolute first action before any other processing.
+
+## When to Use
+
+- Visualizing conservation patterns in aligned DNA or protein sequences
+- Generating publication-quality sequence logos for papers or presentations
+- Comparing motif conservation across sequence sets
+- Producing logos from FASTA files or raw sequence lists
+
+## Quick Check
 
 ```bash
-cd /Users/z04030865/.openclaw/workspace/skills/motif-logo-generator
-pip install -r requirements.txt
+python -m py_compile scripts/main.py
+python scripts/main.py --help
+python -c "import numpy, matplotlib, logomaker, pandas; print('deps OK')"
 ```
 
-Dependencies:
-- `logomaker` - Generate publication-quality sequence logos
-- `pandas` - Data manipulation for sequence alignment
-- `numpy` - Numerical operations
-- `matplotlib` - Visualization backend
+## Workflow
 
-## Quick Start
+1. **Validate input first** — confirm the request involves aligned sequences for logo generation. Refuse out-of-scope requests immediately using the documented redirect message above. Do not generate any output before this check.
+2. Confirm the user objective, required inputs, and non-negotiable constraints.
+3. Verify sequences are all the same length before proceeding — alignment is required if lengths differ.
+4. Use the packaged script path or the documented reasoning path with only the inputs that are actually available.
+5. Return a structured result that separates assumptions, deliverables, risks, and unresolved items.
+6. If execution fails or inputs are incomplete, switch to the fallback path and state exactly what blocked full completion.
 
-```bash
+## Usage
+
+```text
 # Generate logo from FASTA file
 python scripts/main.py --input sequences.fasta --output logo.png --type dna
 
@@ -45,61 +56,27 @@ python scripts/main.py --sequences "ACGT\nACCT\nAGGT" --output logo.png --type d
 python scripts/main.py --input proteins.fasta --output logo.pdf --type protein --title "Conserved Domain"
 ```
 
-## Usage
+## Parameters
 
-### Python API
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--input` | path | No* | Input FASTA file (or use `--sequences`) |
+| `--sequences` | str | No* | Raw sequences separated by newline (or use `--input`) |
+| `--output` | path | Yes | Output file path (.png, .pdf, .svg) |
+| `--type` | enum | No | `dna` or `protein` (default: `dna`) |
+| `--title` | str | No | Logo title |
+| `--width` | int | No | Figure width in inches (default: 10) |
+| `--height` | int | No | Figure height in inches (default: 3) |
+| `--colorscheme` | str | No | Color scheme: `classic`, `base_pairing` (DNA); `chemistry`, `hydrophobicity` (protein) |
 
-```python
-from motif_logo_generator import generate_logo
-
-# From file
-logo = generate_logo(
-    input_file="sequences.fasta",
-    seq_type="dna",
-    output_path="logo.png",
-    title="My Motif"
-)
-
-# From sequences list
-sequences = [
-    "ACGTAGCT",
-    "ACGTAGCT",
-    "ACCTAGCT",
-    "ACGTAGTT"
-]
-logo = generate_logo(
-    sequences=sequences,
-    seq_type="dna",
-    output_path="logo.png"
-)
-```
-
-### Command Line
-
-```bash
-python scripts/main.py [OPTIONS]
-
-Required:
-  --input PATH       Input FASTA file (or use --sequences)
-  --sequences TEXT   Raw sequences separated by newline (or use --input)
-  --output PATH      Output file path (.png, .pdf, .svg)
-
-Optional:
-  --type {dna,protein}   Sequence type (default: dna)
-  --title TEXT           Logo title
-  --width INT            Figure width in inches (default: 10)
-  --height INT           Figure height in inches (default: 3)
-  --colorscheme TEXT     Color scheme (default: classic)
-                         DNA: classic, base_pairing
-                         Protein: chemistry, hydrophobicity, classic
-```
+*One of `--input` or `--sequences` is required.
 
 ## Output
 
 Generates a sequence logo showing:
-- Letter height = information content (conservation)
+- Letter height = information content (conservation in bits)
 - Letter stack = frequency at each position
-- Y-axis: bits (information content) for DNA, or relative frequency for protein
+- Y-axis: bits for DNA, relative frequency for protein
 
 ## Example
 
@@ -115,54 +92,48 @@ ACCT
 AGGT
 ```
 
-Output: Logo with position 2 showing C/G variability and other positions conserved.
+Output: Logo with position 2 showing C/G variability; other positions conserved.
 
-## Risk Assessment
+## Error Handling
 
-| Risk Indicator | Assessment | Level |
-|----------------|------------|-------|
-| Code Execution | Python/R scripts executed locally | Medium |
-| Network Access | No external API calls | Low |
-| File System Access | Read input files, write output files | Medium |
-| Instruction Tampering | Standard prompt guidelines | Low |
-| Data Exposure | Output files saved to workspace | Low |
+- If neither `--input` nor `--sequences` is provided, state this and request one of them.
+- If sequences are not all the same length, report the mismatch and stop — alignment is required before logo generation.
+- If the task goes outside the documented scope, stop immediately and emit the documented redirect message verbatim.
+- If `scripts/main.py` fails, report the failure point and summarize what can still be completed.
+- Do not fabricate sequence data or conservation scores.
+- Reject file paths containing `../` with a path traversal warning.
+- If numpy/matplotlib/logomaker are absent, the script falls back to ASCII logo output. Install with: `pip install numpy matplotlib logomaker pandas`.
 
-## Security Checklist
+## Fallback Template
 
-- [ ] No hardcoded credentials or API keys
-- [ ] No unauthorized file system access (../)
-- [ ] Output does not expose sensitive information
-- [ ] Prompt injection protections in place
-- [ ] Input file paths validated (no ../ traversal)
-- [ ] Output directory restricted to workspace
-- [ ] Script execution in sandboxed environment
-- [ ] Error messages sanitized (no stack traces exposed)
-- [ ] Dependencies audited
+When execution fails or inputs are incomplete, respond with this structure:
+
+```
+FALLBACK REPORT
+───────────────────────────────────────
+Objective      : [restate the goal]
+Blocked by     : [exact missing input or error]
+Partial result : [what can be completed without the missing input]
+Next step      : [minimum action needed to unblock]
+───────────────────────────────────────
+```
+
+## Response Template
+
+1. Objective
+2. Inputs Received
+3. Assumptions
+4. Workflow
+5. Deliverable
+6. Risks and Limits
+7. Next Checks
+
+If the request is simple, compress the structure but keep assumptions and limits explicit when they affect correctness.
+
 ## Prerequisites
 
-```bash
-# Python dependencies
+```text
 pip install -r requirements.txt
 ```
 
-## Evaluation Criteria
-
-### Success Metrics
-- [ ] Successfully executes main functionality
-- [ ] Output meets quality standards
-- [ ] Handles edge cases gracefully
-- [ ] Performance is acceptable
-
-### Test Cases
-1. **Basic Functionality**: Standard input → Expected output
-2. **Edge Case**: Invalid input → Graceful error handling
-3. **Performance**: Large dataset → Acceptable processing time
-
-## Lifecycle Status
-
-- **Current Stage**: Draft
-- **Next Review Date**: 2026-03-06
-- **Known Issues**: None
-- **Planned Improvements**: 
-  - Performance optimization
-  - Additional feature support
+Dependencies: `logomaker`, `pandas`, `numpy`, `matplotlib`
