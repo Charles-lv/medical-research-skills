@@ -7,7 +7,7 @@ Add Skills. Run Your Research.
 <br>
 
 [![License](https://img.shields.io/badge/License-MIT-ff6b6b?style=for-the-badge)](./LICENSE)
-![Skills Count](https://img.shields.io/badge/Skills-200%2B-4dabf7?style=for-the-badge)
+![Skills Count](https://img.shields.io/badge/Skills-450%2B-4dabf7?style=for-the-badge)
 ![Work%20with](https://img.shields.io/badge/Work%20with-OpenClaw%20%7C%20Opencode%20%7C%20Claude-9775fa?style=for-the-badge)
 [![Follow on X](https://img.shields.io/badge/Follow%20on%20X-%40aipoch__ai-212529?style=for-the-badge&logo=x&logoColor=white)](https://x.com/aipoch_ai)
 [![YouTube](https://img.shields.io/badge/YouTube-%40AIPOCH__AI-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@AIPOCH_AI)
