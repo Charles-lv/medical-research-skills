@@ -1,0 +1,41 @@
+name: Package skills and release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zip each skill folder
+        run: |
+          mkdir -p dist
+          for category in "Academic Writing" "Data Analysis" "Evidence Insights" "Protocol Design" "Others"; do
+            find "scientific-skills/$category" -mindepth 1 -maxdepth 1 -type d | while read dir; do
+              name=$(basename "$dir")
+              zip -r "dist/${name}.zip" "$dir"
+            done
+          done
+
+      - name: Delete existing latest release
+        run: |
+          gh release delete latest --yes || true
+          git push origin :refs/tags/latest || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create new latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Skill Packages (auto-updated)"
+          body: "Auto-generated on every push to main. Download individual skill ZIPs below."
+          files: dist/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
