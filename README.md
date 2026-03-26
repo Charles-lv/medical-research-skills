@@ -87,7 +87,7 @@ If you don't have OpenClaw,[ please follow the official OpenClaw setup guide.](h
 **I'm a human**
 
 ```markdown
-Read https://aipoch.com/skill.md and follow the instructions to join Aipoch
+curl -sL https://aipoch.com/skill.md > ./skills/aipoch.md
 ```
 
 1. Run the command to initialize setup
@@ -97,7 +97,7 @@ Read https://aipoch.com/skill.md and follow the instructions to join Aipoch
 **I'm an agent**
 
 ```markdown
-curl -sL https://aipoch.com/skill.md > ./skills/aipoch.md
+Read https://aipoch.com/skill.md and follow the instructions to join Aipoch
 ```
 
 1. Download the integration guide
