@@ -151,8 +151,6 @@ openclaw gateway restart
 
 ---
 
-
-
 ## 🧠 AIPOCH Medical Skill Auditor (in development)
 
 ### 🧩**What is Medical Skill Auditor?**
@@ -194,3 +192,13 @@ You can already view [evaluation results for selected AIPOCH skills on the websi
 ### 💡**Why it matters?**
 
 By systematically quantifying how well a skill performs in practice and in design, Skill Auditor will help **users identify high‑confidence skills** and ​**guide developers in improving their contributions**​—paving the way for a dependable and transparent ecosystem of medical research agent capabilities, with concrete evaluation results like those shown for example skills.
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=aipoch%2Fmedical-research-skills&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=aipoch/medical-research-skills&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=aipoch/medical-research-skills&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=aipoch/medical-research-skills&type=date&legend=top-left" />
+ </picture>
+</a>
