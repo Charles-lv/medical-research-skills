@@ -160,7 +160,7 @@ jobs:
         run: |
           sha=$(git rev-parse HEAD)
           if gh api "repos/$GITHUB_REPOSITORY/git/refs/tags/last-packaged" >/dev/null 2>&1; then
-            gh api "repos/$GITHUB_REPOSITORY/git/refs/tags/last-packaged" -X PATCH -f sha="$sha" -f force=true
+            gh api "repos/$GITHUB_REPOSITORY/git/refs/tags/last-packaged" -X PATCH -f sha="$sha" -F force=true
           else
             gh api "repos/$GITHUB_REPOSITORY/git/refs" -X POST -f ref="refs/tags/last-packaged" -f sha="$sha"
           fi
