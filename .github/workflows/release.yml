@@ -61,12 +61,13 @@ jobs:
           for category in "Academic Writing" "Data Analysis" "Evidence Insights" "Protocol Design" "Others"; do
             find "scientific-skills/$category" -mindepth 1 -maxdepth 1 -type d | while IFS= read -r dir; do
               name=$(basename "$dir")
-              zip -r "dist/${name}.zip" "$dir" \
+              (cd "$(dirname "$dir")" && zip -r "$GITHUB_WORKSPACE/dist/${name}.zip" "$name" \
                 --exclude "*/node_modules/*" \
                 --exclude "*/.venv/*" \
                 --exclude "*/venv/*" \
                 --exclude "*/__pycache__/*" \
-                --exclude "*.pyc"
+                --exclude "*.pyc" \
+                --exclude "*result*.json")
             done
           done
           echo "Total: $(ls dist/*.zip | wc -l) zips"
@@ -81,12 +82,13 @@ jobs:
             actual_dir=$(find scientific-skills -mindepth 2 -maxdepth 2 -type d -name "$name" 2>/dev/null | head -1)
             if [ -n "$actual_dir" ]; then
               echo "Zipping: $name (at $actual_dir)"
-              zip -r "dist/${name}.zip" "$actual_dir" \
+              (cd "$(dirname "$actual_dir")" && zip -r "$GITHUB_WORKSPACE/dist/${name}.zip" "$name" \
                 --exclude "*/node_modules/*" \
                 --exclude "*/.venv/*" \
                 --exclude "*/venv/*" \
                 --exclude "*/__pycache__/*" \
-                --exclude "*.pyc"
+                --exclude "*.pyc" \
+                --exclude "*result*.json")
             else
               echo "Deleted: $name"
               echo "$name" >> /tmp/deleted_skills.txt
