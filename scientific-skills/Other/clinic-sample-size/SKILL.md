@@ -1,5 +1,5 @@
 ---
-name: "clinic-sample-size"
+name: clinic-sample-size
 description: "Unified tool for calculating sample sizes for Diagnostic, Efficacy, Etiology, and Prognosis clinical studies. Supports various statistical methods (Sensitivity/Specificity, Log-rank, Chi-square, EPV, etc.)."
 license: MIT
 skill-author: AIPOCH

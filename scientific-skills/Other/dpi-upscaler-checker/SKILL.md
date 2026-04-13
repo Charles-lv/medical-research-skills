@@ -3,7 +3,6 @@ name: dpi-upscaler-checker
 description: Check if images meet 300 DPI printing standards, and intelligently restore blurry low-resolution images using AI super-resolution technology.
 license: MIT
 skill-author: AIPOCH
-status: beta
 ---
 # DPI Upscaler & Checker
 

@@ -171,3 +171,4 @@ Example:
 indices = nk.complexity(x, sampling_rate=1000)
 apen = nk.entropy_approximate(x)
 dfa = nk.fractal_dfa(x)
+```

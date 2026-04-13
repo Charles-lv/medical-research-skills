@@ -1,5 +1,5 @@
 ---
-name: "encori-api"
+name: encori-api
 description: "Access ENCORI (StarBase) database for miRNA-target, RNA-RNA, and other regulatory data. Invoke when user asks to search ENCORI or retrieve regulatory interactions."
 license: MIT
 skill-author: AIPOCH

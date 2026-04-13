@@ -3,7 +3,6 @@ name: cold-chain-risk-calculator
 description: Calculate temperature excursion risks for cold chain transport. Assesses route risk, packaging suitability, and monitoring requirements for biological samples and pharmaceuticals requiring controlled-temperature shipping.
 license: MIT
 skill-author: AIPOCH
-status: beta
 ---
 # Cold Chain Risk Calculator
 

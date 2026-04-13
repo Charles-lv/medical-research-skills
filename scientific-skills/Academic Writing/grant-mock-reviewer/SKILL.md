@@ -267,7 +267,7 @@ Prioritized, actionable suggestions for improvement
 
 ## Version
 
-1.0.0 - Initial release with NIH R01/R21/R03 support
+- 1.0.0 - Initial release with NIH R01/R21/R03 support
 
 ## Risk Assessment
 

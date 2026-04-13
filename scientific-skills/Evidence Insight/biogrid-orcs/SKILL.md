@@ -1,5 +1,5 @@
 ---
-name: "biogrid-orcs"
+name: biogrid-orcs
 description: "Accesses BioGRID ORCS CRISPR screen data (organisms, screens, scores). Invoke when user needs to search CRISPR screens, get vocabulary, or retrieve gene scores."
 license: MIT
 skill-author: AIPOCH

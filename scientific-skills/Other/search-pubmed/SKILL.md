@@ -1,5 +1,5 @@
 ---
-name: search pubmed
+name: search-pubmed
 description: An intelligent tool for precision medical literature search using PubMed's E-utilities API.
 license: MIT
 skill-author: AIPOCH

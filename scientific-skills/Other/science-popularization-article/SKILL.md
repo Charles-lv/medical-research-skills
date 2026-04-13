@@ -1,5 +1,5 @@
 ---
-name: "science-popularization-article"
+name: science-popularization-article
 description: "Generates science popularization articles with titles and outlines based on medical topics and style preferences. Invoke when user needs to create medical/science popular content for public education."
 license: MIT
 skill-author: AIPOCH

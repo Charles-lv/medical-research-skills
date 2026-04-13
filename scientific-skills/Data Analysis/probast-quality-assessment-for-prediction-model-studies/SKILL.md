@@ -1,5 +1,5 @@
 ---
-name: probast-quality-assessment for prediction model studies
+name: probast-quality-assessment-for-prediction-model-studies
 description: Assess bias in medical prediction model studies using PROBAST tool. Use when user wants to evaluate the quality or risk of bias of a medical paper (text or PDF).
 license: MIT
 skill-author: AIPOCH

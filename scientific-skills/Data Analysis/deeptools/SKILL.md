@@ -85,6 +85,7 @@ Before running any analysis, validate BAM, bigWig, and BED files:
 
 ```bash
 python scripts/validate_files.py --bam sample1.bam sample2.bam --bed regions.bed
+```
 
 This checks file existence, BAM indexing, and format correctness.
 

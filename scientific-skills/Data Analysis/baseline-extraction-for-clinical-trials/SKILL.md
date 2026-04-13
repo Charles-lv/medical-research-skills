@@ -1,5 +1,5 @@
 ---
-name: baseline-extraction for clinical trials
+name: baseline-extraction-for-clinical-trials
 description: Extracts clinical trial baseline data (study, region, participants, etc.) from article text or PMID. Checks PubMed for metadata; always falls back to LLM extraction for full details.
 license: MIT
 skill-author: AIPOCH

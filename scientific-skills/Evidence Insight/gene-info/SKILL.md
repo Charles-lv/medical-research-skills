@@ -1,5 +1,5 @@
 ---
-name: "gene-info"
+name: gene-info
 description: "Retrieves comprehensive gene information including PubMed publication counts, NCBI summaries, and Ensembl transcript data. Supports batch processing and file input. Invoke when the user asks for gene details, publication statistics, or needs to analyze a list of genes."
 license: MIT
 skill-author: AIPOCH

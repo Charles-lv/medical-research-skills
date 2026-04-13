@@ -3,7 +3,6 @@ name: lab-inventory-predictor
 description: Predict depletion time of critical lab reagents based on historical usage frequency, and automatically generate purchase alerts when stock falls below safety thresholds.
 license: MIT
 skill-author: AIPOCH
-status: beta
 ---
 # Lab Inventory Predictor
 

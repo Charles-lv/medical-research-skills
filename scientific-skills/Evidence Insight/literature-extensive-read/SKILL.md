@@ -1,6 +1,6 @@
 ---
 name: literature-extensive-read
-description: Rapidly skim and summarize academic papers (default: PDF-to-Markdown full text with `## Page XX` pagination and image references) and output a structured extensive-reading summary in Markdown when you need to quickly understand research questions, methods, key results, conclusions, and decide whether intensive reading is worthwhile.
+description: Rapidly skim and summarize academic papers (default:PDF-to-Markdown full text with `## Page XX` pagination and image references) and output a structured extensive-reading summary in Markdown when you need to quickly understand research questions, methods, key results, conclusions, and decide whether intensive reading is worthwhile.
 license: MIT
 skill-author: AIPOCH
 ---

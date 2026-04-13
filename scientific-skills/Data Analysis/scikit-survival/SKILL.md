@@ -157,3 +157,4 @@ from sksurv.nonparametric import cumulative_incidence_competing_risks
 
 # y must encode event types appropriately for competing risks workflows
 time_points, cif1, cif2 = cumulative_incidence_competing_risks(y)
+```

@@ -4,11 +4,14 @@ description: Automates critical appraisal and quality assessment for research pa
 license: MIT
 skill-author: AIPOCH
 ---
+
+# Quality Assessment
+
 This skill is developed based on the scales recommended by the Latitudes Network. The workflow is as follows:
 Identify Study Design: First, determine the study design of the literature (Query: Study design)
 Recommend Quality Assessment Tool: Based on the identified study design, query and select the appropriate quality assessment tool (Query: References - Quality Assessment Tool)
 Complete Quality Assessment: Use the selected tool to perform the final quality assessment of the literature
-# Study design
+## Study design
 
 - Animal studies
 - Case series
@@ -78,7 +81,7 @@ Example run plan:
 - Parameters to clarify first: input path, output path, scope filters, thresholds, and any domain-specific constraints.
 - Output discipline: keep results reproducible, identify assumptions explicitly, and avoid undocumented side effects.
 
-# Tools （See references-quality assessment tool）
+## Tools （See references-quality assessment tool）
 
 ## Helper Scripts
 

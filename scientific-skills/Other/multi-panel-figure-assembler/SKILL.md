@@ -3,7 +3,6 @@ name: multi-panel-figure-assembler
 description: Assemble 6 sub-figures (A–F) into a high-resolution composite figure with consistent labels, padding, and publication-ready DPI.
 license: MIT
 skill-author: AIPOCH
-status: beta
 ---
 # Multi-Panel Figure Assembler
 

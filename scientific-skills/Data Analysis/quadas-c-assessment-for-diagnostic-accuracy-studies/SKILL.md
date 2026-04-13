@@ -1,5 +1,5 @@
 ---
-name: quadas-c-assessment for diagnostic accuracy studies
+name: quadas-c-assessment-for-diagnostic-accuracy-studies
 description: Automated bias assessment for diagnostic accuracy studies using QUADAS-C criteria. Requires full text input.
 license: MIT
 skill-author: AIPOCH

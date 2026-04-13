@@ -173,16 +173,16 @@ A successful scan must:
 - Non-English papers may have limited coverage
 - Preprint citations (arXiv, bioRxiv) typically not tracked for retractions
 
-# Check a PDF manuscript
+## Check a PDF manuscript
 python scripts/main.py --input manuscript.pdf --format detailed
 
-# Check a BibTeX file
+## Check a BibTeX file
 python scripts/main.py --input references.bib --output report.txt
 
-# Check raw text
+## Check raw text
 python scripts/main.py --text "[paste references here]"
 
-# Quick check with summary only
+## Quick check with summary only
 python scripts/main.py --input paper.pdf --format summary
 ```
 

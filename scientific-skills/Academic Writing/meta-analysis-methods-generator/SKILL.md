@@ -4,6 +4,8 @@ description: Generates the Methods section for a meta-analysis paper, including 
 license: MIT
 skill-author: AIPOCH
 ---
+# Meta Analysis Methods Generator
+
 ## When to Use
 
 - Use this skill when the request matches its documented task boundary.
@@ -53,12 +55,12 @@ Run this minimal command first to verify the supported execution path:
 python scripts/validate_skill.py --help
 ```
 
-# User Intent Examples
+## User Intent Examples
 
 - "Generate a methods section for a meta-analysis on..."
 - "Write the methods part for my paper using these criteria..."
 
-# IO Contract
+## IO Contract
 
 **Inputs:**
 - `criteria` (string, required): Inclusion and exclusion criteria.
@@ -69,7 +71,7 @@ python scripts/validate_skill.py --help
 **Outputs:**
 - `methods_section` (markdown): The complete Methods section.
 
-# Workflow
+## Workflow
 
 1.  **Input Validation**: Verify `criteria`, `PICOS`, `title`, and `language` are provided.
 2.  **Context Retrieval**: Obtain `current_time`.
@@ -94,19 +96,19 @@ python scripts/validate_skill.py --help
         -   Inputs: `language`.
 4.  **Compilation**: Combine all generated sections into a single Markdown document.
 
-# Quality Rules
+## Quality Rules
 
 - **QR-LANG-001**: Output must be in the specified language.
 - **QR-FORMAT-001**: Follow the specific outline for each subsection.
 - **QR-CONTENT-001**: Include all 6 required subsections.
 
-# Prompts and Templates
+## Prompts and Templates
 
 ## Inclusion and Exclusion Criteria
 **Role**: System
 **Content**:
 
-# The user will input a section of inclusion and exclusion criteria. Please:
+## The user will input a section of inclusion and exclusion criteria. Please:
 
 # Specific Requirements:
 1. Remove JSON formatting.
@@ -118,10 +120,10 @@ python scripts/validate_skill.py --help
 **Content**:
 **Literature screening**
 
-# Write a paragraph about literature screening for the methods section of a meta-analysis, following the outline below. Note that the outline is not an example; please expand or modify appropriately based on the outline. Write general information, avoiding specific details.
+## Write a paragraph about literature screening for the methods section of a meta-analysis, following the outline below. Note that the outline is not an example; please expand or modify appropriately based on the outline. Write general information, avoiding specific details.
 Please always remember that I want the text paragraph to be random, not static.
 
-# Outline:
+## Outline:
 1. Initial screening: Two experts.
 2. Initial screening results are: "Yes", "No", and "Maybe".
 3. Secondary screening: Three experts.
@@ -132,14 +134,14 @@ Please always remember that I want the text paragraph to be random, not static.
 **Content**:
 **Quality assessment**
 
-# Please select the appropriate scale type according to the following rules.
+## Please select the appropriate scale type according to the following rules.
 - Etiological studies use ROBINS-E or NOS.
 - RCT: use ROB2.
 - Non-RCT (Clinical Trials): use ROBINS-I.
 - Observational studies: use NOS.
 - Prognostic studies use QUIPS or PROBAST.
 
-# Based on the title and PICOS entered by the user, infer the quality assessment scale that might be used, write a section on quality assessment for the meta-analysis methods part, and follow the outline below:
+## Based on the title and PICOS entered by the user, infer the quality assessment scale that might be used, write a section on quality assessment for the meta-analysis methods part, and follow the outline below:
 1. ROB2: Covers random sequence generation, allocation concealment, the use of blinding, data completeness, selective reporting, and other potential sources of bias.
 NOS: This scale assesses the quality of selection, comparability, and outcome.
 ROBINS-I: ROBINS-I involves seven domains: confounding, selection of participants, classification of interventions, deviations from intended interventions, missing data, measurement of outcomes, and selection of the reported results. Each domain has ratings of low, moderate, serious, or unclear risk of bias.
@@ -152,7 +154,7 @@ PROBAST: The answer for each domain is classified as low, high, or unclear. If a
 **Role**: System
 **Content**:
 
-# Write a paragraph about data extraction for the meta-analysis methods section, following the outline below:
+## Write a paragraph about data extraction for the meta-analysis methods section, following the outline below:
 1. Extract author name, year of publication, and basic characteristics of participants (number, age, gender).
 2. Please output all content in **{{ language }}**, more than 200 words.
 
@@ -161,9 +163,9 @@ PROBAST: The answer for each domain is classified as low, high, or unclear. If a
 **Content**:
 **Statistical analysis**
 
-# Write a section on data analysis for the meta-analysis methods part, following the outline below. Note that the outline is not an example; please expand or modify appropriately based on the outline. Write general information, avoiding specific details.
+## Write a section on data analysis for the meta-analysis methods part, following the outline below. Note that the outline is not an example; please expand or modify appropriately based on the outline. Write general information, avoiding specific details.
 
-# Outline:
+## Outline:
 1. Use R packages for statistical analysis.
 2. I^2 is used to assess heterogeneity; values of 25%, 50%, and 75% are considered low, moderate, and high, respectively. If I^2 < 50%, use the fixed-effects model for data analysis; otherwise, use the random-effects model.
 3. Use funnel plots to detect publication bias. p < 0.05 indicates statistical significance.
@@ -173,9 +175,9 @@ PROBAST: The answer for each domain is classified as low, high, or unclear. If a
 **Role**: System
 **Content**:
 
-# The user will input several PICOS keywords. Please write a search strategy paragraph for the meta-analysis methods section based on the keywords.
+## The user will input several PICOS keywords. Please write a search strategy paragraph for the meta-analysis methods section based on the keywords.
 
-# Specific Requirements:
+## Specific Requirements:
 1. The search strategy should explicitly state that all literature searches are conducted via the official PubMed API, and the search time is {{ current_time }}.
 2. Describe the keywords.
 3. Please output all content in **{{ language }}**.

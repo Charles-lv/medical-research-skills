@@ -1,5 +1,5 @@
 ---
-name: INPLASY-registration-helper
+name: inplasy-registration-helper
 description: Assists researchers in generating INPLASY registration content for meta-analyses from a title and optional protocol. Use when the user wants to draft a INPLASY registration form.
 license: MIT
 skill-author: AIPOCH

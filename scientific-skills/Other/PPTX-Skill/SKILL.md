@@ -1,5 +1,5 @@
 ---
-name: PPTX Skill
+name: pptx-skill
 description: Create, edit, and extract content from PowerPoint (.pptx) files; use when you need to generate slides programmatically, update existing decks, or export slide previews.
 license: MIT
 skill-author: AIPOCH

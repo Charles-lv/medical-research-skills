@@ -1,5 +1,5 @@
 ---
-name: quapas-quality-assessment for prognosis studies
+name: quapas-quality-assessment-for-prognosis-studies
 description: Evaluates bias in medical literature (prognosis studies) using QUAPAS criteria. Use when the user wants to assess the quality or risk of bias of a medical paper text.
 license: MIT
 skill-author: AIPOCH

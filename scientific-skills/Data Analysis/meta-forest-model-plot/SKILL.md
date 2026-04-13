@@ -162,7 +162,6 @@ Or in a virtual environment:
 python -m pip install pandas numpy matplotlib scipy
 ```
 
-````
 
 ## When Not to Use
 
