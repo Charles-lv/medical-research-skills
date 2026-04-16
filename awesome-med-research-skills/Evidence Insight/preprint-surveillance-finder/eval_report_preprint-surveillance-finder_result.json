@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "skill_name": "preprint-surveillance-finder",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": null
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No executable code generated; Mode A writing skill"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 89,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Description is good; dual-mode execution is well-designed but the live vs synthesis boundary is slightly optimistic for Cloudflare-blocked platforms"
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": null
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": null
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 10,
+        "max": 12,
+        "note": "No test cases or example inputs provided; testability limited"
+      },
+      "agent_specific": {
+        "score": 16,
+        "max": 20,
+        "note": "Progressive disclosure correct; escape hatch for vague topics present"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.2,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 24,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Track emerging preprints on scRNA-seq and sepsis (14-day window)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Mode B (knowledge synthesis) correctly activated with explicit label",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "All outputs labeled 'Based on training knowledge'",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Manual search string templates provided for user verification",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated paper titles, DOIs, or author names",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Hot topics organized by sub-cluster",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Request live fetch from bioRxiv for CRISPR preprints",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Cloudflare blocking risk correctly flagged before attempting fetch",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "arXiv q-bio offered as accessible alternative",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Mode clearly labeled when switching from live to synthesis",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Manual search string provided as fallback",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No false claim of successful bioRxiv retrieval",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Emerging topics in spatial transcriptomics (14-day window)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Time window parameter acknowledged and applied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Mode B with caveat present",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Topics organized by momentum level (High/Moderate/Early signal)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated trending scores or paper counts",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Recommended next steps including manual search strings",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Extremely vague: 'what's new in medicine'",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Correctly requests sub-field or mechanism narrowing before proceeding",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Explains why broad-field scan is not actionable",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Provides example narrowed topics to guide user",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Does not proceed to generate a full scan from a domain-level request",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Response concise and not dismissive",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Simultaneous multi-topic tracking (3 topics, different sources)",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Three topics handled separately with their own time windows",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Source per topic correctly differentiated",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Training knowledge vs live data boundary maintained per topic",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated data",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Boundary between training knowledge synthesis and live retrieval mode slightly blurred in combined output",
+            "result": "FAIL",
+            "note": "Mixed mode output partially presented as if live-retrieved without clear per-item labeling"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.6,
+    "dynamic_weighted": 51.1,
+    "score": 87,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Dual-mode execution (live/knowledge synthesis) is a rigorous and rare design for a monitoring skill",
+    "Mandatory 'Based on training knowledge' label on all non-live outputs is an excellent integrity safeguard",
+    "Manual search templates empower users to verify independently regardless of agent access limitations",
+    "Vague-topic refusal mechanism prevents meaningless broad scans"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Mode labeling inconsistent in combined multi-topic output",
+      "observed_in": [
+        5
+      ],
+      "problem": "When multiple topics are tracked simultaneously, the training knowledge vs live retrieval boundary is not consistently labeled at the individual topic level in the combined output.",
+      "root_cause": "Mode labeling rule applies at the report level but not at the individual topic entry level.",
+      "fix": "Add a per-entry mode label requirement: each topic entry in the Hot Topics list must include its own [LIVE] or [TRAINING KNOWLEDGE — verify] tag rather than relying on a single report-level caveat."
+    },
+    {
+      "priority": "P2",
+      "title": "No testability examples for Mode B output quality",
+      "observed_in": [],
+      "problem": "The skill has no example inputs or expected outputs that would allow evaluating whether the training-knowledge synthesis is accurate or up-to-date.",
+      "root_cause": "No example test cases provided in SKILL.md or references.",
+      "fix": "Add 2-3 example topics with expected output structure to references/README.md so that the skill's synthesis quality can be spot-checked periodically."
+    }
+  ]
+}

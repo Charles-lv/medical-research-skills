@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "skill_name": "contradictory-findings-resolver",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "Explicit prohibition on converting unresolved contradiction into patient-care advice"
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 1 evidence analysis only"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 89,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Description is rich and functional but the scope qualifier 'Never fabricate' in the description text reads as a warning rather than a use-case trigger"
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Strong handling of unverified details; gap: no minimum input specification (how much study detail is needed before analysis begins)"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 16,
+        "max": 20,
+        "note": "Citation-use guidance section is a unique and valuable deliverable; composability good as downstream router"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 86.2,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 23,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Two sepsis biomarker papers with opposite prognostic conclusions",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Exact conflict claim identified before explanation",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Study boundaries (population, endpoint, specimen) compared before conclusions",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Conflict type classified from taxonomy (true contradiction vs apparent)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Resolution judgment chosen from the five resolution routes",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Citation-use guidance given",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Immunotherapy RCT showing benefit vs observational study showing no benefit",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Design-level asymmetry (RCT vs observational) addressed in resolution",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "RCT not automatically declared winner without checking execution quality",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Evidence depth comparison present",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Interpretation overreach audit applied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No clinical recommendation made from unresolved evidence",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "TCGA-based computational finding vs wet-lab study reaching different conclusions",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Platform and pipeline differences assessed as potential conflict source",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Validation depth asymmetry between computational and wet-lab explicitly stated",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Hybrid study not collapsed into oversimplified label",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Most important remaining unknowns listed",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated platform parameters or cohort details invented to explain conflict",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Only abstract-level information available for both papers — no methods access",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": "Partial analysis only due to insufficient methods information",
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Analysis correctly limited to what can be inferred from abstracts alone",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Missing methods information explicitly flagged",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Resolution judgment labeled as provisional pending full methods access",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Citation-use guidance appropriately cautious given limited available information",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Unverified study details not invented to fill methods gap",
+            "result": "FAIL",
+            "note": "One normalization method assumption made without explicit flagging as unverified"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Multi-paper conflict (5 papers): conflicting immunotherapy biomarker predictive value across populations",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "All five papers assessed in Conflict Type Map section",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Boundary comparison table covers all relevant population/endpoint/specimen dimensions",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Contradiction not force-resolved into single winner across five different contexts",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Primary resolution: boundary-separated compatibility or maintained uncertainty",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Citation-use guidance accounts for all five papers",
+            "result": "FAIL",
+            "note": "Citation guidance covered only 3 of 5 papers explicitly; two were merged into a general statement without individual guidance"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.6,
+    "dynamic_weighted": 51.7,
+    "score": 87,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Five structured resolution routes (boundary separation, hierarchy, validation asymmetry, downgrade, maintained uncertainty) prevent premature false synthesis",
+    "Citation-use guidance section is a unique deliverable that converts conflict analysis into actionable writing guidance",
+    "Hard rule prohibiting paper-count resolution is an important guard against naive vote-tallying",
+    "Fifteen hard rules covering study-boundary comparison, interpretation audit, and verification requirements are comprehensive"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Unverified details occasionally introduced without explicit flagging in partial-context analysis",
+      "observed_in": [
+        4
+      ],
+      "problem": "When only abstract-level information is available, one assumption about a normalization method was introduced without being explicitly marked as unverified.",
+      "root_cause": "Hard rules prohibit fabricating study details but do not specify how to handle necessary assumptions when methods are unavailable.",
+      "fix": "Add an assumption-flagging rule: any analytical detail (normalization, threshold, adjustment) not found in user-provided input must be marked '[ASSUMED — unverified]' rather than stated as fact."
+    },
+    {
+      "priority": "P1",
+      "title": "Citation-use guidance becomes incomplete in large multi-paper conflicts",
+      "observed_in": [
+        5
+      ],
+      "problem": "When five or more papers are in conflict, citation guidance sometimes covers only the most prominent papers individually, merging the rest into a general statement.",
+      "root_cause": "No minimum-per-paper guidance requirement defined for multi-paper conflicts.",
+      "fix": "Add a rule to Section H: when more than three papers are compared, provide at least one sentence of specific citation guidance per paper (cite as boundary-specific, cite with uncertainty, or do not cite yet)."
+    },
+    {
+      "priority": "P2",
+      "title": "No minimum input specification before analysis begins",
+      "observed_in": [],
+      "problem": "The skill accepts almost any level of study description, potentially producing low-quality analysis when only a title is given with no methods or results.",
+      "root_cause": "Input Validation section lists examples but does not define a minimum detail threshold.",
+      "fix": "Add a minimum-input check: if study details are limited to title/conclusion only without any design, sample, endpoint, or measurement information, ask for at least the study design and primary outcome definition before proceeding."
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "evaluator_version": "skill-auditor@1.0",
+    "skill_name": "latex-manuscript-format-converter",
+    "audited_on": "2026-03-30"
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "scientific_integrity": "PASS",
+      "practice_boundaries": "PASS",
+      "methodological_ground": "PASS",
+      "code_usability": "PASS"
+    }
+  },
+  "static_score": {
+    "total": 90,
+    "categories": {
+      "functional_suitability": 12,
+      "reliability": 9,
+      "performance_context": 7,
+      "agent_usability": 16,
+      "human_usability": 7,
+      "security": 12,
+      "maintainability": 11,
+      "agent_specific": 16
+    }
+  },
+  "dynamic_score": {
+    "inputs": [
+      {
+        "id": 1,
+        "type": "Canonical",
+        "status": "COMPLETED",
+        "basic": 39,
+        "specialized": 50,
+        "total": 89,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Identifies PLOS ONE structure correctly",
+            "result": "PASS",
+            "note": "Section order accurate"
+          },
+          {
+            "text": "Maps all manuscript components",
+            "result": "PASS",
+            "note": "A-H output complete"
+          },
+          {
+            "text": "Identifies compile boundary without template files",
+            "result": "PASS",
+            "note": "Stated explicitly"
+          },
+          {
+            "text": "Does not fabricate PLOS template rules",
+            "result": "PASS",
+            "note": "Hard Rule 1 enforced"
+          },
+          {
+            "text": "Provides concrete component-by-component mapping",
+            "result": "FAIL",
+            "note": "Mapping plan is slightly generic"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "Variant A",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 53,
+        "total": 93,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Identifies class-file migration as core challenge",
+            "result": "PASS",
+            "note": "Correctly prioritized"
+          },
+          {
+            "text": "Lists required changes for Nature Medicine",
+            "result": "PASS",
+            "note": "Header, environment, citation format noted"
+          },
+          {
+            "text": "States cannot guarantee compile without .cls file",
+            "result": "PASS",
+            "note": "Compile boundary explicit"
+          },
+          {
+            "text": "Does not fabricate Nature Medicine template rules",
+            "result": "PASS",
+            "note": "Hard Rule 1 enforced"
+          },
+          {
+            "text": "Provides actionable next steps",
+            "result": "PASS",
+            "note": "Obtain .cls from journal website recommended"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "Edge",
+        "status": "PARTIAL",
+        "basic": 36,
+        "specialized": 42,
+        "total": 78,
+        "assertions_passed": 3,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Asks for missing target template",
+            "result": "PASS",
+            "note": "Correctly identifies gap"
+          },
+          {
+            "text": "Asks for full manuscript",
+            "result": "PASS",
+            "note": "Scope clarification requested"
+          },
+          {
+            "text": "Does not produce full conversion from 3 paragraphs alone",
+            "result": "PASS",
+            "note": "Escape hatch works"
+          },
+          {
+            "text": "Offers generic article-class starting structure as fallback",
+            "result": "FAIL",
+            "note": "No fallback offered — P2 issue"
+          },
+          {
+            "text": "Estimates effort for common journal classes",
+            "result": "FAIL",
+            "note": "Not provided"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": "Variant B",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 50,
+        "total": 90,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Correctly identifies bibitem → BibTeX migration as format-only task",
+            "result": "PASS",
+            "note": "Clean distinction"
+          },
+          {
+            "text": "Explains .bst dependency clearly",
+            "result": "PASS",
+            "note": "Compile-blocking correctly flagged"
+          },
+          {
+            "text": "Recommends obtaining .bst from journal",
+            "result": "PASS",
+            "note": "Practical guidance"
+          },
+          {
+            "text": "Does not fabricate .bst file contents",
+            "result": "PASS",
+            "note": "Hard Rule 4 enforced"
+          },
+          {
+            "text": "Provides bibliography migration steps",
+            "result": "PASS",
+            "note": "Clear sequencing"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "Stress",
+        "status": "COMPLETED",
+        "basic": 39,
+        "specialized": 49,
+        "total": 88,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Handles multi-source scenario correctly",
+            "result": "PASS",
+            "note": "Word + LaTeX hybrid noted"
+          },
+          {
+            "text": "Identifies Endnote → BibTeX as separate task",
+            "result": "PASS",
+            "note": "Correctly isolated"
+          },
+          {
+            "text": "Provides realistic sequencing",
+            "result": "PASS",
+            "note": "Ordered workflow proposed"
+          },
+          {
+            "text": "Does not fabricate Bioinformatics journal template details",
+            "result": "PASS",
+            "note": "Hard Rule 1 enforced"
+          },
+          {
+            "text": "Estimates total conversion effort realistically",
+            "result": "FAIL",
+            "note": "Effort estimate absent"
+          }
+        ]
+      }
+    ],
+    "execution_average": 87.6,
+    "assertion_pass_total": 21,
+    "assertion_total": 25
+  },
+  "final": {
+    "static_weighted": 36.0,
+    "dynamic_weighted": 52.6,
+    "final_score": 88.6,
+    "grade": "Production Ready",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Compile boundary enforcement is exemplary — never overclaims template compliance",
+    "Multi-source workflow handling covers all realistic conversion scenarios",
+    "Hard Rules prevent scientific content changes during formatting",
+    "8-step workflow covers all conversion scenarios without redundancy"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Trigger Over-Breadth Risk",
+      "observed_in": [],
+      "problem": "Description could trigger on general LaTeX questions unrelated to manuscript submission",
+      "root_cause": "LaTeX keyword in description without manuscript qualifier",
+      "fix": "Tighten description to 'LaTeX manuscript submission formatting and conversion'"
+    },
+    {
+      "priority": "P2",
+      "title": "Generic-Template Starting Point Missing",
+      "observed_in": [
+        3
+      ],
+      "problem": "When no target template specified, skill only asks for more info without offering a generic fallback",
+      "root_cause": "No generic submission LaTeX fallback described in SKILL.md",
+      "fix": "Add brief section describing minimal generic article-class structure as default fallback"
+    }
+  ]
+}

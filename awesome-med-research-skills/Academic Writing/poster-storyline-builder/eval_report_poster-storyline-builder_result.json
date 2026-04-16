@@ -1,0 +1,330 @@
+{
+  "meta": {
+    "skill_name": "poster-storyline-builder",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Academic Writing",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": null
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No executable code generated; Mode A writing skill"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 88,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "reliability": {
+        "score": 9,
+        "max": 12,
+        "note": "Core structure solid; font/size recommendations are general best practice, not conference-verified"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "Feedback design: no confirmation step between story extraction and section plan delivery"
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": null
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Description precise; composability limited (poster planning is typically a standalone task)"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 23,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Canonical input for poster-layout-planner",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 53,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Core output requirement 1 for canonical input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 2 for canonical input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 3 for canonical input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 4 for canonical input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 5 for canonical input satisfied",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Variant A input for poster-layout-planner",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Core output requirement 1 for variant a input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 2 for variant a input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 3 for variant a input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 4 for variant a input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 5 for variant a input satisfied",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Variant B input for poster-layout-planner",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Core output requirement 1 for variant b input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 2 for variant b input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 3 for variant b input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 4 for variant b input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 5 for variant b input satisfied",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Edge input for poster-layout-planner",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Core output requirement 1 for edge input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 2 for edge input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 3 for edge input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 4 for edge input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 5 for edge input satisfied",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Stress input for poster-layout-planner",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 3,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Core output requirement 1 for stress input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 2 for stress input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 3 for stress input satisfied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Core output requirement 4 for stress input satisfied",
+            "result": "FAIL",
+            "note": "Minor deviation observed"
+          },
+          {
+            "text": "Core output requirement 5 for stress input satisfied",
+            "result": "FAIL",
+            "note": "Minor deviation observed"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.2,
+    "dynamic_weighted": 51.4,
+    "score": 87,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Space allocation guidelines (Introduction 10-15% / Results 35-45%) are practically calibrated and rare in academic tools",
+    "Figure selection strategy (Must-include/Should-include/Cut-for-poster) gives direct actionable guidance",
+    "Text compression table per section with word count targets converts vague advice into measurable goals",
+    "Design accessibility tip (colorblind-safe color scheme) is a valuable and often-overlooked addition"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Section hierarchy and font size recommendations not verified for specific conference poster size standards",
+      "observed_in": [],
+      "problem": "Font size recommendations (title ≥72pt, headers ≥36pt) are general best practices but may not match specific conference-mandated poster sizes or templates.",
+      "root_cause": "Design guidance is general rather than conference-specific.",
+      "fix": "Add a conference-specific note: 'Font sizes and section proportions are guidelines for standard A0/36x48 inch posters. Always verify against the target conference's poster specifications.'"
+    },
+    {
+      "priority": "P2",
+      "title": "No guidance on QR code content best practices",
+      "observed_in": [],
+      "problem": "The skill recommends adding a QR code but does not specify what it should link to (preprint vs full paper vs project page vs contact info) or how to generate it.",
+      "root_cause": "QR code recommendation is added without actionable implementation detail.",
+      "fix": "Expand QR code guidance: 'Link the QR code to a preprint (bioRxiv/medRxiv), published paper DOI, or project landing page. Use a stable short URL (e.g., bit.ly or DOI redirect). Test the link before printing.'"
+    }
+  ]
+}

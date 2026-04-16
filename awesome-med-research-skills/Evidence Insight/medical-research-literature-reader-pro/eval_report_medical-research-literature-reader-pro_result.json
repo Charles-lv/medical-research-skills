@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "skill_name": "medical-research-literature-reader-pro",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Complex",
+    "n_inputs": 7
+  },
+  "veto_gates": {
+    "skill_veto": { "gate": "PASS", "stability": "PASS", "contract": "PASS", "determinism": "PASS", "security": "PASS" },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": { "result": "PASS", "detail": null },
+      "practice_boundaries": { "result": "PASS", "detail": "Explicit prohibition on turning analysis into clinical decision support" },
+      "methodological_ground": { "result": "PASS", "detail": "Six overclaim prohibitions (association ≠ causation, expression validation ≠ functional proof, etc.) are methodologically rigorous" },
+      "code_usability": { "result": "N/A", "detail": "No code generated; Category 1 literature analysis only" }
+    }
+  },
+  "static_score": {
+    "subtotal": 96,
+    "max": 100,
+    "categories": {
+      "functional_suitability": { "score": 12, "max": 12, "note": null },
+      "reliability": { "score": 11, "max": 12, "note": "Minimum Viable Input escalation path is excellent; one gap: plugin system may activate prematurely without clear user request in some edge cases" },
+      "performance_context": { "score": 7, "max": 8, "note": "235 lines with 6 reference modules plus rich plugin system; progressive disclosure well-executed" },
+      "agent_usability": { "score": 16, "max": 16, "note": null },
+      "human_usability": { "score": 8, "max": 8, "note": "Description is exceptionally rich with specific trigger examples; excellent discoverability across all user types" },
+      "security": { "score": 12, "max": 12, "note": null },
+      "maintainability": { "score": 12, "max": 12, "note": null },
+      "agent_specific": { "score": 18, "max": 20, "note": "Four output modes, four tracks, five hybrid sub-tracks, and plugin system provide excellent composability and scope coverage" }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 90.9,
+    "max": 100,
+    "assertion_pass_rate": { "passed": 34, "total": 35 },
+    "inputs": [
+      {
+        "index": 1, "type": "Canonical", "label": "Standard analysis of an RCT with full paper provided",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 55, "total": 91,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Paper correctly classified by actual study design (not author self-description)", "result": "PASS", "note": null },
+          { "text": "Track A deep analysis applied with all 16 checklist items", "result": "PASS", "note": null },
+          { "text": "What the paper can claim vs cannot claim sections both present and distinct", "result": "PASS", "note": null },
+          { "text": "Evidence strength rating given with rationale tied to design features", "result": "PASS", "note": null },
+          { "text": "Section 14 follow-up questions tailored to paper-specific findings", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 2, "type": "Variant A", "label": "TCGA + qPCR + cell assay hybrid paper — Track D1",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 37, "specialized": 55, "total": 92,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Hybrid mode activated with primary (Track B) and secondary (Track C) tracks assigned", "result": "PASS", "note": null },
+          { "text": "Evidence hierarchy summary present for multi-track paper", "result": "PASS", "note": null },
+          { "text": "SHAP/feature importance not used as proxy for biological proof", "result": "PASS", "note": null },
+          { "text": "Expression validation not presented as functional proof", "result": "PASS", "note": null },
+          { "text": "Bioinformatics findings not presented as therapeutic target confirmation", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 3, "type": "Variant B", "label": "Bioinformatics paper with NHANES + ML — Track D2",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 55, "total": 91,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Track D2 activated with 10 ML-clinical checklist items applied", "result": "PASS", "note": null },
+          { "text": "Internal validation not presented as clinical deployment readiness", "result": "PASS", "note": null },
+          { "text": "Public database significance not equated with therapeutic target confirmation", "result": "PASS", "note": null },
+          { "text": "ML model limitations explicitly identified", "result": "PASS", "note": null },
+          { "text": "Association-causation distinction maintained throughout", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 4, "type": "Edge", "label": "Only DOI provided — paper not retrievable directly",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 55, "total": 91,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Minimum Viable Input escalation path applied: states what cannot be done with DOI alone", "result": "PASS", "note": null },
+          { "text": "User asked to provide abstract or methods text to proceed", "result": "PASS", "note": null },
+          { "text": "No paper content fabricated from DOI alone", "result": "PASS", "note": null },
+          { "text": "Any inferred analysis from title/journal labeled as preliminary", "result": "PASS", "note": null },
+          { "text": "Response practically useful despite input limitation", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 5, "type": "Stress", "label": "Paper with overclaiming language — 'proved causation', 'ready for clinical translation'",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 55, "total": 91,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Overclaiming language explicitly flagged in Section 8 (What the Paper Cannot Claim)", "result": "PASS", "note": null },
+          { "text": "Causal language from paper correctly classified as overclaim if not supported", "result": "PASS", "note": null },
+          { "text": "Clinical translation readiness claim addressed with correct evidence boundary", "result": "PASS", "note": null },
+          { "text": "Balanced critical appraisal maintained despite paper's confident language", "result": "PASS", "note": null },
+          { "text": "Biased analysis request ('positive only') handled with explanation then full report", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 6, "type": "Scope Boundary", "label": "Request to write manuscript Introduction from scratch — out of scope",
+        "status": "COMPLETED", "status_flag": "✅", "note": "Correctly redirected",
+        "basic": 36, "specialized": 54, "total": 90,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Writing request correctly identified as outside skill scope", "result": "PASS", "note": null },
+          { "text": "Redirect to academic writing skill provided", "result": "PASS", "note": null },
+          { "text": "No manuscript section generated before scope check", "result": "PASS", "note": null },
+          { "text": "Response concise and actionable", "result": "PASS", "note": null },
+          { "text": "Any analysis-relevant output limited to reading the provided paper", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 7, "type": "Adversarial", "label": "Request for 'quick summary only, no weaknesses' — biased analysis request",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 55, "total": 91,
+        "assertions_passed": 4, "assertions_total": 5,
+        "assertions": [
+          { "text": "Biased analysis request addressed with brief explanation of balanced design", "result": "PASS", "note": null },
+          { "text": "Full balanced report produced despite strength-only request", "result": "PASS", "note": null },
+          { "text": "Weaknesses not omitted from critical appraisal", "result": "PASS", "note": null },
+          { "text": "Quick Read mode offered as alternative for legitimate speed-reading need", "result": "PASS", "note": null },
+          { "text": "Explanation of why balanced appraisal matters provided before full report", "result": "FAIL", "note": "Explanation was present but very brief (one sentence) — could be more persuasive about why this matters for manuscript integrity" }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 38.4,
+    "dynamic_weighted": 54.5,
+    "score": 93,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Four output modes (Quick Read/Standard/Expert Deep Review/Output-Targeted) with clear activation logic provide exceptional flexibility for different use cases",
+    "Five evidence tracks including three hybrid tracks cover the full range of modern biomedical literature types",
+    "Six explicit overclaim prohibitions are among the most comprehensive anti-inflation safeguards in this entire skill collection",
+    "Minimum Viable Input escalation path ensures graceful handling of any input type from full PDF to title-only"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Balanced-appraisal explanation too brief when user requests biased analysis",
+      "observed_in": [7],
+      "problem": "When a user requests a strength-only analysis, the explanation of why balanced appraisal is necessary is too brief (one sentence) to be persuasive for users unfamiliar with evidence appraisal principles.",
+      "root_cause": "Behavioral rule says 'briefly explain' which is correctly interpreted as minimal explanation.",
+      "fix": "Expand the biased-request response to 2-3 sentences explaining: (1) what balanced appraisal prevents (manuscript credibility risk, reviewer criticism), (2) that Quick Read mode is available for faster reading, and (3) that weaknesses are noted alongside strengths — not as criticism but as scope-setting."
+    },
+    {
+      "priority": "P2",
+      "title": "Plugin activation boundary slightly unclear for Output-Targeted Mode",
+      "observed_in": [],
+      "problem": "The skill says 'offer, do not auto-activate plugins' but does not define when it is appropriate to proactively suggest a specific plugin vs offering all plugins equally.",
+      "root_cause": "Plugin activation guidance is defined in references/plugins.md which is not loaded unless referenced.",
+      "fix": "Add a brief plugin suggestion heuristic to SKILL.md: 'After Standard report, offer the 1-2 most relevant plugins based on paper type — for bioinformatics papers offer Replication Starter; for mechanism papers offer Follow-Up Experiment Designer; for clinical papers offer PI Decision Brief.'"
+    }
+  ]
+}

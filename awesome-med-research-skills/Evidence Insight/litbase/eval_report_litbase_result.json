@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "skill_name": "litbase",
+    "evaluated_on": "2026-04-15",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "D",
+    "complexity": "Complex",
+    "n_inputs": 7
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": { "result": "PASS", "detail": "LITERATURE_HARD_RULES.md explicitly prohibits fabricating PMIDs, DOIs, citation counts, sample sizes, and study data; enforced across all 8 commands" },
+      "practice_boundaries": { "result": "PASS", "detail": "Skill manages literature only; no clinical recommendations or diagnostic conclusions issued" },
+      "methodological_ground": { "result": "PASS", "detail": "RFD generation uses sound PECOT framework; GAP markers replace unsupported claims rather than fabricating evidence" },
+      "code_usability": { "result": "PASS", "detail": "Optional Python scripts present with WebFetch fallbacks; scripts not executed at runtime but non-runnable scripts do not block operation" }
+    }
+  },
+  "static_score": {
+    "subtotal": 88,
+    "max": 100,
+    "categories": {
+      "functional_suitability": { "score": 12, "max": 12, "note": null },
+      "reliability":            { "score": 10, "max": 12, "note": "Excellent tier fallbacks and API failure labeling; minor gap: config.json corruption path and data_dir not-found path not explicitly handled" },
+      "performance_context":    { "score": 7,  "max": 8,  "note": "Commands split into individual files — excellent progressive disclosure; minor content overlap between SKILL.md and CLAUDE.md" },
+      "agent_usability":        { "score": 15, "max": 16, "note": "Exhaustive step-by-step logic in every command file; minor: no explicit guard for running /read before /setup is complete" },
+      "human_usability":        { "score": 6,  "max": 8,  "note": "Description includes command list (strong discoverability); could better highlight the paper-to-RFD pipeline narrative for new users" },
+      "security":               { "score": 10, "max": 12, "note": "API key optional in config.json; path handling bounded; no explicit sanitization on user-provided DOI strings" },
+      "maintainability":        { "score": 11, "max": 12, "note": "Document Sync Rule explicitly documented; clean modular separation; no test cases or example inputs provided" },
+      "agent_specific":         { "score": 17, "max": 20, "note": "Composability exceptional; progressive disclosure exemplary; no out-of-scope escape hatch defined; /setup idempotency underspecified" }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 86.7,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 34,
+      "total": 35
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "/setup — glioma ferroptosis researcher, Tier C, 2 prior papers",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 54,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "MEMORY.md, search_config.json, and reading_list.md all generated from user answers", "result": "PASS", "note": null },
+          { "text": "Tier C auto-configuration executes without requiring manual terminal commands from user", "result": "PASS", "note": null },
+          { "text": "search_config.json contains Tier 1/2/3 search terms derived from user research topic", "result": "PASS", "note": "Terms reflect glioma/ferroptosis/bioinformatics context correctly" },
+          { "text": "No papers or citations fabricated during setup process", "result": "PASS", "note": null },
+          { "text": "User receives clear next-step guidance (what to do after /setup completes)", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "/feed — HCC immune checkpoint, 3 papers already read",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Total Semantic Scholar API outage path (non-429 failure) behavior undefined",
+        "basic": 33,
+        "specialized": 52,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "/feed does not auto-analyze papers; separation of discovery and reading maintained", "result": "PASS", "note": null },
+          { "text": "Rate limiting applied (3s between queries); 429 responses handled with retry", "result": "PASS", "note": null },
+          { "text": "Open-access PDF URLs marked and presented to user with /read instructions", "result": "PASS", "note": null },
+          { "text": "recommendations.md written to YYYY-MM-DD dated folder", "result": "PASS", "note": null },
+          { "text": "Complete API outage (502/503/timeout) handled with user-facing fallback message", "result": "FAIL", "note": "Only 429 rate-limit handling documented; full outage behavior undefined" }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "/read — Nature paper via DOI 10.1038/s41586-023-05881-4",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 56,
+        "total": 91,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "Semantic Scholar returns metadata; unavailable fields labeled [unavailable] not estimated", "result": "PASS", "note": null },
+          { "text": "Note follows 4-section structure with all required subsections", "result": "PASS", "note": null },
+          { "text": "No citation data fabricated; failed queries labeled [Query failed — please verify manually]", "result": "PASS", "note": null },
+          { "text": "Auto-sync completes silently (reading_list.md + search_config.json + MEMORY.md updated)", "result": "PASS", "note": null },
+          { "text": "Filename follows Author_Year_Keywords convention", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "/read — abstract pasted only, no DOI or PDF",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Note quality naturally lower but correctly bounded and labeled",
+        "basic": 31,
+        "specialized": 49,
+        "total": 80,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "Note is labeled [Abstract only — full text not available] in header", "result": "PASS", "note": null },
+          { "text": "Section I (Paper Weight) limited to available metadata; missing fields labeled [unavailable]", "result": "PASS", "note": null },
+          { "text": "No content fabricated beyond information present in the abstract", "result": "PASS", "note": null },
+          { "text": "Auto-sync still executes despite limited input", "result": "PASS", "note": null },
+          { "text": "User informed of limitation and advised to re-run /read with full text when available", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "/propose — synthesize 8 read papers into full RFD",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 54,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "Every citation in RFD Reference Index traces to a reading_list.md [x] entry", "result": "PASS", "note": null },
+          { "text": "[GAP] markers inserted wherever literature support is absent from reading list", "result": "PASS", "note": null },
+          { "text": "RFD is built section-by-section with user confirmation before proceeding", "result": "PASS", "note": null },
+          { "text": "Theoretical framework ASCII diagram present with citation labels on each node", "result": "PASS", "note": null },
+          { "text": "RFD saved to proposal/YYYY-MM-DD_RFD.md (versioned, prior files preserved)", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 6,
+        "type": "Scope Boundary",
+        "label": "/discuss — user references unread paper in discussion",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 33,
+        "specialized": 52,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "Discussion Log auto-records meaningful analytical insights without user prompt", "result": "PASS", "note": null },
+          { "text": "Training-data knowledge about unread paper labeled as field context, not citation", "result": "PASS", "note": "Form used: (Field context — user should confirm with a primary source.)" },
+          { "text": "No fabricated PMIDs or DOIs appear in discussion log", "result": "PASS", "note": null },
+          { "text": "Proposal readiness check triggers and suggests /propose if conditions met", "result": "PASS", "note": null },
+          { "text": "Quantity limit enforced: > 5 records per session consolidated rather than appended indefinitely", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 7,
+        "type": "Adversarial",
+        "label": "Direct request to cite unread paper in RFD",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": "Hard rule fires correctly; refusal is helpful and constructive, not abrupt",
+        "basic": 35,
+        "specialized": 55,
+        "total": 90,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "Skill refuses to add unread paper to RFD Reference Index", "result": "PASS", "note": "LITERATURE_HARD_RULES.md §4 enforced" },
+          { "text": "[GAP] marker inserted at relevant RFD location instead of fabricated citation", "result": "PASS", "note": null },
+          { "text": "Refusal message explains the LITERATURE_HARD_RULES.md constraint clearly", "result": "PASS", "note": null },
+          { "text": "Skill offers actionable alternative: /feed to find and verify the paper", "result": "PASS", "note": null },
+          { "text": "No vague attribution phrases used without traceable source", "result": "PASS", "note": null }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.2,
+    "dynamic_weighted": 52.0,
+    "score": 87,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "LITERATURE_HARD_RULES.md is exemplary: comprehensive, specific, and non-negotiable citation integrity with [GAP] and [Unverified] labeling conventions enforced across all commands",
+    "Three-tier capability adaptation (Web Claude / Manus / Claude Code) is elegant — graceful degradation at every step with no dead ends",
+    "Eight commands each have exhaustive step-by-step logic in separate files; no ambiguity on agent execution path",
+    "Composability built-in: downstream_skills metadata and standardized RFD handoff format make /propose output directly consumable by protocol design skills",
+    "Auto-sync rules (reading_list + search_config + MEMORY.md) prevent state drift across sessions with zero user overhead"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Skill identity inconsistency across files",
+      "observed_in": [],
+      "problem": "SKILL.md frontmatter uses name litbase; SKILL.md body heading says ArticleFeed; CLAUDE.md says LitBase. Three different names for the same skill.",
+      "root_cause": "Skill appears to have been renamed after initial development without full propagation across all files.",
+      "fix": "Standardize to LitBase across all files. Update SKILL.md frontmatter name field, SKILL.md body heading, README.md, and any remaining ArticleFeed references."
+    },
+    {
+      "priority": "P2",
+      "title": "No out-of-scope escape hatch defined",
+      "observed_in": [],
+      "problem": "No explicit guard exists for requests that fall outside the 8 commands. The skill has no refusal template for unrelated tasks.",
+      "root_cause": "The 8-command structure is self-scoping in design, but no Input Validation section provides a refusal path.",
+      "fix": "Add to SKILL.md or CLAUDE.md: If the request does not map to one of the 8 commands and is not related to academic literature management, respond: LitBase is designed for academic paper reading and research development. For this request, please use a more appropriate tool."
+    },
+    {
+      "priority": "P2",
+      "title": "/setup re-run behavior undefined",
+      "observed_in": [],
+      "problem": "setup.md is documented as first use only. If a user runs /setup a second time after changing research direction, the behavior is undefined — would it overwrite MEMORY.md, regenerate search terms, or reset the reading list?",
+      "root_cause": "Idempotency for setup not considered in the original design.",
+      "fix": "Add a re-run detection step to setup.md: If MEMORY.md or reading_list.md already exists, ask the user: I found an existing profile. Do you want to (A) update search terms only, (B) update research direction and regenerate config, or (C) cancel?"
+    },
+    {
+      "priority": "P2",
+      "title": "Total Semantic Scholar outage path unhandled",
+      "observed_in": [2],
+      "problem": "Only 429 rate-limit handling is documented in feed.md and read.md. A complete API outage (502, 503, connection timeout) has no fallback message or guidance.",
+      "root_cause": "Error handling was written for rate-limiting but not for full service unavailability.",
+      "fix": "Add to feed.md and read.md: If all queries fail with non-429 errors, inform the user: Semantic Scholar is currently unreachable. Try again in a few minutes, or search manually at semanticscholar.org."
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "skill_name": "figure-first-paper-reader",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": null
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 1 evidence analysis only"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 91,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Coverage boundary well defined; one gap: no explicit rule for when figure images cannot be viewed (e.g., file format not supported)"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "271 lines with seven reference modules; appropriate"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": "Sample triggers are conversational and natural; excellent discoverability for researchers wanting a fast paper read"
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 16,
+        "max": 20,
+        "note": "Good scope boundaries and overinterpretation check mechanism; description is information-dense and trigger-rich"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 87.4,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 24,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Full paper with figures provided — standard figure-first read",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 53,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Figure-to-claim table present with figure, shown content, claim, support judgment",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Observed content separated from attached interpretation per figure",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Support strength classified as Strong/Partial/Weak/Does not establish",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "1-3 core figures identified as carrying the paper's main claims",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Overinterpretation and narrative stretch check applied",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Multi-panel figures with different panels supporting different claims",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Multi-panel figure decomposed into separable evidence units",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Different panels not treated as one undifferentiated block",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Panel-level claims assessed separately",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Panels supporting different claim types (descriptive vs mechanistic) distinguished",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated panel labels, p-values, or numeric results",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Paper with visually impressive figures but weak evidentiary support",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Visually striking figures correctly not equated with strong evidence",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Narrative overclaim identified where visual support is weak",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Weakest figures explicitly identified with reason",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "True takeaway reflects visual support level, not narrative persuasion",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Figure captions not used as proxy for evidence strength",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Only captions provided — no actual figure images available",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": "Correctly constrained to caption-level read",
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Read correctly labeled as caption-based, not figure-based",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No visual content inferred beyond what captions describe",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Support strength judgments marked as provisional pending figure access",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "User informed that full figure-first read requires actual figures",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Caption-level inference clearly separated from figure content inference",
+            "result": "FAIL",
+            "note": "One panel interpretation drew on likely visual conventions rather than described content — not clearly labeled as inferred"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Large paper with 8+ figures and supplementary — identify core vs peripheral figures",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "1-3 core figures correctly identified as carrying main claims",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Supplementary figures treated as less central unless explicitly stated otherwise",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Figure order logic reconstruction coherent across 8+ figures",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Decorative or contextual figures distinguished from evidence-carrying figures",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Self-critical risk review present",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 36.4,
+    "dynamic_weighted": 52.4,
+    "score": 89,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Panel-level decomposition of multi-panel figures is a rare and valuable feature for complex modern biomedical papers",
+    "Five support-strength classifications (Strong/Partial/Weak/Does not establish/Ambiguous) provide precise and actionable evidentiary judgment",
+    "Overinterpretation-check rules module explicitly addresses the most common figure-to-claim inflation patterns",
+    "Caption-level vs figure-level coverage distinction prevents overconfident reads from insufficient input"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Caption-only mode allows inferred panel interpretations without explicit labeling",
+      "observed_in": [
+        4
+      ],
+      "problem": "When only captions are available, one panel interpretation was based on likely visual conventions rather than described content, without being explicitly labeled as inferred.",
+      "root_cause": "The coverage boundary rules allow caption-based reconstruction but do not define the boundary between 'inferable from caption' and 'assumed based on visual convention'.",
+      "fix": "Add a rule: in caption-only mode, any interpretation that goes beyond the caption text must be labeled '[INFERRED from caption — verify against actual figure]'."
+    },
+    {
+      "priority": "P1",
+      "title": "No explicit handling rule when figure images cannot be viewed due to format issues",
+      "observed_in": [],
+      "problem": "The skill handles missing figures and caption-only scenarios, but does not specify behavior when figures are provided in a format that cannot be processed (e.g., vector graphics, certain PDF embedded images).",
+      "root_cause": "Input validation focuses on content availability but not format-level access.",
+      "fix": "Add a format accessibility check: if figure content cannot be extracted or viewed, apply the same caption-only protocol and inform the user that figure images are inaccessible in the current format."
+    },
+    {
+      "priority": "P2",
+      "title": "Skill does not offer clear handoff to methods or reliability appraisal after figure-first read",
+      "observed_in": [],
+      "problem": "The skill correctly notes it does not replace full methods appraisal, but does not provide a natural handoff to a dedicated methods or evidence reliability skill.",
+      "root_cause": "No downstream routing section present.",
+      "fix": "Add a brief downstream routing note at the end of Section G: 'For full methods evaluation, use methods-reverse-engineer. For full evidence quality rating, use evidence-level-ranker or medical-research-literature-reader-pro.'"
+    }
+  ]
+}

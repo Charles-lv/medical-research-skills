@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "evaluator_version": "skill-auditor@1.0",
+    "skill_name": "author-response-builder",
+    "audited_on": "2026-03-30"
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "scientific_integrity": "PASS",
+      "practice_boundaries": "PASS",
+      "methodological_ground": "PASS",
+      "code_usability": "N/A"
+    }
+  },
+  "static_score": {
+    "total": 91,
+    "categories": {
+      "functional_suitability": 12,
+      "reliability": 10,
+      "performance_context": 7,
+      "agent_usability": 16,
+      "human_usability": 7,
+      "security": 12,
+      "maintainability": 11,
+      "agent_specific": 16
+    }
+  },
+  "dynamic_score": {
+    "inputs": [
+      {
+        "id": 1,
+        "type": "Canonical",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 52,
+        "total": 92,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Classifies as additional-analysis-completed mode",
+            "result": "PASS",
+            "note": "Correct mode selection"
+          },
+          {
+            "text": "Links to post-hoc power calculation explicitly",
+            "result": "PASS",
+            "note": "Revision linkage present"
+          },
+          {
+            "text": "Does not pretend analysis was pre-specified",
+            "result": "PASS",
+            "note": "Post-hoc status stated transparently"
+          },
+          {
+            "text": "Professional tone maintained",
+            "result": "PASS",
+            "note": "Not defensive, not over-apologetic"
+          },
+          {
+            "text": "Uses structured A-H output",
+            "result": "PASS",
+            "note": "All sections present"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "Variant A",
+        "status": "COMPLETED",
+        "basic": 39,
+        "specialized": 53,
+        "total": 92,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Classifies as rebuttal mode",
+            "result": "PASS",
+            "note": "Correct mode selection"
+          },
+          {
+            "text": "Explains Phase I single-arm design rationale",
+            "result": "PASS",
+            "note": "Scientific justification provided"
+          },
+          {
+            "text": "Does not fabricate citations",
+            "result": "PASS",
+            "note": "Hard Rule 6 enforced"
+          },
+          {
+            "text": "Tone is confident but not dismissive",
+            "result": "PASS",
+            "note": "Bounded disagreement well-calibrated"
+          },
+          {
+            "text": "Uses structured A-H output",
+            "result": "PASS",
+            "note": "All sections present"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "Edge — unresolved",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 56,
+        "total": 96,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Acknowledges limitation transparently",
+            "result": "PASS",
+            "note": "6-month follow-up constraint stated"
+          },
+          {
+            "text": "Suggests adding limitation to Discussion",
+            "result": "PASS",
+            "note": "Manuscript revision recommended"
+          },
+          {
+            "text": "Does not promise follow-up data that does not exist",
+            "result": "PASS",
+            "note": "Hard Rule 2 enforced"
+          },
+          {
+            "text": "Maintains professional tone despite unresolved issue",
+            "result": "PASS",
+            "note": "Transparent without apologetic collapse"
+          },
+          {
+            "text": "Uses structured A-H output",
+            "result": "PASS",
+            "note": "All sections present including unresolved-issue handling"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": "Variant B",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 51,
+        "total": 91,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Correct accept + manuscript-linked mode",
+            "result": "PASS",
+            "note": "Mode correctly identified"
+          },
+          {
+            "text": "Response cites revised methods section explicitly",
+            "result": "PASS",
+            "note": "Section reference included with placeholder"
+          },
+          {
+            "text": "Placeholder noted for user to fill in",
+            "result": "PASS",
+            "note": "Page placeholder flagged"
+          },
+          {
+            "text": "Does not fabricate revision content",
+            "result": "PASS",
+            "note": "Hard Rule 1 enforced"
+          },
+          {
+            "text": "Uses structured A-H output",
+            "result": "PASS",
+            "note": "All sections present"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "Stress — multi-reviewer",
+        "status": "COMPLETED",
+        "basic": 38,
+        "specialized": 48,
+        "total": 86,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Routes each comment to correct mode",
+            "result": "PASS",
+            "note": "Accept / partial / rebuttal correctly distributed"
+          },
+          {
+            "text": "Reviewer 2 resource constraint handled transparently",
+            "result": "PASS",
+            "note": "Cannot-perform stated without overcommitment"
+          },
+          {
+            "text": "Reviewer 3 rebuttal is confident and bounded",
+            "result": "PASS",
+            "note": "Statistical approach defended appropriately"
+          },
+          {
+            "text": "No mode confusion across reviewers",
+            "result": "PASS",
+            "note": "Taxonomy applied correctly"
+          },
+          {
+            "text": "Covers all three reviewers with equal depth",
+            "result": "FAIL",
+            "note": "Reviewer 1 section slightly thinner than reviewers 2-3"
+          }
+        ]
+      }
+    ],
+    "execution_average": 91.4,
+    "assertion_pass_total": 24,
+    "assertion_total": 25
+  },
+  "final": {
+    "static_weighted": 36.4,
+    "dynamic_weighted": 54.8,
+    "final_score": 91.2,
+    "grade": "Production Ready",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Response mode taxonomy (accept/explain/rebut/add-analysis) is the most operationally precise classification in the batch",
+    "Unresolved issue handling is best-in-class: transparent without false completion",
+    "Revision Linkage Summary (output Section E) is a unique high-value structural feature",
+    "Multi-reviewer complex scenario handled without mode confusion"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Multi-Round Revision Not Addressed",
+      "observed_in": [],
+      "problem": "Second or third-round revision scenarios not described",
+      "root_cause": "Skill assumes first-round revision context",
+      "fix": "Add note that for multi-round revisions, user should provide previous response + editor decision letter as context"
+    },
+    {
+      "priority": "P2",
+      "title": "Non-English Reviewer Comments Not Specified",
+      "observed_in": [],
+      "problem": "Behavior for non-English reviewer comments not defined",
+      "root_cause": "English assumed as working language",
+      "fix": "Add note that for non-English comments, skill will translate internally and draft response in English, noting translation assumption"
+    },
+    {
+      "priority": "P2",
+      "title": "Citation Placeholder Clarity",
+      "observed_in": [
+        4
+      ],
+      "problem": "'page X' placeholder could confuse users who don't know to replace it",
+      "root_cause": "No explicit instruction to fill in placeholders",
+      "fix": "Add explicit note in Section E output: replace [page X]/[line X] placeholders with actual manuscript locations before submission"
+    }
+  ]
+}

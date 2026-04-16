@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "skill_name": "consistency-checker-across-manuscript",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Academic Writing",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": null
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 4 Academic Writing"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 88,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Description is a single sentence without trigger contexts; scope is narrower than the skill actually delivers"
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Clarification-first rule well implemented; gap: no explicit handling when figures/tables are described textually but not provided"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "agent_usability": {
+        "score": 14,
+        "max": 16,
+        "note": "Seven reference modules are well organized but the 'component-alignment-rules.md' may over-check sections not provided, requiring more granular handling"
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": "Sample triggers are natural and user-facing; good discoverability"
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Good escape hatches (clarification-first, insufficient input warning); trigger precision slightly low due to brief description"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 83.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 22,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Full manuscript pre-submission consistency check: title/abstract/methods/results/figures alignment",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Review scope determined (full-manuscript vs targeted) before analysis",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Sample-size inconsistencies across sections checked",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Figure/table numbering alignment verified",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Conclusion-result mismatch explicitly checked",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Severity classification applied to all findings",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Revision-stage version drift check after multiple reviewer rounds",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Endpoint wording drift between original and revised submission identified",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Version-specific changes tracked and their consistency implications noted",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "True inconsistency distinguished from acceptable section-specific summarization",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Correction priority plan provided for major drift items",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated manuscript content added to fill gaps",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Supplement reference consistency and figure legend alignment check",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Supplement citations in main text matched against supplement table/figure list",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Figure legend content checked against results section prose",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Numbering mismatches flagged as their own issue category",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Harmless ordering preferences not flagged as errors",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Missing supplement content handled with 'uncertain — material not available' label",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Only abstract and discussion provided — no methods or results sections",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": "Clarification-first rule triggered; partial review produced",
+        "basic": 33,
+        "specialized": 48,
+        "total": 81,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Clarification-first rule applied, missing sections explicitly identified",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Partial review limited to available sections only",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Skill does not guess at missing methods or results content",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Recommended upload items specified (Methods, Results, full draft)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Partial review findings appropriately labeled as 'limited by available material'",
+            "result": "FAIL",
+            "note": "Two observations in the partial review section were stated as inconsistencies without sufficient qualification that they might resolve once full manuscript is available"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Large multi-cohort manuscript with complex endpoint hierarchy and supplemental appendix",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": "Some minor items missed in complex multi-cohort structure",
+        "basic": 33,
+        "specialized": 48,
+        "total": 81,
+        "assertions_passed": 3,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Primary endpoint vs secondary endpoint hierarchy consistent across all sections",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Sample size reported consistently across all cohort descriptions",
+            "result": "FAIL",
+            "note": "Complex multi-cohort structure caused one sub-cohort sample count discrepancy to be missed in the stress test"
+          },
+          {
+            "text": "Supplement appendix citations all verified against main text",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Figure numbering and panel labels checked across all cited locations",
+            "result": "FAIL",
+            "note": "Panel-level label consistency (e.g., Figure 3A vs Figure 3a) was not checked at panel letter level"
+          },
+          {
+            "text": "Correction priority plan addresses all major risks",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 35.2,
+    "dynamic_weighted": 50.2,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Clarification-first rule prevents overconfident consistency claims when manuscript sections are missing",
+    "Seven reference modules covering all major consistency check types (version drift, figure/table linkage, conclusion boundaries) provide thorough coverage",
+    "Severity classification mandatory — prevents flat stylistic review that treats all issues as equally important",
+    "Natural, user-facing sample triggers provide strong discoverability for manuscript authors"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Panel-level figure label consistency not checked in complex manuscripts",
+      "observed_in": [
+        5
+      ],
+      "problem": "In large manuscripts with many multi-panel figures, the skill checked figure-level numbering but missed panel-level label consistency (e.g., Figure 3A vs Figure 3a, or panel label drift between legend and callout in results text).",
+      "root_cause": "figure-table-supplement-linkage-rules.md likely covers figure-level checks but panel-level sub-item checking is not explicitly mandated.",
+      "fix": "Add panel-level label checking to the figure-table-supplement-linkage-rules.md reference: explicitly verify that panel letters in figure legends match those called out in results text, and that uppercase/lowercase conventions are consistent."
+    },
+    {
+      "priority": "P1",
+      "title": "Partial-context findings not consistently labeled as provisional",
+      "observed_in": [
+        4
+      ],
+      "problem": "When only partial manuscript sections are available, some inconsistency observations are stated without qualifying that they may resolve once the full manuscript is reviewed.",
+      "root_cause": "The clarification-first rule instructs limiting the review to available material but does not explicitly require provisional labeling of all findings made under incomplete context.",
+      "fix": "Update the clarification-first reference: any finding made in a partial review must include a one-sentence qualifier '(provisional: may resolve with full manuscript access)'."
+    },
+    {
+      "priority": "P2",
+      "title": "Description is too brief to differentiate from generic proofreaders",
+      "observed_in": [],
+      "problem": "A one-sentence description about 'internal contradictions and version drift' does not communicate the breadth of check types (endpoint drift, figure numbering, supplement linkage, conclusion-result mismatch) to users unfamiliar with the skill.",
+      "root_cause": "Description not optimized for triggering coverage across the full range of user scenarios.",
+      "fix": "Expand description to include key trigger phrases: 'endpoint drift', 'figure-table mismatch', 'version drift after revision', 'sample size inconsistency', 'conclusion-result mismatch'."
+    }
+  ]
+}

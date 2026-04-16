@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "evaluator_version": "skill-auditor@1.0",
+    "skill_name": "high-value-paper-screener",
+    "audited_on": "2026-03-30"
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "scientific_integrity": "PASS",
+      "practice_boundaries": "PASS",
+      "methodological_ground": "PASS",
+      "code_usability": "N/A"
+    }
+  },
+  "static_score": {
+    "total": 93,
+    "categories": {
+      "functional_suitability": 12,
+      "reliability": 9,
+      "performance_context": 7,
+      "agent_usability": 16,
+      "human_usability": 7,
+      "security": 12,
+      "maintainability": 11,
+      "agent_specific": 19
+    }
+  },
+  "dynamic_score": {
+    "inputs": [
+      {
+        "id": 1,
+        "type": "Canonical",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 55,
+        "total": 95,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Issues read/skim/skip recommendation",
+            "result": "PASS",
+            "note": "Full read recommended"
+          },
+          {
+            "text": "Separates relevance from quality",
+            "result": "PASS",
+            "note": "NEJM prestige not sole justification"
+          },
+          {
+            "text": "Uses structured A-G output",
+            "result": "PASS",
+            "note": "All sections present"
+          },
+          {
+            "text": "No fabricated design details",
+            "result": "PASS",
+            "note": "Abstract details only used"
+          },
+          {
+            "text": "Explains recommendation reasoning",
+            "result": "PASS",
+            "note": "RCT design and HFpEF match cited"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "Variant A",
+        "status": "COMPLETED",
+        "basic": 38,
+        "specialized": 49,
+        "total": 87,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Distinguishes methodological from direct relevance",
+            "result": "PASS",
+            "note": "Skim for method-learning correctly issued"
+          },
+          {
+            "text": "Separates relevance from quality",
+            "result": "PASS",
+            "note": "Explicitly stated"
+          },
+          {
+            "text": "Uses structured A-G output",
+            "result": "PASS",
+            "note": "All sections present"
+          },
+          {
+            "text": "No fabricated design details",
+            "result": "PASS",
+            "note": "Clean"
+          },
+          {
+            "text": "Provides composite endpoint learning value analysis",
+            "result": "FAIL",
+            "note": "Analysis is brief; could be more specific"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "Edge",
+        "status": "COMPLETED",
+        "basic": 39,
+        "specialized": 46,
+        "total": 85,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Flags title-only limitation",
+            "result": "PASS",
+            "note": "Explicit confidence caveat included"
+          },
+          {
+            "text": "Requests abstract before full recommendation",
+            "result": "PASS",
+            "note": "Follow-up question issued"
+          },
+          {
+            "text": "Does not issue confident full recommendation from title alone",
+            "result": "PASS",
+            "note": "Correct escape hatch"
+          },
+          {
+            "text": "Uses structured A-G output",
+            "result": "PASS",
+            "note": "Partial output with missing-info flag"
+          },
+          {
+            "text": "Provides partial screening value assessment",
+            "result": "FAIL",
+            "note": "Screening value assessment section is too thin without abstract"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": "Variant B",
+        "status": "PARTIAL",
+        "basic": 34,
+        "specialized": 40,
+        "total": 74,
+        "assertions_passed": 3,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Attempts batch triage",
+            "result": "PASS",
+            "note": "Sequential approach recommended"
+          },
+          {
+            "text": "Processes at least first paper with structured output",
+            "result": "PASS",
+            "note": "First 3 abstracts processed"
+          },
+          {
+            "text": "Notes batch limitation explicitly",
+            "result": "PASS",
+            "note": "Scope boundary message included"
+          },
+          {
+            "text": "Processes all 12 abstracts",
+            "result": "FAIL",
+            "note": "Batch mode not natively supported"
+          },
+          {
+            "text": "Provides batch triage summary table",
+            "result": "FAIL",
+            "note": "No summary table produced"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "Stress",
+        "status": "COMPLETED",
+        "basic": 40,
+        "specialized": 53,
+        "total": 93,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Separates large-n from design strength",
+            "result": "PASS",
+            "note": "Explicitly contrasted"
+          },
+          {
+            "text": "Identifies retrospective + self-report as causal inference limitation",
+            "result": "PASS",
+            "note": "Both flagged"
+          },
+          {
+            "text": "Issues Skim rather than Full Read for causal meta-analysis purpose",
+            "result": "PASS",
+            "note": "Correct recommendation"
+          },
+          {
+            "text": "No journal prestige bias",
+            "result": "PASS",
+            "note": "Lancet not used as justification"
+          },
+          {
+            "text": "Explains recommendation clearly",
+            "result": "PASS",
+            "note": "Reasoning is detailed"
+          }
+        ]
+      }
+    ],
+    "execution_average": 86.8,
+    "assertion_pass_total": 21,
+    "assertion_total": 25
+  },
+  "final": {
+    "static_weighted": 37.2,
+    "dynamic_weighted": 52.1,
+    "final_score": 89.3,
+    "grade": "Production Ready",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Hard Rules section prevents top 5 literature screening biases",
+    "Correctly separates relevance from quality in all tested scenarios",
+    "Input validation and escape hatches are best-in-class for Evidence Insight category",
+    "Clean modular architecture with 7 focused reference files"
+  ],
+  "recommendations": [
+    {
+      "priority": "P2",
+      "title": "Batch Input Handling Gap",
+      "observed_in": [
+        4
+      ],
+      "problem": "Skill partially struggles with multi-paper batch requests; scope boundary message is vague",
+      "root_cause": "Batch triage not listed as explicit use case in SKILL.md task description",
+      "fix": "Add batch triage to Task section; describe sequential application as recommended approach for batches > 5"
+    },
+    {
+      "priority": "P2",
+      "title": "Composability Documentation Missing",
+      "observed_in": [],
+      "problem": "No documented integration points for pipeline usage",
+      "root_cause": "Skill designed as standalone",
+      "fix": "Add short Integration section with accepted input formats and output structure for downstream skill consumption"
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "skill_name": "evidence-level-ranker",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Simple",
+    "n_inputs": 3
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "Explicitly prohibits turning evidence ranking into clinical advice or treatment recommendation"
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 1 evidence analysis only"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 86,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Frontmatter contains non-standard fields (category, tags, version) beyond the required name/description — structural inconsistency with the skill format standard"
+      },
+      "reliability": {
+        "score": 9,
+        "max": 12,
+        "note": "Proceeds with available materials when input is incomplete; no structured minimum-input clarification protocol"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "249 lines with five reference modules; well-proportioned"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 10,
+        "max": 12,
+        "note": "Non-standard frontmatter fields (category/subcategory/tags/version) reduce schema compliance and may cause parsing inconsistencies"
+      },
+      "agent_specific": {
+        "score": 15,
+        "max": 20,
+        "note": "Five citation-role categories provide good citation-use differentiation; description brief and under-specified for triggering"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 84.0,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 14,
+      "total": 15
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Rank a meta-analysis, RCT, cohort, and mechanism paper on the same question",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Evidence family, methodological quality, validation depth, and claim discipline assessed separately",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Meta-analysis not automatically ranked #1 without checking execution quality",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Citation role assigned to each paper (anchor/high-value/context/mechanistic/caution)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Ranking reasoning explicit — not just an order list",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Ranking uncertainties and caveats section present",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Rank mixed papers serving different evidence roles — not directly comparable",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Papers serving different roles identified as non-comparable rather than forced into single ladder",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Different evidence roles explained with comparison logic",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Clinical evidence separated from mechanistic evidence for citation purpose",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Journal prestige not used as ranking criterion",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated bibliographic details",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Rank papers where higher-tier design has weak execution",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": null,
+        "basic": 34,
+        "specialized": 48,
+        "total": 82,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Poorly executed RCT ranked below well-executed cohort with explicit justification",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Execution quality dimensions assessed (sampling, bias control, sample size, statistics)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Overclaim pattern identified in higher-tier but lower-quality paper",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Caution citation role correctly applied to overclaiming paper",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Statistical significance not equated with methodological reliability",
+            "result": "FAIL",
+            "note": "One instance where a statistically significant result was used as partial evidence of methodological strength without acknowledging the distinctness of these two dimensions"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 34.4,
+    "dynamic_weighted": 50.4,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Four-dimension ranking framework (evidence family, methodological quality, validation depth, claim discipline) prevents design-label-to-rank conflation",
+    "Five citation roles give manuscript authors actionable guidance beyond a generic quality score",
+    "Seventeen hard rules explicitly address the most common evidence appraisal errors including prestige ranking and statistical significance conflation",
+    "Design-role separation rule prevents forcing non-comparable papers into a misleading single ranking ladder"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Non-standard frontmatter fields violate SKILL.md schema",
+      "observed_in": [],
+      "problem": "The frontmatter includes non-standard fields: category, subcategory, tags, and version. These fields are not part of the standard skill schema and may cause parser errors or inconsistent behavior in skill loading systems.",
+      "root_cause": "Frontmatter was extended with metadata fields beyond the required name/description/license/skill-author standard.",
+      "fix": "Remove category, subcategory, tags, and version from frontmatter. Move any useful metadata to the first section of the SKILL.md body or a references/metadata.md file."
+    },
+    {
+      "priority": "P1",
+      "title": "Statistical significance used as partial proxy for methodological quality",
+      "observed_in": [
+        3
+      ],
+      "problem": "In one evaluation instance, a p < 0.05 result was briefly cited as partial evidence of methodological strength, conflating statistical significance with methodological reliability.",
+      "root_cause": "Hard Rule 3 ('Never treat statistical significance as equivalent to methodological reliability') is present but not reinforced in the execution steps where methodological quality is assessed.",
+      "fix": "Add an explicit check in Step 3 (Methodological Quality): 'Do not use statistical significance or effect size magnitude as evidence of good methods — assess the sampling, bias control, and study design directly.'"
+    },
+    {
+      "priority": "P2",
+      "title": "Description too brief to differentiate from generic citation management or literature review tools",
+      "observed_in": [],
+      "problem": "The description is a single sentence that does not include key trigger phrases that would distinguish this skill from general literature tools.",
+      "root_cause": "Description not optimized for triggering.",
+      "fix": "Add trigger phrases: 'citation priority', 'anchor citation vs background citation', 'methodological quality tier', 'validation depth ranking', 'compare evidence families'."
+    }
+  ]
+}

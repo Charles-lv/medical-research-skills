@@ -1,0 +1,330 @@
+{
+  "meta": {
+    "skill_name": "result-reliability-checker",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": null
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": "AUROC/p-value conflation rules are methodologically sound"
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 1 reliability audit only"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 91,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Strong unresolved dimension handling; one gap: no guidance for when the only available input is a poster or conference abstract"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "282 lines; seven reference modules"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 17,
+        "max": 20,
+        "note": "Per-result reliability judgment (different results can get different reliability levels) is a sophisticated and valuable feature"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 87.6,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 25,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "ML prognosis paper with internal validation only — check reliability",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 36,
+        "specialized": 52,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Evidence chain behind each claim reconstructed before reliability judgment",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Internal validation not equated with generalizability",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "AUROC not equated with reliability or robustness",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Four-level reliability judgment assigned (High/Moderate/Limited/Low) with reason",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Different results in same paper given separate reliability levels if warranted",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Cohort study with confounding control — assess bias and statistical reliability",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 53,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Design fit, confounding control, and leakage risk assessed",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Sample size vs analysis complexity burden assessed",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Statistical significance not equated with reliability",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Bottom-line reliability judgment given with traceable reasons",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Self-critical risk review present",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Omics paper with impressive performance metrics — check if findings are stable",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Overfitting and optimistic reporting risks assessed",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Validation chain (none/internal/external/orthogonal) distinguished",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Conclusion overreach check applied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "High performance metrics not praised as reliability by default",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Hypothesis-generating label applied when validation is insufficient",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Mechanism paper — check if claims exceed what experiments show",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Mechanism experiment design identified correctly",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Association→mechanism upgrade in claims detected and flagged",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Perturbation specificity vs pathway proof distinction applied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "In vitro findings not generalized to human clinical claims",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Reliability labeled as Limited when evidence chain is mechanistic-only",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Multi-result paper with heterogeneous reliability across different claims",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Each major result family assessed separately with its own reliability judgment",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No single paper-level reliability label forced when heterogeneous reliability exists",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Main Result Reliability Map table present with per-claim rows",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Hidden fragility not resolvable from report explicitly acknowledged",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Citable vs hypothesis-generating verdict given per claim",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 36.4,
+    "dynamic_weighted": 52.6,
+    "score": 89,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Per-result reliability judgment allows different levels for different claims within one paper — prevents misleading paper-level averaging",
+    "Four-level reliability classification with traceable reason requirement prevents vague 'seems reliable' outputs",
+    "Validation chain framework distinguishing six levels (none/internal/external/orthogonal/mechanistic/prospective) is methodologically rigorous",
+    "Fifteen hard rules preventing AUROC/p-value/validation conflation cover the most common biomedical result inflation errors"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "No guidance for conference poster or abstract-only input",
+      "observed_in": [],
+      "problem": "The skill handles partial-text inputs but does not specify behavior for conference posters or abstracts-only, which lack methods detail needed for reliability auditing.",
+      "root_cause": "Input validation focuses on paper/abstract/methods combinations but not the poster/conference-abstract format.",
+      "fix": "Add a conference-abstract handling note: when only a conference abstract is available, label the audit as 'Minimal Coverage — methods insufficient for full reliability judgment'. Provide a design-level reliability assessment only and explicitly recommend obtaining the full paper or methods section."
+    },
+    {
+      "priority": "P2",
+      "title": "Description could be more specific about the machine-learning and omics use cases",
+      "observed_in": [],
+      "problem": "The description adequately covers the general function but does not include trigger phrases specific to the ML and omics paper reliability scenarios that are the highest-demand use cases.",
+      "root_cause": "Description written for general coverage rather than triggering optimization.",
+      "fix": "Add to description: 'Also triggers for machine-learning prognosis papers with internal validation only, omics studies with weak external validation, and mechanistic papers that overclaim causal conclusions from correlation data'."
+    }
+  ]
+}

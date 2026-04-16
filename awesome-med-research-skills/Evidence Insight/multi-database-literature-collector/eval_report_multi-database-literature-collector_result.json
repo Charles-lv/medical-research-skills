@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "skill_name": "multi-database-literature-collector",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": "Hard verification rule: never output a paper unless real and verifiable"
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": null
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 1 literature collection planning only"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 91,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Strong verification rules; when live search unavailable, skill plans search strategy but cannot retrieve actual papers — this boundary needs explicit labeling"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": "287 lines; nine reference modules"
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": null
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 16,
+        "max": 20,
+        "note": "Four-tier priority layering and deduplication readiness are strong composability features; excellent ecosystem fit as upstream skill"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 87.2,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 24,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Cross-database collection for gastric precancerous lesion intervention research",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 53,
+        "total": 88,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Database selection explained with justification per database",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Search strategy with synonyms, controlled vocabulary, and database-adapted syntax produced",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Preprints labeled separately from peer-reviewed papers",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Priority tiers (Tier 1/2/3/P) assigned to candidate records",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "DOI explicitly noted as unavailable rather than invented when unverifiable",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Cross-database sepsis immunometabolism literature pool",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Source-database metadata preserved per record",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Deduplication and screening readiness section present",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Blind spots and coverage limitations explicitly noted",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Next-step downstream routing recommendation given",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated literature items",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Lupus single-cell studies last 5 years including preprints, labeled separately",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Time window filter applied to all databases",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Preprints labeled as Tier P with explicit non-peer-reviewed status",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Record schema includes direct link, DOI, evidence status, tier",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No preprints conflated with peer-reviewed papers",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Broad recall prioritized over narrow early filtering",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Very broad topic requiring scope narrowing before collection",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 51,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Topic too broad identified and narrowed before collection begins",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Assumptions for scope narrowing explicitly stated",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Question clarification recommended before formal collection",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Collection not launched with unmanageably broad query",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Practical collection target defined with boundary rationale",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Offline execution — skill cannot retrieve actual papers",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": null,
+        "basic": 34,
+        "specialized": 50,
+        "total": 84,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Skill correctly produces search strategy and database plan even without live retrieval",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Candidate paper listing attempted only for verifiable papers from training knowledge",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Unverifiable items labeled 'could not be confirmed' rather than invented",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "User informed that actual collection requires live database access",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Search strategy output clearly labeled as a plan requiring user execution",
+            "result": "FAIL",
+            "note": "The search plan produced was partially framed as if collection had been completed rather than as a user-execution plan"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 36.4,
+    "dynamic_weighted": 52.3,
+    "score": 89,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Hard verification rule preventing any non-real literature from appearing in the output is the strongest integrity safeguard for a literature collection skill",
+    "Database-specific adaptation (different syntax per database) reflects sophisticated search-strategy engineering",
+    "Four-tier priority layering with separate preprint tier provides excellent screening-ready organization",
+    "Blind spots and coverage limitations section prevents false completeness claims"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Offline execution mode not clearly framed as plan-only rather than completed collection",
+      "observed_in": [
+        5
+      ],
+      "problem": "When live retrieval is unavailable, the search strategy output is sometimes framed as if collection has been completed rather than explicitly stating this is a user-execution plan.",
+      "root_cause": "No explicit offline-mode framing instruction in the skill.",
+      "fix": "Add an offline-mode instruction: 'When live database access is unavailable, all outputs in Sections C-H must be explicitly labeled as [SEARCH PLAN — requires user execution in the named databases]. Do not present candidate records as retrieved unless they can be verified from training knowledge with full metadata.'"
+    },
+    {
+      "priority": "P2",
+      "title": "No guidance on handling duplicate DOIs from different databases",
+      "observed_in": [],
+      "problem": "The deduplication readiness section notes duplicate-prone fields but does not specify how to handle papers that have the same DOI but different metadata across databases.",
+      "root_cause": "dedup-and-screening-readiness.md likely handles this, but SKILL.md does not surface a quick disambiguation rule.",
+      "fix": "Add a deduplication note: 'When the same DOI appears across multiple databases with conflicting metadata (e.g., different years or title formatting), use PubMed as the authoritative source for biomedical papers and preserve all source-database attributions.'"
+    }
+  ]
+}

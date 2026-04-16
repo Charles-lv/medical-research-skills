@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "skill_name": "claim-strength-calibrator",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Academic Writing",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
+    },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": {
+        "result": "PASS",
+        "detail": null
+      },
+      "practice_boundaries": {
+        "result": "PASS",
+        "detail": "Skill explicitly refuses to certify claim appropriateness when study design or validation context is unclear"
+      },
+      "methodological_ground": {
+        "result": "PASS",
+        "detail": null
+      },
+      "code_usability": {
+        "result": "N/A",
+        "detail": "No code generated; Category 4 Academic Writing"
+      }
+    }
+  },
+  "static_score": {
+    "subtotal": 90,
+    "max": 100,
+    "categories": {
+      "functional_suitability": {
+        "score": 11,
+        "max": 12,
+        "note": "Description is brief and functional but does not convey the breadth of calibration scenarios or use natural trigger language"
+      },
+      "reliability": {
+        "score": 10,
+        "max": 12,
+        "note": "Clarification-first rule is well designed; one gap: no defined behavior when study design is known but validation status is unstated"
+      },
+      "performance_context": {
+        "score": 7,
+        "max": 8,
+        "note": null
+      },
+      "agent_usability": {
+        "score": 15,
+        "max": 16,
+        "note": null
+      },
+      "human_usability": {
+        "score": 8,
+        "max": 8,
+        "note": "Description and sample triggers use natural author-facing language that matches real manuscript revision scenarios"
+      },
+      "security": {
+        "score": 12,
+        "max": 12,
+        "note": null
+      },
+      "maintainability": {
+        "score": 11,
+        "max": 12,
+        "note": null
+      },
+      "agent_specific": {
+        "score": 16,
+        "max": 20,
+        "note": "Good trigger phrases in sample triggers; description slightly under-specified for distinguishing from generic grammar checkers"
+      }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 85.4,
+    "max": 100,
+    "assertion_pass_rate": {
+      "passed": 23,
+      "total": 25
+    },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Review abstract with causal overclaiming in a retrospective cohort study",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 35,
+        "specialized": 52,
+        "total": 87,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Each overclaim mapped to its correct evidence level (association vs causation)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Issue severity classified into major/moderate/minor",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Proposed rewrite maintains informative content while reducing overclaim",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No stronger support invented beyond what the study provides",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Calibration logic explained with reviewer-risk rationale",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Discussion section with mechanism inflation in an omics association study",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Supportive biology correctly distinguished from mechanism established",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Validation inflation identified (external validation implied from internal only)",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Section-level scope (paragraph vs sentence) determined before review",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Proposed rewrites preserve scientific meaning while calibrating strength",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No fabricated study precedents used to justify calibration decisions",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Variant B",
+        "label": "Translational statement review: prediction performance claimed as clinical utility",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 51,
+        "total": 85,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Prediction vs clinical utility distinction clearly applied",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Translational overreach identified and flagged as major risk",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Rewrite recommendation narrows claim without voiding its scientific content",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Correction priority explains why translational wording creates credibility risk",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No clinical recommendation made beyond scope",
+            "result": "PASS",
+            "note": null
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Edge",
+        "label": "Only title and abstract provided without study design or methods",
+        "status": "COMPLETED",
+        "status_flag": "⚠️",
+        "note": "Clarification-first rule triggered; partial review only with explicit missing-context statement",
+        "basic": 33,
+        "specialized": 49,
+        "total": 82,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "Clarification-first rule applied — missing study design context flagged before full review",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Partial calibration review limited to what is observable from title/abstract alone",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Missing information explicitly listed with recommended upload items",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No confident calibration judgments made without study design knowledge",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Severity classifications labeled 'uncertain due to missing context' where appropriate",
+            "result": "FAIL",
+            "note": "Some severity labels given without sufficient qualification that they may change with full study context"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Full manuscript pre-submission review with multiple overclaim patterns across all sections",
+        "status": "COMPLETED",
+        "status_flag": "✅",
+        "note": null,
+        "basic": 34,
+        "specialized": 49,
+        "total": 83,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          {
+            "text": "All six overclaim pattern types (causal, mechanism, validation, translation, vague, evidence-level mismatch) checked",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Major, moderate, and minor issues separated in output",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Correction priority plan given for all major issues",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "No over-softening of appropriately strong claims",
+            "result": "PASS",
+            "note": null
+          },
+          {
+            "text": "Explanation of calibration logic present for all major findings",
+            "result": "FAIL",
+            "note": "Two moderate-severity items in stress test lacked calibration logic explanation; only correction action was listed"
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 36.0,
+    "dynamic_weighted": 51.2,
+    "score": 87,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Clarification-first rule prevents confident review when study design context is insufficient — a critical safeguard",
+    "Seven distinct overclaim pattern categories (causal inflation, mechanism inflation, validation inflation, etc.) give precise diagnostic coverage",
+    "Severity classification mandate (major/moderate/minor) prevents flat stylistic reviews",
+    "Hard rules explicitly prohibit both over-softening and under-flagging — preserving calibration balance"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Severity labels applied with insufficient qualification in partial-context reviews",
+      "observed_in": [
+        4
+      ],
+      "problem": "When only title/abstract is available, some severity labels were assigned without explicitly noting they may change once full study design is known.",
+      "root_cause": "The partial-review path from the clarification-first rule does not include an instruction to mark severity as 'provisional pending full context'.",
+      "fix": "Add a rule to the Clarification-First reference: any severity classification made without full study design access must be labeled 'provisional' with a note that the rating may upgrade or downgrade once complete manuscript is available."
+    },
+    {
+      "priority": "P1",
+      "title": "Calibration logic explanation omitted for moderate-severity items in full-manuscript review",
+      "observed_in": [
+        5
+      ],
+      "problem": "Section G (Calibration Logic Explanation) is required for major issues but in full-manuscript stress tests, moderate-severity items sometimes only received correction actions without the 'why it matters' explanation.",
+      "root_cause": "Step 8 instructions say 'for major issues explicitly explain'; this implicitly permits skipping explanation for moderate items.",
+      "fix": "Update Step 8 to require at least one-sentence calibration logic for all moderate issues, not just major ones, since moderate items are common in real manuscripts."
+    },
+    {
+      "priority": "P2",
+      "title": "Description does not distinguish this skill from generic grammar or style checkers",
+      "observed_in": [],
+      "problem": "The brief description could be confused with a general proofreader; users wanting claim-level scientific calibration may not trigger this skill over generic writing tools.",
+      "root_cause": "Description does not include domain-specific trigger language like 'overclaiming', 'causation vs association', 'translational overreach', or 'reviewer criticism risk'.",
+      "fix": "Expand description to include these key scientific concepts to improve differentiation from non-specialist writing tools."
+    }
+  ]
+}

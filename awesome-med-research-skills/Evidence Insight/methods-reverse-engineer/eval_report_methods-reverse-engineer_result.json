@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "skill_name": "methods-reverse-engineer",
+    "evaluated_on": "2026-03-23",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Evidence Insight",
+    "execution_mode": "A",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": { "gate": "PASS", "stability": "PASS", "contract": "PASS", "determinism": "PASS", "security": "PASS" },
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": { "result": "PASS", "detail": null },
+      "practice_boundaries": { "result": "PASS", "detail": null },
+      "methodological_ground": { "result": "PASS", "detail": "Three-level coverage handling is methodologically sound for reproducibility-aware reconstruction" },
+      "code_usability": { "result": "N/A", "detail": "No code generated; Category 1 methods analysis only" }
+    }
+  },
+  "static_score": {
+    "subtotal": 95,
+    "max": 100,
+    "categories": {
+      "functional_suitability": { "score": 12, "max": 12, "note": null },
+      "reliability": { "score": 11, "max": 12, "note": "Three-level input coverage handling is excellent; one minor gap: no guidance for when methods section is present but deliberately obfuscated" },
+      "performance_context": { "score": 7, "max": 8, "note": "329 lines; eleven reference modules; comprehensive but SKILL.md length approaching limit" },
+      "agent_usability": { "score": 16, "max": 16, "note": null },
+      "human_usability": { "score": 8, "max": 8, "note": "Description is rich and specific; multiple natural trigger phrases; excellent discoverability" },
+      "security": { "score": 12, "max": 12, "note": null },
+      "maintainability": { "score": 12, "max": 12, "note": null },
+      "agent_specific": { "score": 17, "max": 20, "note": "Reproduction readiness judgment (four categories) is a unique and highly actionable deliverable; composability strong as downstream tool from literature-reader-pro" }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 89.2,
+    "max": 100,
+    "assertion_pass_rate": { "passed": 25, "total": 25 },
+    "inputs": [
+      {
+        "index": 1, "type": "Canonical", "label": "Full omics paper methods — extract workflow and software",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 54, "total": 90,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Ordered workflow reconstruction with explicitly reported vs inferred labels", "result": "PASS", "note": null },
+          { "text": "Software, packages, thresholds, and parameter-critical details extracted", "result": "PASS", "note": null },
+          { "text": "Replication checklist with ordered steps and decision points produced", "result": "PASS", "note": null },
+          { "text": "Reproduction readiness judgment (4-category) present", "result": "PASS", "note": null },
+          { "text": "Missing details flagged rather than silently assumed from convention", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 2, "type": "Variant A", "label": "Clinical cohort paper — reconstruct cohort definition, eligibility, and analysis",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 53, "total": 89,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Study design family correctly identified from methods, not author self-description", "result": "PASS", "note": null },
+          { "text": "Inclusion/exclusion logic and sample flow extracted", "result": "PASS", "note": null },
+          { "text": "Analysis pipeline in ordered workflow format", "result": "PASS", "note": null },
+          { "text": "Validation and quality control path identified", "result": "PASS", "note": null },
+          { "text": "No fabricated cohort sizes, database accessions, or software versions", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 3, "type": "Variant B", "label": "Hybrid bioinformatics + experimental paper — reconstruct both tracks",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 36, "specialized": 53, "total": 89,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Both computational and experimental tracks reconstructed separately", "result": "PASS", "note": null },
+          { "text": "Connection point between tracks explicitly mapped", "result": "PASS", "note": null },
+          { "text": "Hybrid status explicitly labeled", "result": "PASS", "note": null },
+          { "text": "Reproducibility gaps assessed for both tracks independently", "result": "PASS", "note": null },
+          { "text": "Common defaults not assumed for preprocessing without explicit reporting", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 4, "type": "Edge", "label": "Only abstract and title available (Level 3 coverage)",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 35, "specialized": 53, "total": 88,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Level 3 coverage correctly identified; constrained design-level outline only", "result": "PASS", "note": null },
+          { "text": "Reconstruction clearly marked as partial and non-final", "result": "PASS", "note": null },
+          { "text": "Abstract-level hints not converted into full methods claims", "result": "PASS", "note": null },
+          { "text": "User informed what additional material would enable full reconstruction", "result": "PASS", "note": null },
+          { "text": "No invented parameters, sample sizes, or software from partial input", "result": "PASS", "note": null }
+        ]
+      },
+      {
+        "index": 5, "type": "Stress", "label": "Methods section with deliberately vague steps and missing software versions",
+        "status": "COMPLETED", "status_flag": "✅", "note": null,
+        "basic": 35, "specialized": 52, "total": 87,
+        "assertions_passed": 5, "assertions_total": 5,
+        "assertions": [
+          { "text": "Vague steps labeled as 'under-specified' rather than filled from convention", "result": "PASS", "note": null },
+          { "text": "Missing software versions flagged as replication blockers", "result": "PASS", "note": null },
+          { "text": "Reproduction readiness labeled as 'conceptually traceable but operationally under-specified'", "result": "PASS", "note": null },
+          { "text": "Reproducibility gaps section explicitly lists each missing detail", "result": "PASS", "note": null },
+          { "text": "Standard practice assumptions labeled as [ASSUMED] rather than stated as reported", "result": "PASS", "note": null }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "static_weighted": 38.0,
+    "dynamic_weighted": 53.5,
+    "score": 92,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Three-level input coverage handling (Full/Partial/Minimal) provides the most rigorous input boundary management in this skill collection",
+    "Explicitly-reported vs inferred vs missing labels on every workflow step is a foundational reproducibility discipline",
+    "Four-category reproduction readiness judgment gives researchers an immediately actionable assessment",
+    "Seventeen hard rules covering all major methods reconstruction failure modes (convention assumptions, partial-input overreach, missing-detail invention) are comprehensive"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "No guidance for methods sections that are deliberately obfuscated or incomplete by design",
+      "observed_in": [],
+      "problem": "The skill handles missing details and minimal input well, but does not address the scenario where a methods section is present but strategically vague (a common problem in competitive research fields).",
+      "root_cause": "Coverage rules focus on availability of material, not intentional incompleteness.",
+      "fix": "Add a 'Strategic Incompleteness' note to the reproducibility gap section: if multiple critical details appear to be systematically omitted rather than accidentally missing, flag this explicitly as a potential deliberate methods opacity issue and recommend contacting the authors for supplementary protocol."
+    },
+    {
+      "priority": "P2",
+      "title": "SKILL.md at 329 lines approaching recommended threshold",
+      "observed_in": [],
+      "problem": "329 lines with 11 reference modules and extensive execution steps puts the SKILL.md near the 500-line limit.",
+      "root_cause": "Detailed coverage level rules, 11-step execution, and 17 hard rules all add up.",
+      "fix": "Move Hard Rules to references/literature-integrity-rules.md (many overlap with this existing module) and consolidate the 3-level coverage rule into a compact table at the top of SKILL.md with a pointer to references/input-coverage-and-boundary-rules.md for details."
+    }
+  ]
+}
