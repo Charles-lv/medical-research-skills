@@ -3,9 +3,10 @@ name: date-calculator
 description: Calculate medical date windows including gestational age, estimated delivery dates, and follow-up visit scheduling. Produces structured JSON output for clinical research and trial coordination workflows.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Date Calculator
 
 Calculate medical date windows for clinical research: gestational age from LMP, estimated delivery dates, and follow-up visit scheduling with configurable window sizes.

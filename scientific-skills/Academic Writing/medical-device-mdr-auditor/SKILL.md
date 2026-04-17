@@ -3,9 +3,10 @@ name: medical-device-mdr-auditor
 description: Audit medical device technical files against EU MDR 2017/745 regulations.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Medical Device MDR Auditor
 
 **ID**: 130  

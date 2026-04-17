@@ -3,9 +3,10 @@ name: task-reminder
 description: Organize scattered tasks into actionable lists and generate daily/weekly/deadline reminder plans when you need a structured schedule and exportable outputs (MD/CSV), with optional system notifications.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## Validation Shortcut
 

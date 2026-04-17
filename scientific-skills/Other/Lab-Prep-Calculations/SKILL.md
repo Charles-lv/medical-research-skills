@@ -3,9 +3,10 @@ name: lab-prep-calculations
 description: Perform pre-experiment calculations and generate step-by-step preparation protocols for dilutions, solution preparation, dissolution, and % concentrations when planning formulations and lab prep workflows.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 

@@ -3,9 +3,10 @@ name: ensembl-database
 description: Access Ensembl REST API for vertebrate genomic data; use when you need gene/ID lookups, sequence retrieval, variant effect prediction (VEP), or homology/assembly coordinate mapping.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Ensembl Database Skill
 
 ## When to Use

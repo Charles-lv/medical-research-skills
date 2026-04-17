@@ -3,9 +3,10 @@ name: pdb-database
 description: Access the RCSB Protein Data Bank (PDB) to search, download, and programmatically retrieve 3D macromolecular structures and metadata; use when you need structure discovery (text/sequence/3D similarity) or automated structural data ingestion for structural biology and drug discovery workflows.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 

@@ -3,9 +3,10 @@ name: scientific-podcast-summary
 description: Automatically summarize scientific podcasts like Huberman Lab and Nature.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Scientific Podcast Summary
 
 **ID:** 189  

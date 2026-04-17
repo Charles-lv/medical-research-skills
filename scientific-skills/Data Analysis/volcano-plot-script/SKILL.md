@@ -3,9 +3,10 @@ name: volcano-plot-script
 description: Generate R/Python code for volcano plots from DEG (Differentially Expressed Genes) analysis results. Triggered when user needs visualization of gene expression data, p-value vs fold-change scatter plots, publication-ready figures for bioinformatics analysis.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Volcano Plot Script Generator
 
 A skill for generating publication-ready volcano plots from differential gene expression analysis results.

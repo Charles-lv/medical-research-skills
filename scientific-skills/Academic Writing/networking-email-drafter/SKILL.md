@@ -3,9 +3,10 @@ name: networking-email-drafter
 description: Draft professional follow-up emails to contacts made at conferences - not too pushy, but memorable.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Networking Email Drafter
 
 Draft professional follow-up emails to contacts made at conferences - not too pushy, but memorable.

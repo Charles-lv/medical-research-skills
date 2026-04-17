@@ -3,9 +3,10 @@ name: visual-content-desc
 description: Generates detailed text descriptions of medical images and charts for.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Visual Content Desc
 
 Creates accessible descriptions of medical visuals.

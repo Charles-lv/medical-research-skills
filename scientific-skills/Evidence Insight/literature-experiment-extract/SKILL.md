@@ -3,9 +3,10 @@ name: literature-experiment-extract
 description: Extract experimental models, experimental methods, and biomarker information from paper Markdown (typically produced by PDF-to-Markdown tools) when a user provides paper Markdown and needs a structured, evidence-backed summary (1 Markdown + 3 CSVs).
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 

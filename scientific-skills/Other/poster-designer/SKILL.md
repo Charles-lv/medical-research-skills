@@ -3,9 +3,10 @@ name: poster-designer
 description: Generate professional poster design concepts and optimized image-generation prompts, then automatically run a drawing script to produce the final poster image when a user needs a poster.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 # Poster Designer (Auto-Gen Edition)
 

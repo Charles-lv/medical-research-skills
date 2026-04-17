@@ -3,9 +3,10 @@ name: biomed-outline-generator
 description: Generates structured biomedical outlines for review articles, discussion sections, and thesis proposals. Use when a user provides biomedical keywords, results/discussion text, or a proposal title plus background and needs a directly usable academic writing scaffold.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 # Biomedical Research Outline Generator
 

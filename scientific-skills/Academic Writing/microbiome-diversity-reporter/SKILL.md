@@ -3,9 +3,10 @@ name: microbiome-diversity-reporter
 description: Interpret Alpha and Beta diversity metrics from 16S rRNA sequencing results.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Microbiome Diversity Reporter
 
 ---

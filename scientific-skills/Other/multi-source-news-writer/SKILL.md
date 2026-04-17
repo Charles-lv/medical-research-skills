@@ -3,9 +3,10 @@ name: multi-source-news-writer
 description: Integrates multiple news sources into a single, cohesive press release using an inverted pyramid structure and AP style. Use when you have raw news content and a topic, and need a professional press release.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use
 
 Use this skill when you have:

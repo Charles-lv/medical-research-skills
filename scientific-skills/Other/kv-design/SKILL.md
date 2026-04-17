@@ -3,9 +3,10 @@ name: kv-design
 description: Generate professional Key Visual (KV) design proposals and images; use when you have a slogan/copy and a marketing scenario but need a clear visual direction and a ready-to-generate image prompt.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 

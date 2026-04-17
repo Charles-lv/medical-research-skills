@@ -3,9 +3,10 @@ name: pptx-posters
 description: Generate PowerPoint presentations and academic posters from paper abstracts or full paper content, with automatic layout optimization and citation formatting.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # PPTX Posters
 
 Generate PowerPoint presentations and academic posters from paper abstracts or content.

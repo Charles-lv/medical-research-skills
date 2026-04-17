@@ -3,9 +3,10 @@ name: grant-budget-justification
 description: Use grant budget justification for academic writing workflows that need structured execution, explicit assumptions, and clear output boundaries.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Grant Budget Justification
 
 Narrative budget explanations for grant proposals.

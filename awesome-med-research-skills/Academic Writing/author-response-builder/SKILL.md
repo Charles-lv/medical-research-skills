@@ -3,9 +3,10 @@ name: author-response-builder
 description: Turns reviewer comments into structured, professional point-by-point responses linked to manuscript revisions, clarifications, rebuttals, and additional analyses.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 # Author Response Builder
 

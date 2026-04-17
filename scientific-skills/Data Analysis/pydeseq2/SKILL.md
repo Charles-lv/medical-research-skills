@@ -3,9 +3,10 @@ name: pydeseq2
 description: Differential gene expression analysis for bulk RNA-seq count matrices using a DESeq2-like workflow in Python; use when you need Wald tests, FDR correction, and optional LFC shrinkage for condition/batch/covariate designs.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 

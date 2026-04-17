@@ -3,9 +3,10 @@ name: short-video-script-generator
 description: "Generate popular science short video scripts based on topic, duration, and style. Invoke when the user needs to create scripts for short science videos."
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use
 
 - Use this skill when the request matches its documented task boundary.

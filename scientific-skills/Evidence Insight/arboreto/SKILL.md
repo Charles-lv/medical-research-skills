@@ -3,9 +3,10 @@ name: arboreto
 description: Infer gene regulatory networks (GRNs) from gene expression matrices using GRNBoost2 or GENIE3; use when analyzing bulk or single-cell RNA-seq to identify TF→target regulatory relationships.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 

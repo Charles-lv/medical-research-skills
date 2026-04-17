@@ -3,9 +3,10 @@ name: pathway-introduction-expert
 description: Generates comprehensive academic introductions for biological pathways, including signaling processes, markers, and inhibitors. Use when the user asks to introduce a pathway, molecule, or gene.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use
 
 - Use this skill when the request matches its documented task boundary.

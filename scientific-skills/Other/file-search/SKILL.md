@@ -3,9 +3,10 @@ name: file-search
 description: Perform fast file name and content searches with ripgrep (rg); use it when you need to locate files by glob/regex, find keywords across directories, or replace common find/grep workflows.
 license: MIT
 author: aipoch
+source: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
-> **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
+> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 ## When to Use
 
