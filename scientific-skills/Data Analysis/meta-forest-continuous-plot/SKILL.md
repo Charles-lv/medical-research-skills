@@ -2,7 +2,7 @@
 name: meta-forest-continuous-plot
 description: "Generate forest plots for meta-analysis of continuous data. Input a CSV file containing study names, means, standard deviations, and sample sizes for experimental and control groups. Output forest plot PNG and data table CSV."
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

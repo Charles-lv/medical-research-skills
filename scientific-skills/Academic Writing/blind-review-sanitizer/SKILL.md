@@ -2,7 +2,7 @@
 name: blind-review-sanitizer
 description: Use blind-review-sanitizer for academic writing workflows that need structured anonymization, explicit assumptions, and clear output boundaries for double-blind submission.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

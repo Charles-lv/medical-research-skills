@@ -2,7 +2,7 @@
 name: anatomy-quiz-master
 description: Generate interactive anatomy quizzes for medical education with multiple.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

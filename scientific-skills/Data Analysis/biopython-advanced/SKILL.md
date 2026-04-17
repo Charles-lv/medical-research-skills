@@ -2,7 +2,7 @@
 name: biopython-advanced
 description: Advanced Biopython modules for motifs, population genetics, sequence utilities, restriction analysis, clustering, and GenomeDiagram visualization; use when you need extended bioinformatics analysis beyond basic sequence I/O and alignment.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

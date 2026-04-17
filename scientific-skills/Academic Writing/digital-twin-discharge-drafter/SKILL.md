@@ -2,7 +2,7 @@
 name: digital-twin-discharge-drafter
 description: Use when drafting patient discharge summaries, creating personalized discharge instructions, simulating post-discharge outcomes, reducing hospital readmissions, or optimizing care transitions. Generates AI-enhanced discharge documentation with digital twin predictions for improved patient safety.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

@@ -2,7 +2,7 @@
 name: kegg-api
 description: Access the KEGG database API to retrieve biological data (genes, pathways, compounds, drugs). Invoke when the user asks to search, list, or get details from KEGG.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

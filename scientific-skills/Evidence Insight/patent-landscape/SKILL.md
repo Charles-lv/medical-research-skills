@@ -2,7 +2,7 @@
 name: patent-landscape
 description: Use when analyzing biotech patent landscapes, identifying white spaces in pharmaceutical IP, tracking competitor patents, or assessing freedom to operate for drug development. Provides comprehensive patent analysis and strategic insights for life sciences innovation.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

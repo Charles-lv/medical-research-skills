@@ -2,7 +2,7 @@
 name: 3d-molecule-ray-tracer
 description: Generate photorealistic rendering scripts for PyMOL and UCSF ChimeraX.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

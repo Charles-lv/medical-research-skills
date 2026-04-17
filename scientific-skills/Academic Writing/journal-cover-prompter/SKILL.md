@@ -2,7 +2,7 @@
 name: journal-cover-prompter
 description: Use when creating journal cover images, generating scientific artwork prompts, or designing graphical abstracts. Creates detailed prompts for AI image generators to produce publication-quality scientific visuals.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

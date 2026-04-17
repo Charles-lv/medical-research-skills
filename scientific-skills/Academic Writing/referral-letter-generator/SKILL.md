@@ -2,7 +2,7 @@
 name: referral-letter-generator
 description: Generate medical referral letters with patient summary, reason for referral.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

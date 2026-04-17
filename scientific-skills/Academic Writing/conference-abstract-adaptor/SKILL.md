@@ -2,7 +2,7 @@
 name: conference-abstract-adaptor
 description: Adapt abstracts to meet specific conference word limits and formats.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

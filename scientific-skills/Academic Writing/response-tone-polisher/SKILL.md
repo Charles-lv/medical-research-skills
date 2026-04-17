@@ -2,7 +2,7 @@
 name: response-tone-polisher
 description: Polishes response letters by transforming defensive or harsh language.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

@@ -2,7 +2,7 @@
 name: text-to-technical-roadmap
 description: Converts research text into a Mermaid technical roadmap flowchart. Use when the user provides research proposals, experiment designs, or scientific text and asks for a roadmap or flowchart.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

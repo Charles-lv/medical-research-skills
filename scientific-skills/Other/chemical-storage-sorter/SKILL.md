@@ -2,7 +2,7 @@
 name: chemical-storage-sorter
 description: Sort laboratory chemicals into safe storage groups by hazard classification (acids, bases, oxidizers, flammables, toxics). Identifies incompatible pairs, generates storage plans with warnings, and supports OSHA/NFPA compliance for lab safety.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

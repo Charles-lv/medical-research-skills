@@ -2,7 +2,7 @@
 name: meta-rob2-plot
 description: "Draw ROB2 risk-of-bias plots, including a Traffic Light Plot and a Summary Bar Plot. Input is a CSV file with ROB2 assessments for each study; output are two PNG plot files."
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

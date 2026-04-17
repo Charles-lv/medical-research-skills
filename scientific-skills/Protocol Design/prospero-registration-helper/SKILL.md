@@ -2,7 +2,7 @@
 name: prospero-registration-helper
 description: Assists researchers in generating PROSPERO registration content for meta-analyses from a title and optional protocol. Use when the user wants to draft a PROSPERO registration form.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

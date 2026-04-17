@@ -2,7 +2,7 @@
 name: results-section-structurer
 description: Organizes biomedical figures, analyses, and result blocks into a clear Results section structure with disciplined narrative ordering and evidence-aware presentation.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

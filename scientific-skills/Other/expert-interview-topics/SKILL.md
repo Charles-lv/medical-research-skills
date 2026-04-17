@@ -2,7 +2,7 @@
 name: expert-interview-topics
 description: "Generates professional interview titles and questions based on expert background and topic. Provides a structured workflow for interview preparation."
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

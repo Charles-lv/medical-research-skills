@@ -10,7 +10,7 @@ description: >-
   explicit research framing, trigger on any topic touching disease, therapeutics,
   or clinical decision-making. Part of the AIPOCH Medical Research Skill Hub.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

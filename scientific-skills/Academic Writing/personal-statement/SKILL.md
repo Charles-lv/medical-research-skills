@@ -2,7 +2,7 @@
 name: personal-statement
 description: Use when writing medical school personal statements, residency application essays, fellowship statements, or graduate school admissions essays. Crafts compelling narratives highlighting clinical experiences, research achievements, and career motivations for healthcare education applications.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

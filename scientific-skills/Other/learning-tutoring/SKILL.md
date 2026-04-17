@@ -2,7 +2,7 @@
 name: learning-tutoring
 description: Learning tutoring planning and content production skill for creating study plans, generating exercises, writing answer explanations, and providing review/adjustment guidance; triggered by requests like “study plan”, “exercise set/question bank”, “answer analysis”, “error analysis”, “exam prep plan”, or “spaced/periodic review schedule”.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

@@ -2,7 +2,7 @@
 name: citation-formatter
 description: Use when formatting references for journal submission, converting between citation styles (APA, MLA, Vancouver, Chicago), generating bibliographies for manuscripts, or ensuring consistent reference formatting. Automatically formats citations and bibliographies in 1000+ academic styles. Ensures reference accuracy, completeness, and compliance with journal requirements. Supports batch conversion and integration with reference managers.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

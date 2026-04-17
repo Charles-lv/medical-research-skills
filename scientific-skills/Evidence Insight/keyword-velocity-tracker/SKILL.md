@@ -2,7 +2,7 @@
 name: keyword-velocity-tracker
 description: Calculate literature growth velocity and acceleration to assess research.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

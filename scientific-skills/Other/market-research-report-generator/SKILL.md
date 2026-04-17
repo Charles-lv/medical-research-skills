@@ -2,7 +2,7 @@
 name: market-research-report-generator
 description: Generates professional market research reports by analyzing business intent, decision levels, and conducting multi-source data retrieval (Web, PubMed, Clinical Trials).
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

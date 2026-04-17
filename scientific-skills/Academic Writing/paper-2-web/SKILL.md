@@ -2,7 +2,7 @@
 name: paper-2-web
 description: Use this skill when converting academic papers to promotional and presentation formats, including interactive websites (Paper2Web), presentation videos (Paper2Video), and conference posters (Paper2Poster). This skill is suitable for paper dissemination, conference preparation, creating explorable academic homepages, generating video abstracts, or producing printable posters from LaTeX or PDF source.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

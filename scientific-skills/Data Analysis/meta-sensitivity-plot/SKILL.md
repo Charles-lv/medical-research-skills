@@ -2,7 +2,7 @@
 name: meta-sensitivity-plot
 description: "Generate leave-one-out sensitivity analysis plots for meta-analysis. Input is a CSV file containing meta-analysis data; outputs are a sensitivity forest plot (PNG) and a sensitivity data table (CSV) showing pooled effect estimates after excluding each study in turn."
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

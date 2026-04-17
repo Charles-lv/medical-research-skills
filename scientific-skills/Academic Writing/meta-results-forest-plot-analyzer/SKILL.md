@@ -2,7 +2,7 @@
 name: meta-results-forest-plot-analyzer
 description: Analyzes forest plots for meta-analysis, generating detailed descriptions and formatting figure legends in Chinese or English. Use when the user wants to interpret a forest plot image, describe its statistical significance (heterogeneity, p-value), and format the output with specific figure legends.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

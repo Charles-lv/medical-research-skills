@@ -2,7 +2,7 @@
 name: scholar-evaluation
 description: Implements the ScholarEval framework to evaluate scholarly documents; trigger when the user provides a PDF/DOCX/TXT file or pasted text and requests critique, scoring, or quality assessment.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

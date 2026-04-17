@@ -2,7 +2,7 @@
 name: chea-api
 description: Access ChEA3 and Harmonizome ChEA data for transcription factor enrichment analysis and metadata retrieval. Use when the user needs to perform ChEA3 enrichment analysis on a gene set, get metadata about the ChEA dataset, or retrieve information about a specific transcription factor (attribute).
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

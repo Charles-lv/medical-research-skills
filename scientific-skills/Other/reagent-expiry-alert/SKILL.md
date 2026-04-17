@@ -2,7 +2,7 @@
 name: reagent-expiry-alert
 description: Scan reagent barcodes or IDs, log expiration dates, and generate multi-level alerts before reagent expiry to support laboratory inventory management.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

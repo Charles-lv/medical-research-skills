@@ -2,7 +2,7 @@
 name: adaptyv
 description: Cloud laboratory platform for automated protein testing and validation; use when you have designed protein sequences and need wet-lab experimental validation (e.g., binding, expression, thermostability, enzyme activity) and API-based submission/status/result retrieval.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

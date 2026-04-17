@@ -2,7 +2,7 @@
 name: meta-results-risk-of-bias
 description: Generates the "Risk of Bias" results section for a meta-analysis based on assessment tables and statistics. Use when the user wants to draft the risk of bias analysis text from provided data tables.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

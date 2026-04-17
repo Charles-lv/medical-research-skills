@@ -2,7 +2,7 @@
 name: reproducibility-check
 description: Check whether a paper’s Methods section contains all information needed for replication; use when preparing a manuscript for submission or reviewing methodological completeness.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

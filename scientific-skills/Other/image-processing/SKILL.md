@@ -2,7 +2,7 @@
 name: image-processing
 description: Batch-convert and compress local images with Pillow; use when you need an offline, scriptable pipeline for directory-based processing.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

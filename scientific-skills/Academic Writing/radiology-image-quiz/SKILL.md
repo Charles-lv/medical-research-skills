@@ -2,7 +2,7 @@
 name: radiology-image-quiz
 description: Use when creating radiology educational quizzes, preparing board exam questions, or studying medical imaging cases. Generates interactive quizzes with X-ray, CT, MRI, and ultrasound images for medical education.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

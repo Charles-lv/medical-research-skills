@@ -2,7 +2,7 @@
 name: mindmap
 description: Generate mindmaps locally/offline with native HTML/CSS/JS (no external libraries); use when you need to parse Plain Text node structures or map LLM outputs into an on-device visualization.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

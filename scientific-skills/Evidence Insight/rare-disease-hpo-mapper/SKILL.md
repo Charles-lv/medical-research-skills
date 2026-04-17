@@ -2,7 +2,7 @@
 name: rare-disease-hpo-mapper
 description: Map patient symptoms to Human Phenotype Ontology terms for gene diagnosis.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

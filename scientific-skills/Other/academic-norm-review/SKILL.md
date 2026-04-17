@@ -2,7 +2,7 @@
 name: academic-norm-review
 description: Detects content similarity, verifies standardized citations and abbreviations, and flags potential academic integrity risks; use it before submission, during academic writing QA, or for compliance reviews.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

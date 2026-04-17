@@ -6,7 +6,7 @@ description: |
   支持docx/tex/md/PDF格式，中英文双语。自动检测稿件阶段，估计Sprint数量，
   多视角评审，生成优先级修订清单，导出MD/DOCX/PDF/HTML报告。
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 trigger_keywords:
   - 论文评审

@@ -2,7 +2,7 @@
 name: patient-consent-simplifier
 description: Simplify informed consent documents into patient-friendly language while maintaining regulatory compliance (FDA 21CFR50, ICH-GCP, HIPAA) and required legal elements.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

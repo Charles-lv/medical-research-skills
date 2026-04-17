@@ -2,7 +2,7 @@
 name: figure-reference-checker
 description: Use figure reference checker for academic writing workflows that need structured execution, explicit assumptions, and clear output boundaries.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

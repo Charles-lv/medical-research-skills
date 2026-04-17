@@ -2,7 +2,7 @@
 name: cobrapy
 description: Constraint-based reconstruction and analysis (COBRA) for metabolic models; use when you need to simulate growth/production, analyze flux ranges, or run knockout and medium studies from SBML/JSON/YAML models.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

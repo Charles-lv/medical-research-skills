@@ -2,7 +2,7 @@
 name: quadas-c-assessment-for-diagnostic-accuracy-studies
 description: Automated bias assessment for diagnostic accuracy studies using QUADAS-C criteria. Requires full text input.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

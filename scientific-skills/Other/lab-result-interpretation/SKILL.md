@@ -2,7 +2,7 @@
 name: lab-result-interpretation
 description: A medical assistant tool that transforms complex biochemical laboratory test results into clear, patient-friendly explanations with safety disclaimers and severity flags.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

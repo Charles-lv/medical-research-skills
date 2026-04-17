@@ -2,7 +2,7 @@
 name: sds-msds-risk-scanner
 description: Extract hazard codes and safety info from chemical safety datasheets.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)

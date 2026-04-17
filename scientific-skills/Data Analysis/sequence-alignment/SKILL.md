@@ -2,7 +2,7 @@
 name: sequence-alignment
 description: A skill for performing sequence alignment using NCBI BLAST API. Supports nucleotide and protein sequence comparison against major biological databases.
 license: MIT
-author: AIPOCH
+author: aipoch
 source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Github**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
