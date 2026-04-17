@@ -7,8 +7,8 @@ Add Skills. Run Your Research.
 <br>
 
 [![License](https://img.shields.io/badge/License-MIT-ff6b6b?style=for-the-badge)](./LICENSE)
-![Skills Count](https://img.shields.io/badge/Skills-420%2B-4dabf7?style=for-the-badge)
-![Work%20with](https://img.shields.io/badge/Work%20with-OpenClaw%20%7C%20Opencode%20%7C%20Claude-9775fa?style=for-the-badge)
+![Skills Count](https://img.shields.io/badge/Skills-500%2B-4dabf7?style=for-the-badge)
+![Work%20with](https://img.shields.io/badge/Work%20with-OpenClaw%20%7C%20Opencode%20%7C%20Claude%20Code-9775fa?style=for-the-badge)
 [![Follow on X](https://img.shields.io/badge/Follow%20on%20X-%40aipoch__ai-212529?style=for-the-badge&logo=x&logoColor=white)](https://x.com/aipoch_ai)
 [![YouTube](https://img.shields.io/badge/YouTube-%40AIPOCH__AI-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@AIPOCH_AI)
 
@@ -22,7 +22,7 @@ Add Skills. Run Your Research.
 
 <br>
 
-*420+ medical research skills · Evidence Insights · Protocol Design · Data Analysis · Academic Writing*
+*500+ Agent Skills for Medical Research · Evidence Insights · Protocol Design · Data Analysis · Academic Writing*
 
 ⭐ If you find this repository useful, consider giving it a star! It helps more researchers discover Medical Research Agent Skills and supports the continued development of this library.
 
@@ -32,13 +32,13 @@ Add Skills. Run Your Research.
 
 ## 🤔 What it is?
 
-AIPOCH is a curated library of 420+ Medical Research Agent Skills, built to work with**​ OpenClaw** and other AI agent platforms, including​**​ OpenCode and Claude**​.
+AIPOCH is a curated library of 500+ Medical Research Agent Skills designed to work with Claude Code, OpenClaw, Hermes Agent and other AI agents.
 
 It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing.
 
 Equip your AI agent with Medical Research Skills, and turn it into a capable medical research assistant.
 
-AIPOCH also introduces **Medical ​Skill Auditor​**​— a structured evaluation framework designed to assess the quality of Medical Research Agent Skills. Its core function is to perform a comprehensive quality check on a Skill before it is officially deployed to users. You can view [evaluation results for selected AIPOCH skills here](https://www.aipoch.com/agent-skills/medical-research-literature-reader-pro/eval-result).
+AIPOCH also introduces **Medical ​Skill Auditor​**​— a structured evaluation framework designed to assess the quality of Medical Research Agent Skills. Its core function is to perform a comprehensive quality check on a Skill before it is officially deployed to users. You can [view evaluation results for selected AIPOCH skills here](https://www.aipoch.com/leaderboard/items/discussion-section-architect).
 
 ---
 
@@ -56,7 +56,7 @@ The library is primarily organized into five categories: ​**Evidence Insights,
 |✍️ **Academic Writing**   |  e.g., SCI manuscript drafting, methods/results/discussion writing, meta-analysis narrative, cover letters, abstract generation.|
 | 🌍 **Other (General / Non-Research)**          | all general skills that do not fall into categories 1–4.                                                                                   |
 
-**📌 Total Skills in Library: 420 and growing**
+**📌 Total Skills in Library: 500+ and growing**
 
 ## 🎬 AIPOCH Medical Research Skills — Demo
 
@@ -74,7 +74,7 @@ A brief showcase of AIPOCH Medical Research Skills in action across research wor
 
 ### ⚙️ Requirements
 
-​**Host Platform**​: **OpenClaw (installed and running)** or any compatible AI Agent framework that supports Skill integration.
+​**Host Platform**​: OpenClaw (installed and running) or **any compatible AI Agent framework that supports Skill integration**.
 
 If you don't have OpenClaw,[ please follow the official OpenClaw setup guide.](https://github.com/openclaw/openclaw)
 
@@ -224,7 +224,7 @@ The Skill Evaluator uses a two-stage scoring system: static evaluation (design q
 
 Final Score = Static Score × 40% + Dynamic Score × 60%
 
-You can view [evaluation results for selected AIPOCH skills here](https://www.aipoch.com/agent-skills/medical-research-literature-reader-pro/eval-result).
+You can [view evaluation results for selected AIPOCH skills here](https://www.aipoch.com/leaderboard/items/discussion-section-architect).
 
 ## Star History
 
@@ -235,3 +235,4 @@ You can view [evaluation results for selected AIPOCH skills here](https://www.ai
    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=aipoch/medical-research-skills&type=date&legend=top-left" />
  </picture>
 </a>
+
