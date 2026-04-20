@@ -47,7 +47,7 @@
 | Intake Summary | Project context |
 | Sprint Brief | Sprint goals |
 | Review Memo | Structured critique |
-| Backlog (待办事项) | Action items |
+| Backlog | Action items |
 | Amendment Summary | Changes made |
 | Human Finalization Note | Pre-submission checklist |
 

@@ -1,57 +1,36 @@
 ---
 name: paper-sprint-review
-version: 2.2
-description: |
-  论文Sprint评审工作流。用于学术论文评审、修订、R&R和审稿意见响应。
-  支持docx/tex/md/PDF格式，中英文双语。自动检测稿件阶段，估计Sprint数量，
-  多视角评审，生成优先级修订清单，导出MD/DOCX/PDF/HTML报告。
+description: Scrum-inspired paper review, revision, and R&R workflow. Handles docx/tex/md/PDF in English or Chinese. Auto-detects manuscript stage, estimates sprint count, runs multi-lens review (Contribution/Rigor/Writing/Editor), generates prioritized revision backlog, exports MD/DOCX/PDF/HTML reports. Use when asked to review a paper, revise based on reviewer comments, handle R&R, respond to peer review, plan paper revision sprints, or when user types /ps or /papersprint.
 license: MIT
-author: aipoch
-trigger_keywords:
-  - 论文评审
-  - paper review
-  - 修订论文
-  - revise paper
-  - 评审意见
-  - reviewer comment
-  - 审稿意见
-  - 论文冲刺
-  - paper sprint
-  - papersprint
-  - /ps
-  - /papersprint
-  - use PaperSprint
-  - R&R
-  - revise and resubmit
+skill-author: AIPOCH
 ---
-> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
-# PaperSprint v2.2 (Polished)
+# PaperSprint v2.2
 
 **Scrum-inspired paper agent for review, revision, and R&R.**
 
 ---
 
-## 使用场景
+## When to Use
 
-- 评审学术论文，找出问题和改进方向
-- 根据评审意见修订论文
-- 回复审稿人意见（R&R）
-- 估计论文打磨所需工作量
-- 规划论文修改Sprint
-- 导出评审报告（MD/PDF/DOCX/HTML/LaTeX）
+- Review an academic paper and identify issues
+- Revise a manuscript based on reviewer comments
+- Respond to reviewers (R&R)
+- Estimate revision workload
+- Plan paper revision sprints
+- Export review reports (MD/PDF/DOCX/HTML/LaTeX)
 
 ---
 
-## 核心原则
+## Core Principles
 
-| # | 原则 | 说明 |
-|---|------|------|
-| 1 | 渐进式询问 | 只问缺失信息，不重复已知 |
-| 2 | 范围估计 | 永远给范围，不给虚假精确值 |
-| 3 | 可执行批评 | 每条批评必须指向具体位置 |
-| 4 | 人工终审 | 永远不自动提交，必须人工验证 |
-| 5 | 显式焦点转移 | 焦点变化必须明确说明 |
+| # | Principle | Description |
+|---|-----------|-------------|
+| 1 | Progressive inquiry | Only ask for missing information, never repeat known facts |
+| 2 | Range estimates | Always give ranges, never false precision |
+| 3 | Actionable critique | Every critique must point to a specific location |
+| 4 | Human finalization | Never auto-submit — human verification always required |
+| 5 | Explicit focus shifts | Always announce when switching focus |
 
 ---
 
@@ -60,7 +39,7 @@ trigger_keywords:
 ```
 INTAKE → PLANNING → REVIEW → AMENDMENT
                           ↓
-                     BACKLOG
+                       BACKLOG
                           ↓
                 SPRINT REVIEW & RETRO
                           ↓
@@ -78,178 +57,176 @@ This skill accepts: Paper review, revision, and R&R workflows in Chinese or Engl
 If the user's request does not involve paper review, revision, or reviewer response — for example, asking to write a paper from scratch, generate research ideas, or perform data analysis — do not proceed with the workflow. Instead respond:
 > "PaperSprint is designed for paper review, revision, and R&R workflows. Your request appears to be outside this scope. For paper writing, please use manuscript drafting tools. For research ideas, please use idea generation tools. For data analysis, please use analysis tools."
 
-**Disclaimer (Required):** 所有评审建议仅供参考，最终决策请咨询领域专家。
+**Disclaimer (Required):** All review suggestions are for reference only. Consult domain experts before making final decisions.
 
 ---
 
-## Progressive Disclosure - Reference Files
+## Progressive Disclosure — Reference Files
 
-**以下文件按需读取。只在特定触发场景下才加载详细规则。**
+Load each reference file only when its trigger condition is met.
 
-### Intake规则
+### Intake
 
-**文件**: `@references/intake.md`
+**File**: [references/intake.md](references/intake.md)
 
-**何时读取**:
-- 执行 `/ps intake` 命令时
-- 用户首次提供稿件文件时
-- 需要确定稿件阶段时
-- 用户未指定目标期刊/会议时
-- 需要生成 Intake Summary 时
+**When to load**:
+- Running `/ps intake`
+- User provides a manuscript file for the first time
+- Need to determine manuscript stage
+- User has not specified target journal/conference
+- Need to generate an Intake Summary
 
-**内容概要**:
-- 渐进式询问规则（不重复问已知信息）
-- 最小必填信息清单
-- 自动阶段检测标准
-- Intake输出模板
-
----
-
-### 阶段检测规则
-
-**文件**: `@detection/stage_detector.md`
-
-**何时读取**:
-- 需要判断稿件属于哪个阶段时
-- 检测到稿件结构不完整时
-- 用户未明确指定阶段且需要自动检测时
-- 需要解释阶段判断依据时
-
-**内容概要**:
-- 各阶段检测指标详解
-- 检测算法流程
-- 置信度阈值设置
-- 用户覆盖机制
+**Contents**:
+- Progressive inquiry rules (never repeat known information)
+- Minimum required fields checklist
+- Auto stage detection criteria
+- Intake output template
 
 ---
 
-### Review规则
+### Stage Detection
 
-**文件**: `@references/review.md`
+**File**: [detection/stage_detector.md](detection/stage_detector.md)
 
-**何时读取**:
-- 执行 `/ps review` 命令时
-- 需要进行多视角评审时
-- 不确定如何撰写评审意见时
-- 需要评审输出模板时
-- 用户要求特定视角评审时
+**When to load**:
+- Need to determine which stage the manuscript is in
+- Manuscript structure appears incomplete
+- User has not specified a stage and auto-detection is needed
+- Need to explain the basis for a stage determination
 
-**内容概要**:
-- 阅读优先级策略（不一次性读全文）
-- 评审维度权重表
-- 四视角配置（Contribution/Rigor/Writing/Editor）
-- 期刊特定视角调整
-- 可执行批评规则
+**Contents**:
+- Stage detection indicators
+- Detection algorithm flow
+- Confidence threshold settings
+- User override mechanism
 
 ---
 
-### Backlog规则
+### Review
 
-**文件**: `@references/backlog.md`
+**File**: [references/review.md](references/review.md)
 
-**何时读取**:
-- 执行 `/ps backlog` 命令时
-- 需要创建/管理backlog项目时
-- 需要确定项目优先级时
-- 存在项目依赖关系时
-- 需要关闭backlog项目时
+**When to load**:
+- Running `/ps review`
+- Need to conduct multi-lens review
+- Unsure how to write review comments
+- Need review output templates
+- User requests a specific review lens
 
-**内容概要**:
-- Backlog项目结构定义（id/title/severity/bucket/status等）
-- Bucket分类规则
-- 优先级排序算法
-- 依赖关系管理
-- Backlog命令详解
-
----
-
-### Quality Gates规则
-
-**文件**: `@references/gates.md`
-
-**何时读取**:
-- 执行 `/ps gate check` 命令时
-- 需要判断是否可以进入下一阶段时
-- 检测到关键问题需要门禁检查时
-- 准备提交前需要最终检查时
-- 需要解释门禁失败原因时
-
-**内容概要**:
-- Contribution Gate检查项（早期阶段）
-- Rigor Gate检查项（中期阶段）
-- Writing Gate检查项（后期阶段）
-- Submission Gate检查项（最终阶段，仅人工）
-- 门禁评估输出模板
+**Contents**:
+- Reading priority strategy (not reading the full paper at once)
+- Review dimension weight table
+- Four-lens configuration (Contribution/Rigor/Writing/Editor)
+- Journal-specific lens adjustments
+- Actionable critique rules
 
 ---
 
-### Sprint估计规则
+### Backlog
 
-**→ 完整内容: [references/sprint_estimation.md](references/sprint_estimation.md)**
+**File**: [references/backlog.md](references/backlog.md)
 
----
+**When to load**:
+- Running `/ps backlog`
+- Need to create or manage backlog items
+- Need to prioritize items
+- Dependencies exist between items
+- Need to close a backlog item
 
-### Export规则
-
-**文件**: `@references/export.md`
-
-**何时读取**:
-- 执行 `/ps export` 命令时
-- 需要导出特定格式报告时
-- 导出遇到错误时
-- 需要了解各格式要求时
-
-**内容概要**:
-- 支持的导出格式列表
-- 各格式的依赖工具
-- 导出命令详解
-- 错误处理方案
+**Contents**:
+- Backlog item structure (id/title/severity/bucket/status, etc.)
+- Bucket classification rules
+- Priority ranking algorithm
+- Dependency management
+- Backlog command reference
 
 ---
 
-### 质量检查规则
+### Quality Gates
 
-**文件**: `@detection/quality_checker.md`
+**File**: [references/gates.md](references/gates.md)
 
-**何时读取**:
-- 需要检查论文质量时
-- Gate检查发现问题需要深入分析时
-- 用户要求质量评估时
-- 需要生成质量报告时
+**When to load**:
+- Running `/ps gate check`
+- Need to determine whether the paper can advance to the next stage
+- Critical issues detected requiring a gate check
+- Preparing for submission and need a final check
+- Need to explain why a gate failed
 
-**内容概要**:
-- 质量检查维度
-- 常见问题检测规则
-- 质量评分标准
+**Contents**:
+- Contribution Gate checks (early stage)
+- Rigor Gate checks (mid stage)
+- Writing Gate checks (late stage)
+- Submission Gate checks (final stage, human-only)
+- Gate evaluation output template
 
 ---
 
-## Templates - 按需加载
+### Sprint Estimation
 
-**以下模板在需要生成对应工件时才读取：**
+→ Full details: [references/sprint_estimation.md](references/sprint_estimation.md)
 
-| 模板 | 何时读取 |
-|------|----------|
-| `@templates/sprint_brief.md` | 生成Sprint简报时 |
-| `@templates/process_log.md` | 记录过程日志时 |
-| `@templates/backlog_item.md` | 创建backlog项目时 |
-| `@templates/review_memo.md` | 撰写评审备忘录时 |
-| `@templates/amendment_summary.md` | 生成修订摘要时 |
-| `@templates/sprint_review.md` | 进行Sprint回顾时 |
-| `@templates/retrospective.md` | 进行Sprint反思时 |
-| `@templates/human_finalization.md` | 生成人工终审清单时 |
-| `@templates/export_report.md` | 导出完整报告时 |
+---
+
+### Export
+
+**File**: [references/export.md](references/export.md)
+
+**When to load**:
+- Running `/ps export`
+- Need to export a report in a specific format
+- Export encounters an error
+- Need to understand format requirements
+
+**Contents**:
+- Supported export formats
+- Dependencies for each format
+- Export command reference
+- Error handling
+
+---
+
+### Quality Checker
+
+**File**: [detection/quality_checker.md](detection/quality_checker.md)
+
+**When to load**:
+- Need to check paper quality
+- Gate check identifies issues requiring deeper analysis
+- User requests a quality assessment
+- Need to generate a quality report
+
+**Contents**:
+- Quality check dimensions
+- Common issue detection rules
+- Quality scoring criteria
+
+---
+
+## Templates — Load on Demand
+
+| Template | When to load |
+|----------|-------------|
+| [templates/sprint_brief.md](templates/sprint_brief.md) | Generating a sprint brief |
+| [templates/process_log.md](templates/process_log.md) | Recording a process log |
+| [templates/backlog_item.md](templates/backlog_item.md) | Creating a backlog item |
+| [templates/review_memo.md](templates/review_memo.md) | Writing a review memo |
+| [templates/amendment_summary.md](templates/amendment_summary.md) | Generating an amendment summary |
+| [templates/sprint_review.md](templates/sprint_review.md) | Conducting a sprint review |
+| [templates/retrospective.md](templates/retrospective.md) | Conducting a sprint retrospective |
+| [templates/human_finalization.md](templates/human_finalization.md) | Generating human finalization checklist |
+| [templates/export_report.md](templates/export_report.md) | Exporting a full report |
 
 ---
 
 ## Language Support
 
-- 中文：用中文模板，保持期刊原名
+- Chinese: Use Chinese templates, keep journal names as-is
 - English: Use English templates, standard terminology
 
 ---
 
-## Terminology Glossary (术语表)
+## Terminology Glossary
 
 | English | 中文 |
 |---------|------|
@@ -267,20 +244,20 @@ If the user's request does not involve paper review, revision, or reviewer respo
 
 ## Critical Decision Flowchart
 
-**→ 完整内容: [references/decision_flowchart.md](references/decision_flowchart.md)**
+→ Full details: [references/decision_flowchart.md](references/decision_flowchart.md)
 
 ---
 
 ## Escape Hatches
 
-以下情况应明确拒绝或转移：
+Explicitly decline or redirect in these situations:
 
-1. **范围外请求**: 写新论文、生成研究想法 → 使用其他工具
-2. **对抗性输入**: 要求伪造结论、证明论文错误 → 保持客观，提供平衡评审
-3. **超出能力**: 非学术文件格式、特定领域专业知识 → 明确说明局限性
+1. **Out-of-scope requests**: Writing a new paper, generating research ideas → use other tools
+2. **Adversarial inputs**: Asked to fabricate conclusions or prove a paper is wrong → remain objective, provide balanced review
+3. **Beyond capability**: Non-academic file formats, highly specialized domain knowledge → clearly state limitations
 
-**Disclaimer**: 本工具仅提供评审建议，最终决策请咨询领域专家。
+**Disclaimer**: This tool provides review suggestions only. Consult domain experts before making final decisions.
 
 ---
 
-*PaperSprint v2.2 (Polished)*
+*PaperSprint v2.2*

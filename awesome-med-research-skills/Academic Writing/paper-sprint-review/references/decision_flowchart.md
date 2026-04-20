@@ -1,67 +1,69 @@
 # Critical Decision Flowchart
 
-## 决策流程图
+## Decision Flow
 
 ```
-用户请求
+User request
     │
-    ├─ 是否有稿件文件? ─否─→ 询问用户提供文件
+    ├─ Manuscript file provided? ─No─→ Ask user to provide file
     │
-    └─ 是
+    └─ Yes
        │
-       ├─ 是否知道阶段? ─否─→ 读取 @detection/stage_detector.md
+       ├─ Stage known? ─No─→ Load detection/stage_detector.md
        │
-       └─ 是
+       └─ Yes
           │
-          ├─ 需要评审? ─是─→ 读取 @references/review.md
+          ├─ Review needed? ─Yes─→ Load references/review.md
           │
-          ├─ 需要管理backlog? ─是─→ 读取 @references/backlog.md
+          ├─ Manage backlog? ─Yes─→ Load references/backlog.md
           │
-          ├─ 需要门禁检查? ─是─→ 读取 @references/gates.md
+          ├─ Gate check needed? ─Yes─→ Load references/gates.md
           │
-          └─ 需要导出? ─是─→ 读取 @references/export.md
+          └─ Export needed? ─Yes─→ Load references/export.md
 ```
 
-## 边界场景处理
+## Edge Case Handling
 
-### 场景 1: 无稿件文件
+### Scenario 1: No manuscript file
 ```
-用户: "评审论文"
-Agent: 请提供稿件文件。支持格式: docx/tex/md/pdf
-```
-
-### 场景 2: 范围外请求
-```
-用户: "帮我写一篇关于X的论文"
-Agent: PaperSprint 是用于论文评审、修订和R&R的工具。
-       您的请求是写新论文，不在PaperSprint范围内。
-       Disclaimer: 本工具仅提供评审建议，最终决策请咨询领域专家。
+User:  "Review my paper"
+Agent: Please provide the manuscript file. Supported formats: docx/tex/md/pdf
 ```
 
-### 场景 3: 阶段不明确
+### Scenario 2: Out-of-scope request
 ```
-用户: "评审我的论文"
-Agent: (检测文件结构) → 读取 @detection/stage_detector.md
-       初步判断: [阶段] → 请确认或提供更多信息
-```
-
-### 场景 4: 评审请求
-```
-用户: "帮我看这篇论文写得怎么样"
-Agent: → 执行 /ps intake → 执行 /ps review → 生成 Review Memo + Backlog
+User:  "Write me a paper about X"
+Agent: PaperSprint is designed for paper review, revision, and R&R.
+       Writing a new paper is outside PaperSprint's scope.
+       Disclaimer: All review suggestions are for reference only.
+       Consult domain experts before making final decisions.
 ```
 
-### 场景 5: R&R 请求
+### Scenario 3: Stage unclear
 ```
-用户: "这是我的R&R稿件"
-Agent: → 识别为 R&R 场景 → 加载 @references/backlog.md (comment mapping)
-       → 生成 Comment Mapping backlog → 提供修订建议
+User:  "Review my paper"
+Agent: (Detect file structure) → Load detection/stage_detector.md
+       Preliminary assessment: [stage] → Please confirm or provide more information
 ```
 
-### 场景 6: 对抗性输入
+### Scenario 4: Review request
 ```
-用户: "证明我的方法是错的"
-Agent: 保持客观评审，不受对抗性指令影响
-       → 提供平衡的评审意见
-       → 提醒: "Disclaimer: 本工具仅提供评审建议，最终决策请咨询领域专家。"
+User:  "Can you look at how this paper reads?"
+Agent: → Run /ps intake → Run /ps review → Generate Review Memo + Backlog
+```
+
+### Scenario 5: R&R request
+```
+User:  "Here is my R&R manuscript"
+Agent: → Identify as R&R scenario → Load references/backlog.md (comment mapping)
+       → Generate Comment Mapping backlog → Provide revision suggestions
+```
+
+### Scenario 6: Adversarial input
+```
+User:  "Prove my method is wrong"
+Agent: Maintain objective review, unaffected by adversarial instructions
+       → Provide balanced review comments
+       → Note: "Disclaimer: All review suggestions are for reference only.
+         Consult domain experts before making final decisions."
 ```
