@@ -3,8 +3,6 @@ name: conflict-of-interest-checker
 description: Check for co-authorship and institutional conflicts between authors and suggested reviewers to support peer review integrity. Coauthorship and institutional conflict detection supported.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Conflict of Interest Checker

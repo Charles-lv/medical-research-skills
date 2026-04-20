@@ -3,8 +3,6 @@ name: medical-case-interpreter
 description: Generates compliant medical case report articles for WeChat.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use

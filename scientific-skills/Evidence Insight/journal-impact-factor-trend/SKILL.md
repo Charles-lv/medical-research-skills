@@ -3,8 +3,6 @@ name: journal-impact-factor-trend
 description: Show journal impact factor and quartile trends over 5 years.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Journal Impact Factor Trend

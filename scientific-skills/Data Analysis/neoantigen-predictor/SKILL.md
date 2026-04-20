@@ -3,8 +3,6 @@ name: neoantigen-predictor
 description: Predict neoantigens that may be recognized by the immune system based.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Neoantigen Predictor

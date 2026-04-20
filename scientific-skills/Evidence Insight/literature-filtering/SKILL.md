@@ -3,8 +3,6 @@ name: literature-filtering
 description: Filter literature by publication year, journal, and predefined screening rules to produce inclusion/exclusion lists; use when conducting preliminary screening or systematic review screening to narrow the literature scope.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

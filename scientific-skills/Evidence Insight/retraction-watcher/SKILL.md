@@ -3,8 +3,6 @@ name: retraction-watcher
 description: Automatically scan document reference lists and check against Retraction.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Retraction Watcher

@@ -3,8 +3,6 @@ name: biotech-pitch-deck-narrative
 description: Use biotech-pitch-deck-narrative for academic writing workflows that need structured investor-facing storytelling, explicit assumptions, and clear output boundaries.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Biotech Pitch Deck Narrative

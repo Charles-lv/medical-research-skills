@@ -3,8 +3,6 @@ name: file-security-toolkit
 description: Encrypt/decrypt local files, redact sensitive information in documents, and validate password strength when handling private data or preparing files for sharing.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # File Security Toolkit

@@ -3,8 +3,6 @@ name: chembl-database
 description: Query the ChEMBL database for bioactive molecules, targets, bioactivities, and approved drugs; use this when you need to filter by physicochemical properties (e.g., MW, LogP), chemical structure (SMILES), or retrieve drug mechanism information.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

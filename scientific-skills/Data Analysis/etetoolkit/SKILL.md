@@ -3,8 +3,6 @@ name: etetoolkit
 description: ETE (Environment for Tree Exploration) toolkit for phylogenetic and hierarchical tree analysis; use it when you need to parse/manipulate Newick/NHX trees, detect duplication/speciation events, integrate NCBI taxonomy, and render publication-quality figures.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

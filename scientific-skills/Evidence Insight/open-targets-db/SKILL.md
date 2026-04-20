@@ -3,8 +3,6 @@ name: open-targets-db
 description: Query the Open Targets Platform to retrieve targets, diseases, or evidence records when you need target-disease association data and evidence-based scores for therapeutic discovery.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

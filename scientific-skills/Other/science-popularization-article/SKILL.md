@@ -3,8 +3,6 @@ name: science-popularization-article
 description: "Generates science popularization articles with titles and outlines based on medical topics and style preferences. Invoke when user needs to create medical/science popular content for public education."
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use

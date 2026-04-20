@@ -3,8 +3,6 @@ name: fda-database
 description: Query the openFDA API to retrieve FDA regulatory datasets (drugs, devices, adverse events, recalls, submissions, UNII) when you need programmatic safety/regulatory evidence for analysis or research.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

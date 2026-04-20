@@ -3,8 +3,6 @@ name: reference-search
 description: Multi-database literature search and search-strategy design that outputs structured, reproducible result lists; use when you need reference retrieval, systematic searching, review topic selection, or to construct a traceable search strategy.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Reference Search

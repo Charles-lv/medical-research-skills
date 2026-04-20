@@ -3,8 +3,6 @@ name: litbase
 description: "Academic paper reading and research development system for biomedical researchers. Finds papers via Semantic Scholar, reads with structured notes, tracks discussion insights, and synthesizes literature into a Research Foundation Document (RFD) for downstream protocol design skills. 8 commands: /setup /feed /read /discuss /recap /update /sync /propose"
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 metadata:
   openclaw:
     optional_bins:

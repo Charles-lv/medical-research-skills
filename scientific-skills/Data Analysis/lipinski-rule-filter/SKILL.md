@@ -3,8 +3,6 @@ name: lipinski-rule-filter
 description: Filter compound libraries based on Lipinski's Rule of Five for drug-likeness.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Lipinski Rule Filter

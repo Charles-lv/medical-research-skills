@@ -3,8 +3,6 @@ name: meta-title-generator
 description: Generates Meta-Analysis research titles based on user keywords, utilizing PubMed search results if available, or creative generation otherwise. Use when the user wants to brainstorm or generate titles for a meta-analysis, specifically starting from keywords or a topic.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Meta-Analysis Title Generator

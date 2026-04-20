@@ -3,8 +3,6 @@ name: acronym-unpacker
 description: Intelligent medical abbreviation disambiguation tool that resolves ambiguous acronyms using clinical context, specialty-specific knowledge, and document-level semantic analysis.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Acronym Unpacker

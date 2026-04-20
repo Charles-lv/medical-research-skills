@@ -3,8 +3,6 @@ name: neurokit2
 description: Comprehensive biosignal processing for ECG/PPG/EEG/EDA/RSP/EMG/EOG; use when you need to clean, segment, and extract physiological features for HRV, event-related responses, complexity metrics, or multimodal psychophysiology pipelines.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

@@ -3,8 +3,6 @@ name: open-source-license-check
 description: Check if referenced bioinformatics software/code licenses allow commercial use (GPL vs MIT, etc.).
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Open Source License Check

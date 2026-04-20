@@ -3,8 +3,6 @@ name: methodology-extractor
 description: Batch extraction of experimental methods from multiple papers for protocol.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Methodology Extractor

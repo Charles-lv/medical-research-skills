@@ -3,8 +3,6 @@ name: circos-plot-generator
 description: Generate Circos configuration files for circular genomics data visualization. Supports genomic variations (SNPs, CNVs, structural variants), cell-cell communication networks, and custom track configurations for publication-ready circular plots.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Circos Plot Generator

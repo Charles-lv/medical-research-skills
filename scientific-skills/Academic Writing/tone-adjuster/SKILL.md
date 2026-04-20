@@ -3,8 +3,6 @@ name: tone-adjuster
 description: Use when converting medical text between academic and patient-friendly tones, translating medical jargon for patients, adapting research papers for public audiences, or rewriting clinical notes for patient handouts. Maintains medical accuracy while adjusting readability level.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Medical Tone Adjuster

@@ -3,8 +3,6 @@ name: dei-statement-drafter
 description: Draft Diversity, Equity, and Inclusion statements for academic applications.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # DEI Statement Drafter

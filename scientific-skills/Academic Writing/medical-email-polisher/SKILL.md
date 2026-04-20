@@ -3,8 +3,6 @@ name: medical-email-polisher
 description: Transforms rough email drafts into polished, professional medical correspondence.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Medical Email Polisher

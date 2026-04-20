@@ -3,8 +3,6 @@ name: bib-formatter
 description: Convert reference lists and in-text citations between RIS, BibTeX, plain text, and CSL-JSON, triggered when you need to unify bibliography/citation styles before journal submission or compare before/after formatting differences.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

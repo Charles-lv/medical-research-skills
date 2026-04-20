@@ -3,8 +3,6 @@ name: pdf-ppt
 description: Create literature-report PPTX decks from PDF papers. Use when you must extract a paper’s metadata, summarize the study, interpret Results/Figures/Tables, and generate slides with 1:1 figure-to-text alignment and layout rules (triggered by requests like “PDF to PPT”, “literature report slides”, or “turn this paper into a presentation”).
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

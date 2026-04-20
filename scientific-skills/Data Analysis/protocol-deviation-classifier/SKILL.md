@@ -3,8 +3,6 @@ name: protocol-deviation-classifier
 description: Determine whether an incident in a clinical trial is a "major deviation.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Protocol Deviation Classifier

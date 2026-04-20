@@ -3,8 +3,6 @@ name: graphical-abstract-wizard
 description: Generate graphical abstract layout recommendations based on paper abstracts.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Graphical Abstract Wizard

@@ -3,8 +3,6 @@ name: phylogenetic-tree-styler
 description: Analyze data with `phylogenetic-tree-styler` using a reproducible workflow, explicit validation, and structured outputs for review-ready interpretation.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Phylogenetic Tree Styler

@@ -3,8 +3,6 @@ name: time-zone-planner
 description: Plan cross-time-zone meeting windows for distributed teams, providing region-by-region local time mappings and tradeoff analysis for scheduling decisions.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Time Zone Planner

@@ -3,8 +3,6 @@ name: ctd-api
 description: "Accesses Comparative Toxicogenomics Database (CTD) for chemical, gene, disease, and pathway interaction data. Invoke when user needs to query CTD, retrieve toxicogenomics data, or investigate chemical-disease relationships."
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Comparative Toxicogenomics Database (CTD) API

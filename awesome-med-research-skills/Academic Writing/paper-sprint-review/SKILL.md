@@ -7,8 +7,6 @@ description: |
   多视角评审，生成优先级修订清单，导出MD/DOCX/PDF/HTML报告。
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 trigger_keywords:
   - 论文评审
   - paper review

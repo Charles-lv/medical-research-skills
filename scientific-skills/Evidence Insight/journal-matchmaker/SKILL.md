@@ -3,8 +3,6 @@ name: journal-matchmaker
 description: Analyzes academic paper abstracts to recommend optimal journals for submission, considering impact factors, scope alignment, and domain expertise.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Journal Matchmaker

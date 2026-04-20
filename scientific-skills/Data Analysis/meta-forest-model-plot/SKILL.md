@@ -3,8 +3,6 @@ name: meta-forest-model-plot
 description: "Generate forest plots for meta-analysis of survival data. Input is a CSV file containing study names, HR and 95% confidence intervals, output forest plot PNG and data table CSV. Supports both R and Python scripts."
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use

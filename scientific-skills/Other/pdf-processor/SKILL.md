@@ -3,8 +3,6 @@ name: pdf-processor
 description: Perform basic local PDF operations (merge, split, extract pages/text/tables, create) when users request offline PDF processing without external services.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

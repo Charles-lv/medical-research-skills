@@ -3,8 +3,6 @@ name: poster-layout-planner
 description: Use poster layout planner for other workflows that need structured execution, explicit assumptions, and clear output boundaries.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Poster Layout Planner

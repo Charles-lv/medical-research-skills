@@ -3,8 +3,6 @@ name: response-tone-polisher
 description: Polishes response letters by transforming defensive or harsh language.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Response Tone Polisher

@@ -3,8 +3,6 @@ name: linkedin-optimizer
 description: Use when optimizing LinkedIn profiles for doctors, physicians, nurses, healthcare professionals, or medical researchers. Crafts compelling headlines, writes professional summaries, integrates healthcare keywords, and builds personal branding for medical careers.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # LinkedIn Optimizer for Healthcare Professionals

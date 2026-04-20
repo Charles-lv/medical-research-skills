@@ -3,8 +3,6 @@ name: blockbuster-therapy-predictor
 description: Comprehensive analytics tool for forecasting breakthrough therapeutic technologies by integrating multi-dimensional data sources including clinical development pipelines, intellectual property landscapes, and capital mar.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Blockbuster Therapy Predictor

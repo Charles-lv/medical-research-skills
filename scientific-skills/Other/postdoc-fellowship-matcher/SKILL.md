@@ -3,8 +3,6 @@ name: postdoc-fellowship-matcher
 description: Filter and match postdoctoral fellowship opportunities based on applicant nationality, years since PhD, and research field from a curated database.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Postdoc Fellowship Matcher

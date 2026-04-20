@@ -3,8 +3,6 @@ name: concept-explainer
 description: Uses analogies to explain complex medical concepts in accessible terms.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Concept Explainer

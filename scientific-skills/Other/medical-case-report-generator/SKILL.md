@@ -3,8 +3,6 @@ name: medical-case-report-generator
 description: Generates a patient-friendly medical case report tweet from case images and disease name. Use when the user provides a medical case image and wants a structured report or tweet.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use

@@ -3,8 +3,6 @@ name: fastqc-report-interpreter
 description: Use when analyzing FASTQC quality reports from sequencing data, identifying quality issues in NGS datasets, or troubleshooting sequencing problems. Interprets quality metrics and provides actionable recommendations for RNA-seq, DNA-seq, and ChIP-seq data.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # FASTQC Report Interpreter

@@ -3,8 +3,6 @@ name: meta-manuscript-generator
 description: Generates a first draft of a clinical meta-analysis paper. Input the research report (including Methods and Results sections), language, and title to automatically generate a complete paper draft including Abstract, Introduction, Discussion, and other sections, with automatic PubMed retrieval of relevant references. Suitable for assisting in the writing of systematic reviews and meta-analyses.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Meta-Analysis Manuscript Generator

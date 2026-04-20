@@ -3,8 +3,6 @@ name: clinical-reports
 description: Write comprehensive clinical reports (case reports, diagnostic reports, clinical trial reports, and patient documentation) when accuracy, regulatory compliance (HIPAA/FDA/ICH-GCP), and template-driven validation are required.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

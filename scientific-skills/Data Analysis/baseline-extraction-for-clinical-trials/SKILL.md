@@ -3,8 +3,6 @@ name: baseline-extraction-for-clinical-trials
 description: Extracts clinical trial baseline data (study, region, participants, etc.) from article text or PMID. Checks PubMed for metadata; always falls back to LLM extraction for full details.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # Baseline Extraction (RCT)

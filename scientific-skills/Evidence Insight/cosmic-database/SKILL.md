@@ -3,8 +3,6 @@ name: cosmic-database
 description: Access COSMIC to download mutation datasets, query Cancer Gene Census, and retrieve mutational signatures when your genomic analysis requires curated somatic mutation resources.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # COSMIC Database Skill

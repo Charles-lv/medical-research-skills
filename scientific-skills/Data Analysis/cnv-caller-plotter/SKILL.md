@@ -3,8 +3,6 @@ name: cnv-caller-plotter
 description: Detect copy number variations from whole genome sequencing data and generate publication-quality genome-wide CNV plots. Supports CNV calling, segmentation, and visualization for cancer genomics and rare disease analysis.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # CNV Caller & Plotter

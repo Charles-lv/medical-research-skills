@@ -3,8 +3,6 @@ name: discussion-composer
 description: Composes a Discussion around key findings, mechanisms, clinical relevance, and limitations. Use when writing or improving a Discussion section for any biomedical manuscript — including interpreting results, connecting to prior literature, addressing unexpected findings, framing limitations, and writing the conclusion. Also triggers on "write my discussion", "help me discuss my findings", "how do I compare to prior studies", "write the limitations paragraph", or "draft a discussion for my paper".
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 

@@ -3,8 +3,6 @@ name: pubmed-search-specialist
 description: Build complex Boolean query strings for precise PubMed/MEDLINE literature retrieval. Trigger when user needs MeSH term mapping, Boolean query construction, advanced PubMed filters, citation searching, systematic review search strategy, or clinical query optimization.
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 # PubMed Search Specialist

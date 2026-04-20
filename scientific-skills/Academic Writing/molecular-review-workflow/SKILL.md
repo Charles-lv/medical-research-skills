@@ -3,8 +3,6 @@ name: molecular-review-workflow
 description: "Generates academic reviews for molecules in diseases using PubMed research. Invoke when user needs biomedical literature review with Vancouver citation format."
 license: MIT
 author: aipoch
-source: aipoch
-source_url: https://github.com/aipoch/medical-research-skills
 ---
 > **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 ## When to Use
