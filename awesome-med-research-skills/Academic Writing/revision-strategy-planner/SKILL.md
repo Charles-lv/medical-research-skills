@@ -2,7 +2,7 @@
 name: revision-strategy-planner
 description: Builds prioritized manuscript revision plans for major or minor revisions by separating comments that require experiments, analyses, clarification, restructuring, or wording changes.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Revision Strategy Planner

@@ -2,7 +2,7 @@
 name: topic-evidence-mapper
 description: Rapidly maps the evidence landscape around a medical topic by organizing major research streams, target populations, endpoints, methods, evidence density, and thin areas. Use this skill BEFORE medical-research-gap-finder — it provides the structured landscape that makes formal gap analysis more rigorous. Do not use for formal gap identification, study design, or protocol planning directly.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Topic Evidence Mapper

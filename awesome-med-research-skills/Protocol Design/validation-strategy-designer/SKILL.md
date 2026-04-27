@@ -2,7 +2,7 @@
 name: validation-strategy-designer
 description: Designs internal, external, temporal, and functional validation strategies at the protocol stage for medical research studies.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Validation Strategy Designer

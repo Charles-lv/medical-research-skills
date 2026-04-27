@@ -2,7 +2,7 @@
 name: consistency-checker-across-manuscript
 description: Checks consistency across title, abstract, methods, results, figures, tables, and supplements to identify internal contradictions and version drift in biomedical manuscripts.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Consistency Checker Across Manuscript

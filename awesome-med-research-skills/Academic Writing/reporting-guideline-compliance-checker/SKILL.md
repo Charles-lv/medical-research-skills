@@ -2,7 +2,7 @@
 name: reporting-guideline-compliance-checker
 description: Checks biomedical manuscripts against reporting guidelines such as CONSORT, STROBE, PRISMA, and TRIPOD to identify missing or weak reporting elements before submission or revision.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Reporting Guideline Compliance Checker

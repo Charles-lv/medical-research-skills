@@ -2,7 +2,7 @@
 name: evidence-level-ranker
 description: Ranks papers by evidence family, methodological quality tier, validation depth, and claim discipline; assigns anchor, context-setting, mechanistic support, or caution citation roles; prevents prestige-based or design-label-based ranking errors.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Evidence Level Ranker | 证据等级排序器

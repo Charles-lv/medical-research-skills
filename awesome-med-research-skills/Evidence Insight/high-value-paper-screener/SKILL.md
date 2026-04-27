@@ -2,7 +2,7 @@
 name: high-value-paper-screener
 description: Quickly judges whether a biomedical paper is worth deep reading by screening for question fit, design quality, sample adequacy, methodological novelty, and reproducibility value.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # High-Value Paper Screener

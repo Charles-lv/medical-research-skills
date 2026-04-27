@@ -2,7 +2,7 @@
 name: real-world-evidence-study-designer
 description: Designs a structured real-world evidence study using EHR, claims, or registry data, with explicit handling of time zero, eligibility windows, exposure definitions, outcome windows, censoring, confounding control, and target-trial-emulation logic. Use this skill when the user needs study-type design and protocol framing for an observational clinical study based on routine-care data. Do not invent database fields, follow-up completeness, linkage, coding validity, or causal identifiability.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Real-World Evidence Study Designer

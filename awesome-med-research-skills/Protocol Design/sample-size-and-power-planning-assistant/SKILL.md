@@ -2,7 +2,7 @@
 name: sample-size-and-power-planning-assistant
 description: Plans sample size estimation logic, power assumptions, feasibility checks, and fallback enrollment strategies for clinical and translational study protocols.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Sample Size and Power Planning Assistant

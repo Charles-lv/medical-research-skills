@@ -2,7 +2,7 @@
 name: results-section-structurer
 description: Organizes biomedical figures, analyses, and result blocks into a clear Results section structure with disciplined narrative ordering and evidence-aware presentation.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Results Section Structurer

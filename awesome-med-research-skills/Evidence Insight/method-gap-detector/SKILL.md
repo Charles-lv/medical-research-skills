@@ -2,7 +2,7 @@
 name: method-gap-detector
 description: Detects methodological gaps across study design, analysis, validation, bias control, reproducibility, and implementation readiness within a biomedical research area. Use this skill when a user wants to identify what current studies are still methodologically missing, which weaknesses are most consequential, and what upgrade path would produce a stronger next-step study. Always separate design gaps, analysis gaps, validation gaps, and reproducibility gaps. Never treat technical complexity as methodological rigor.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Method Gap Detector

@@ -9,7 +9,7 @@ description: >
   trigger this skill for questions touching genetics, breeding, trait inheritance, or genomics history.
   Part of the AIPOCH Science Mentor Skill Hub.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Mendel

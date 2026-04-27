@@ -2,7 +2,7 @@
 name: latex-manuscript-format-converter
 description: Converts existing manuscript content into LaTeX format aligned with a target journal, conference, or template while preserving manuscript meaning and structural integrity.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # LaTeX Manuscript Format Converter

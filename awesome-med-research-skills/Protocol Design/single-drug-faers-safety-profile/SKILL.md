@@ -2,7 +2,7 @@
 name: single-drug-faers-safety-profile
 description:  Generates complete FAERS pharmacovigilance study designs for one-drug whole-profile safety mapping using signal detection, subgroup analysis, onset/seriousness characterization, and conservative label-gap interpretation.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Single-Drug FAERS Safety Profile Research Planner

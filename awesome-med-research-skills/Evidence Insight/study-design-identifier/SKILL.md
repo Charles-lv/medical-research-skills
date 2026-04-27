@@ -2,7 +2,7 @@
 name: study-design-identifier
 description: Identifies the real underlying study design used in a medical or biomedical paper, distinguishes primary and secondary design components when papers are hybrid, and converts the paper into an evidence-aware design label suitable for literature appraisal, evidence grading, and downstream review workflows. Always identify the actual design from what the study did, not from how the authors describe it. Never fabricate references, metadata, or study features.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Study Design Identifier

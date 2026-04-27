@@ -13,7 +13,7 @@ description: >-
   after research content is clarified, before downstream deliverables like
   slide decks or graphical abstracts.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Lay Summary for Cross-Disciplinary Teams

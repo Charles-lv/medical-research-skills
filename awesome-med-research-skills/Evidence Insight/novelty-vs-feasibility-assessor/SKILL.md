@@ -2,7 +2,7 @@
 name: novelty-vs-feasibility-assessor
 description: Assesses whether a medical research topic is worth starting now by separating true novelty from pseudo-novelty, auditing real feasibility under stated resource constraints, and forcing a concrete start / narrow / redesign / stop decision. Always require explicit assumptions and never fabricate references, datasets, resource availability, precedent studies, or publication claims.
 license: MIT
-skill-author: AIPOCH
+author: AIPOCH
 ---
 
 # Novelty vs Feasibility Assessor
