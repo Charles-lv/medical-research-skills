@@ -22,7 +22,7 @@ Add Skills. Run Your Research.
 
 <br>
 
-*500+ Agent Skills for Medical Research · Evidence Insights · Protocol Design · Data Analysis · Academic Writing*
+*553 Agent Skills for Medical Research · Evidence Insights · Protocol Design · Data Analysis · Academic Writing*
 
 ⭐ If you find this repository useful, consider giving it a star! It helps more researchers discover Medical Research Agent Skills and supports the continued development of this library.
 
@@ -30,39 +30,17 @@ Add Skills. Run Your Research.
 
 ---
 
-> 💡**New:** We are launching **Awesome ​Med​ Research Skills** — a curated collection of medical research Agent Skills, featuring 102 high-quality skills. Each skill embeds **professional medical research logic**. [Explore here.](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills)
+> 💡**New:** We are launching **Awesome ​Med​ Research Skills** — a curated collection of medical research Agent Skills, featuring 140 high-quality skills. Each skill embeds **professional medical research logic**. [Explore here.](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills)
 
 ## 🤔 What it is?
 
-AIPOCH is a curated library of 500+ Medical Research Agent Skills designed to work with Claude Code, OpenClaw, Hermes Agent and other AI agents.
+AIPOCH is a curated library of 553 Medical Research Agent Skills designed to work with Claude Code, OpenClaw, Hermes Agent and other AI agents.
 
 It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing.
 
 Equip your AI agent with Medical Research Skills, and turn it into a capable medical research assistant.
 
-AIPOCH also introduces **MedSkillAudit**— a structured evaluation framework designed to assess the quality of Medical Research Agent Skills. Its core function is to perform a comprehensive quality check on a Skill before it is officially deployed to users. [Try skill-auditor here.](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor)
-
-## What is awesome-med-research-skills?
-
-**Awesome ​Med Research Skills** is a curated collection of medical research Agent Skills, currently including **102 high-quality skills**.
-
-We aim to help researchers more effectively organize questions, connect evidence, and advance research. To achieve this, we encode professional medical research logic into these agent skills:
-
-* **Literature ​authenticity**​​**​ constraints**​: Implementing hard rules
-* ​**Research type identification**​: We first determine the study type, then execute different logical pathways
-* **Medical-specific prompt logic**
-
-### Key Features of Awesome Med Research Skills
-
-#### 🧩 Modular Skill Architecture for Team Scaling
-
-* Skills are **composable, replaceable, and extensible**, suitable for both individual use and team collaboration
-* Can be assembled from single-task execution to multi-step workflow pipelines
-
-#### 🧬 Built for Real Medical Research Scenarios
-
-* Covers real workflows: **topic selection, literature search, study design, writing, graphical abstracts**, and more
-* Not adapted from generic content templates — designed specifically for **medical research contexts**.
+AIPOCH also introduces **MedSkillAudit** - a layered framework assessing skill release readiness before deployment. [Try skill-auditor here.](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor)
 
 ---
 
@@ -80,7 +58,7 @@ The library is primarily organized into five categories: ​**Evidence Insights,
 |✍️ **Academic Writing**   |  e.g., SCI manuscript drafting, methods/results/discussion writing, meta-analysis narrative, cover letters, abstract generation.|
 | 🌍 **Other (General / Non-Research)**          | all general skills that do not fall into categories 1–4.                                                                                   |
 
-**📌 Total Skills in Library: 500+ and growing**
+**📌 Total Skills in Library: 553 and growing**
 
 ## 🎬 AIPOCH Medical Research Skills — Demo
 
@@ -175,6 +153,28 @@ openclaw gateway restart
 
 ---
 
+## What is Awesome Med Research Skills?
+
+**Awesome ​Med Research Skills** is a curated collection of medical research Agent Skills, currently including **140 high-quality skills**.
+
+We aim to help researchers more effectively organize questions, connect evidence, and advance research. To achieve this, we encode professional medical research logic into these agent skills:
+
+* **Literature ​authenticity constraints**​: Implementing hard rules
+* ​**Research type identification**​: We first determine the study type, then execute different logical pathways
+* **Medical-specific prompt logic**
+
+### Key Features of Awesome Med Research Skills
+
+#### 🧩 Modular Skill Architecture for Team Scaling
+
+* Skills are **composable, replaceable, and extensible**, suitable for both individual use and team collaboration
+* Can be assembled from single-task execution to multi-step workflow pipelines
+
+#### 🧬 Built for Real Medical Research Scenarios
+
+* Covers real workflows: **topic selection, literature search, study design, writing, graphical abstracts**, and more
+* Not adapted from generic content templates — designed specifically for **medical research contexts**.
+
 ## 🧠 MedSkillAudit
 
 <p align="center">
@@ -183,7 +183,7 @@ openclaw gateway restart
 
 ### 🧩What is MedSkillAudit?
 
-MedSkillAudit is a standardized tool designed to assess the quality of Agent Skills. Its core function is to perform a comprehensive quality check on a Skill before it is officially deployed to users. Try [Skill-Auditor here](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor).
+MedSkillAudit is a layered framework assessing skill release readiness before deployment. Try [Skill-Auditor here](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor).
 
 ### ⚙️How does MedSkillAudit Work?
 
@@ -239,7 +239,7 @@ For skill testing, the AI automatically generates inputs. The number of inputs i
 
 ### Final Score
 
-The MedSkillAudit uses a two-stage scoring system: static evaluation (design quality, accounting for 40%) and dynamic evaluation (runtime performance, accounting for 60%). The final overall score is derived by combining both.
+Skills passing both veto gates received a final quality score. The MedSkillAudit uses a two-stage scoring system: static evaluation (design quality, accounting for 40%) and dynamic evaluation (runtime performance, accounting for 60%). The final overall score is derived by combining both.
 
 * Static (40%)
 * Dynamic (60%)
