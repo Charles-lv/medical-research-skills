@@ -14,16 +14,15 @@ Add Skills. Run Your Research.
 
 <br>
 
-<p align="center">
-  <a href="https://www.aipoch.com/">
+<a href="https://www.aipoch.com/">
     <img src="https://github.com/user-attachments/assets/1a6a7005-d9fc-49d5-8dba-3cb822d7e71d" alt="AIPOCH Demo GIF" width="800"/>
   </a>
-</p>
-
-<br>
 
 </div>
-A curated library of 550+ Medical Research Agent Skills created by [AIPOCH](https://www.aipoch.com). Works with Claude Code, OpenClaw, Hermes Agent, and other AI agents. It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing. Equip your AI agent with Medical Research Skills, and turn it into a capable medical research assistant.
+
+---
+
+A curated library of 550+ medical research agent skills created by [AIPOCH](https://www.aipoch.com), designed to work with Claude Code, OpenClaw, Hermes Agent, and other AI agents. It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing. Equip your AI agent with AIPOCH medical research skills, and turn it into a capable medical research assistant.
 
 > 💡**New:** We are launching **Awesome ​Med​ Research Skills** — a curated collection of medical research Agent Skills, featuring 140+ high-quality skills. Each skill embeds **professional medical research logic**. [Explore here.](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills)
 
@@ -357,4 +356,3 @@ You can [view evaluation results for selected AIPOCH skills here](https://www.ai
    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=aipoch/medical-research-skills&type=date&legend=top-left" />
  </picture>
 </a>
-
