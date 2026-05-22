@@ -1,6 +1,6 @@
 <div align="center">
 
-# AIPOCH Medical Research Skills
+# Medical Research Agent Skills
 
 Add Skills. Run Your Research.
 
@@ -23,14 +23,9 @@ Add Skills. Run Your Research.
 <br>
 
 </div>
+A curated library of 550+ Medical Research Agent Skills created by [AIPOCH](https://www.aipoch.com). Works with Claude Code, OpenClaw, Hermes Agent, and other AI agents. It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing. Equip your AI agent with Medical Research Skills, and turn it into a capable medical research assistant.
 
----
-
-A curated library of 553 Medical Research Agent Skills created by [AIPOCH](https://www.aipoch.com), designed to work with Claude Code, OpenClaw, Hermes Agent and other AI agents. It supports the research workflow across four core areas: Evidence Insights, Protocol Design, Data Analysis, and Academic Writing. Equip your AI agent with Medical Research Skills, and turn it into a capable medical research assistant.
-
-
-
-> 💡**New:** We are launching **Awesome ​Med​ Research Skills** — a curated collection of medical research Agent Skills, featuring 140 high-quality skills. Each skill embeds **professional medical research logic**. [Explore here.](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills)
+> 💡**New:** We are launching **Awesome ​Med​ Research Skills** — a curated collection of medical research Agent Skills, featuring 140+ high-quality skills. Each skill embeds **professional medical research logic**. [Explore here.](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills)
 
 > AIPOCH also introduces **MedSkillAudit** - a layered framework assessing skill release readiness before deployment. [Try skill-auditor here.](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor)
 
@@ -50,7 +45,7 @@ The library is primarily organized into five categories: ​**Evidence Insights,
 |✍️ **Academic Writing**   |  e.g., SCI manuscript drafting, methods/results/discussion writing, meta-analysis narrative, cover letters, abstract generation.|
 | 🌍 **Other (General / Non-Research)**          | all general skills that do not fall into categories 1–4.                                                                                   |
 
-**📌 Total Skills in Library: 553 and growing**
+**📌 Total Skills in Library: 554 and growing**
 
 The examples below represent selected skills from each category.
 
@@ -165,6 +160,7 @@ The examples below represent selected skills from each category.
 * [Target Journal Matcher](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/target-journal-matcher)
 * [Reporting Guideline Compliance Checker](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/reporting-guideline-compliance-checker)
 * [Medical English Precision Editor](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/medical-english-precision-editor)
+* [arXiv Preflight](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/arxiv-preflight)
 
 ## 🚀 How to Start?
 
@@ -361,3 +357,4 @@ You can [view evaluation results for selected AIPOCH skills here](https://www.ai
    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=aipoch/medical-research-skills&type=date&legend=top-left" />
  </picture>
 </a>
+
