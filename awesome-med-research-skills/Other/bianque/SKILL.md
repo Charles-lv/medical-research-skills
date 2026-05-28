@@ -9,10 +9,10 @@ description: >-
   interpretation, treatment comparison, or health sciences. Even without
   explicit research framing, trigger on any topic touching disease, therapeutics,
   or clinical decision-making. Part of the AIPOCH Medical Research Skill Hub.
+category: Other
 license: MIT
-author: AIPOCH
+skill-author: AIPOCH
 ---
-> **Source**: [https://github.com/aipoch/medical-research-skills](https://github.com/aipoch/medical-research-skills)
 
 # 扁鹊 — Bian Que
 

@@ -1,9 +1,9 @@
 {
   "meta": {
     "skill_name": "bianque",
-    "evaluated_on": "2026-04-22",
+    "evaluated_on": "2026-04-15",
     "evaluator_version": "skill-auditor@1.0",
-    "category": "Evidence Insight",
+    "category": "Other",
     "execution_mode": "A",
     "complexity": "Moderate",
     "n_inputs": 5,

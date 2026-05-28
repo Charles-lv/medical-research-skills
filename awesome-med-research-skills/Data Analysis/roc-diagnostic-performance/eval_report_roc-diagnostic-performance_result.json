@@ -1,306 +1,184 @@
 {
-    "meta": {
-        "skill_name": "roc-diagnostic-performance",
-        "description": "Evaluate diagnostic model performance with ROC curves, AUC, sensitivity, specificity, and optimal threshold selection. Inputs: predicted scores or probabilities, binary outcome labels. Outputs: ROC plot, AUC with 95% CI, confusion matrix, threshold table.",
-        "evaluated_on": "2026-04-17",
-        "evaluator_version": "skill-auditor@1.0",
-        "category": "Data Analysis",
-        "execution_mode": "B",
-        "complexity": "Moderate",
-        "n_inputs": 5
+  "meta": {
+    "skill_name": "roc-diagnostic-performance",
+    "description": "Use when evaluating diagnostic biomarker performance from case-control expression data with logistic regression and ROC curves, exporting coefficient and AUC tables together with a ROC PDF. NOT for: survival analysis, time-to-event outcomes, multiclass classification, calibration curves, decision-curve analysis, or nomogram construction.",
+    "evaluated_on": "2026-04-27",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
     },
-    "veto_gates": {
-        "skill_veto": {
-            "gate": "PASS",
-            "stability": "PASS",
-            "contract": "PASS",
-            "determinism": "PASS",
-            "security": "PASS"
-        },
-        "research_veto": {
-            "applicable": true,
-            "gate": "PASS",
-            "scientific_integrity": {
-                "result": "PASS",
-                "detail": "No fabricated scientific claims, invented numeric outputs, or unsupported conclusions were observed across the audit inputs."
-            },
-            "practice_boundaries": {
-                "result": "PASS",
-                "detail": "The skill stayed inside research-analysis scope and did not provide diagnosis or treatment advice."
-            },
-            "methodological_ground": {
-                "result": "PASS",
-                "detail": "The workflow uses an appropriate binary logistic-regression plus ROC design for case-control biomarker evaluation."
-            },
-            "code_usability": {
-                "result": "PASS",
-                "detail": "All valid runs were executable and invalid inputs failed cleanly with actionable SKILL_* errors."
-            }
-        }
-    },
-    "static_score": {
-        "subtotal": 96,
-        "max": 100,
-        "categories": {
-            "functional_suitability": {
-                "score": 12,
-                "max": 12,
-                "note": "The skill covers the promised diagnostic logistic-regression and ROC workflow with aligned CLI, outputs, references, and retained expected outputs."
-            },
-            "reliability": {
-                "score": 12,
-                "max": 12,
-                "note": "Input validation, overwrite protection, deterministic execution, reproducibility logging, and controlled boundary failures are all present."
-            },
-            "performance_context": {
-                "score": 8,
-                "max": 8,
-                "note": "Progressive disclosure is well layered and the core workflow is concise for a moderate-complexity analysis skill."
-            },
-            "agent_usability": {
-                "score": 16,
-                "max": 16,
-                "note": "Trigger boundaries, usage examples, argument tables, and retained smoke-test assets make the skill easy to apply from a cold start."
-            },
-            "human_usability": {
-                "score": 7,
-                "max": 8,
-                "note": "Trigger language is natural, though the task remains specialized to case-control biomarker ROC analysis."
-            },
-            "security": {
-                "score": 11,
-                "max": 12,
-                "note": "Inputs are validated, no unsafe code execution patterns are present, and local paths are logged intentionally for provenance."
-            },
-            "maintainability": {
-                "score": 12,
-                "max": 12,
-                "note": "Responsibilities are cleanly split across CLI, validation, IO, core analysis, plotting, orchestration, and utilities, with every script under the 150-line project guideline and the data-preparation path further decomposed into smaller helpers."
-            },
-            "agent_specific": {
-                "score": 18,
-                "max": 20,
-                "note": "Trigger precision, progressive disclosure, idempotent reruns, escape boundaries, and preserved expected outputs are all strong."
-            }
-        }
-    },
-    "dynamic_score": {
-        "execution_avg": 94.4,
-        "max": 100,
-        "assertion_pass_rate": {
-            "passed": 20,
-            "total": 20
-        },
-        "inputs": [
-            {
-                "index": 1,
-                "type": "Canonical",
-                "label": "Default diagnostic run",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Completed successfully and produced the documented data, table, plot, and metadata outputs.",
-                "basic": 39,
-                "specialized": 57,
-                "total": 96,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The documented main CLI path is runnable as described.",
-                        "result": "PASS",
-                        "note": "Rscript scripts/main.R completed successfully."
-                    },
-                    {
-                        "text": "The run emits the documented data, table, and plot artifacts.",
-                        "result": "PASS",
-                        "note": "analysis_data.rds, roc_model.rds, model_coefficients.csv, roc_auc_summary.csv, and roc_curve.pdf were present."
-                    },
-                    {
-                        "text": "The workflow records reproducibility metadata.",
-                        "result": "PASS",
-                        "note": "session_info.txt captured parameters, package versions, and the seed."
-                    },
-                    {
-                        "text": "The output stays within the stated diagnostic ROC scope.",
-                        "result": "PASS",
-                        "note": "The run produced diagnostic-model and ROC artifacts only, without calibration or survival outputs."
-                    }
-                ]
-            },
-            {
-                "index": 2,
-                "type": "Variant A",
-                "label": "Explicit group column + custom ROC",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Accepted an explicit grouping column and custom styling parameters while preserving the standard output bundle.",
-                "basic": 39,
-                "specialized": 56,
-                "total": 95,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The skill accepts an explicit group column override.",
-                        "result": "PASS",
-                        "note": "--group_col group parsed successfully and was recorded in session_info.txt."
-                    },
-                    {
-                        "text": "Valid custom visualization options do not break the workflow.",
-                        "result": "PASS",
-                        "note": "Custom width, height, title, and legend position were accepted and the ROC PDF was produced."
-                    },
-                    {
-                        "text": "The output structure remains stable under non-default styling.",
-                        "result": "PASS",
-                        "note": "The same standard data and table outputs were still produced."
-                    },
-                    {
-                        "text": "The workflow remains deterministic and auditable.",
-                        "result": "PASS",
-                        "note": "The seeded invocation completed and wrote reproducibility metadata."
-                    }
-                ]
-            },
-            {
-                "index": 3,
-                "type": "Edge",
-                "label": "Invalid case-group rejection",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Correctly rejected an invalid case-group label before model fitting with a specific validation error.",
-                "basic": 36,
-                "specialized": 54,
-                "total": 90,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The skill rejects an invalid case-group label before model fitting.",
-                        "result": "PASS",
-                        "note": "Execution stopped during dataset preparation."
-                    },
-                    {
-                        "text": "The failure message is specific and actionable.",
-                        "result": "PASS",
-                        "note": "The error identifies the group column that was checked."
-                    },
-                    {
-                        "text": "The failure does not fabricate analytical output.",
-                        "result": "PASS",
-                        "note": "No tables or plots were generated for the invalid run."
-                    },
-                    {
-                        "text": "The boundary behavior matches the documented contract.",
-                        "result": "PASS",
-                        "note": "The rejection is consistent with the troubleshooting guide and error table."
-                    }
-                ]
-            },
-            {
-                "index": 4,
-                "type": "Variant B",
-                "label": "Retained expected-output refresh",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "The documented smoke-test helper rebuilt tests/expected_output successfully and preserved the documented artifact set.",
-                "basic": 39,
-                "specialized": 57,
-                "total": 96,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The R smoke-test helper is runnable as documented.",
-                        "result": "PASS",
-                        "note": "Rscript tests/run_smoke_test.R executed successfully."
-                    },
-                    {
-                        "text": "The helper refreshes the retained expected-output bundle.",
-                        "result": "PASS",
-                        "note": "tests/expected_output contained the documented files after execution."
-                    },
-                    {
-                        "text": "The helper preserves reproducibility metadata.",
-                        "result": "PASS",
-                        "note": "tests/expected_output/session_info.txt was regenerated and non-empty."
-                    },
-                    {
-                        "text": "The helper stays within the skill's documented scope.",
-                        "result": "PASS",
-                        "note": "It simply wraps the main diagnostic ROC workflow using bundled test data."
-                    }
-                ]
-            },
-            {
-                "index": 5,
-                "type": "Stress",
-                "label": "Overwrite guard",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "The first seeded run succeeded with overwrite enabled and the second rerun was blocked cleanly by overwrite protection.",
-                "basic": 38,
-                "specialized": 57,
-                "total": 95,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The skill prevents silent replacement of an existing result bundle.",
-                        "result": "PASS",
-                        "note": "The second invocation was blocked before any overwrite occurred."
-                    },
-                    {
-                        "text": "The overwrite error message is specific and actionable.",
-                        "result": "PASS",
-                        "note": "It explicitly instructs the operator to use --overwrite."
-                    },
-                    {
-                        "text": "The initial seeded run still produced a complete audit trail.",
-                        "result": "PASS",
-                        "note": "The first invocation created the expected bundle and session_info.txt."
-                    },
-                    {
-                        "text": "The protection mechanism stays inside the skill's normal operational scope.",
-                        "result": "PASS",
-                        "note": "It adds safety without changing analysis semantics."
-                    }
-                ]
-            }
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": { "result": "PASS", "detail": "No fabricated statistics; logistic regression and pROC-based AUC are standard methods; three canonical references cited; output is computed values only" },
+      "practice_boundaries": { "result": "PASS", "detail": "No diagnostic conclusions produced; skill is scoped to AUC values and coefficient tables; When Not to Use explicitly excludes clinical decision making" },
+      "methodological_ground": { "result": "PASS", "detail": "Multivariable logistic regression for binary case-control classification is methodologically appropriate; individual marker ROC comparison is a standard diagnostic evaluation pattern" },
+      "code_usability": { "result": "PASS", "detail": "Script syntax valid; set.seed() present; modular 7-file structure; dependency check at startup; no logic errors in code review" }
+    }
+  },
+  "static_score": {
+    "subtotal": 91,
+    "max": 100,
+    "categories": {
+      "functional_suitability": { "score": 12, "max": 12, "note": "All documented use cases covered; full model vs individual marker comparison well-designed; output schema thorough" },
+      "reliability": { "score": 10, "max": 12, "note": "SKILL_* codes comprehensive including SKILL_SAMPLE_MISMATCH; set.seed() present; minor gap: partial marker drop may occur silently" },
+      "performance_context": { "score": 7, "max": 8, "note": "SKILL.md is 308 lines; references well-utilized; slightly heavier than minimal but within acceptable range" },
+      "agent_usability": { "score": 15, "max": 16, "note": "Typical user requests listed in When to Use; argument table complete; minor gap: no note on how to interpret AUC < 0.5" },
+      "human_usability": { "score": 7, "max": 8, "note": "Trigger description uses natural user language; When Not to Use clearly states exclusions; high discoverability" },
+      "security": { "score": 11, "max": 12, "note": "No credentials or secrets; set.seed prevents variance; pROC dependency check at startup prevents partial execution" },
+      "maintainability": { "score": 12, "max": 12, "note": "Seven-file modular structure; automated smoke test (run_smoke_test.R) included; test data bundled; references documented" },
+      "agent_specific": { "score": 17, "max": 20, "note": "Trigger description precise with NOT-for exclusions; escape hatches documented; composability limited by dual required input file design" }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 81.6,
+    "max": 100,
+    "assertion_pass_rate": { "passed": 23, "total": 25 },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Basic ROC run with FOXP3, CD45, CD3E markers on Disease vs Control",
+        "status": "PARTIAL",
+        "status_flag": "✅",
+        "note": "pROC dependency prevents execution; SKILL_PACKAGE_NOT_FOUND fires correctly; code review confirms set.seed and modular structure",
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "SKILL_PACKAGE_NOT_FOUND fires at startup with named missing package", "result": "PASS", "note": "SKILL_PACKAGE_NOT_FOUND: Required packages are not installed: pROC confirmed" },
+          { "text": "set.seed(options$seed) present in main.R", "result": "PASS", "note": "Confirmed at line 40" },
+          { "text": "Four required arguments validated before analysis begins", "result": "PASS", "note": "expression_file, group_file, marker_genes, case_group validated via validate_required_value()" },
+          { "text": "7-file modular script structure confirmed", "result": "PASS", "note": "utils.R, validation.R, cli.R, io.R, functions.R, plotting.R, run_analysis.R all present" },
+          { "text": "No security issues detected in script code", "result": "PASS", "note": "Code review found no dangerous patterns" }
         ]
-    },
-    "final": {
-        "static_weighted": 38.4,
-        "dynamic_weighted": 56.6,
-        "score": 95,
-        "max": 100,
-        "grade": "Production Ready",
-        "grade_symbol": "⭐",
-        "deployable": true,
-        "veto_override": false
-    },
-    "key_strengths": [
-        "The skill now matches the expected data-analysis layout closely, including dedicated CLI, validation, IO, plotting, orchestration, references, test data, and retained expected outputs.",
-        "The analytical workflow is reproducible: seeded execution, parameter capture, and session_info.txt are present for both retained and audit outputs.",
-        "The standards refactor improved the operational contract: dependency checks are centralized, error codes follow the agreed naming set, and the data-preparation path is more maintainable.",
-        "The retained tests/expected_output bundle makes the skill easy to review, validate, and reuse in future audits."
-    ],
-    "recommendations": [
-        {
-            "priority": "P2",
-            "title": "Add a small testthat suite",
-            "observed_in": [],
-            "problem": "The skill includes a solid executable smoke test, but it still uses a custom assertion harness rather than a formal testthat suite.",
-            "root_cause": "The skill prioritizes a simple runnable integration test over a package-style testing framework.",
-            "fix": "Add one or two testthat files that call the smoke workflow in a temporary output directory and assert the expected artifact manifest and a controlled boundary failure."
-        },
-        {
-            "priority": "P2",
-            "title": "Document partial missing-marker continuation",
-            "observed_in": [],
-            "problem": "The skill warns and continues when some requested marker genes are missing, but there is no explicit example of that behavior in the top-level docs.",
-            "root_cause": "The main documentation prioritizes the successful path and invalid hard-stop scenarios.",
-            "fix": "Add a short example to references/cli-guide.md showing that partially missing markers are skipped with a warning while valid markers continue to run."
-        }
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Custom group column and plot customization options",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "Group column auto-detection and plot arguments confirmed; legend_position validation confirmed; pROC blocks execution",
+        "basic": 33,
+        "specialized": 50,
+        "total": 83,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "--group_col argument documented with auto-detect fallback", "result": "PASS", "note": "Confirmed: 'auto-detected if omitted' in Arguments table" },
+          { "text": "Plot customization arguments (plot_width, plot_height, plot_title) documented", "result": "PASS", "note": "Confirmed in Arguments table" },
+          { "text": "legend_position validated against allowed values", "result": "PASS", "note": "validate_choice() call confirmed in main.R code review" },
+          { "text": "line_colors documented as comma-separated hex values", "result": "PASS", "note": "Confirmed in Arguments table with default palette" },
+          { "text": "Output files include both model bundle and tables", "result": "PASS", "note": "data/roc_model.rds, table/model_coefficients.csv, table/roc_auc_summary.csv all documented" }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "Sample ID mismatch and insufficient case count",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "SKILL_SAMPLE_MISMATCH documented; minimum sample thresholds documented; runtime verification blocked by pROC absence",
+        "basic": 31,
+        "specialized": 48,
+        "total": 79,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "SKILL_SAMPLE_MISMATCH documented for non-overlapping sample IDs", "result": "PASS", "note": "Confirmed in Error Handling table" },
+          { "text": "Minimum 10 matched samples, 2 cases, 2 controls requirement documented", "result": "PASS", "note": "Confirmed in Group File Requirements" },
+          { "text": "SKILL_EMPTY_DATA documented for no usable rows after filtering", "result": "PASS", "note": "Confirmed in Error Handling table" },
+          { "text": "Runtime validation of sample mismatch error verified in live execution", "result": "FAIL", "note": "Cannot verify without pROC installed" },
+          { "text": "Expression matrix gene identifier uniqueness requirement documented", "result": "PASS", "note": "First column must contain non-missing unique gene identifiers — confirmed" }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Timeout parameter and saved model bundle verification",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "Timeout and model bundle documented; coefficient table schema confirmed; pROC blocks execution",
+        "basic": 33,
+        "specialized": 50,
+        "total": 83,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "--timeout_seconds present and apply_time_limit() called in main.R", "result": "PASS", "note": "Confirmed in code review" },
+          { "text": "data/roc_model.rds documented as saved model bundle with data and genes", "result": "PASS", "note": "Confirmed in Output Files section" },
+          { "text": "model_coefficients.csv column schema documented", "result": "PASS", "note": "term, estimate, std_error, z_value, p_value, odds_ratio, odds_ratio_95_ci all documented" },
+          { "text": "roc_auc_summary.csv documents full model and individual marker AUCs", "result": "PASS", "note": "Confirmed in Output Files section" },
+          { "text": "session_info.txt included in output file list", "result": "PASS", "note": "Confirmed in Output Files table" }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Partial marker list with some absent genes and logistic failure",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "SKILL_EMPTY_DATA and SKILL_INVALID_PARAMETER documented; partial marker drop warning gap identified; pROC blocks execution",
+        "basic": 30,
+        "specialized": 47,
+        "total": 77,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "SKILL_EMPTY_DATA documented for no markers remaining after filtering", "result": "PASS", "note": "Confirmed: 'no requested markers remain after filtering'" },
+          { "text": "SKILL_INVALID_PARAMETER documented for logistic fitting failure", "result": "PASS", "note": "Confirmed: 'logistic fitting failure' listed as a cause" },
+          { "text": "Warning emitted when some but not all marker genes are found and used", "result": "FAIL", "note": "No warning documented for partial marker availability; silent drop risk identified" },
+          { "text": "Logistic regression stability addressed in error handling", "result": "PASS", "note": "SKILL_INVALID_PARAMETER covers class imbalance and model instability" },
+          { "text": "Skill does not produce clinical diagnostic conclusions", "result": "PASS", "note": "Output scoped to AUC values and coefficients only" }
+        ]
+      }
     ]
+  },
+  "final": {
+    "static_weighted": 36.4,
+    "dynamic_weighted": 49.0,
+    "score": 85,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Comprehensive output schema with coefficient table, AUC summary, model bundle, and ROC PDF covers all downstream needs",
+    "set.seed() with configurable --seed argument ensures full reproducibility",
+    "SKILL_SAMPLE_MISMATCH is a unique and valuable error code for the dual-file input pattern",
+    "7-file modular script structure with automated smoke test runner demonstrates mature engineering"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Silent drop when only some marker genes exist in expression matrix",
+      "observed_in": [5],
+      "problem": "When --marker_genes contains both valid and invalid gene names, the skill silently drops the invalid ones and proceeds. No warning is documented or confirmed for this partial-match case.",
+      "root_cause": "Error handling only covers the case where no markers remain (SKILL_EMPTY_DATA), not the case where a subset is silently dropped.",
+      "fix": "Add a warning log when one or more requested marker genes are absent from the expression matrix, listing which genes were dropped, before proceeding with the available subset."
+    },
+    {
+      "priority": "P2",
+      "title": "pROC dependency check prevents --help from rendering",
+      "observed_in": [1, 2, 3, 4, 5],
+      "problem": "The pROC package check fires before optparse argument parsing, which means --help cannot render when pROC is missing. This breaks the standard help-first debugging workflow.",
+      "root_cause": "Package check is placed at the top of main.R before OptionParser initialization.",
+      "fix": "Move the pROC package check to after OptionParser initialization and parse_args(), so --help always works regardless of package availability. Check packages only after argument parsing."
+    }
+  ]
 }

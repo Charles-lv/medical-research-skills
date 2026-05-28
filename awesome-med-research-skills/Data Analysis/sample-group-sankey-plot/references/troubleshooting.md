@@ -1,93 +1,74 @@
-# Troubleshooting
+# Troubleshooting — Sample Group Sankey Plot
 
-## E001: `SKILL_FILE_NOT_FOUND`
+## SKILL_DEPENDENCY_MISSING
 
-Cause: The path passed to `--input_file` does not exist.
+**Symptom:** Script exits with `SKILL_DEPENDENCY_MISSING: Missing required packages: ggplot2, ggalluvial`.
 
-Fix:
-
-```bash
-ls -l your_input_file.csv
-```
-
-Use an absolute path if you are unsure about the working directory.
-
-## E002: `SKILL_MISSING_COLUMNS`
-
-Cause: One or more names in `--columns` do not exist in the input header.
-
-Fix:
-
-1. Open the first row of the input file.
-2. Copy the exact column names.
-3. Pass them in the desired order, for example `--columns risk,Responder,Subtype`.
-
-## E003: `SKILL_EMPTY_DATA`
-
-Cause: The input file has no rows, or fewer than two usable stage columns are available.
-
-Fix:
-
-1. Ensure the file contains data rows under the header.
-2. Provide at least two stage columns.
-3. If you use `--columns`, confirm that at least two names are listed.
-
-## E004: `SKILL_INVALID_PARAMETER`
-
-Cause: A numeric CLI value is invalid.
-
-Examples:
-
-- `--width <= 0`
-- `--height <= 0`
-- `--alpha < 0` or `--alpha > 1`
-- `--label_size <= 0`
-
-Fix: Re-run the command with valid numeric values.
-
-## E005: `SKILL_DEPENDENCY_MISSING`
-
-Cause: Required R packages are not installed.
-
-Fix:
-
+**Fix:** Run the dependency installer:
 ```bash
 Rscript scripts/install_dependencies.R
 ```
-
-This command installs any missing CRAN packages required by the skill and tests.
-
-Or install manually:
-
-```bash
-Rscript -e "install.packages(c('optparse','ggplot2','ggalluvial','testthat'), repos='https://cloud.r-project.org')"
+If installation fails due to network or permission issues, install manually:
+```r
+install.packages(c("ggplot2", "ggalluvial", "optparse"))
 ```
 
-## E006: `SKILL_IO_ERROR`
+---
 
-Cause: The output directory could not be created or written.
+## SKILL_FILE_NOT_FOUND
 
-Fix:
+**Symptom:** `SKILL_FILE_NOT_FOUND: /path/to/file.csv`
 
-1. Check that the parent directory exists.
-2. Confirm you have write permission.
-3. Re-run with a different `--output_dir` if needed.
+**Fix:** Verify the path supplied to `--input_file`. Use an absolute path to avoid working-directory ambiguity.
 
-## Plot Labels Overlap
+---
 
-Cause: Too many strata are plotted at once.
+## SKILL_EMPTY_DATA
 
-Fix:
+**Symptom:** `SKILL_EMPTY_DATA: Input table has no data rows` or `SKILL_EMPTY_DATA: Input file is empty`
 
-1. Reduce the number of columns in `--columns`.
-2. Increase `--width` or `--height`.
-3. Lower `--label_size`.
+**Fix:** Confirm the input file has at least one data row (not just a header). If the file is non-empty but reported empty, check that the separator is correct (`.tsv`/`.txt` extensions are auto-detected as tab-separated; `.csv` as comma-separated).
 
-## Output Uses the Label `Missing`
+---
 
-Cause: Empty strings or `NA` values were found in selected stage columns.
+## SKILL_MISSING_COLUMNS
 
-Fix:
+**Symptom:** `SKILL_MISSING_COLUMNS: columnA, columnB`
 
-1. Clean the input table upstream if missing labels are unexpected.
-2. Or replace the label with `--missing_label Unknown`.
+**Fix:** The listed column names do not match the file header. Check for typos, extra spaces, or case differences. The `--columns` argument is case-sensitive.
+
+---
+
+## SKILL_INVALID_PARAMETER
+
+**Symptom:** Various — e.g. `--alpha must be between 0 and 1` or `--output_prefix may only contain letters, numbers, dot, underscore, and hyphen`.
+
+**Fix:** Review the Arguments table in SKILL.md and supply a valid value.
+
+---
+
+## SKILL_IO_ERROR
+
+**Symptom:** `SKILL_IO_ERROR: Failed to create output directory` or `Output directory is not writable`.
+
+**Fix:** Check that the parent directory of `--output_dir` exists and that the current user has write permission.
+
+---
+
+## Plot is hard to read / strata overlap
+
+**Cause:** Too many stages or too many unique values per stage.
+
+**Fix:**
+- Reduce the number of stages passed to `--columns` (recommended: fewer than 5).
+- Aggregate or bin stage values to fewer than 8 unique values per stage before plotting.
+- Increase `--width` and `--height` for larger canvases.
+- Reduce `--label_size` if labels overlap.
+
+---
+
+## PDF is blank or missing
+
+**Cause:** `ggplot2::ggsave()` failed silently, or the output directory was not writable.
+
+**Fix:** Check stderr output for `SKILL_IO_ERROR`. Verify `--output_dir` is writable and that sufficient disk space is available.

@@ -1,306 +1,185 @@
 {
-    "meta": {
-        "skill_name": "univariate-multivariable-cox-regression",
-        "description": "Identify independent prognostic factors by univariate and stepwise multivariate Cox proportional hazards regression. Inputs: survival time, event status, clinical and molecular predictor variables. Outputs: HR table, forest plot, p-values, proportional-hazards test.",
-        "evaluated_on": "2026-04-17",
-        "evaluator_version": "skill-auditor@1.0",
-        "category": "Data Analysis",
-        "execution_mode": "B",
-        "complexity": "Moderate",
-        "n_inputs": 5
+  "meta": {
+    "skill_name": "univariate-multivariable-cox-regression",
+    "description": "Use when running prognostic survival analysis on a clinical cohort with time-to-event data to estimate univariate and multivariable Cox proportional hazards models, export result tables, and generate forest plots. NOT for: nomogram construction, calibration curves, time-dependent ROC analysis, or model training/feature selection beyond the built-in univariate screening rule.",
+    "evaluated_on": "2026-04-27",
+    "evaluator_version": "skill-auditor@1.0",
+    "category": "Data Analysis",
+    "execution_mode": "B",
+    "complexity": "Moderate",
+    "n_inputs": 5
+  },
+  "veto_gates": {
+    "skill_veto": {
+      "gate": "PASS",
+      "stability": "PASS",
+      "contract": "PASS",
+      "determinism": "PASS",
+      "security": "PASS"
     },
-    "veto_gates": {
-        "skill_veto": {
-            "gate": "PASS",
-            "stability": "PASS",
-            "contract": "PASS",
-            "determinism": "PASS",
-            "security": "PASS"
-        },
-        "research_veto": {
-            "applicable": true,
-            "gate": "PASS",
-            "scientific_integrity": {
-                "result": "PASS",
-                "detail": "No fabricated scientific claims, invented numeric outputs, or unsupported conclusions were observed across the audit inputs."
-            },
-            "practice_boundaries": {
-                "result": "PASS",
-                "detail": "The skill stayed inside research-analysis scope and did not provide diagnosis or treatment advice."
-            },
-            "methodological_ground": {
-                "result": "PASS",
-                "detail": "The workflow uses appropriate Cox regression and explicit insufficiency checks for event-poor input."
-            },
-            "code_usability": {
-                "result": "PASS",
-                "detail": "All valid runs were executable and invalid inputs failed cleanly with actionable SKILL_* errors."
-            }
-        }
-    },
-    "static_score": {
-        "subtotal": 95,
-        "max": 100,
-        "categories": {
-            "functional_suitability": {
-                "score": 12,
-                "max": 12,
-                "note": "The skill covers the full promised Cox-analysis and forest-plot workflow with aligned CLI, outputs, examples, and retained expected outputs."
-            },
-            "reliability": {
-                "score": 12,
-                "max": 12,
-                "note": "Input validation, overwrite protection, deterministic execution, retained expected outputs, and controlled analytical failures are all present."
-            },
-            "performance_context": {
-                "score": 8,
-                "max": 8,
-                "note": "Progressive disclosure is used correctly and the references/scripts split keeps heavy detail out of the main trigger surface."
-            },
-            "agent_usability": {
-                "score": 16,
-                "max": 16,
-                "note": "The added When to Use and When Not to Use sections make the skill easier to trigger and apply correctly from a cold start."
-            },
-            "human_usability": {
-                "score": 7,
-                "max": 8,
-                "note": "Trigger language is natural, though the task remains specialized to survival-analysis users."
-            },
-            "security": {
-                "score": 11,
-                "max": 12,
-                "note": "Inputs are validated and no unsafe execution patterns were observed; full local paths are intentionally logged for provenance."
-            },
-            "maintainability": {
-                "score": 11,
-                "max": 12,
-                "note": "Responsibilities are now cleanly split across CLI, validation, IO, core Cox helpers, plotting, orchestration, and utilities, and every script remains within the 150-line project guideline."
-            },
-            "agent_specific": {
-                "score": 18,
-                "max": 20,
-                "note": "Trigger precision, progressive disclosure, idempotent reruns, escape boundaries, and preserved expected outputs are all strong."
-            }
-        }
-    },
-    "dynamic_score": {
-        "execution_avg": 93.4,
-        "max": 100,
-        "assertion_pass_rate": {
-            "passed": 20,
-            "total": 20
-        },
-        "inputs": [
-            {
-                "index": 1,
-                "type": "Canonical",
-                "label": "Default cohort analysis",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Completed successfully and produced the documented tables, serialized data artifact, and session metadata.",
-                "basic": 39,
-                "specialized": 56,
-                "total": 95,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The documented analyze CLI path is runnable as described.",
-                        "result": "PASS",
-                        "note": "Rscript scripts/main.R analyze completed successfully."
-                    },
-                    {
-                        "text": "The run emits the documented table and data artifacts.",
-                        "result": "PASS",
-                        "note": "Both Cox tables and analysis_data.rds were present."
-                    },
-                    {
-                        "text": "The workflow records reproducibility metadata.",
-                        "result": "PASS",
-                        "note": "session_info.txt captured parameters, package versions, and the seed."
-                    },
-                    {
-                        "text": "The output stays within the stated survival-analysis scope.",
-                        "result": "PASS",
-                        "note": "The run produced Cox analysis artifacts only, without nomogram or ROC behavior."
-                    }
-                ]
-            },
-            {
-                "index": 2,
-                "type": "Variant A",
-                "label": "Skip-univariate fit",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Accepted a reduced feature set and skip_univariate mode while preserving a valid multivariable output.",
-                "basic": 38,
-                "specialized": 54,
-                "total": 92,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The skill accepts valid feature subsets.",
-                        "result": "PASS",
-                        "note": "The reduced feature list parsed successfully."
-                    },
-                    {
-                        "text": "skip_univariate changes the workflow without breaking output generation.",
-                        "result": "PASS",
-                        "note": "The run omitted the univariate table and still wrote the multivariable table."
-                    },
-                    {
-                        "text": "The multivariable output remains interpretable.",
-                        "result": "PASS",
-                        "note": "The feature column resolved to source features such as age, stage, and risk."
-                    },
-                    {
-                        "text": "The run remains deterministic and auditable.",
-                        "result": "PASS",
-                        "note": "The seeded invocation completed and wrote session_info.txt."
-                    }
-                ]
-            },
-            {
-                "index": 3,
-                "type": "Edge",
-                "label": "No-event cohort rejection",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Correctly rejected the event-free cohort before model fitting with a specific validation error for insufficient events.",
-                "basic": 36,
-                "specialized": 53,
-                "total": 89,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The skill rejects event-free cohorts before fitting Cox models.",
-                        "result": "PASS",
-                        "note": "Execution stopped during input validation."
-                    },
-                    {
-                        "text": "The failure message is specific and actionable.",
-                        "result": "PASS",
-                        "note": "The error explicitly identifies the missing minimum event count."
-                    },
-                    {
-                        "text": "The failure does not fabricate analytical output.",
-                        "result": "PASS",
-                        "note": "No result tables or PDFs were created for the invalid run."
-                    },
-                    {
-                        "text": "The failure remains within the documented boundary behavior.",
-                        "result": "PASS",
-                        "note": "The rejection matches the documented invalid-parameter contract for insufficient-event input."
-                    }
-                ]
-            },
-            {
-                "index": 4,
-                "type": "Variant B",
-                "label": "Univariate forest plot",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Rendered a non-empty single-page univariate forest plot and wrote plotting session metadata.",
-                "basic": 39,
-                "specialized": 56,
-                "total": 95,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The plotting command accepts the exported univariate Excel table.",
-                        "result": "PASS",
-                        "note": "The command completed without conversion steps."
-                    },
-                    {
-                        "text": "The plot output is materially present rather than blank.",
-                        "result": "PASS",
-                        "note": "uni_forest_plot.pdf was created with non-trivial file size."
-                    },
-                    {
-                        "text": "Plotting preserves reproducibility metadata.",
-                        "result": "PASS",
-                        "note": "A plotting-specific session_info.txt was written."
-                    },
-                    {
-                        "text": "The plotting step remains decoupled from model fitting.",
-                        "result": "PASS",
-                        "note": "The command read an existing result table rather than refitting Cox models."
-                    }
-                ]
-            },
-            {
-                "index": 5,
-                "type": "Stress",
-                "label": "Dual custom plot generation",
-                "status": "COMPLETED",
-                "status_flag": "✅",
-                "note": "Accepted custom sizing parameters and produced both univariate and multivariable PDFs successfully.",
-                "basic": 39,
-                "specialized": 57,
-                "total": 96,
-                "assertions_passed": 4,
-                "assertions_total": 4,
-                "assertions": [
-                    {
-                        "text": "The plot commands accept custom sizing parameters.",
-                        "result": "PASS",
-                        "note": "Width, height, and font size were parsed and recorded in session_info.txt."
-                    },
-                    {
-                        "text": "The multivariable plotting path is runnable on the exported multivariable table.",
-                        "result": "PASS",
-                        "note": "multi_forest_plot.pdf was produced successfully."
-                    },
-                    {
-                        "text": "Dual plot generation remains stable in repeated execution.",
-                        "result": "PASS",
-                        "note": "Both plot commands completed sequentially without overwrite or device errors."
-                    },
-                    {
-                        "text": "The outputs remain inside the documented plotting scope.",
-                        "result": "PASS",
-                        "note": "The run only generated the requested forest plots and metadata file."
-                    }
-                ]
-            }
+    "research_veto": {
+      "applicable": true,
+      "gate": "PASS",
+      "scientific_integrity": { "result": "PASS", "detail": "No fabricated statistics; Cox PH models use standard survival package; HR tables export computed values only; three canonical references cited" },
+      "practice_boundaries": { "result": "PASS", "detail": "No diagnostic conclusions; skill is scoped to HR table and forest plot generation; When Not to Use section explicitly excludes clinical decision tools" },
+      "methodological_ground": { "result": "PASS", "detail": "Univariate screening with p<0.05 threshold then multivariable model is standard practice; fallback to all features if fewer than 3 significant is appropriate and documented; no causal claims made" },
+      "code_usability": { "result": "PASS", "detail": "Script syntax valid; set.seed(options$seed) present; modular 8-file structure; dependency check fires with named packages; no logic errors detected in code review" }
+    }
+  },
+  "static_score": {
+    "subtotal": 92,
+    "max": 100,
+    "categories": {
+      "functional_suitability": { "score": 12, "max": 12, "note": "Three subcommands (analyze, forest-plot, multi-forest-plot) cover full workflow; all documented use cases covered with examples" },
+      "reliability": { "score": 10, "max": 12, "note": "SKILL_* codes comprehensive; set.seed() present; Cox fitting failure handled with SKILL_INVALID_PARAMETER; minor gap: no explicit warning when fallback logic triggers" },
+      "performance_context": { "score": 7, "max": 8, "note": "SKILL.md is 327 lines — slightly over the 500-line threshold but within acceptable range; modular references and scripts well-utilized" },
+      "agent_usability": { "score": 15, "max": 16, "note": "Subcommand routing is clear; output columns documented with field descriptions; minor gap: forest-plot required columns may confuse if analyze was run with skip_univariate" },
+      "human_usability": { "score": 7, "max": 8, "note": "When to Use / When Not to Use sections well-structured with typical user request phrasings; high discoverability" },
+      "security": { "score": 11, "max": 12, "note": "No credentials or secrets; set.seed prevents side-channel variance; file path inputs accepted without explicit sanitization" },
+      "maintainability": { "score": 12, "max": 12, "note": "Eight-file modular structure; smoke test script (run_smoke_test.R) and shell wrapper included; test data bundled; references documented" },
+      "agent_specific": { "score": 18, "max": 20, "note": "Trigger description precise with NOT-for exclusions; progressive disclosure excellent; escape hatches clearly stated; minor composability friction from xlsx output format dependency" }
+    }
+  },
+  "dynamic_score": {
+    "execution_avg": 82.4,
+    "max": 100,
+    "assertion_pass_rate": { "passed": 23, "total": 25 },
+    "inputs": [
+      {
+        "index": 1,
+        "type": "Canonical",
+        "label": "Basic analyze command on sample clinical data",
+        "status": "PARTIAL",
+        "status_flag": "✅",
+        "note": "openxlsx and survival packages missing; --help renders correctly; SKILL_PACKAGE_NOT_FOUND fires correctly naming packages; set.seed confirmed",
+        "basic": 34,
+        "specialized": 52,
+        "total": 86,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "--help renders three subcommand descriptions without error", "result": "PASS", "note": "Confirmed: analyze, forest-plot, multi-forest-plot subcommands listed" },
+          { "text": "SKILL_PACKAGE_NOT_FOUND fires with named package list", "result": "PASS", "note": "SKILL_PACKAGE_NOT_FOUND: Required packages are not installed: openxlsx confirmed" },
+          { "text": "set.seed() present in main.R", "result": "PASS", "note": "set.seed(options$seed) confirmed at line 82" },
+          { "text": "Modular 8-file script structure confirmed", "result": "PASS", "note": "utils.R, validation.R, cli.R, io.R, cox_helpers.R, functions.R, plotting.R, run_analysis.R all present" },
+          { "text": "No security issues in script code", "result": "PASS", "note": "Code review found only regmatches() regex which is safe" }
         ]
-    },
-    "final": {
-        "static_weighted": 38,
-        "dynamic_weighted": 56,
-        "score": 94,
-        "max": 100,
-        "grade": "Production Ready",
-        "grade_symbol": "⭐",
-        "deployable": true,
-        "veto_override": false
-    },
-    "key_strengths": [
-        "The skill now matches the expected data-analysis layout closely, including dedicated CLI, validation, IO, plotting, orchestration, references, and retained expected outputs.",
-        "The analytical workflow is reproducible: seeded execution, parameter capture, and per-run session_info files are all present for both analysis and plotting.",
-        "The R CLI contract is stronger after the standards refactor: command entry, package checks, and documented test paths are aligned for mode-B execution.",
-        "The retained tests/expected_output bundle makes the skill easier to review and validate alongside the runnable smoke test."
-    ],
-    "recommendations": [
-        {
-            "priority": "P2",
-            "title": "Add testthat smoke assertions",
-            "observed_in": [],
-            "problem": "The retained tests/run_smoke_test.R script is a solid executable smoke test, but it is still a custom assertion harness rather than an integrated testthat suite.",
-            "root_cause": "The skill prioritizes a simple runnable smoke workflow over a formal unit-test framework.",
-            "fix": "Add one small testthat file that calls the smoke workflow in a temporary directory and asserts the expected artifact manifest."
-        },
-        {
-            "priority": "P2",
-            "title": "Trim top-level SKILL length slightly",
-            "observed_in": [],
-            "problem": "SKILL.md is now complete and clear, but it remains longer than many focused data-analysis skills.",
-            "root_cause": "Detailed examples, testing instructions, and output documentation are all kept in the top-level document.",
-            "fix": "Move one or two longer example blocks into references/cli-guide.md while keeping the primary trigger and core usage path in SKILL.md."
-        }
+      },
+      {
+        "index": 2,
+        "type": "Variant A",
+        "label": "Forest plot generation from existing result table",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "Subcommand routing confirmed; forestplot package dependency check fires; required plot table columns documented",
+        "basic": 33,
+        "specialized": 51,
+        "total": 84,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "forest-plot and multi-forest-plot subcommands routed correctly in main.R", "result": "PASS", "note": "Subcommand dispatch confirmed in script structure" },
+          { "text": "Required plot table columns documented", "result": "PASS", "note": "Characteristics, Total(N), HR (95% CI), P value all specified" },
+          { "text": "SKILL_PACKAGE_NOT_FOUND fires for forestplot dependency", "result": "PASS", "note": "PLOT_REQUIRED_PACKAGES check confirmed in main.R" },
+          { "text": "--plot_save argument documented as required for plot commands", "result": "PASS", "note": "Confirmed in Arguments table" },
+          { "text": "Plot dimension customization arguments documented", "result": "PASS", "note": "width, height, font_size arguments confirmed" }
+        ]
+      },
+      {
+        "index": 3,
+        "type": "Edge",
+        "label": "skip_univariate mode and insufficient event count",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "skip_univariate argument documented; event-count threshold documented; fallback logic documented; runtime verification blocked by missing packages",
+        "basic": 32,
+        "specialized": 49,
+        "total": 81,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "--skip_univariate argument documented for bypassing univariate screening", "result": "PASS", "note": "Confirmed in Arguments table" },
+          { "text": "Minimum 2 events and 10 complete samples requirement documented", "result": "PASS", "note": "Confirmed in Input Format Requirements" },
+          { "text": "Multivariable fallback logic documented", "result": "PASS", "note": "Falls back to all requested features if fewer than 3 significant — documented in Workflow Step 3" },
+          { "text": "Runtime behavior of skip_univariate verified in live execution", "result": "FAIL", "note": "Cannot verify without openxlsx installed" },
+          { "text": "SKILL_INVALID_PARAMETER documented for Cox model fitting failures", "result": "PASS", "note": "Confirmed in Error Handling table" }
+        ]
+      },
+      {
+        "index": 4,
+        "type": "Variant B",
+        "label": "Timeout parameter and multiple feature columns",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "Timeout and seed arguments confirmed; overwrite flag documented; canonical references present; output file list comprehensive",
+        "basic": 33,
+        "specialized": 50,
+        "total": 83,
+        "assertions_passed": 5,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "--timeout_seconds and --seed arguments documented in both analyze and plot commands", "result": "PASS", "note": "Confirmed in Arguments tables for both subcommand types" },
+          { "text": "--overwrite flag documented for non-empty output directories", "result": "PASS", "note": "Confirmed in Arguments table with flag designation" },
+          { "text": "Three canonical survival analysis references included", "result": "PASS", "note": "Cox 1972, Therneau 2000, Harrell 2015 all cited" },
+          { "text": "Output files for analyze command are comprehensive", "result": "PASS", "note": "prognosis_uni_cox_results.xlsx, prognosis_multi_cox_results.xlsx, analysis_data.rds, session_info.txt all documented" },
+          { "text": "Implementation Checklist confirms major design decisions", "result": "PASS", "note": "10-item checklist present and complete" }
+        ]
+      },
+      {
+        "index": 5,
+        "type": "Stress",
+        "label": "Missing required columns and Cox fitting failure",
+        "status": "PARTIAL",
+        "status_flag": "⚠️",
+        "note": "SKILL_MISSING_COLUMNS and SKILL_INVALID_PARAMETER documented; time column validation requirements confirmed; runtime blocked by missing packages",
+        "basic": 31,
+        "specialized": 47,
+        "total": 78,
+        "assertions_passed": 4,
+        "assertions_total": 5,
+        "assertions": [
+          { "text": "SKILL_MISSING_COLUMNS documented for absent required columns", "result": "PASS", "note": "Confirmed in Error Handling table" },
+          { "text": "SKILL_INVALID_PARAMETER documented for Cox model fitting failure", "result": "PASS", "note": "Listed as cause in Error Handling: 'Cox model fitting failure caused by unsupported input data'" },
+          { "text": "time_col must contain finite values greater than 0 is documented", "result": "PASS", "note": "Confirmed in Input Format Requirements" },
+          { "text": "Live Cox fitting failure error handling verified", "result": "FAIL", "note": "Cannot verify at runtime without openxlsx installed" },
+          { "text": "Character predictors converted to factors documented in Workflow", "result": "PASS", "note": "Confirmed in Workflow Step 1" }
+        ]
+      }
     ]
+  },
+  "final": {
+    "static_weighted": 36.8,
+    "dynamic_weighted": 49.4,
+    "score": 86,
+    "max": 100,
+    "grade": "Production Ready",
+    "grade_symbol": "⭐",
+    "deployable": true,
+    "veto_override": false
+  },
+  "key_strengths": [
+    "Three-subcommand architecture (analyze, forest-plot, multi-forest-plot) cleanly separates analysis from visualization",
+    "Automated smoke test script (run_smoke_test.R) and shell wrapper enable easy regression testing",
+    "set.seed() present with configurable --seed argument ensuring full reproducibility",
+    "Multivariable fallback logic (use all features if fewer than 3 significant) is explicitly documented",
+    "When Not to Use section precisely excludes nomograms, calibration, and time-dependent ROC, preventing misuse"
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "No warning emitted when multivariable fallback triggers",
+      "observed_in": [3],
+      "problem": "When fewer than 3 significant univariate features are found, the skill silently falls back to all requested features. No warning message is documented or confirmed in error handling.",
+      "root_cause": "The fallback logic is implemented but the warning emission to stderr is not confirmed in the code review.",
+      "fix": "Add an explicit log_warn() or cat() message when the fallback triggers, e.g. 'WARNING: Fewer than 3 significant univariate features (N found). Falling back to all requested features for multivariable model.'"
+    },
+    {
+      "priority": "P2",
+      "title": "SKILL.md at 327 lines is approaching verbosity threshold",
+      "observed_in": [],
+      "problem": "The SKILL.md is 327 lines, which is within the 500-line limit but heavier than sibling skills. The Implementation Checklist at the bottom adds 15 lines with limited agent-facing value.",
+      "root_cause": "The Implementation Checklist is a developer artifact that was not removed before publication.",
+      "fix": "Move the Implementation Checklist to a separate CONTRIBUTING.md or remove it from SKILL.md to reduce cognitive load for agent callers."
+    }
+  ]
 }

@@ -1,32 +1,33 @@
-# Algorithm Notes
+# Algorithm — Sample Group Sankey Plot
 
-## Purpose
+## Overview
 
-This skill converts a sample annotation table into a Sankey/alluvial plot. Each row is treated as one sample trajectory and each selected column is treated as one categorical stage.
+This skill uses the **ggalluvial** package (Brunson 2020) to build Sankey/alluvial diagrams from categorical sample annotation tables.
 
-## Data Transformation
+## Alluvial Transformation
 
-1. Read the annotation table from CSV or TSV.
-2. Select the requested stage columns in the user-provided order.
-3. Replace blank and `NA` values with a stable missing-value label.
-4. Create a synthetic `sample_id` for each row so each sample can be tracked across stages.
-5. Use `ggalluvial::to_lodes_form()` to transform the wide annotation table into lodes format.
+1. **Input:** A wide-format annotation table where each row is a sample and each selected column is a categorical stage.
+2. **Missing value normalisation:** Blank strings and `NA` values are replaced with the `--missing_label` value (default: `"Missing"`) to ensure all strata are named.
+3. **Row identifier:** A synthetic `sample_id` column (`sample_1`, `sample_2`, …) is added as the alluvium key — it traces each sample's path across stages.
+4. **Lodes conversion:** `ggalluvial::to_lodes_form()` converts the wide table to long format, producing one row per (sample × stage) combination with columns `sample_id`, `x` (stage name), and `stratum` (category value).
 
-The transformed lodes table has one row per sample-stage combination.
+## Plotting Choices
 
-## Plot Construction
+- `geom_flow()` draws the ribbons connecting strata across stages (transparency controlled by `--alpha`).
+- `geom_stratum()` draws the stacked bars at each stage.
+- `stat_stratum()` renders stratum labels (size controlled by `--label_size`).
+- `theme_void()` removes axis clutter; the legend is suppressed because labels are rendered inline.
+- Output is written as a PDF using `ggplot2::ggsave()`.
 
-- `geom_flow()` draws the transitions between adjacent stages.
-- `geom_stratum()` draws one rectangle per category at each stage.
-- `geom_text(stat = "stratum")` labels each stratum directly.
-- `theme_void()` removes axes and gridlines because the categorical stage order is encoded on the x-axis.
+## Readability Assumptions
 
-## Assumptions
+- **Stages:** Fewer than 5 stages produce a readable flow diagram. At 5 stages the plot fills the default width; beyond 5, readability degrades.
+- **Unique values per stage:** Fewer than 8 unique values per stage prevent colour overload. When a stage has more than 8 unique values the ribbons become visually indistinguishable.
 
-- Input columns are categorical or can be safely coerced to character labels.
-- The order of `--columns` is meaningful and defines the left-to-right stage order.
-- Each row is one independent sample pathway.
+## Reproducibility
 
-## Relationship to the Original Script
+`--seed` is passed to `set.seed()` before analysis. Because ggalluvial's alluvial transformation is deterministic (no random component), the seed mainly ensures that any downstream operations relying on random state remain reproducible.
 
-The original `基因-桑葚图.R` script manually selected `risk` and `Responder` columns from an in-memory object and plotted them directly. The converted skill preserves that behavior but generalizes it to external files and arbitrary stage columns.
+## Citation
+
+Brunson JC (2020) ggalluvial: Layered Grammar for Alluvial Plots. *Journal of Open Source Software*. doi:10.21105/joss.02017
