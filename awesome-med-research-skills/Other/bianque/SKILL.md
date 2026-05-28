@@ -9,7 +9,6 @@ description: >-
   interpretation, treatment comparison, or health sciences. Even without
   explicit research framing, trigger on any topic touching disease, therapeutics,
   or clinical decision-making. Part of the AIPOCH Medical Research Skill Hub.
-category: Other
 license: MIT
 skill-author: AIPOCH
 ---
