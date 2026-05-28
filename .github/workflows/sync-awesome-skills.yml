@@ -1,0 +1,81 @@
+name: Sync awesome skills to mirror repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'awesome-med-research-skills/**'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-awesome-skills
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate App token for target repo
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: aipoch
+          repositories: awesome-medical-research-skills
+
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Clone target
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/aipoch/awesome-medical-research-skills.git" target
+
+      - name: Flatten skills and sync into target
+        run: |
+          set -euo pipefail
+          SRC="awesome-med-research-skills"
+          TARGET="target"
+
+          if [ ! -d "$SRC" ]; then
+            echo "Source dir '$SRC' missing, nothing to sync."
+            exit 0
+          fi
+
+          # Remove existing top-level entries except git metadata and LICENSE
+          find "$TARGET" -mindepth 1 -maxdepth 1 \
+            ! -name '.git' \
+            ! -name '.github' \
+            ! -name 'LICENSE' \
+            -exec rm -rf {} +
+
+          # Copy each <category>/<skill> -> <skill> at target root
+          count=0
+          while IFS= read -r -d '' skill; do
+            name=$(basename "$skill")
+            cp -R "$skill" "$TARGET/$name"
+            count=$((count + 1))
+          done < <(find "$SRC" -mindepth 2 -maxdepth 2 -type d -print0)
+          echo "Flattened $count skill(s) into target/"
+
+      - name: Commit and push if changed
+        working-directory: target
+        run: |
+          set -euo pipefail
+          git config user.name "aipoch-skills-sync[bot]"
+          git config user.email "${{ vars.APP_ID }}+aipoch-skills-sync[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to sync."
+            exit 0
+          fi
+          src_sha="${GITHUB_SHA::7}"
+          git commit -m "sync: from medical-research-skills@${src_sha}"
+          git push origin HEAD:main
