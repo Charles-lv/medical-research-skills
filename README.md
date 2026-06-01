@@ -28,7 +28,8 @@ A curated library of 550+ medical research agent skills created by [AIPOCH](http
 
 > AIPOCH also introduces **MedSkillAudit** - a domain-specific audit framework for medical research agent skills [Try skill-auditor here.](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor)
 
-⭐ If you find this repository useful, consider giving it a star! It helps more researchers discover Medical Research Agent Skills and supports the continued development of this library.
+> ⭐ **Star this repo** — the library is actively maintained and grows with new skills, improvements, and fixes regularly. Hit the star button to keep it close, stay current with the latest releases, and help more researchers discover Medical Research Agent Skills. Every star directly supports the continued development of this library. 
+
 
 ## 🗂️ Skills Overview
 

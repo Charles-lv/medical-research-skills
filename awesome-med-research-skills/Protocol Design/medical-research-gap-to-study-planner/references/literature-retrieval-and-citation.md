@@ -20,7 +20,6 @@ The goal is to justify:
 2. **Google Scholar** — recall expansion, citation chaining, and comparable-study discovery
 3. **Web of Science** — citation-network and indexed-literature support
 4. **arXiv and other preprint platforms** — preprint-only evidence, clearly labeled
-5. **PubMed.ai** — AI-assisted retrieval or summarization support; not a substitute for underlying citation verification
 
 ---
 
