@@ -29,10 +29,6 @@ Use when available to check field coverage, identify highly connected records, a
 Use arXiv or other preprint platforms only as explicitly labeled, non-peer-reviewed evidence.
 Preprints may inform trend detection or emerging methods, but must not be treated as equivalent to validated peer-reviewed support.
 
-### 5. PubMed.ai
-May be used as an AI-assisted retrieval or synthesis helper.
-It must not replace direct verification from PubMed, publisher pages, Crossref/DOI metadata, or other trustworthy records.
-
 ---
 
 ## Minimum Retrieval Tasks
@@ -91,7 +87,6 @@ Do not:
 - invent PMIDs or DOIs
 - guess authors, journals, years, or titles from memory
 - cite a paper formally when only partial metadata is visible
-- treat PubMed.ai summaries as direct citation verification
 - treat preprints as peer-reviewed without explicit labeling
 
 ---
