@@ -1,6 +1,6 @@
-# CLI 使用示例
+# CLI examples
 
-## 示例 1：最小运行命令
+## Example 1: minimal run
 
 ```bash
 Rscript scripts/main.R \
@@ -12,7 +12,7 @@ Rscript scripts/main.R \
   --timeout 300
 ```
 
-## 示例 2：自定义列名并输出详细日志
+## Example 2: custom column names with verbose logging
 
 ```bash
 Rscript scripts/main.R \
@@ -29,9 +29,9 @@ Rscript scripts/main.R \
   --timeout 300
 ```
 
-## 示例 3：使用预存基因集 RDS
+## Example 3: use a pre-stored gene-set RDS
 
-说明：CLI 参数使用 `--type HALLMARKS`，脚本会在预载 RDS 中自动映射到资产键 `Hallmarks`。
+Pass `--type HALLMARKS` on the CLI; the script automatically maps it to the asset key `Hallmarks` inside the preloaded RDS.
 
 ```bash
 Rscript scripts/main.R \
@@ -44,9 +44,9 @@ Rscript scripts/main.R \
   --timeout 300
 ```
 
-## 示例 4：绘制富集曲线图
+## Example 4: plot enrichment curves
 
-先运行示例 1，使用 `tests/data/sample_deg_results.csv` 生成 `./output_basic/Table/enrichGSEA.csv` 和 `./output_basic/Table/gsea_running_scores.csv`。
+Run Example 1 first against `tests/data/sample_deg_results.csv` to produce `./output_basic/Table/enrichGSEA.csv` and `./output_basic/Table/gsea_running_scores.csv`.
 
 ```bash
 Rscript scripts/main.R \

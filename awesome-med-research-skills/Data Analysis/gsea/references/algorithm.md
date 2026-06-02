@@ -1,38 +1,38 @@
-# GSEA 方法说明
+# Algorithm
 
-## 方法概述
+## Overview
 
-本 Skill 接收按统计量排序的基因列表，使用 `clusterProfiler::GSEA()` 进行基因集富集分析。
-支持 `fgsea` 与 `DOSE` 两种后端，支持 `KEGG`、`HALLMARKS`、`GO_BP`、`GO_MF`、`GO_CC` 五类基因集。
+This skill takes a gene list ranked by a statistic and runs gene-set enrichment analysis with `clusterProfiler::GSEA()`.
+It supports the `fgsea` and `DOSE` backends, and five gene-set families: `KEGG`, `HALLMARKS`, `GO_BP`, `GO_MF`, `GO_CC`.
 
-## 输入与预处理
+## Input and preprocessing
 
-输入文件为 CSV，至少包含：
-- 基因列，默认 `name`
-- 排序统计量列，默认 `logFC`
+The input file is a CSV with at least:
+- a gene column (default `name`)
+- a ranking-statistic column (default `logFC`)
 
-脚本会执行以下预处理：
-1. 校验输入文件存在
-2. 校验列名存在
-3. 去除空值与空字符串
-4. 按 `logFC` 降序生成排名向量
+The script preprocesses it by:
+1. Verifying the input file exists
+2. Verifying the required columns exist
+3. Dropping NA and empty-string entries
+4. Building a ranked vector by sorting on `logFC` descending
 
-## 分析流程
+## Pipeline
 
-1. 读取输入数据
-2. 加载基因集数据或读取 `--rds_path`
-3. 生成 `TERM2GENE`
-4. 运行 GSEA
-5. 导出结果表、运行分数表和会话信息
+1. Read input data
+2. Load the gene-set data, or read from `--rds_path`
+3. Build `TERM2GENE`
+4. Run GSEA
+5. Export the result table, running-score table, and session info
 
-## 关键统计量
+## Key statistics
 
-- `ES`：富集分数，表示运行曲线最大偏离量
-- `NES`：标准化富集分数，用于消除基因集大小影响
-- `p.adjust`：多重检验校正后的显著性指标
+- `ES`: enrichment score, the maximum deviation of the running curve
+- `NES`: normalized enrichment score, controlling for gene-set size
+- `p.adjust`: significance after multiple-testing correction
 
-## 可复现性
+## Reproducibility
 
-- 入口参数 `--seed` 默认值为 `42`
-- 运行结束写出 `session_info.txt`
-- 相同输入与参数组合应得到一致结果
+- The entry-point flag `--seed` defaults to `42`
+- `session_info.txt` is written at the end of the run
+- Identical input and arguments should yield identical results
