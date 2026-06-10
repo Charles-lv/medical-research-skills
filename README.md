@@ -127,7 +127,7 @@ The examples below represent selected skills from each category.
 - [decision-tree-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/decision-tree-analysis)
 - [svm-model-importance-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/svm-model-importance-analysis)
 - [Elastic Net Feature Selection](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/elastic-net-feature-selection)
-- [LASSO Logistics Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/lasso-logistics-analysis)
+- [LASSO Logistic Regression Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/lasso-logistics-analysis)
 
 ### Clustering & Dimensionality Reduction
 
@@ -169,7 +169,7 @@ The examples below represent selected skills from each category.
 
 ​**Host Platform**​: OpenClaw (installed and running) or **any compatible AI Agent framework that supports Skill integration**.
 
-If you don't have OpenClaw,[ please follow the official OpenClaw setup guide.](https://github.com/openclaw/openclaw)
+If you don't have OpenClaw, [please follow the official OpenClaw setup guide.](https://github.com/openclaw/openclaw)
 
 ​**Git**​: Required for cloning the repository. [Git LFS](https://git-lfs.com/)
 
