@@ -237,76 +237,122 @@ We aim to help researchers more effectively organize questions, connect evidence
 * Covers real workflows: **topic selection, literature search, study design, writing, graphical abstracts**, and more
 * Not adapted from generic content templates — designed specifically for **medical research contexts**.
 
-## What is MedSkillAudit?
+### Represent Selected Skills
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/583a861f-dc51-4078-ba11-0f64984d8815" width="800" />
-</p>
+The examples below represent selected skills from each category.
 
-MedSkillAudit is a domain-specific audit framework for medical research agent skills. Try [Skill-Auditor here](https://github.com/aipoch/medical-research-skills/tree/main/skill-auditor).
+#### Academic Writing
 
-### How does MedSkillAudit Work?
+* [arXiv Preflight](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/arxiv-preflight)
+* [Target Journal Matcher](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/target-journal-matcher)
+* [Reporting Guideline Compliance Checker](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/reporting-guideline-compliance-checker)
+* [Medical English Precision Editor](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Academic%20Writing/medical-english-precision-editor)
 
-#### Veto Gates
+#### Evidence Insights
 
-To enforce strict quality control, MedSkillAudit is designed with two layers of veto mechanisms. Any failure in these checks may lead to immediate rejection of a skill.
+##### Literature Discovery
 
-##### Skill ​Veto
+* [Biomedical Search Strategy Builder](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/biomedical-search-strategy-builder)
+* [Multi-Database Literature Collector](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/multi-database-literature-collector)
+* [High-Value Paper Screener](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/high-value-paper-screener)
+* [Preprint Surveillance Finder](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/preprint-surveillance-finder)
 
-* Operational Stability
-* Structural Consistency
-* Result Determinism
-* System Security
+##### Evidence Mapping & Topic Exploration
 
-##### Research ​Veto
+* [Biomarker Landscape Scanner](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/biomarker-landscape-scanner)
+* [Topic Evidence Mapper](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/topic-evidence-mapper)
+* [Disease Mechanism Evidence Map](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/disease-mechanism-evidence-map)
+* [Drug-Target Evidence Landscape](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/drug-target-evidence-landscape)
 
-* Scientific Integrity
-* Practice Boundaries
-* Methodological Ground
-* Code Usability
+##### Scientific Reading & Interpretation
 
-#### Core Capability
+* [Study Design Identifier](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/study-design-identifier)
+* [Result Reliability Checker](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/result-reliability-checker)
+* [Figure-First Paper Reader](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/figure-first-paper-reader)
+* [Contradictory Findings Resolver](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/contradictory-findings-resolver)
+* [Paper-to-Claim Verifier](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/paper-to-claim-verifier)
 
-Evaluates a skill’s design and contract against key dimensions such as **Functional Suitability, Reliability, Performance & Context, Agent Usability, Human Usability, Security, Agent-Specific and Maintainability.**
+##### Research Gap Discovery
 
-#### Medical Task
+* [Medical Research Gap Finder](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/medical-research-gap-finder)
+* [Unmet Clinical Need Extractor](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/unmet-clinical-need-extractor)
+* [Population Gap Detector](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/population-gap-detector)
+* [Method Gap Detector](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Evidence%20Insight/method-gap-detector)
 
-Assesses actual outputs of a skill with layered criteria.
+#### Protocol Design
 
-For skill testing, the AI automatically generates inputs. The number of inputs in specific categories will increase or decrease depending on the complexity of the skill. The following 7 inputs represent the most comprehensive version.
+##### Clinical & Translational Study Design
 
-* Canonical
-* Variant A
-* Edge
-* Variant B
-* Stress
-* Scope Boundary
-* Adversarial
+* [Aim and Hypothesis Designer](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/aim-and-hypothesis-designer)
+* [Translational Study Blueprint](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/translational-study-blueprint)
+* [Validation Strategy Designer](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/validation-strategy-designer)
+* [Clinical Cohort Protocol Designer](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/clinical-cohort-protocol-designer)
+* [Real-World Evidence Study Designer](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/real-world-evidence-study-designer)
 
-**Skill Complexity Classification**
+##### Biomarker, Omics & Genetics Planning
 
-| Label    | Code/Rank | Definition                                |
-| ---------- | ----------- | ------------------------------------------- |
-| Simple   | S         | Narrow task scope                         |
-| Moderate |M         | Moderate branching or multiple task types |
-| Complex  | C         | Broad or multi-step specialized skill     |
+* [Prognostic Biomarker Protocol Designer](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/prognostic-biomarker-protocol-designer)
+* [Single Cell Research Planner](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/single-cell-research-planner)
+* [Bulk Omics Integrative Planner](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/bulk-omics-integrative-planner)
+* [Multi-Omics Clinical Integration Planner](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/multi-omics-clinical-integration-planner)
 
-**Simple (S):** 3 inputs
+##### Research Execution Planning
 
-**Moderate (M):** 5 inputs
+* [Inclusion-Exclusion Criteria Builder](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/inclusion-exclusion-criteria-builder)
+* [Endpoint Definition Designer](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/endpoint-definition-designer)
+* [Sample Size and Power Planning Assistant](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/sample-size-and-power-planning-assistant)
+* [Feasibility-Aware Study Planner](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Protocol%20Design/feasibility-aware-study-planner)
 
-**Complex (C):** 7 inputs
+#### Data Analysis
 
-### Final Score
+##### Differential Expression & Data Processing
 
-Skills passing both veto gates received a final quality score. The MedSkillAudit uses a two-stage scoring system: static evaluation (design quality, accounting for 40%) and dynamic evaluation (runtime performance, accounting for 60%). The final overall score is derived by combining both.
+* [Differential Expression Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/differential-expression-analysis)
+* [Batch Effect Correction](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/batch-effect-correction)
+* [Gene-Protein Expression Matrix Normalization](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/gene-protein-expression-matrix-normalization)
 
-* Static (40%)
-* Dynamic (60%)
+##### Machine Learning & Feature Selection
 
-Final Score = Static Score × 40% + Dynamic Score × 60%
+- [LightGBM-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/LightGBM-analysis)
+- [XGBoost-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/XGBoost-analysis)
+- [rf-model-importance-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/rf-model-importance-analysis)
+- [decision-tree-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/decision-tree-analysis)
+- [svm-model-importance-analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/svm-model-importance-analysis)
+- [Elastic Net Feature Selection](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/elastic-net-feature-selection)
+- [LASSO Logistic Regression Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/lasso-logistics-analysis)
 
-You can [view evaluation results for selected AIPOCH skills here](https://www.aipoch.com/leaderboard/items/discussion-section-architect).
+##### Clustering & Dimensionality Reduction
+
+* [Consensus Clustering Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/consensus-clustering-analysis)
+* [PCA Dimensionality Reduction](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/pca-dimensionality-reduction)
+* [UMAP and t-SNE Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/umap-tsne-analysis)
+
+##### Functional Enrichment & Pathway Analysis
+
+* [GO/KEGG Enrichment Analysis and Visualization](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/gokegg)
+* [GSEA Analysis and Visualization](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/gsea)
+* [GSVA Analysis and Visualization](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/gsva-analysis-and-visualization)
+
+##### Immune Infiltration Analysis
+
+* [CIBERSORT Immune Infiltration Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/cibersort-immune-infiltration-analysis)
+* [ESTIMATE Immune Score Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/estimate-immune-score-analysis)
+* [ssGSEA Immune Infiltration Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/ssgsea-immune-infiltration-analysis)
+* [Immune Pathway Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/immune-pathway-analysis)
+
+##### Network Biology & Regulatory Analysis
+
+* [WGCNA Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/wgcna-analysis)
+* [PPI Network Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/ppi-network-analysis)
+* [TF-Target Gene Regulatory Network Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/tf-target-gene-regulatory-network)
+* [ceRNA  Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/cerna-analysis)
+
+##### Survival & Statistical Modeling
+
+* [Kaplan-Meier Survival Curve Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/km-survival-curve)
+* [Univariate and Multivariable Cox Regression Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/univariate-multivariable-cox-regression)
+* [ROC Diagnostic Performance Analysis](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/roc-diagnostic-performance)
+* [Nomogram Construction](https://github.com/aipoch/medical-research-skills/tree/main/awesome-med-research-skills/Data%20Analysis/nomogram-construction)
 
 ## Star History
 
