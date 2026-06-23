@@ -2,36 +2,36 @@
 
 ## ICH-E3: Structure and Content of Clinical Study Reports
 
-The International Council for Harmonisation (ICH) E3 guideline defines the structure and content of Clinical Study Reports (CSRs) used for regulatory submissions.
+The International Council for Harmonisation (ICH) E3 guideline defines the structure and content of clinical study reports (CSRs) for regulatory submission.
 
 ### CSR Overview
 
 **Purpose:**
-- To provide a comprehensive description of the study design, conduct, and results
-- To support regulatory decision-making
-- To document evidence of safety and efficacy
+- Provide comprehensive description of study design, conduct, and results
+- Support regulatory decision-making
+- Document evidence of safety and efficacy
 
 **Audience:**
-- Regulatory agencies (FDA, EMA, PMDA, etc.)
+- Regulatory authorities (FDA, EMA, PMDA, etc.)
 - Medical reviewers
 - Statistical reviewers
 - Clinical pharmacology reviewers
 
-**Length:** Typically 50-300 pages (body text), accompanied by extensive appendices
+**Length:** Typically 50-300 pages (main text), with extensive appendices
 
-### Main Sections of an ICH-E3 CSR
+### Main Sections of ICH-E3 CSR
 
 #### Section 1: Title Page
 
-**Required Elements:**
+**Required elements:**
 - Full study title
 - Protocol number and version
 - Sponsor name and address
 - Compound/drug name and code
-- Phase of the study
+- Study phase
 - Indication
 - Report date and version number
-- Report author
+- Report authors
 - Confidentiality statement
 
 #### Section 2: Synopsis
@@ -39,54 +39,54 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 **Length:** 5-15 pages
 
 **Content:**
-- A brief summary of the entire CSR
-- Must be understandable as a standalone document
-- Covers all major sections
+- Brief summary of entire CSR
+- Must be understandable as standalone document
+- Cover all major sections
 
-**Standard Synopsis Elements:**
+**Standard synopsis elements:**
 1. Study identifier and title
 2. Study objectives
 3. Methodology:
    - Study design
-   - Number of patients and description
+   - Number and description of patients
    - Diagnosis and main criteria for inclusion
-   - Study treatment
+   - Study treatments
    - Duration of treatment
    - Criteria for evaluation
    - Statistical methods
 4. Results:
-   - Number of patients enrolled, completed, and discontinued
+   - Number of patients enrolled, completed, discontinued
    - Efficacy results
    - Safety results
-5. Conclusion
+5. Conclusions
 
 #### Section 3: Ethics
 
-**3.1 Independent Ethics Committee/Institutional Review Board (IRB)**
+**3.1 Independent Ethics Committee/Institutional Review Board**
 - Names and locations of all IRBs
-- Date of initial approval
+- Dates of initial approval
 - Dates of protocol amendment approvals
 - Documentation of continuing review
 
-**3.2 Ethical Conduct of the Study**
-- Statement of compliance with GCP and the Declaration of Helsinki
-- Adherence to the protocol
+**3.2 Ethical Conduct of Study**
+- Statement of compliance with GCP and Declaration of Helsinki
+- Protocol adherence
 - Informed consent process
 
 **3.3 Patient Information and Consent**
-- Description of the informed consent procedure
-- Version of the informed consent form used
-- Re-consenting process where applicable
+- Description of informed consent procedures
+- Consent form versions used
+- Process for re-consent if applicable
 
 #### Section 4: Investigators and Study Administrative Structure
 
 **4.1 Investigators**
-- List of principal investigators by center
-- Center addresses and enrollment status
+- List of principal investigators by site
+- Site addresses and enrollment
 - Coordinating investigator (if applicable)
 
 **4.2 Administrative Structure**
-- Sponsor personnel and their roles
+- Sponsor personnel and roles
 - CRO involvement (if applicable)
 - Monitoring procedures
 - Data management organization
@@ -94,33 +94,33 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 
 **4.3 Study Monitoring and Quality Assurance**
 - Monitoring procedures and frequency
-- Source Data Verification (SDV)
+- Source document verification
 - Quality control procedures
 - Audits performed
 
 #### Section 5: Introduction
 
 **5.1 Background**
-- Disease or condition under study
+- Disease or condition being studied
 - Current treatment landscape
-- Unmet medical needs
+- Unmet medical need
 
 **5.2 Investigational Product**
 - Pharmacology and mechanism of action
-- Non-clinical findings
-- Previous clinical experience
+- Nonclinical findings
+- Prior clinical experience
 - Known safety profile
 
-**5.3 Non-Investigational Treatments**
+**5.3 Non-Investigational Therapy**
 - Comparator drugs or placebo
-- Permitted/prohibited concomitant medications
+- Concomitant medications allowed/prohibited
 
 #### Section 6: Study Objectives
 
 **6.1 Primary Objective**
-- The main research question
-- Stated clearly and specifically
-- Example: "To evaluate the efficacy of Drug X compared to placebo in reducing HbA1c in patients with Type 2 Diabetes after 24 weeks of treatment"
+- Main research question
+- Clearly stated and specific
+- Example: "To evaluate the efficacy of Drug X compared to placebo in reducing HbA1c in patients with type 2 diabetes mellitus over 24 weeks of treatment"
 
 **6.2 Secondary Objectives**
 - Additional research questions
@@ -129,42 +129,42 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 - Exploratory objectives
 
 **6.3 Endpoints**
-- Definition and measurement of the primary endpoint
+- Primary endpoint definition and measurement
 - Secondary endpoints
 - Safety endpoints
 - Pharmacokinetic endpoints (if applicable)
 - Biomarker endpoints (if applicable)
 
-#### Section 7: Trial Plan
+#### Section 7: Investigational Plan
 
 **7.1 Overall Study Design and Plan**
-- Type of study design (parallel, crossover, factorial, etc.)
+- Study design type (parallel, crossover, factorial, etc.)
 - Randomization and blinding
 - Study phases or periods
 - Duration of treatment and follow-up
 - Dosing regimen
-- Study flow chart (patient flow diagram)
+- Study flow diagram (patient flowchart)
 
 **7.2 Sample Size**
-- Target enrollment number
-- Basis for sample size calculation
+- Target enrollment
+- Sample size justification
 - Power calculation assumptions:
   - Expected effect size
   - Variability estimates
   - Type I error (alpha)
   - Power (1 - beta)
-  - Dropout rate assumptions
+  - Drop-out rate assumptions
 
 **7.3 Statistical Methods**
-- Analysis populations (ITT, PP, Safety)
+- Analysis populations (ITT, PP, safety)
 - Handling of missing data
-- Interim analysis (if planned)
+- Interim analyses (if planned)
 - Multiplicity adjustments
 - Subgroup analyses
 - Sensitivity analyses
 
-**7.4 Protocol Changes**
-- Protocol amendments and their rationale
+**7.4 Changes to Protocol**
+- Protocol amendments and rationale
 - Impact on study conduct and analysis
 
 #### Section 8: Study Patients
@@ -172,30 +172,30 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 **8.1 Inclusion and Exclusion Criteria**
 - Key inclusion criteria
 - Key exclusion criteria
-- Rationale for criteria selection
+- Rationale for criteria
 
 **8.2 Demographic and Baseline Characteristics**
 - Age, sex, race/ethnicity
 - Disease severity or stage
-- Prior treatments
-- Baseline values for key endpoints
-- Comparability between treatment groups
+- Prior therapies
+- Baseline values of key endpoints
+- Comparability across treatment groups
 
 **8.3 Patient Disposition**
-- Number of patients screened
-- Number of patients randomized
-- Number of patients completing the study
-- Number of withdrawals (categorized by reason)
-- Number of patients lost to follow-up
+- Number screened
+- Number randomized
+- Number completing study
+- Number withdrawn (by reason)
+- Number lost to follow-up
 - CONSORT flow diagram
 
 **8.4 Protocol Deviations**
-- Important protocol deviations
+- Major protocol deviations
 - Minor protocol deviations
 - Impact on efficacy and safety analyses
 - Corrective actions taken
 
-**8.5 Demographics and Other Baseline Characteristics**
+**8.5 Demographic and Other Baseline Characteristics**
 - Detailed demographic tables
 - Baseline disease characteristics
 - Stratification factors
@@ -205,26 +205,26 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 #### Section 9: Efficacy Evaluation
 
 **9.1 Data Sets Analyzed**
-- Intent-to-Treat (ITT) population
-- Per-Protocol (PP) population
-- Modified ITT population
+- Intent-to-treat (ITT) population
+- Per-protocol (PP) population
+- Modified ITT
 - Other analysis sets
-- Rationale for population definitions
+- Justification for population definitions
 
 **9.2 Demographic and Baseline Characteristics**
 - Demographics by analysis population
 - Baseline comparability
 
-**9.3 Measurement of Treatment Compliance**
+**9.3 Measurements of Treatment Compliance**
 - Drug accountability
 - Pill counts or diary compliance
-- Plasma drug concentrations (if measured)
-- Percentage of planned dose actually received
+- Plasma drug levels (if measured)
+- Percent of planned dose received
 
 **9.4 Efficacy Results**
 
 **9.4.1 Primary Endpoint**
-- Primary endpoint results
+- Results for primary endpoint
 - Statistical analysis
 - Effect size and confidence intervals
 - P-values
@@ -232,8 +232,8 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 
 **9.4.2 Secondary Endpoints**
 - Results for each secondary endpoint
-- Statistical analysis
-- Testing hierarchy (if applicable)
+- Statistical analyses
+- Hierarchy of testing (if applicable)
 
 **9.4.3 Other Efficacy Endpoints**
 - Exploratory endpoints
@@ -243,11 +243,11 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 **9.5 Dropouts and Missing Data**
 - Patterns of missing data
 - Reasons for dropout
-- Sensitivity analysis for missing data
+- Sensitivity analyses for missing data
 
 #### Section 10: Safety Evaluation
 
-**10.1 Exposure**
+**10.1 Extent of Exposure**
 - Duration of exposure
 - Dose intensity
 - Dose delays or reductions
@@ -255,49 +255,49 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 
 **10.2 Adverse Events**
 
-**10.2.1 Brief Summary of Adverse Events**
+**10.2.1 Overview of Adverse Events**
 - Summary tables (any AE, treatment-related, serious, leading to discontinuation)
-- Percentage of patients experiencing AEs
-- Comparison between treatment groups
+- Percentage of patients with AEs
+- Comparison across treatment groups
 
 **10.2.2 Common Adverse Events**
-- AEs occurring at a frequency of ≥5% or ≥10%
-- Ordered by frequency
-- Preferred Terms and System Organ Class (MedDRA)
+- AEs occurring in ≥5% or ≥10% of patients
+- Sorted by frequency
+- Preferred terms and system organ class (MedDRA)
 
 **10.2.3 Serious Adverse Events**
-- Definition of SAEs
-- Summary tables of SAEs
+- Definition of SAE
+- Summary table of SAEs
 - Individual narratives for each SAE
 - Causality assessment
 - Outcome
 
-**10.2.4 Adverse Events Leading to Treatment Discontinuation**
-- AEs resulting in study drug discontinuation
-- Frequency and types
+**10.2.4 Adverse Events Leading to Discontinuation**
+- AEs leading to study drug discontinuation
+- Frequency and type
 - Relationship to study drug
 
 **10.2.5 Deaths**
-- All deaths during the study and follow-up period
-- Detailed narrative for each death
+- All deaths during study and follow-up
+- Detailed narratives for each death
 - Relationship to study drug
 - Autopsy findings (if available)
 
-**10.3 Clinical Laboratory Evaluation**
+**10.3 Clinical Laboratory Evaluations**
 - Laboratory abnormalities
 - Shift tables (normal to abnormal, abnormal to normal)
 - Mean changes from baseline
 - Laboratory values meeting protocol-defined criteria
 - Hepatotoxicity monitoring (if applicable)
 
-**10.4 Vital Signs and Physical Examination Findings**
-- Vital signs (blood pressure, heart rate, temperature, respiratory rate)
+**10.4 Vital Signs and Physical Findings**
+- Vital signs (BP, HR, temperature, respiratory rate)
 - Mean changes from baseline
 - Clinically significant changes
 - Physical examination findings
 
-**10.5 Electrocardiogram (ECG) Evaluation**
-- Changes in QTc interval
+**10.5 ECG Evaluation**
+- QTc interval changes
 - Other ECG abnormalities
 - Clinically significant ECG findings
 
@@ -313,13 +313,13 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 **11.1 Efficacy Discussion**
 - Interpretation of efficacy results
 - Clinical significance of findings
-- Consistency with previous studies
+- Consistency with prior studies
 - Limitations
 
 **11.2 Safety Discussion**
-- Overview of the safety profile
+- Safety profile overview
 - Notable safety findings
-- Comparison with known safety profiles
+- Comparison to known safety profile
 - Risk-benefit assessment
 
 **11.3 Benefit-Risk Assessment**
@@ -330,55 +330,55 @@ The International Council for Harmonisation (ICH) E3 guideline defines the struc
 **11.4 Clinical Implications**
 - Place in therapy
 - Target patient population
-- Comparison with existing therapies
+- Comparison to existing therapies
 
 #### Section 12: Tables, Figures, and Graphs
 
-A complete set of tables and figures containing efficacy and safety data.
+Comprehensive set of tables and figures for efficacy and safety data.
 
-**Common Tables:**
-- Demographics and baseline characteristics
+**Common tables:**
+- Demographic and baseline characteristics
 - Patient disposition
-- Exposure
+- Extent of exposure
 - Efficacy results (primary and secondary endpoints)
-- Summary of adverse events
+- Adverse event summary
 - Common adverse events
 - Serious adverse events
 - Deaths
 - Laboratory abnormalities
 - Vital signs
 
-**Common Figures:**
+**Common figures:**
 - Study design schematic
-- Patient disposition flow chart (CONSORT)
-- Kaplan-Meier curves (survival, time-to-event)
-- Forest plots (subgroup analysis)
+- Patient disposition flowchart (CONSORT)
+- Kaplan-Meier curves (survival, time to event)
+- Forest plots (subgroup analyses)
 - Mean change over time plots
 
 #### Section 13: References
 
-- Publications cited in the CSR
+- Publications cited in CSR
 - Relevant literature
 - Regulatory guidelines
-- Previous study reports
+- Prior study reports
 
 #### Section 14: Appendices
 
-**Required Appendices:**
+**Required appendices:**
 - Study protocol and amendments
-- Sample Case Report Forms (CRFs)
-- List of investigators with IRB information
+- Sample case report forms
+- Investigator list with IRB information
 - Patient information and informed consent forms
 - List of patients receiving study drug
 - Randomization scheme
 - Audit certificates (if applicable)
 - Documentation of statistical methods
-- Publications based on the study
+- Publications based on study
 
-**Optional Appendices:**
+**Optional appendices:**
 - Individual patient data listings
 - SAE narratives
-- Laboratory normal values and conversion factors
+- Laboratory normals and conversion factors
 - Investigator signatures
 
 ### Statistical Analysis Plan (SAP)
@@ -387,145 +387,145 @@ A complete set of tables and figures containing efficacy and safety data.
 - Analysis populations
 - Handling of missing data
 - Statistical tests to be used
-- Multiplicity adjustments
-- Interim analysis plans
+- Adjustment for multiplicity
+- Interim analysis plan
 - Subgroup analyses
 - Sensitivity analyses
 - Safety analyses
 
-**SAP Timelines:**
+**SAP Timing:**
 - Finalized before database lock
-- Documentation of amendments and their rationale
+- Amendments documented with rationale
 
 ## CONSORT (Consolidated Standards of Reporting Trials)
 
-The CONSORT guideline is designed to facilitate the transparent and complete reporting of randomized controlled trials.
+CONSORT guidelines promote transparent and complete reporting of randomized controlled trials.
 
 ### CONSORT 2010 Checklist
 
 #### Title and Abstract
-- **1a. Title**: Identification as a randomized trial in the title
-- **1b. Abstract**: Structured summary of trial design, methods, results, and conclusions
+- **1a. Title**: Identification as randomized trial in title
+- **1b. Abstract**: Structured summary covering trial design, methods, results, conclusions
 
 #### Introduction
 - **2a. Background**: Scientific background and explanation of rationale
 - **2b. Objectives**: Specific objectives or hypotheses
 
 #### Methods - Participants
-- **3a. Eligibility**: Inclusion criteria for participants
-- **3b. Settings**: Settings and locations where data were collected
+- **3a. Eligibility**: Eligibility criteria for participants
+- **3b. Settings**: Settings and locations of data collection
 
 #### Methods - Interventions
 - **4a. Interventions**: Details of interventions for each group
-- **4b. Details**: Sufficient details to allow replication by others
+- **4b. Details**: Sufficient details to allow replication
 
 #### Methods - Outcomes
 - **5. Outcomes**: Clearly defined primary and secondary outcome measures
-- **6a. Sample Size**: How sample size was determined
-- **6b. Interim Analysis**: Explanation of interim analyses, when applicable
+- **6a. Sample size**: How sample size was determined
+- **6b. Interim analyses**: When applicable, explanation of interim analyses
 
 #### Methods - Randomization
-- **7a. Sequence Generation**: Method used to generate the random allocation sequence
-- **7b. Allocation Concealment**: Mechanism used to implement allocation concealment
-- **8a. Implementation**: Who generated the allocation sequence, who enrolled participants, and who assigned participants
-- **8b. Blinding**: Whether participants, care providers, and outcome assessors were blinded
+- **7a. Sequence generation**: Method of random sequence generation
+- **7b. Allocation concealment**: Mechanism of allocation concealment
+- **8a. Implementation**: Who generated allocation, enrolled, and assigned participants
+- **8b. Blinding**: Whether participants, care providers, outcome assessors were blinded
 
 #### Methods - Statistical
-- **9. Statistical Methods**: Methods for primary and secondary outcomes
-- **10. Additional Analyses**: Subgroup analyses or adjusted analyses
+- **9. Statistical methods**: Methods for primary and secondary outcomes
+- **10. Additional analyses**: Subgroup or adjusted analyses
 
 #### Results - Participant Flow
-- **11a. Enrollment**: Number of participants screened, randomized, and assigned
-- **11b. Losses & Exclusions**: Number of participants lost or excluded after randomization for each group
-- **12. Recruitment**: Dates defining the recruitment and follow-up periods
+- **11a. Enrollment**: Numbers screened, randomized, allocated
+- **11b. Losses and exclusions**: For each group, losses and exclusions after randomization
+- **12. Recruitment**: Dates defining recruitment and follow-up periods
 - **13a. Baseline**: Baseline demographic and clinical characteristics
-- **13b. Baseline Comparability**: Number of participants analyzed in each group
+- **13b. Baseline comparability**: Numbers analyzed in each group
 
-#### Results - Outcomes & Estimation
+#### Results - Outcomes and Estimation
 - **14a. Outcomes**: For primary and secondary outcomes, results for each group
-- **14b. Binary Outcomes**: For binary outcomes, effect size and confidence intervals
-- **15. Ancillary Analyses**: Results of other analyses performed
+- **14b. Binary outcomes**: For binary outcomes, effect sizes and confidence intervals
+- **15. Ancillary analyses**: Results of other analyses performed
 
 #### Results - Harms
 - **16. Harms**: All important harms or unintended effects in each group
 
 #### Discussion
-- **17a. Limitations**: Trial limitations, addressing bias and imprecision
+- **17a. Limitations**: Trial limitations, addressing biases, imprecision
 - **17b. Generalizability**: Generalizability (external validity) of trial findings
 - **18. Interpretation**: Interpretation consistent with results, balancing benefits and harms
 - **19. Registration**: Registration number and name of trial registry
-- **20. Protocol**: Where the full trial protocol can be accessed
-- **21. Funding**: Sources of funding and role of funders
+- **20. Protocol**: Where full trial protocol can be accessed
+- **21. Funding**: Sources of funding, role of funders
 
 ### CONSORT Flow Diagram
 
-Standard format for showing the flow of patients through a trial:
+Standard format showing patient flow through trial:
 ```
-Screened for Eligibility (n=)
+Assessed for eligibility (n=)
     ↓
 Randomized (n=)
-    ├─ Allocated to Intervention (n=)
-    │   ├─ Received Intervention (n=)
-    │   └─ Did Not Receive Intervention (n=)
+    ├─ Allocated to intervention (n=)
+    │   ├─ Received intervention (n=)
+    │   └─ Did not receive intervention (n=)
     │       Give reasons
-    ├─ Allocated to Control (n=)
-    │   ├─ Received Control (n=)
-    │   └─ Did Not Receive Control (n=)
+    ├─ Allocated to control (n=)
+    │   ├─ Received control (n=)
+    │   └─ Did not receive control (n=)
     │       Give reasons
     ↓
-Lost to Follow-up (n=)
+Lost to follow-up (n=)
     Give reasons
-Discontinued Intervention (n=)
+Discontinued intervention (n=)
     Give reasons
     ↓
-Included in Analysis (n=)
-Excluded from Analysis (n=)
+Analyzed (n=)
+Excluded from analysis (n=)
     Give reasons
 ```
 
 ## Serious Adverse Event (SAE) Reporting
 
-### Definition of a Serious Adverse Event
+### Definition of Serious Adverse Event
 
-An adverse event or suspected adverse reaction is considered serious if it meets any of the following criteria:
+An adverse event or suspected adverse reaction is considered serious if it:
 - Results in death
 - Is life-threatening
 - Requires inpatient hospitalization or prolongation of existing hospitalization
 - Results in persistent or significant disability/incapacity
 - Is a congenital anomaly/birth defect
-- Requires intervention to prevent permanent impairment or damage (medical device related)
-- Other important medical events (based on medical judgment)
+- Requires intervention to prevent permanent impairment or damage (device-related)
+- Other medically important events (based on medical judgment)
 
 ### SAE Report Components
 
 **1. Administrative Information**
-- Report type (Initial, Follow-up, Summary)
+- Report type (initial, follow-up, final)
 - Report number
 - Date of report
 - Reporter information
 - Sponsor information
-- Study identifier (Protocol number, NCT number)
+- Study identifier (protocol number, NCT number)
 
 **2. Patient Information (De-identified)**
 - Subject ID or randomization number
 - Initials (if permitted)
 - Age or date of birth (year only)
 - Sex
-- Race/Ethnicity
+- Race/ethnicity
 - Weight
 - Height
 
 **3. Study Information**
 - Study phase (I, II, III, IV)
-- Study design (Randomized, Open-label, etc.)
-- Treatment arm or randomization assignment
+- Study design (randomized, open-label, etc.)
+- Treatment arm or randomization
 - Date of first study drug
 - Date of last study drug
 
 **4. Event Information**
-- Reported term (Verbatim term)
-- MedDRA Preferred Term
-- System Organ Class
+- Reported term (verbatim)
+- MedDRA preferred term
+- System organ class
 - Date of onset
 - Time of onset (if relevant)
 - Date of resolution (or ongoing)
@@ -536,22 +536,22 @@ An adverse event or suspected adverse reaction is considered serious if it meets
 - Life-threatening: Yes/No
 - Hospitalization required: Yes/No
 - Hospitalization prolonged: Yes/No
-- Disability/Incapacity: Yes/No
+- Disability/incapacity: Yes/No
 - Congenital anomaly: Yes/No
 - Medically significant: Yes/No
 
 **6. Severity**
 - Mild: Noticeable but does not interfere with daily activities
 - Moderate: Interferes with daily activities but manageable
-- Severe: Unable to perform daily activities, requires intervention
+- Severe: Prevents usual daily activities, requires intervention
 
 Note: Severity ≠ Seriousness
 
 **7. Outcome**
-- Recovered/Resolved
-- Recovering/Resolving
-- Not recovered/Not resolved
-- Recovered/Resolved with sequelae
+- Recovered/resolved
+- Recovering/resolving
+- Not recovered/not resolved
+- Recovered/resolved with sequelae
 - Fatal
 - Unknown
 
@@ -563,31 +563,31 @@ Note: Severity ≠ Seriousness
   - Probably related
   - Definitely related
 - Relationship to study procedures
-- Relationship to primary disease
+- Relationship to underlying disease
 - Relationship to concomitant medications
-- Rationale for determination
+- Reasoning for determination
 
 **9. Expectedness**
 - Expected (per Investigator's Brochure or protocol)
-- Unexpected (not included in the IB, or more severe than documented)
+- Unexpected (not in IB or more severe than documented)
 
 **10. Action Taken with Study Drug**
 - No change
 - Dose reduced
 - Dose increased
-- Drug interrupted (temporary stop)
-- Drug withdrawn (permanent stop)
-- Not applicable (event occurred after drug stop)
+- Drug interrupted (temporarily held)
+- Drug discontinued
+- Not applicable (event occurred after discontinuation)
 
-**11. Treatment/Intervention for Event**
-- Medications given
+**11. Treatments/Interventions for Event**
+- Medications administered
 - Procedures performed
 - Hospitalization details
 - ICU admission
 - Surgical intervention
 
 **12. Event Narrative**
-- Detailed description of the event
+- Detailed description of event
 - Timeline of events
 - Clinical course
 - Relevant medical history
@@ -596,38 +596,38 @@ Note: Severity ≠ Seriousness
 - Treatment and response
 - Outcome and current status
 
-**Narrative Example:**
+**Example narrative:**
 ```
-A 58-year-old male (Subject ID: 12345) was enrolled in the XYZ-301 study, a Phase 3 
-randomized trial comparing Drug X to placebo for heart failure. On Treatment Day 42 
-(15-Feb-2024), the patient presented to the Emergency Department with sudden onset 
-severe chest pain, diaphoresis, and dyspnea. ECG showed ST-segment elevation in 
-leads V2-V4. Troponin I was elevated at 12.5 ng/mL (Normal <0.04). The patient was 
-diagnosed with an acute ST-elevation myocardial infarction and underwent emergent 
-cardiac catheterization, which revealed a 95% occlusion of the left anterior 
-descending artery. Percutaneous coronary intervention was successfully performed 
-with placement of a drug-eluting stent. The patient was admitted to the Cardiac 
-Intensive Care Unit. Study drug was permanently discontinued on Day 42. The patient 
-recovered and was discharged in stable condition on Day 47 (20-Feb-2024). The 
-investigator assessed the event as unlikely related to the study drug, as the 
-patient had significant underlying risk factors for coronary artery disease, 
-including diabetes, hypertension, and a history of tobacco use.
+A 58-year-old male (Subject ID: 12345) enrolled in Study XYZ-301, a Phase 3
+randomized trial of Drug X vs. placebo for heart failure. On Day 42 of treatment
+(15-Feb-2024), the patient presented to the emergency department with sudden onset
+severe chest pain, diaphoresis, and dyspnea. ECG showed ST-segment elevation in
+leads V2-V4. Troponin I was elevated at 12.5 ng/mL (normal <0.04). The patient was
+diagnosed with acute ST-elevation myocardial infarction and underwent emergent
+cardiac catheterization revealing 95% occlusion of the left anterior descending
+artery. Percutaneous coronary intervention with drug-eluting stent placement was
+performed successfully. The patient was admitted to the cardiac intensive care unit.
+Study drug was permanently discontinued on Day 42. The patient recovered and was
+discharged on Day 47 (20-Feb-2024) in stable condition. This event was assessed as
+unlikely related to study drug by the investigator, as the patient had significant
+underlying coronary artery disease risk factors including diabetes, hypertension,
+and smoking history.
 ```
 
 ### Regulatory Reporting Timelines
 
-**FDA IND Safety Reports (21 CFR 312.32):**
-- **Fatal or life-threatening unexpected SAEs**: Preliminary report within 7 calendar days, full report within 15 days
+**FDA IND Safety Reporting (21 CFR 312.32):**
+- **Fatal or life-threatening unexpected SAEs**: 7 calendar days for preliminary report, 15 days for complete report
 - **Other serious unexpected events**: 15 calendar days
-- **Annual safety reports**: Within 60 days of the IND anniversary date
+- **Annual safety reports**: Within 60 days of anniversary of IND
 
 **EMA Expedited Reporting:**
-- **Fatal or life-threatening unexpected events**: 7 days for initial report, 8 additional days for full report
+- **Fatal or life-threatening unexpected events**: 7 days initial, 8 additional days for complete report
 - **Other unexpected serious events**: 15 days
 
 **IRB Reporting:**
-- Follow institutional policies
-- Serious unexpected events typically within 5-10 days
+- Per institutional policy
+- Typically 5-10 days for serious unexpected events
 - Some institutions require reporting within 24-48 hours
 
 ### MedDRA Coding
@@ -635,14 +635,14 @@ including diabetes, hypertension, and a history of tobacco use.
 **MedDRA (Medical Dictionary for Regulatory Activities):**
 - Standardized medical terminology for regulatory communication
 - Hierarchical structure:
-  - SOC (System Organ Class) - Highest level
+  - SOC (System Organ Class) - highest level
   - HLGT (High Level Group Term)
   - HLT (High Level Term)
-  - PT (Preferred Term) - Used for coding adverse events
-  - LLT (Lowest Level Term) - Verbatim term
+  - PT (Preferred Term) - used for coding AEs
+  - LLT (Lowest Level Term) - verbatim terms
 
 **Example:**
-- Verbatim: "Severe headache"
+- Verbatim term: "bad headache"
 - LLT: Headache
 - PT: Headache
 - HLT: Headaches NEC
@@ -653,14 +653,14 @@ including diabetes, hypertension, and a history of tobacco use.
 
 **WHO-UMC Causality Categories:**
 - **Certain**: Event cannot be explained by other factors
-- **Probable/Likely**: Relationship to drug is more likely than other factors
-- **Possible**: Event could be drug-related but other factors cannot be ruled out
-- **Unlikely**: Event is most likely explained by other factors
+- **Probable/Likely**: Event more likely related to drug than other factors
+- **Possible**: Event could be related to drug, but other factors cannot be ruled out
+- **Unlikely**: Event likely explained by other factors
 - **Conditional/Unclassified**: More data needed
-- **Unassessable/Unclassifiable**: Insufficient information
+- **Unassessable/Unclassifiable**: Information insufficient
 
-**Naranjo Scale (for Adverse Drug Reactions):**
-A scoring system based on 10 questions:
+**Naranjo Algorithm (for ADRs):**
+Scoring system based on 10 questions:
 - Score ≥9: Definite
 - Score 5-8: Probable
 - Score 1-4: Possible
@@ -671,22 +671,23 @@ A scoring system based on 10 questions:
 **Purpose:**
 - Independent review of safety data
 - Monitoring benefit-risk
-- Providing recommendations on whether the study should continue
+- Recommendations on study continuation
 
 **DSMB Charter Elements:**
-- Membership composition and qualifications
+- Membership and qualifications
 - Roles and responsibilities
-- Frequency of meetings
-- Data to be reviewed
+- Meeting frequency
+- Data reviewed
 - Decision-making criteria
 - Communication procedures
 - Confidentiality
 
 **DSMB Reports:**
-- Open reports (visible to all parties)
-- Closed reports (restricted to DSMB and sponsor)
-- Recommendations: Continue, modify, or terminate the study
+- Open reports (all parties can see)
+- Closed reports (DSMB and sponsor only)
+- Recommendations: Continue, modify, or terminate study
 
 ---
 
-This reference guide provides comprehensive guidance for clinical trial reporting following ICH-E3 and CONSORT guidelines, as well as SAE reporting requirements. Use these standards when preparing regulatory submissions and clinical trial publications.
+This reference provides comprehensive guidance for clinical trial reporting following ICH-E3 and CONSORT guidelines, as well as SAE reporting requirements. Use these standards when preparing regulatory submissions and trial publications.
+

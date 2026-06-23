@@ -2,27 +2,29 @@
 
 ## CARE Guidelines (CAse REport)
 
-The CARE guidelines provide a framework for transparency and completeness in clinical case reports. The CARE checklist ensures that case reports contain all necessary information for readers to evaluate the validity and applicability of the findings.
+The CARE guidelines provide a framework for transparent and complete reporting of clinical cases. The CARE checklist ensures that case reports contain all necessary information for readers to assess the validity and applicability of the findings.
 
 ### CARE Checklist Items
 
 #### Title (1 item)
 
 **1. Title**
-- The title should include the words "case report" or "case study"
-- Describe the area of focus
-- Clearly identify the specific disease or intervention
+- Include the words "case report" or "case study" in the title
+- Indicate the area of focus
+- Be specific about the condition or intervention
 - Examples:
-  - Good: "Delayed aortic dissection presenting as pneumonia: a case report"
-  - Poor: "An interesting case"
+  - Good: "Delayed Presentation of Aortic Dissection Mimicking Pneumonia: A Case Report"
+  - Poor: "An Interesting Case"
 
 #### Keywords (1 item)
 
 **2. Keywords**
 - Provide 2-5 keywords
-- Use MeSH (Medical Subject Headings) terms whenever possible
-- Facilitate indexing and retrieval
-- Example: "aortic dissection," "atypical presentation," "diagnostic imaging"
+- Use MeSH (Medical Subject Headings) terms when possible
+- Facilitate indexing and search
+
+ability
+- Examples: "aortic dissection," "atypical presentation," "diagnostic imaging"
 
 #### Abstract (4 items)
 
@@ -31,96 +33,96 @@ The CARE guidelines provide a framework for transparency and completeness in cli
 - Why is it worth reporting?
 - 1-2 sentences
 
-**3b. Patient's main complaints and important clinical findings**
+**3b. Patient's main concerns and important clinical findings**
 - Primary symptoms
 - Key physical examination or diagnostic findings
 
-**3c. Main diagnoses, therapeutic interventions, and outcomes**
+**3c. Main diagnoses, therapeutics interventions, and outcomes**
 - Final diagnosis
-- Key therapeutic measures
-- Clinical outcomes
+- Key treatments
+- Clinical outcome
 
 **3d. Conclusion**
-- What are the main takeaways?
-- Clinical significance
+- What are the main takeaway messages?
+- Clinical implications
 
-**Abstract length:** Usually 150-250 words, using a structured or unstructured format depending on journal requirements.
+**Abstract Length:** Typically 150-250 words, structured or unstructured depending on journal
 
 #### Introduction (2 items)
 
 **4. Background**
-- Brief background of the condition
-- Relevant epidemiology (if applicable)
-- Current understanding and management status
+- Brief background on the medical condition
+- Epidemiology if relevant
+- Current understanding and management
 - 2-4 paragraphs
 
 **5. Why is this case novel?**
 - What makes this case worth reporting?
 - Unique presentation, diagnosis, or outcome
 - Contribution to medical knowledge
-- What literature gap does it address?
+- Literature gap being addressed
 
 #### Patient Information (4 items)
 
 **6. Patient demographics and other information**
 - Age, sex, race/ethnicity (if relevant)
-- Occupation (if relevant to the case)
+- Occupation (if relevant to case)
 - Living situation (if relevant)
-- Example: "A 45-year-old African American female"
+- Example: "A 45-year-old African American woman"
 
-**7. Patient's main symptoms**
+**7. Main symptoms of patient**
 - Chief complaint
 - Presenting symptoms
 - Duration and characteristics
-- Example: "Presented with sudden onset of severe chest pain radiating to the back, accompanied by dyspnea"
+- Example: "Presented with sudden onset severe chest pain radiating to the back, associated with dyspnea"
 
 **8. Medical, family, and psychosocial history**
 - Relevant past medical history
-- Medication history and allergies
-- Family history of relevant diseases
-- Social history (smoking, alcohol, substance use, occupation)
-- Previous treatments or interventions
+- Medications and allergies
+- Family history of relevant conditions
+- Social history (smoking, alcohol, drugs, occupation)
+- Prior treatments or interventions
 
-**9. Relevant past interventions and their outcomes**
-- History of previous hospitalizations
-- Previous treatments for the same or related conditions
-- Results of previous interventions
+**9. Relevant past interventions and outcomes**
+- Prior hospitalizations
+- Previous treatments for same or related conditions
+- Outcomes of prior interventions
 
 #### Clinical Findings (1 item)
 
-**10. Describe relevant physical examination findings**
+**10. Describe the relevant physical examination findings**
 - Vital signs
 - Physical examination by system
-- Relevant positive findings
+- Pertinent positive findings
 - Important negative findings
 - Example:
-  - "Vital signs: BP 180/110 mmHg (right arm), 140/80 mmHg (left arm), HR 105 bpm, RR 24 bpm
-  - Cardiovascular: Diastolic murmur heard at the left sternal border, diminished left radial pulse
-  - Pulmonary: Decreased breath sounds at the left lung base"
+  - "Vital signs: BP 180/110 mmHg (right arm), 140/80 mmHg (left arm), HR 105 bpm, RR 24/min
+  - Cardiovascular: Diastolic murmur heard over left sternal border, diminished pulse in left radial artery
+  - Pulmonary: Decreased breath sounds in left lung base"
 
 #### Timeline (1 item)
 
 **11. Describe important dates and times in this case**
 - Chronological summary of events
 - Onset of symptoms
-- Healthcare visits
+- Healthcare encounters
 - Diagnostic procedures
 - Interventions
 - Outcomes and follow-up
 
-**Timeline format options:**
+**Timeline Format Options:**
 1. **Table format:**
 
 | Date | Event |
 |------|-------|
 | Day 0 | Onset of chest pain and dyspnea |
-| Day 0, 2 hours later | Arrival at the Emergency Department |
-| Day 0, 4 hours later | CT angiography performed, diagnosis of aortic dissection |
-| Day 0, 6 hours later | Emergency surgery performed |
+| Day 0, 2 hours | Presented to emergency department |
+| Day 0, 4 hours | CT angiography performed, diagnosed with aortic dissection |
+| Day 0, 6 hours | Emergency surgery performed |
 | Day 7 | Discharged home in stable condition |
 | Month 3 | Follow-up imaging shows complete healing |
 
-2. **Chart/Graphic timeline**
+2. **Figure/graphic timeline**
 3. **Narrative timeline embedded in text**
 
 #### Diagnostic Assessment (5 items)
@@ -129,37 +131,37 @@ The CARE guidelines provide a framework for transparency and completeness in cli
 - List all diagnostic tests performed
 - Laboratory tests
 - Imaging studies
-- Procedures (biopsy, intubation, etc.)
-- Pathological findings
-- Genetic testing (if applicable)
+- Procedures (biopsy, catheterization, etc.)
+- Pathology results
+- Genetic testing if applicable
 
 **12b. Diagnostic challenges**
-- Difficulties in reaching a diagnosis
+- Difficulty in reaching diagnosis
 - Atypical presentations
 - Misleading initial findings
-- Time required to confirm diagnosis
+- Time to diagnosis
 
 **12c. Diagnostic reasoning**
-- Differential diagnoses considered
+- Differential diagnosis considered
 - Clinical reasoning process
 - Why certain tests were ordered
-- How the diagnosis was narrowed down
+- How diagnosis was narrowed
 
 **12d. Prognostic characteristics**
-- Severity of the condition
-- Staging (if applicable)
+- Severity of condition
+- Staging if applicable
 - Risk factors
 - Expected prognosis
 
-**12e. Strengths and limitations of the diagnostic approach**
-- Appropriateness of the diagnostic methods
-- Limitations of the tests used
-- Alternative methods considered
+**12e. Strengths and limitations of diagnostic approaches**
+- Appropriateness of diagnostic methods
+- Limitations of tests used
+- Alternative approaches considered
 
 #### Therapeutic Intervention (4 items)
 
 **13a. Types of interventions**
-- Pharmacological interventions (drug name, dosage, route, duration)
+- Pharmacological interventions (medications with doses, routes, duration)
 - Procedural or surgical interventions
 - Lifestyle interventions
 - Psychosocial interventions
@@ -167,34 +169,34 @@ The CARE guidelines provide a framework for transparency and completeness in cli
 - Preventive interventions
 
 Example:
-- "Initiated intravenous Labetalol infusion for blood pressure control
-- Performed emergency open-heart surgical repair of the ascending aortic dissection
-- Anticoagulation therapy was suspended postoperatively
-- Beta-blockers and ACE inhibitors were initiated postoperatively"
+- "Labetalol IV drip initiated for blood pressure control
+- Emergency open surgical repair of ascending aortic dissection performed
+- Post-operative anticoagulation withheld
+- Beta-blocker and ACE inhibitor initiated post-operatively"
 
 **13b. Administration of interventions**
 - Timing of interventions
 - Setting (emergency, inpatient, outpatient)
-- Healthcare personnel involved
+- Healthcare providers involved
 - Patient adherence
 
-**13c. Changes in interventions**
-- Modifications during the course of treatment
-- Dosage adjustments
-- Changes due to adverse reactions
-- Switching to alternative therapies
+**13c. Changes to interventions**
+- Modifications during course of treatment
+- Dose adjustments
+- Changes due to adverse effects
+- Switches to alternative therapies
 - Rationale for changes
 
 **13d. Strengths and limitations**
 - Why these interventions were chosen
-- Evidence supporting the intervention
+- Evidence supporting interventions
 - Alternatives considered
 - Limitations or barriers to treatment
 
-#### Follow-up and Outcomes (2 items)
+#### Follow-Up and Outcomes (2 items)
 
-**14a. Clinician- and patient-assessed outcomes**
-- Objective clinical results
+**14a. Clinician and patient-assessed outcomes**
+- Objective clinical outcomes
 - Laboratory or imaging results
 - Functional outcomes
 - Patient-reported outcomes
@@ -206,26 +208,26 @@ Example:
 - Laboratory monitoring
 - Functional assessments
 - Long-term outcomes
-- Timing of follow-up points
+- Time points of follow-up
 
 #### Discussion (5 items)
 
 **15a. Strengths and limitations**
 - What makes this case valuable?
 - Limitations in diagnosis or treatment
-- Limitations of the case report methodology
+- Limitations of case report methodology
 - Generalizability
 
 **15b. Relevant medical literature**
-- Comparison with similar published cases
+- Comparison to similar published cases
 - Relationship to current understanding
-- Novelty compared to literature
+- Novel aspects compared to literature
 - Number and quality of similar cases
 
 **15c. Rationale for conclusions**
-- Why these conclusions were reached
+- Why these conclusions are drawn
 - Strength of evidence
-- Explanations considered
+- Alternative explanations considered
 
 **15d. Main takeaways**
 - Clinical lessons learned
@@ -237,138 +239,138 @@ Example:
 - Questions raised by this case
 - Suggestions for future research
 - Implications for clinical practice
-- Areas requiring further investigation
+- Areas needing further investigation
 
 #### Patient Perspective (1 item)
 
 **16. Patient's perspective or experience**
-- The patient's description of their experience
+- Patient's own description of experience
 - Impact on quality of life
-- Patient priorities and preferences
+- Patient's priorities and preferences
 - Satisfaction with care
-- Appropriate direct quotes (consent required)
+- Direct quotes when appropriate (with consent)
 
-Example: "The patient stated: 'I thought I was having a heart attack, but the pain was different from what I imagined. I am grateful the doctors found the problem so quickly.'"
+Example: "The patient stated: 'I thought I was having a heart attack, but the pain was different than I expected. I'm grateful the doctors figured out what was wrong so quickly.'"
 
-This section is optional but recommended as it provides valuable patient-centered information.
+This section is optional but encouraged as it provides valuable patient-centered information.
 
 #### Informed Consent (1 item)
 
 **17. Informed consent statement**
 - Document that informed consent was obtained
-- State what was consented to (case details, imaging, etc.)
-- State that the consent form is available for review
-- For pediatric cases, document parent/guardian consent
-- For deceased patients or those unable to provide consent, document proxy consent
+- Specify what consent covers (case details, images, etc.)
+- State that consent is available for review
+- For pediatric cases, document parental/guardian consent
+- For deceased patients or those unable to consent, document proxy consent
 
-Example:
-- "Written informed consent was obtained from the patient for publication of this case report and any accompanying images. A copy of the written consent is available for review by the Editor-in-Chief of this journal."
-- "The patient provided written informed consent for the publication of this case report. All identifying information has been removed to protect patient privacy."
-- "As the patient was deceased at the time of manuscript preparation, written informed consent for publication of this case report was obtained from the patient's next of kin."
+Examples:
+- "Written informed consent was obtained from the patient for publication of this case report and accompanying images. A copy of the written consent is available for review by the Editor-in-Chief of this journal."
+- "The patient provided written informed consent for publication of this case report. All identifying information has been removed to protect patient privacy."
+- "Written informed consent was obtained from the patient's next of kin for publication of this case report as the patient was deceased at the time of manuscript preparation."
 
 ## Journal-Specific Requirements
 
 ### High-Impact Medical Journals
 
 #### The Lancet
-- Rarely accepts case reports (unless of extreme clinical significance)
-- Prefers short case reports (500-600 words, 1 image)
-- Requires a structured abstract
-- Maximum of 10 references
+- Case reports rarely accepted (only if exceptional clinical significance)
+- Prefer brief case reports (500-600 words, 1 figure)
+- Structured abstract required
+- Maximum 10 references
 
 #### New England Journal of Medicine (NEJM)
 - Clinical Problem-Solving format for diagnostic challenges
 - Case Records of the Massachusetts General Hospital (CPC format)
-- Short case reports in "Images in Clinical Medicine"
-- Strict word limits (Images section usually <750 words)
+- Brief case reports in Images in Clinical Medicine
+- Strict word limits (typically <750 words for Images)
 
 #### JAMA
-- Short case reports in "Clinical Challenge" format
-- Focuses on diagnostic reasoning
+- Brief case reports in Clinical Challenge format
+- Focus on diagnostic reasoning
 - Maximum 600 words
-- Allows 1-2 images
+- 1-2 figures allowed
 
 ### Specialty Journals
 
 #### BMJ Case Reports
 - All case reports must follow CARE guidelines
-- Requires a structured abstract
-- Requires a "Learning Points" section (3-5 bullet points)
-- Requires a patient consent form
+- Structured abstract required
+- Learning points section required (3-5 bullet points)
+- Patient consent form required
 - Word limit: 3000 words (excluding abstract and references)
 
 #### Journal of Medical Case Reports
 - Strictly follows CARE guidelines
 - Open access publication
 - Structured abstract: Background, Case presentation, Conclusions
-- Requires a timeline
-- Encourages providing a patient perspective
+- Timeline required
+- Patient perspective encouraged
 
 #### American Journal of Case Reports
 - Open access
 - Follows CARE guidelines
-- Requires a structured abstract
+- Structured abstract required
 - Minimum 1500 words
 - No upper word limit
 
 ## De-identification and Privacy
 
-### 18 HIPAA Identifiers to be Removed
+### 18 HIPAA Identifiers to Remove
 
-To comply with Safe Harbor de-identification requirements, the full list of Protected Health Information (PHI) that must be removed includes:
+Complete list of protected health information (PHI) that must be removed for Safe Harbor de-identification:
 
-1. **Names** - Patient names, family names, healthcare provider names
-2. **Geographic subdivisions smaller than a state** - Street address, city, county, zip code (first 3 digits can be kept if the area population is >20,000)
-3. **Dates** - Exact dates of birth, admission, discharge, death (keep the year or use intervals)
-4. **Telephone numbers** - Any phone numbers associated with the patient
+1. **Names** - Patient name, family members' names, healthcare provider names
+2. **Geographic subdivisions smaller than state** - Street addresses, cities, counties, ZIP codes (can keep first 3 digits if >20,000 people in area)
+3. **Dates** - Exact dates of birth, admission, discharge, death (keep year or use intervals)
+4. **Telephone numbers** - Any phone numbers related to patient
 5. **Fax numbers**
 6. **Email addresses**
-7. **Social Security Numbers (SSN)**
-8. **Medical Record Numbers (MRN)**
+7. **Social Security numbers**
+8. **Medical record numbers**
 9. **Health plan beneficiary numbers**
 10. **Account numbers**
 11. **Certificate/license numbers**
-12. **Vehicle identifiers** - License plate numbers, VINs
-13. **Device identifiers and serial numbers** - Pacemakers, implants (unless generic names)
-14. **URLs**
+12. **Vehicle identifiers** - License plates, VINs
+13. **Device identifiers and serial numbers** - Pacemakers, implants (unless generic)
+14. **Web URLs**
 15. **IP addresses**
-16. **Biometric identifiers** - Fingerprints, voiceprints, retinal scans
-17. **Full-face photographs** - Must be masked or consent obtained
+16. **Biometric identifiers** - Fingerprints, voice prints, retinal scans
+17. **Full-face photographs** - Must obscure or obtain consent
 18. **Any other unique identifying characteristic or code**
 
 ### De-identification Best Practices
 
 **Age Reporting:**
-- Adults: Can use exact age or age range (e.g., "a female in her 50s")
-- Patients >89 years: Must be aggregated (e.g., "a female in her 90s" or ">89 years old")
-- Pediatric cases: Use months for infants, years for children
+- For adults: Can use exact age or age ranges (e.g., "a woman in her 50s")
+- For patients >89 years: Must aggregate (e.g., "a woman in her 90s" or ">89 years")
+- For pediatric cases: Use months for infants, years for children
 
 **Date Reporting:**
 - Use relative time intervals instead of exact dates
-- Example: "Three months prior to presentation..." instead of "January 15, 2023..."
-- The year can be kept if contextually necessary
-- Use "Day 0, Day 1, Day 2" in the timeline
+- Example: "Three months prior to presentation..." instead of "On January 15, 2023..."
+- Can keep year if needed for context
+- Use "Day 0, Day 1, Day 2" for timelines
 
 **Location:**
-- State or country is acceptable
-- Remove city, hospital names, specific clinics
+- State or country acceptable
+- Remove city, hospital name, specific clinic
 - Example: "A community hospital in the Midwest" or "A tertiary care center in California"
 
-**Rare Diseases:**
-- Extremely rare diseases themselves can be identifying
-- Consider whether the combination of diagnosis, location, and timeframe could identify the patient
-- Certain details may need to be blurred or generalized
+**Rare Conditions:**
+- Very rare conditions may themselves be identifying
+- Consider whether the combination of diagnosis, location, and timeframe could identify patient
+- May need to be vague about certain details
 
-**Imaging Materials:**
+**Images:**
 - Crop or blur faces
 - Remove jewelry, tattoos, or identifying marks
 - Crop images to show only relevant clinical findings
 - Consider using illustrations instead of photographs
-- Black bars over eyes are **insufficient**
-- Obtain explicit consent for identifiable images
+- Black bars over eyes are NOT sufficient
+- Get explicit consent for recognizable images
 
 **Pathology and Imaging:**
-- Remove patient identifiers from image captions
+- Remove patient identifiers from image headers
 - Remove dates from images
 - Remove medical record numbers from labels
 
@@ -377,13 +379,13 @@ To comply with Safe Harbor de-identification requirements, the full list of Prot
 ### Clarity and Precision
 
 **Use clear, specific language:**
-- Good: "The patient's hemoglobin dropped from 12.5 g/dL to 7.2 g/dL within 48 hours"
+- Good: "The patient's hemoglobin decreased from 12.5 g/dL to 7.2 g/dL over 48 hours"
 - Poor: "The patient's blood count dropped significantly"
 
 **Avoid ambiguous terms:**
-- Do not use "several"; specify the number
-- Do not use "recently"; give a timeframe
-- Do not use "significant"; provide exact values and p-values (if applicable)
+- Instead of "several," specify the number
+- Instead of "recently," give timeframe
+- Instead of "significant," provide exact values and p-values if applicable
 
 **Use active voice when appropriate:**
 - Good: "We diagnosed the patient with acute appendicitis"
@@ -393,122 +395,122 @@ To comply with Safe Harbor de-identification requirements, the full list of Prot
 
 - Objective and factual
 - Avoid sensationalism
-- Respect the patient and medical team
+- Respectful toward patient and healthcare team
 - Avoid value judgments
 - Focus on clinical facts and medical reasoning
 
-### Tenses
+### Tense
 
 - **Abstract**: Usually past tense
 - **Introduction**: Present tense for background, past tense for case description
-- **Case Presentation**: Past tense
-- **Discussion**: Present tense for established knowledge, past tense for the current case
+- **Case presentation**: Past tense
+- **Discussion**: Present tense for established knowledge, past tense for this case
 
 ### Common Mistakes to Avoid
 
-1. **Lack of novelty** - Reporting common presentations without unique aspects
-2. **Omission of informed consent** - Failure to obtain or document consent
-3. **Insufficient de-identification** - Leaving identifiable information
-4. **Inadequate literature review** - Failure to position the case within existing knowledge
+1. **Insufficient novelty** - Reporting common presentations without unique aspects
+2. **Missing informed consent** - Failing to obtain or document consent
+3. **Inadequate de-identification** - Leaving identifiable information
+4. **Poor literature review** - Not contextualizing within existing knowledge
 5. **Excessive length** - Including unnecessary details
 6. **Lack of structure** - Not following CARE guidelines or journal format
-7. **Over-generalization** - Drawing broad conclusions from a single case
-8. **Missing timeline** - Failure to provide a clear chronological order
-9. **Vague outcomes** - Not clearly describing clinical outcomes
-10. **No learning points** - Failure to articulate clinical lessons
+7. **Overgeneralization** - Drawing broad conclusions from one case
+8. **Missing timeline** - Not providing clear chronology
+9. **Vague outcomes** - Not clearly describing clinical outcome
+10. **No learning points** - Failing to articulate clinical lessons
 
 ## Learning Points Format
 
-Many journals require a "Learning Points" or "Key Messages" section containing 3-5 bullet points.
+Many journals require a "Learning Points" or "Key Messages" section with 3-5 bulleted takeaways.
 
 **Characteristics of good learning points:**
 - Concise (1-2 sentences each)
 - Clinically actionable
 - Generalizable beyond this specific case
-- Focused on diagnosis, treatment, or recognition
-- Avoid over-generalization
+- Focus on diagnosis, treatment, or recognition
+- Avoid overgeneralization
 
-**Examples:**
-- "Aortic dissection can present with atypical symptoms mimicking pneumonia, including cough and dyspnea without chest pain."
-- "A blood pressure differential of >20 mmHg between arms should raise suspicion for aortic dissection."
+**Example:**
+- "Aortic dissection can present with atypical symptoms that mimic pneumonia, including cough and dyspnea without chest pain."
+- "Blood pressure differential between arms >20 mmHg should raise suspicion for aortic dissection."
 - "CT angiography is the gold standard for diagnosing acute aortic dissection and should be performed urgently in high-risk patients."
 
-## Literature Search Strategy
+## Literature Search Strategies
 
-**Search Databases:**
+**Databases to search:**
 - PubMed/MEDLINE
 - Embase
 - Google Scholar
 - Scopus
 - Web of Science
 
-**Search Terms:**
-- Name of the disease or condition
+**Search terms:**
+- Disease or condition name
 - Key clinical features
 - Treatment or intervention
 - Use MeSH terms
 - Combine with "case report" or "case series"
 
 **When citing literature:**
-- Cite the most relevant and recent cases
-- Include systematic reviews (if available)
-- Cite original descriptions of rare diseases
-- Balance supportive and contrasting evidence
-- Case reports typically cite 15-30 references
+- Cite most relevant and recent cases
+- Include systematic reviews if available
+- Cite original descriptions of rare conditions
+- Balance supporting and contrasting evidence
+- Typically 15-30 references for case report
 
 ## Ethical Considerations
 
 ### Informed Consent
 
-**Essential Elements:**
+**Required elements:**
 - Purpose of publication
 - What will be published (case details, images, outcomes)
 - De-identification efforts
-- Open access considerations (public accessibility)
-- No impact on clinical care
+- Open access considerations (public availability)
+- No effect on clinical care
 - Right to withdraw
-- Contact information for inquiries
+- Contact for questions
 
 **Timing:**
-- Ideally obtained during or shortly after clinical care
-- Can be obtained retrospectively if the patient is reachable
-- For deceased patients, consent from next of kin
+- Best obtained during or shortly after clinical care
+- Can be obtained retrospectively if patient available
+- For deceased patients, next of kin consent
 
-**Special Situations:**
+**Special situations:**
 - Pediatric patients: Parent/guardian consent
 - Incapacitated patients: Legal representative consent
 - Deceased patients: Next of kin consent
-- Patients lost to follow-up: Consult with the editor
+- Patients lost to follow-up: Discuss with editor
 
 ### Authorship
 
-**ICMJE Authorship Criteria (all must be met):**
-1. Substantial contributions to the conception/design, or the acquisition/analysis/interpretation of data
-2. Drafting or critically revising the work for important intellectual content
-3. Final approval of the version to be published
+**ICMJE criteria for authorship (all must be met):**
+1. Substantial contributions to conception/design or acquisition/analysis/interpretation of data
+2. Drafting or critically revising for important intellectual content
+3. Final approval of version to be published
 4. Agreement to be accountable for all aspects of the work
 
-**Common Authorship Roles in Case Reports:**
-- First Author: Primary writer, usually the junior doctor/trainee
-- Corresponding/Senior Author: Attending physician, supervisor
-- Co-authors: Specialists who contributed, consulting physicians
-- Acknowledgments: Contributors who do not meet authorship criteria
+**Common authorship roles in case reports:**
+- First author: Primary writer, often junior physician/trainee
+- Senior author: Attending physician, supervisor
+- Co-authors: Contributing specialists, consultants
+- Acknowledgments: Contributors not meeting authorship criteria
 
 ## Submission Process
 
 ### Cover Letter Elements
 
 - Brief introduction of the case
-- Statement regarding novelty and importance
-- Confirmation of adherence to CARE guidelines
-- Statement that the manuscript is not under consideration elsewhere
+- Statement of novelty and significance
+- Confirmation of CARE guideline adherence
+- Statement that manuscript is not under consideration elsewhere
 - Disclosure of any conflicts of interest
 - Corresponding author contact information
 
 ### Required Documents
 
 - Manuscript (following journal format)
-- CARE Checklist (completed)
+- CARE checklist (completed)
 - Patient consent form
 - Copyright transfer agreement
 - Conflict of interest disclosure
@@ -517,51 +519,52 @@ Many journals require a "Learning Points" or "Key Messages" section containing 3
 
 ### Revision and Peer Review
 
-**Common Reviewer Requests:**
-- Expand the literature review
-- Clarify the timeline
-- Add details on diagnosis or treatment
+**Common reviewer requests:**
+- Expand literature review
+- Clarify timeline
+- Add more detail to diagnostics or treatment
 - Improve discussion of pathophysiology
 - Strengthen learning points
 - Verify consent documentation
 - Improve image quality
 
-**Responding to Reviewers:**
-- Respond to every comment point-by-point
-- Provide line numbers for revisions
-- If a requested change is not made, provide a rationale
-- Thank reviewers for their feedback
-- Proofread the revised manuscript
+**Response to reviewers:**
+- Address each comment point-by-point
+- Provide line numbers for changes
+- Justify if not making requested change
+- Thank reviewers for feedback
+- Proofread revised manuscript
 
-## Different Types of Case Report Formats
+## Case Report Formats by Type
 
 ### Diagnostic Challenge
 
-Focuses on the diagnostic reasoning process, differential diagnosis, and key diagnostic clues.
+Focus on diagnostic reasoning process, differential diagnosis, and key diagnostic clues.
 
 ### Rare Disease or Presentation
 
-Emphasizes rarity, epidemiology, and contribution to medical knowledge of the condition.
+Emphasize rarity, epidemiology, and contribution to medical knowledge about the condition.
 
 ### Adverse Drug Reaction
 
-Includes drug details (dosage, duration), timeline, causality assessment (Naranjo scale), and outcomes after discontinuation.
+Include drug details (dose, duration), timeline, causality assessment (Naranjo scale), and outcome after discontinuation.
 
-### Therapeutic Innovation
+### Treatment Innovation
 
-Describes new treatment methods, rationale, outcomes, and comparison with standard care.
+Describe novel treatment approach, rationale, outcome, and comparison to standard treatment.
 
 ### Unexpected Outcome
 
-Describes unexpected responses to treatment or unusual disease courses.
+Describe unexpected response to treatment or unusual disease course.
 
 ## Supplementary Resources
 
 - CARE website: https://www.care-statement.org/
-- CARE Checklist: Available in multiple languages
-- Case report examples: Review published cases in target journals
-- Medical writing courses: Many institutions offer workshops on case report writing
+- CARE checklist: Available in multiple languages
+- Example case reports: Review published cases in target journal
+- Medical writing courses: Many institutions offer case report writing workshops
 
 ---
 
-This resource provides comprehensive guidance for writing clinical case reports following the CARE guidelines. Please refer to this document when preparing a case report for journal submission and use the CARE checklist to ensure completeness before submission.
+This reference provides comprehensive guidance for writing clinical case reports following CARE guidelines. Refer to this document when preparing case reports for journal submission, and use the CARE checklist to ensure completeness before submission.
+

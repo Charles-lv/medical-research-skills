@@ -9,10 +9,12 @@ from openpyxl import load_workbook
 from openpyxl.chart import BarChart, LineChart, PieChart, Reference
 from openpyxl.utils.cell import range_boundaries
 
+DEFAULT_INPUT_DIR = Path("input")
+DEFAULT_OUTPUT_DIR = Path("output")
 
 CONFIG = {
-    "input_file": "C:\\Users\\xxx\\Desktop\\test.xlsx",
-    "output_file": "C:\\Users\\xxx\\Desktop\\Test_Chart.xlsx",
+    "input_file": str(DEFAULT_INPUT_DIR / "test.xlsx"),
+    "output_file": str(DEFAULT_OUTPUT_DIR / "test_chart.xlsx"),
     "sheet_name": "Sheet1",
     "charts": [
         {

@@ -1,106 +1,106 @@
 {
   "patient_info": {
-    "name": "张某某",
-    "gender": "男",
+    "name": "Patient Zhang",
+    "gender": "male",
     "age": 68,
     "medical_record_number": "20250205001",
     "admission_date": "2025-01-28",
     "discharge_date": "2025-02-05",
-    "department": "心血管内科",
-    "attending_physician": "李医生"
+    "department": "Cardiology Department",
+    "attending_physician": "Dr. Li"
   },
   "admission_data": {
-    "chief_complaint": "胸闷、胸痛3天",
-    "present_illness_history": "患者于3天前无明显诱因出现胸骨后闷痛，呈压榨性，向左肩及左上肢放射，持续约10-15分钟，休息后可缓解。伴心悸、气短，无晕厥。于我院急诊就诊，心电图示V1-V4导联ST段抬高，心肌酶谱升高，以\"急性前壁心肌梗死\"收入院。",
-    "past_medical_history": "高血压病史10年，最高血压160/95mmHg，平时服用氨氯地平5mg qd，血压控制尚可。2型糖尿病史5年，服用二甲双胍0.5g bid，血糖控制一般。否认肝炎、结核等传染病史。",
-    "physical_examination": "T 36.5℃，P 88次/分，R 20次/分，BP 135/85mmHg。神志清楚，精神可。双肺呼吸音清，未闻及干湿啰音。心率88次/分，律齐，心音有力，各瓣膜区未闻及病理性杂音。腹软，无压痛。双下肢无水肿。",
+    "chief_complaint": "Chest tightness and chest pain for 3 days",
+    "present_illness_history": "Patient presented 3 days ago with substernal dull pain without obvious precipitating factors, crushing in nature, radiating to left shoulder and left upper limb, lasting about 10-15 minutes, relieved by rest. Accompanied by palpitations and dyspnea, no syncope. Presented to our emergency department, ECG showed V1-V4 leads ST elevation, elevated cardiac enzymes, admitted with diagnosis of acute anterior wall myocardial infarction.",
+    "past_medical_history": "Hypertension for 10 years, highest blood pressure 160/95mmHg, taking amlodipine 5mg qd, blood pressure fairly well controlled. Type 2 diabetes mellitus for 5 years, taking metformin 0.5g bid, blood glucose control fair. Denies history of hepatitis, tuberculosis, or other infectious diseases.",
+    "physical_examination": "T 36.5C, P 88 bpm, R 20 breaths/min, BP 135/85mmHg. Alert, fair general condition. Bilateral lung sounds clear, no rales. Heart rate 88 bpm, regular rhythm, normal heart sounds, no pathological murmurs at any valve area. Abdomen soft, non-tender. No lower extremity edema.",
     "admission_diagnosis": [
-      "冠心病 急性前壁ST段抬高型心肌梗死",
-      "Killip分级 I级",
-      "高血压病2级（中危）",
-      "2型糖尿病"
+      "Coronary heart disease - Acute anterior wall ST-elevation myocardial infarction",
+      "Killip Class I",
+      "Hypertension Grade 2 (high risk)",
+      "Type 2 diabetes mellitus"
     ]
   },
   "hospital_course": {
-    "treatment_summary": "患者入院后立即启动胸痛中心绿色通道，完善术前检查。于入院后2小时行急诊冠脉造影，示前降支近段95%狭窄，植入药物洗脱支架1枚。术后予双联抗血小板（阿司匹林100mg qd + 氯吡格雷75mg qd）、他汀调脂、ACEI改善心室重构、β受体阻滞剂控制心率等治疗。住院期间病情平稳，无胸痛发作，无并发症。",
+    "treatment_summary": "Patient was immediately placed on the chest pain center green pathway upon admission, and pre-procedural workup was completed. Emergency coronary angiography was performed 2 hours after admission, showing 95% stenosis of the proximal left anterior descending artery, and one drug-eluting stent was implanted. Post-procedure, patient received dual antiplatelet therapy (aspirin 100mg qd + clopidogrel 75mg qd), statin for lipid management, ACEI for ventricular remodeling, and beta-blocker for heart rate control. Hospital course was uneventful, no chest pain episodes, no complications.",
     "procedures_performed": [
-      "2025-01-28 急诊冠状动脉造影术",
-      "2025-01-28 冠状动脉支架植入术（前降支）"
+      "2025-01-28 Emergency coronary angiography",
+      "2025-01-28 Coronary artery stent implantation (left anterior descending artery)"
     ],
-    "significant_findings": "冠脉造影：左主干未见明显狭窄；前降支近段95%狭窄，TIMI血流2级；回旋支中段30%狭窄；右冠脉未见明显狭窄。术后TIMI血流3级。心肌酶：CK-MB峰值186U/L，cTnI峰值12.5ng/mL。心脏超声：左室前壁运动减弱，EF 52%。",
+    "significant_findings": "Coronary angiography: Left main artery no significant stenosis; proximal LAD 95% stenosis, TIMI flow grade 2; mid left circumflex artery 30% stenosis; right coronary artery no significant stenosis. Post-procedure TIMI flow grade 3. Cardiac enzymes: CK-MB peak 186U/L, cTnI peak 12.5ng/mL. Echocardiography: Left ventricular anterior wall hypokinesis, EF 52%.",
     "complications": [],
     "consultations": []
   },
   "discharge_status": {
     "discharge_diagnosis": [
-      "冠心病 急性前壁ST段抬高型心肌梗死",
-      "PCI术后",
-      "高血压病2级（中危）",
-      "2型糖尿病"
+      "Coronary heart disease - Acute anterior wall ST-elevation myocardial infarction",
+      "Post-PCI status",
+      "Hypertension Grade 2 (high risk)",
+      "Type 2 diabetes mellitus"
     ],
-    "discharge_condition": "好转。患者无胸痛、胸闷，无气短，精神食欲可，睡眠好，大小便正常。查体：生命体征平稳，心肺听诊未见明显异常，双下肢无水肿。"
+    "discharge_condition": "Improved. Patient has no chest pain, no chest tightness, no shortness of breath. Good spirits and appetite, sleeping well, normal bowel and bladder function. Physical examination: vital signs stable, cardiopulmonary auscultation unremarkable, no lower extremity edema."
   },
   "medications": {
     "discharge_medications": [
       {
-        "name": "阿司匹林肠溶片",
+        "name": "Aspirin enteric-coated tablets",
         "dosage": "100mg",
-        "frequency": "每日一次",
-        "route": "口服",
-        "duration": "长期服用"
+        "frequency": "Once daily",
+        "route": "Oral",
+        "duration": "Long-term"
       },
       {
-        "name": "硫酸氢氯吡格雷片",
+        "name": "Clopidogrel bisulfate tablets",
         "dosage": "75mg",
-        "frequency": "每日一次",
-        "route": "口服",
-        "duration": "至少服用12个月"
+        "frequency": "Once daily",
+        "route": "Oral",
+        "duration": "At least 12 months"
       },
       {
-        "name": "阿托伐他汀钙片",
+        "name": "Atorvastatin calcium tablets",
         "dosage": "20mg",
-        "frequency": "每晚一次",
-        "route": "口服",
-        "duration": "长期服用"
+        "frequency": "Once nightly",
+        "route": "Oral",
+        "duration": "Long-term"
       },
       {
-        "name": "培哚普利片",
+        "name": "Perindopril tablets",
         "dosage": "4mg",
-        "frequency": "每日一次",
-        "route": "口服",
-        "duration": "长期服用"
+        "frequency": "Once daily",
+        "route": "Oral",
+        "duration": "Long-term"
       },
       {
-        "name": "美托洛尔缓释片",
+        "name": "Metoprolol sustained-release tablets",
         "dosage": "47.5mg",
-        "frequency": "每日一次",
-        "route": "口服",
-        "duration": "长期服用"
+        "frequency": "Once daily",
+        "route": "Oral",
+        "duration": "Long-term"
       },
       {
-        "name": "二甲双胍片",
+        "name": "Metformin tablets",
         "dosage": "0.5g",
-        "frequency": "每日两次",
-        "route": "口服",
-        "duration": "长期服用"
+        "frequency": "Twice daily",
+        "route": "Oral",
+        "duration": "Long-term"
       }
     ]
   },
   "follow_up": {
-    "instructions": "规律服药，不得擅自停药。低盐低脂糖尿病饮食，戒烟限酒，控制体重。监测血压、血糖，保持血压<130/80mmHg，空腹血糖<7mmol/L。适度运动，避免剧烈活动和重体力劳动。保持情绪稳定，避免激动。",
+    "instructions": "Take medications regularly, do not discontinue without medical advice. Low-salt, low-fat, diabetic diet. Quit smoking, limit alcohol, control weight. Monitor blood pressure and blood glucose, maintain BP <130/80mmHg, fasting glucose <7mmol/L. Moderate exercise, avoid strenuous activity and heavy physical labor. Maintain emotional stability, avoid agitation.",
     "follow_up_appointments": [
-      "心内科门诊：出院后1周（2025-02-12），周二上午，携带出院小结",
-      "心内科门诊：出院后1个月复查血常规、肝肾功能、血脂、心电图",
-      "心内科门诊：出院后3-6个月复查心脏超声"
+      "Cardiology outpatient: 1 week after discharge (2025-02-12), Tuesday morning, bring discharge summary",
+      "Cardiology outpatient: 1 month after discharge, recheck complete blood count, liver and kidney function, lipid panel, ECG",
+      "Cardiology outpatient: 3-6 months after discharge, recheck echocardiography"
     ],
     "warning_signs": [
-      "胸痛、胸闷，尤其是持续不缓解超过15分钟",
-      "严重呼吸困难、不能平卧",
-      "心悸、晕厥",
-      "牙龈出血、皮肤瘀斑（可能为抗血小板药物不良反应）",
-      "肌肉酸痛、乏力（可能为他汀类药物不良反应）"
+      "Chest pain or chest tightness, especially if persistent and unrelieved for more than 15 minutes",
+      "Severe dyspnea, inability to lie flat",
+      "Palpitations, syncope",
+      "Gum bleeding, skin bruising (possible adverse reaction to antiplatelet medication)",
+      "Muscle soreness, fatigue (possible adverse reaction to statin medication)"
     ],
-    "activity_restrictions": "出院后1个月内避免剧烈运动和重体力劳动，可进行散步等轻度活动。术后3个月经医生评估后可逐步恢复正常活动。",
-    "diet_instructions": "低盐（每日<6g）、低脂、低糖饮食。多食蔬菜水果、全谷物、鱼类。少食动物内脏、肥肉、油炸食品。戒烟限酒。"
+    "activity_restrictions": "Avoid strenuous exercise and heavy physical labor for 1 month after discharge. Light activities such as walking are permitted. Resume normal activities gradually after physician evaluation at 3 months post-procedure.",
+    "diet_instructions": "Low-salt (less than 6g per day), low-fat, low-sugar diet. Eat more vegetables, fruits, whole grains, and fish. Reduce organ meats, fatty meats, and fried foods. Quit smoking and limit alcohol."
   }
 }

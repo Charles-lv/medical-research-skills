@@ -3,19 +3,19 @@
 ## Patient Information
 
 **Patient Name:** [Last, First]  
-**Medical Record Number (MRN):** [MRN]  
+**Medical Record Number:** [MRN]  
 **Date of Birth:** [MM/DD/YYYY]  
-**Age:** [Years]  
-**Gender:** [Male/Female]
+**Age:** [years]  
+**Sex:** [M/F]
 
-**Date of Admission:** [MM/DD/YYYY]  
-**Date of Discharge:** [MM/DD/YYYY]  
-**Length of Stay:** [X Days]
+**Admission Date:** [MM/DD/YYYY]  
+**Discharge Date:** [MM/DD/YYYY]  
+**Length of Stay:** [X days]
 
-**Admitting Department:** [Internal Medicine/Surgery/Cardiology/etc.]  
+**Admitting Service:** [Medicine/Surgery/Cardiology/etc.]  
 **Attending Physician:** [Name]  
-**Primary Care Physician (PCP):** [Name and Contact Information]  
-**Consulting Services:** [List specialties that saw the patient]
+**Primary Care Physician:** [Name and contact]  
+**Consulting Services:** [List specialties that saw patient]
 
 ---
 
@@ -23,21 +23,21 @@
 
 [Primary reason for hospitalization]
 
-Example: "Acute Decompensated Heart Failure"
+Example: "Acute decompensated heart failure"
 
 ---
 
-## Discharge Diagnosis
+## Discharge Diagnoses
 
-[Numbered list, ordered by clinical importance]
+[Numbered list, prioritized by clinical significance]
 
 **Primary Diagnosis:**
-1. [Primary diagnosis and ICD-10 code]
+1. [Primary diagnosis with ICD-10 code]
 
 **Secondary Diagnoses:**
-2. [Secondary diagnosis and ICD-10 code]
-3. [Other diagnosis and ICD-10 code]
-4. [Comorbidities and ICD-10 code]
+2. [Secondary diagnosis with ICD-10 code]
+3. [Additional diagnosis with ICD-10 code]
+4. [Comorbidity with ICD-10 code]
 
 Example:
 ```
@@ -52,23 +52,23 @@ Example:
 
 ## Hospital Course
 
-[A comprehensive and concise narrative of the hospital stay - can be organized chronologically or by problem]
+[Comprehensive yet concise narrative of hospital stay - can be organized chronologically or by problem]
 
 ### Chronological Format:
 
 **[Date Range or Hospital Day 1-X]:**
 
-[Patient Name] was admitted to the [Department] service for [Chief Complaint/Presenting Problem]. Upon presentation, the patient was in [Clinical Status]. Initial workup revealed [Key Findings].
+[Patient Name] was admitted to the [service] service with [chief complaint/presenting problem]. On presentation, patient was [clinical status]. Initial workup revealed [key findings].
 
-[Describe key events, interventions, and response to treatment by day or by problem]
+[Description of key events, interventions, and response to treatment organized by day or by problem]
 
-**Hospital Day 1:** [Events and Interventions]
+**Hospital Day 1:** [Events and interventions]
 
-**Hospital Day 2-3:** [Progress, Response to Treatment]
+**Hospital Day 2-3:** [Progression, response to treatment]
 
-**Hospital Day 4-7:** [Ongoing Treatment, Consultations, Procedures]
+**Hospital Day 4-7:** [Continued treatment, consultations, procedures]
 
-**Final Days Prior to Discharge:** [Stabilization, Preparation for Discharge]
+**Final Hospital Days:** [Stabilization, preparation for discharge]
 
 ### Problem-Based Format (Alternative):
 
@@ -80,40 +80,40 @@ Example:
 - Status at discharge
 
 **2. [Secondary Problem]**
-- [Same structure as above]
+- [Similar structure]
 
-**3. [Other Problems]**
+**3. [Additional Problems]**
 
 ### Key Events and Interventions
 
-**Consultations Completed:**
-- [Specialty] consulted on [Date] for [Reason]: [Recommendations]
+**Consultations Obtained:**
+- [Specialty] consulted on [date] for [reason]: [Recommendations]
 
 **Procedures Performed:**
-- [Procedure Name] performed on [Date]: [Indication, Findings, Complications (if any)]
+- [Procedure name] on [date]: [Indication, findings, complications if any]
 
-**Significant Diagnostic Tests:**
-- [Test/Imaging] performed on [Date]: [Key findings relevant to post-discharge care]
+**Significant Diagnostic Studies:**
+- [Test/imaging] on [date]: [Key findings relevant to discharge care]
 
 **Complications:**
-- [Any complications that occurred]: [How they were managed]
+- [Any complications that occurred]: [How managed]
 
 ---
 
 ## Procedures Performed During Hospitalization
 
-1. [Procedure Name] ([Date])
-   - Indication: [Reason for procedure]
+1. [Procedure name] ([Date])
+   - Indication: [Why performed]
    - Findings: [Key findings]
-   - Complications: [None / Specific complications]
+   - Complications: [None / specific complications]
 
-2. [Other Procedures]
+2. [Additional procedures]
 
 ---
 
 ## Hospital Course Summary (Brief Version)
 
-[A one-paragraph summary suitable for quick review]
+[One paragraph summary suitable for quick reference]
 
 Example:
 ```
@@ -131,34 +131,34 @@ room air by discharge. Comprehensive heart failure education was provided.
 ## Discharge Physical Examination
 
 **Vital Signs:**
-- Temperature: _____ °F
-- Blood Pressure: _____/_____ mmHg
-- Heart Rate: _____ bpm
-- Respiratory Rate: _____ breaths/min
-- SpO2: _____% [Room Air / Supplemental Oxygen]
-- Weight: _____ kg (Admission Weight: _____ kg)
+- Temperature: \_\_\_\_\_ °F
+- Blood Pressure: \_\_\_\_\_/\_\_\_\_\_ mmHg
+- Heart Rate: \_\_\_\_\_ bpm
+- Respiratory Rate: \_\_\_\_\_ breaths/min
+- Oxygen Saturation: \_\_\_\_\_% on [room air / O2]
+- Weight: \_\_\_\_\_ kg (Admission weight: \_\_\_\_\_ kg)
 
-**General Appearance:** [Facies, level of distress]
+**General:** [Appearance, distress level]
 
-**Cardiovascular:** [Heart sounds, edema status]
+**Cardiovascular:** [Heart sounds, edema]
 
 **Pulmonary:** [Breath sounds, work of breathing]
 
-**Abdomen:** [Tenderness, bowel sounds, distension]
+**Abdomen:** [Tenderness, bowel sounds, distention]
 
 **Extremities:** [Edema, pulses]
 
-**Neurological:** [Mental status, focal signs]
+**Neurological:** [Mental status, focal deficits]
 
-**Wounds/Incision (if applicable):** [Healing status]
+**Wounds/Incisions (if applicable):** [Healing status]
 
 ---
 
-## Relevant Laboratory and Imaging Results
+## Pertinent Laboratory and Imaging Results
 
-### Discharge Laboratory Results ([Date])
+### Discharge Labs ([Date])
 
-| Item | Result | Reference Range |
+| Test | Result | Reference Range |
 |------|--------|----------------|
 | WBC | [Value] | [Range] |
 | Hemoglobin | [Value] | [Range] |
@@ -166,44 +166,44 @@ room air by discharge. Comprehensive heart failure education was provided.
 | Sodium | [Value] | [Range] |
 | Potassium | [Value] | [Range] |
 | Creatinine | [Value] | [Range] |
-| [Other Relevant] | [Value] | [Range] |
+| [Other relevant labs] | [Value] | [Range] |
 
-### Imaging/Diagnostic Tests
+### Imaging/Diagnostic Studies
 
-**[Test Name] ([Date]):** [Key findings relevant to outpatient management]
+**[Study name] ([Date]):** [Key findings relevant to outpatient management]
 
 ---
 
 ## Discharge Medications
 
-[Complete list, clearly marking changes from admission]
+[Complete list with clear indication of changes from admission]
 
-### New Medications (Started during hospitalization)
+### New Medications (Started During Hospitalization)
 
-1. **[Medication Name]** [Dose] [Route] [Frequency]
-   - Indication: [Reason for prescription]
-   - Duration: [If limited course]
-   - Special Instructions: [Take with food, timing, etc.]
+1. **[Medication name]** [dose] [route] [frequency]
+   - Indication: [Why prescribed]
+   - Duration: [If limited duration]
+   - Special instructions: [With food, time of day, etc.]
 
-### Adjusted Medications (Modified dose or frequency)
+### Changed Medications (Dose or Frequency Modified)
 
-2. **[Medication Name]** [New Dose] [Route] [Frequency]
-   - **Original Regimen:** [Original dose and frequency]
-   - Reason for Adjustment: [Reason for modification]
+2. **[Medication name]** [NEW dose] [route] [frequency]
+   - **CHANGED FROM:** [Previous dose and frequency]
+   - Reason for change: [Why modified]
 
 ### Continued Medications (No change from home medications)
 
-3. **[Medication Name]** [Dose] [Route] [Frequency]
-   - **Continued** from home regimen
+3. **[Medication name]** [dose] [route] [frequency]
+   - **CONTINUED** from home regimen
 
-### Discontinued Medications (Stopped during hospitalization)
+### Discontinued Medications (Stopped During Hospitalization)
 
-4. **[Medication Name]** - **DISCONTINUED**
-   - Reason: [Reason for stopping]
+4. **[Medication name]** - **DISCONTINUED**
+   - Reason: [Why stopped]
 
-### Patient's Complete Medication List
+### Complete Medication List for Patient
 
-[Simplified format list for the patient]
+[Consolidated list in simple format for patient]
 
 ```
 1. Furosemide 40 mg by mouth once daily [NEW - for fluid management]
@@ -217,69 +217,69 @@ room air by discharge. Comprehensive heart failure education was provided.
 
 ## Discharge Condition
 
-**Overall Status:** [Stable / Improved / Returned to baseline / Requires ongoing care]
+**Overall Status:** [Stable / Improved / Baseline / Requires continued care]
 
-**Specific Assessment:**
-- Hemodynamic Status: [Stable]
-- Respiratory Status: [Room air / Requires oxygen]
-- Mental Status: [Alert and oriented to person, place, and time (A&Ox3) / Other]
-- Functional Status: [Ambulatory / Requires assistance / Bedbound]
-- Pain Control: [Adequate / Inadequate]
-- Wound Healing (if applicable): [Good / Delayed]
+**Specific Assessments:**
+- Hemodynamic status: [Stable]
+- Respiratory status: [Room air / Oxygen requirement]
+- Mental status: [Alert and oriented x3 / Other]
+- Functional status: [Ambulatory / Requires assistance / Bedbound]
+- Pain control: [Adequate / Inadequate]
+- Wound healing (if applicable): [Appropriate / Delayed]
 
 Example:
 ```
-Patient is hemodynamically stable, ambulating without assistance, and requires no 
-supplemental oxygen. Physical exam shows euvolemic status, pain is well-controlled, 
-and patient has returned to baseline functional status.
+Patient is hemodynamically stable, ambulatory without assistance, no supplemental 
+oxygen requirement, euvolemic on physical exam, pain well-controlled, and has 
+returned to baseline functional status.
 ```
 
 ---
 
 ## Discharge Disposition
 
-[Destination after discharge]
+[Where patient is going after hospital discharge]
 
 Options:
 - Home with self-care
 - Home with home health services
-- Skilled Nursing Facility (SNF)
-- Acute Rehabilitation
-- Long-Term Acute Care Hospital (LTACH)
-- Hospice (Home or Facility)
-- Against Medical Advice (AMA)
-- Transfer to another acute care facility
+- Skilled nursing facility
+- Acute rehabilitation facility
+- Long-term acute care hospital
+- Hospice (home or facility)
+- Left against medical advice (AMA)
+- Transferred to another acute care facility
 
-**Discharge Disposition:** [Select from above]
+**Discharge Disposition:** [Selection from above]
 
 **Services Arranged:**
-- [ ] Home nursing services
-- [ ] Physical Therapy (PT)
-- [ ] Occupational Therapy (OT)
-- [ ] Durable Medical Equipment (DME): [List items]
-- [ ] Home Oxygen: [Flow rate and delivery method]
+- [ ] Home health nursing
+- [ ] Physical therapy
+- [ ] Occupational therapy
+- [ ] Durable medical equipment: [List items]
+- [ ] Home oxygen: [Flow rate and delivery method]
 - [ ] Other: [Specify]
 
 ---
 
-## Follow-up Appointments
+## Follow-Up Appointments
 
-1. **[Specialist/PCP]** Dr. [Name]
-   - Date/Time: [Appointment date and time] or [Within X days/weeks]
+1. **[Specialty/PCP]** with Dr. [Name]
+   - Date/Time: [Scheduled date and time] OR [Within X days/weeks]
    - Location: [Clinic name and address]
    - Phone: [Contact number]
-   - Purpose: [Issues to be addressed]
+   - Purpose: [What needs to be addressed]
 
-2. **[Other Appointments]**
+2. **[Additional appointments]**
 
-### Pending Tests/Labs at Discharge
+### Pending Studies/Labs at Discharge
 
-- [Item Name]: [Due date, location, reason]
-- Results will be sent to: [Physician Name]
+- [Test name]: [When due, where to go, reason]
+- Results will be sent to: [Provider name]
 
 ### Referrals Placed
 
-- [Specialty]: [Reason for referral, contact info]
+- [Specialty]: [Reason for referral, contact information]
 
 ---
 
@@ -288,68 +288,68 @@ Options:
 ### Activity
 
 - [Specific activity restrictions or recommendations]
-- Example: "Resume normal activity as tolerated. Avoid lifting more than 10 lbs for 2 weeks."
+- Example: "Resume normal activities as tolerated. Avoid heavy lifting >10 lbs for 2 weeks."
 
 ### Diet
 
 - [Dietary restrictions or recommendations]
-- Example: "Low sodium diet (less than 2 grams per day). Limit fluid intake to 2 liters per day."
+- Example: "Low sodium diet (less than 2 grams per day). Fluid restriction to 2 liters per day."
 
 ### Wound Care (if applicable)
 
 - [Incision care instructions]
 - [Dressing change frequency]
-- [Suture/Staple removal timing]
+- [When stitches/staples should be removed]
 
 ### Self-Monitoring
 
-- [Items the patient should monitor at home]
-- Example: "Weigh yourself every morning. Contact your doctor if your weight increases by more than 2 lbs in 1 day or 5 lbs in 1 week."
+- [What patient should monitor at home]
+- Example: "Weigh yourself every morning. Call doctor if weight gain >2 lbs in 1 day or >5 lbs in 1 week."
 
 ### Equipment/Supplies
 
 - [Equipment provided or prescribed]
-- [Instructions for use]
+- [How to use]
 
 ### Medications
 
 - [General medication instructions]
 - [Importance of compliance]
-- [What to do if a dose is missed]
+- [What to do if dose missed]
 
 ---
 
-## Discharge Precautions / Red Flags
+## Return Precautions / Warning Signs
 
-**Contact your doctor or go to the Emergency Department if you experience the following:**
+**Call your doctor or return to emergency department if you experience:**
 
-- [Specific warning signs related to the condition]
-- [When to seek urgent care vs. contacting the doctor]
+- [Specific warning signs relevant to condition]
+- [When to seek immediate care vs. call doctor]
 
-Heart Failure Example:
+Example for heart failure:
 ```
 - Worsening shortness of breath or difficulty breathing
 - Chest pain or pressure
 - Severe swelling in legs or abdomen
-- Weight gain of more than 2 lbs in a day or 5 lbs in a week
+- Weight gain more than 2 lbs in one day or 5 lbs in one week
 - Dizziness, lightheadedness, or fainting
-- Fever > 101°F
+- Fever >101°F
 - Any other concerning symptoms
 ```
 
 **Emergency Contact Numbers:**
-- Primary Care Physician: [Phone]
-- Specialist Clinic: [Phone]
-- After-hours Nurse Line: [Phone]
-- Emergency Services: 911
+- Primary care physician: [Phone]
+- Specialty clinic: [Phone]
+- After-hours nurse line: [Phone]
+- 911 for emergencies
 
 ---
 
 ## Patient Education Provided
 
-Topics discussed with the patient and/or family:
+Topics discussed with patient and/or family:
 - [ ] Disease process and prognosis
-- [ ] Medication purpose, usage, and side effects
+- [ ] Medication purpose, dosing, and side effects
 - [ ] Warning signs and when to seek care
 - [ ] Activity and dietary restrictions
 - [ ] Follow-up appointments
@@ -357,76 +357,76 @@ Topics discussed with the patient and/or family:
 - [ ] [Other specific topics]
 
 **Patient/Family Understanding:**
-[Patient and family verbally expressed understanding of discharge instructions / Teach-back method used, patient able to repeat key points / Interpreter used]
+[Patient and family verbalize understanding of discharge instructions / Teach-back method used and patient able to repeat key points / Interpreter used]
 
 **Written Materials Provided:**
 - [ ] Discharge instructions
 - [ ] Medication list
-- [ ] Disease-specific educational materials
+- [ ] Disease-specific education materials
 - [ ] Emergency contact information
 - [ ] Appointment information
 
 ---
 
-## Discharge Code Status
+## Code Status at Discharge
 
-**Code Status:** [Full Code / DNR / DNI / Other limitations]
+**Code Status:** [Full code / DNR / DNI / Other limitations]
 
-[Note any changes that occurred during hospitalization, including time and reason]
+[If changed during hospitalization, note when and why]
 
 ---
 
-## Supplemental Information
+## Additional Information
 
 ### Advance Directives
 
-- [ ] Advance directives on file
-- [ ] Healthcare Proxy designated: [Name and contact info]
-- [ ] Living Will present
+- [ ] Advance directive on file
+- [ ] Healthcare proxy designated: [Name and contact]
+- [ ] Living will present
 
 ### Social Situation
 
-[Relevant social factors affecting discharge planning]
-- Living Situation: [Living alone / With family / Assisted living]
-- Caregiver Support: [Adequate / Limited / None]
+[Relevant social factors affecting discharge plan]
+- Living situation: [Lives alone / with family / assisted living]
+- Caregiver support: [Available / Limited / None]
 - Transportation: [Adequate / Needs assistance]
-- Barriers to Compliance: [Financial / Cognitive / Language / Other]
+- Barriers to compliance: [Financial / Cognitive / Language / Other]
 
-### Unresolved Issues at Discharge
+### Pending Issues at Discharge
 
-[Items still awaiting results, pending consultations, or requiring outpatient follow-up]
+[Tests or consultations still pending that require outpatient follow-up]
 
 ---
 
-## Signatures
+## Signature
 
-**Dictated/Written by:**  
-[Physician Name, Credentials]  
-[Pager/Contact Number]
+**Prepared by:**  
+[Physician name, credentials]  
+[Pager/Contact number]
 
-**Co-signer (if Resident/Fellow):**  
-[Attending Physician Name]
+**Cosigned by (if resident/fellow):**  
+[Attending physician name]
 
-**Date and Time:** [MM/DD/YYYY HH:MM]
+**Date and Time:** [MM/DD/YYYY at HH:MM]
 
-**Electronic Signature:** [Yes/No]
+**Electronically signed:** [Yes/No]
 
 ---
 
 ## Template Completion Checklist
 
 - [ ] All discharge diagnoses listed with ICD-10 codes
-- [ ] Hospital course summary is clear
-- [ ] All procedures are documented
-- [ ] Discharge medications reconciled and clearly labeled (New/Changed/Continued/Stopped)
-- [ ] Follow-up appointments scheduled or timeline provided
+- [ ] Hospital course summarized clearly
+- [ ] All procedures documented
+- [ ] Discharge medications reconciled and clearly marked (new/changed/continued/stopped)
+- [ ] Follow-up appointments scheduled or timeframe provided
 - [ ] Patient education documented
-- [ ] Discharge precautions tailored to the patient's specific condition
-- [ ] Pending tests/results documented with a follow-up plan
+- [ ] Return precautions specific to patient's conditions
+- [ ] Pending tests/results documented with follow-up plan
 - [ ] Code status documented
-- [ ] Completed within 24-48 hours of discharge (Institutional requirement)
-- [ ] Sent to PCP and relevant specialists
-- [ ] Copy provided to the patient
+- [ ] Completed within 24-48 hours of discharge (institutional requirement)
+- [ ] Sent to primary care physician and relevant specialists
+- [ ] Copy provided to patient
 
 ---
 
@@ -434,18 +434,20 @@ Topics discussed with the patient and/or family:
 
 **Timing Requirements:**
 - CMS requires completion within 30 days
-- Many hospitals require completion within 24-48 hours
-- Should be available at the time of the patient's follow-up appointment
+- Many hospitals require 24-48 hours
+- Should be available for follow-up appointments
 
 **Distribution:**
-- Send to PCP
+- Send to primary care physician
 - Send to referring physician
 - Send to consulting specialists involved in care
 - Provide copy to patient
 - Upload to shared HIE (Health Information Exchange)
 
-**Quality Metrics:**
-- Medication reconciliation must be performed
-- Clear communication of medication changes
-- Specific follow-up plan
-- Documentation of patient education
+**Quality Measures:**
+- Medication reconciliation required
+- Clear communication of changes
+- Specific follow-up plans
+- Patient education documented
+
+

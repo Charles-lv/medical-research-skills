@@ -9,11 +9,13 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+DEFAULT_INPUT_DIR = Path("input")
+DEFAULT_OUTPUT_DIR = Path("output")
 
 CONFIG = {
     "input_files": [
-        "C:/Users/xuw/Desktop/test.xlsx",
-        "C:/Users/xuw/Desktop/test2.xlsx",
+        str(DEFAULT_INPUT_DIR / "test.xlsx"),
+        str(DEFAULT_INPUT_DIR / "test2.xlsx"),
     ],
     "primary_key": ["_source"],
     "column_aliases": {},
@@ -21,7 +23,7 @@ CONFIG = {
     "add_source_column": True,
     "source_column": "_source",
     "csv_encoding": "utf-8",
-    "output_file": "C:/Users/xuw/Desktop/merged.xlsx",
+    "output_file": str(DEFAULT_OUTPUT_DIR / "merged.xlsx"),
     "conflicts_file": "",
 }
 

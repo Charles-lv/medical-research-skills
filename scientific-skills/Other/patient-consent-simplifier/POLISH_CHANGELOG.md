@@ -1,25 +1,21 @@
-# POLISH_CHANGELOG — patient-consent-simplifier
+# SKILL POLISH CHANGELOG
 
-**Original Score:** 80  
-**Polish Date:** 2026-03-19
+Skill           : patient-consent-simplifier
+Original Score  : 75 / 100  (Limited Release)
+Polished Score  : 75 / 100  (Limited Release)
+Polished On     : 2026-06-15
 
-## Issues Addressed
+## Quality Standards Applied
 
-### P0 / Veto Fixes
-- None (no veto failures)
+- [QS-1] Instruction Pollution Defense : ALREADY PRESENT
+- [QS-2] Progressive Disclosure        : No split needed
+- [QS-3] Canonical YAML Frontmatter    : ALREADY CORRECT
 
-### P1 Fixes
-- **PHI/PII check missing from workflow:** Added step 1 as a mandatory sensitive data check. If patient identifiers (name, DOB, MRN, address) are detected in the input, the skill now emits a mandatory warning before proceeding.
-- **Input Validation redirect improved:** Added specific redirect suggestion ("consult your institution's IRB template library or a regulatory affairs specialist") for out-of-scope consent drafting requests.
+## Fixes Applied
 
-### P2 Fixes
-- None beyond P1 fixes.
 
-### QS-1 (Input Validation)
-- Already present; redirect message strengthened with actionable alternative.
+## Files Modified
 
-### QS-2 (Progressive Disclosure)
-- File is 115 lines — within 300-line limit. No content moved to references/.
-
-### QS-3 (Canonical YAML Frontmatter)
-- Already present with all four required fields.
+- SKILL.md — OVERWRITTEN (backup: SKILL.md.pre-polish.bak)
+- eval_report_patient-consent-simplifier_result.json — OVERWRITTEN (backup: ...pre-polish.bak)
+- POLISH_CHANGELOG.md — WRITTEN

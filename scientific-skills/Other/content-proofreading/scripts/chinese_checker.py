@@ -35,34 +35,38 @@ class ChineseChecker:
         self.strict = strict
         self.issues = []
         self.common_typos = {
-            "Press installation": "Install", "honeydew melon": "cantaloupe", "September": "September",
-            "other": "other", "self": "Own", "can't wait": "Can't wait",
-            "straightforward": "straightforward", "Pulse": "pulse", "Shocked": "Shocked",
-            "It must eventually happen": "after all", "Talent": "Talent", "water faucet": "Faucet",
-            "business card": "postcard", "Xu Xu": "Xuxu", "sit in battle": "Take charge",
-            "coverage": "cover", "Staple": "Binding", "belittle": "Needless to say",
-            "Rate rate": "lead", "Alkali value": "price", "funny": "funny",
-            "Vomiting song": "Acura", "Ota": "beat", "Mu Ai": "evening mist",
-            "General Collection": "wanted", "compilation": "arrest", "coherent": "coherent",
-            "Renshi": "connect", "destroy": "destroy", "rock": "rock",
-            "dotted": "dotted", "Ranked first": "among the best",
-            "badge": "badge", "Radiation": "radiation", "spasm": "Cramp",
-            "twin": "twin", "spasm": "spasm", "Observe": "Observe",
+            "teh": "the", "recieve": "receive", "occured": "occurred",
+            "definately": "definitely", "seperate": "separate", "occurence": "occurrence",
+            "accomodate": "accommodate", "neccessary": "necessary", "succesful": "successful",
+            "independant": "independent", "existance": "existence", "perseverence": "perseverance"
         }
 
-    def check(self, text):
+    def check(self, text: str) -> List[ChineseIssue]:
+        """Perform Chinese text checks"""
         self.issues = []
         lines = text.split(chr(10))
         for line_num, line in enumerate(lines, 1):
             self._check_typos(line, line_num)
+            if self.strict:
+                self._check_punctuation(line, line_num)
         return self.issues
 
-    def _check_typos(self, line, line_num):
+    def _check_typos(self, line: str, line_num: int):
         for wrong, correct in self.common_typos.items():
             if wrong in line:
                 pos = line.find(wrong)
                 self.issues.append(ChineseIssue(
                     type="typo", category=IssueCategory.TYPO,
-                    message=f"English: {wrong}", suggestion=f"should be {correct}",
+                    message=f"Suspected typo: {wrong}", suggestion=f"Should be: {correct}",
                     start=pos, end=pos + len(wrong), line=line_num,
                     severity=IssueSeverity.ERROR))
+
+    def _check_punctuation(self, line: str, line_num: int):
+        """Check for mixed Chinese/English punctuation usage"""
+        if re.search(r'[\u4e00-\u9fff][,\.!?:;]', line):
+            self.issues.append(ChineseIssue(
+                type="punctuation", category=IssueCategory.PUNCTUATION,
+                message="English punctuation used in Chinese text",
+                suggestion="Use Chinese punctuation (，。！？：；)",
+                line=line_num,
+                severity=IssueSeverity.WARNING))

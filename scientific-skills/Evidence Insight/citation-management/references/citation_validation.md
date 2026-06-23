@@ -298,7 +298,7 @@ url = {https://arxiv.org/abs/2103.14030}
 **Questionable**:
 ```bibtex
 url = {http://...}  % HTTP instead of HTTPS
-url = {file:///...} % Local file path
+url = {<local-file-path>} % Local file path
 url = {bit.ly/...}  % URL shortener (not permanent)
 ```
 
@@ -791,4 +791,3 @@ Follow workflow:
 3. Fix errors
 4. Re-validate
 5. Submit
-

@@ -32,89 +32,89 @@ class LabResultInterpreter:
     # Common test name mappings (Chinese/English variations)
     TEST_NAME_MAPPINGS = {
         # Blood Routine
-        "wbc": "White Blood Cell Count", "white blood cell": "White Blood Cell Count",
-        "rbc": "Red Blood Cell Count", "red blood cell": "Red Blood Cell Count",
-        "hgb": "Hemoglobin", "hemoglobin": "Hemoglobin",
-        "plt": "Platelet Count", "platelet": "Platelet Count",
-        "hct": "Hematocrit", "hematocrit": "Hematocrit",
+        "wbc": "white blood cell count", "leukocyte": "white blood cell count", "white blood cell": "white blood cell count",
+        "rbc": "red blood cell count", "red blood cells": "red blood cell count", "red blood cell": "red blood cell count",
+        "hgb": "hemoglobin", "hemoglobin": "hemoglobin", "hemoglobin": "hemoglobin",
+        "plt": "platelet count", "platelets": "platelet count", "platelet": "platelet count",
+        "hct": "Hematocrit", "Hematocrit": "Hematocrit", "hematocrit": "Hematocrit",
         
         # Lipid Panel
-        "tc": "Total Cholesterol", "cholesterol": "Total Cholesterol",
-        "ldl": "LDL Cholesterol", "ldl-c": "LDL Cholesterol",
-        "hdl": "HDL Cholesterol", "hdl-c": "HDL Cholesterol",
-        "tg": "Triglycerides", "triglyceride": "Triglycerides",
+        "tc": "total cholesterol", "total cholesterol": "total cholesterol", "cholesterol": "total cholesterol",
+        "ldl": "LDL cholesterol", "ldl-c": "LDL cholesterol", "low density lipoprotein": "LDL cholesterol",
+        "hdl": "HDL cholesterol", "hdl-c": "HDL cholesterol", "HDL": "HDL cholesterol",
+        "tg": "Triglycerides", "Triglycerides": "Triglycerides", "triglyceride": "Triglycerides",
         
         # Liver Function
-        "alt": "Alanine Aminotransferase", "gpt": "Alanine Aminotransferase",
-        "ast": "Aspartate Aminotransferase", "got": "Aspartate Aminotransferase",
-        "alp": "Alkaline Phosphatase",
-        "ggt": "Gamma-Glutamyl Transferase",
-        "tbil": "Total Bilirubin", "bilirubin": "Total Bilirubin",
-        "tp": "Total Protein", "total protein": "Total Protein",
-        "alb": "Albumin", "albumin": "Albumin",
+        "alt": "alanine aminotransferase", "alanine aminotransferase": "alanine aminotransferase", "gpt": "alanine aminotransferase",
+        "ast": "aspartate aminotransferase", "aspartate aminotransferase": "aspartate aminotransferase", "got": "aspartate aminotransferase",
+        "alp": "alkaline phosphatase", "alkaline phosphatase": "alkaline phosphatase",
+        "ggt": "γ-glutamyl transpeptidase", "ggt": "γ-glutamyl transpeptidase",
+        "tbil": "total bilirubin", "total bilirubin": "total bilirubin", "bilirubin": "total bilirubin",
+        "tp": "total protein", "total protein": "total protein", "total protein": "total protein",
+        "alb": "albumin", "albumin": "albumin", "albumin": "albumin",
         
         # Kidney Function
-        "crea": "Creatinine", "creatinine": "Creatinine",
-        "bun": "Blood Urea Nitrogen", "urea": "Blood Urea Nitrogen",
-        "egfr": "eGFR", "gfr": "eGFR",
-        "ua": "Uric Acid", "uric acid": "Uric Acid",
+        "crea": "Creatinine", "Creatinine": "Creatinine", "creatinine": "Creatinine",
+        "bun": "Urea nitrogen", "Urea nitrogen": "Urea nitrogen", "urea": "Urea nitrogen",
+        "egfr": "glomerular filtration rate", "gfr": "glomerular filtration rate",
+        "ua": "uric acid", "uric acid": "uric acid", "uric acid": "uric acid",
         
         # Blood Sugar
-        "glu": "Fasting Blood Glucose", "glucose": "Fasting Blood Glucose",
-        "hba1c": "HbA1c",
+        "glu": "fasting blood glucose", "fasting blood glucose": "fasting blood glucose", "glucose": "fasting blood glucose",
+        "hba1c": "Glycated hemoglobin", "Glycated hemoglobin": "Glycated hemoglobin",
         
         # Thyroid
-        "tsh": "TSH",
-        "t3": "T3",
-        "t4": "T4",
-        "ft3": "Free T3",
-        "ft4": "Free T4",
+        "tsh": "thyroid stimulating hormone", "thyroid stimulating hormone": "thyroid stimulating hormone",
+        "t3": "triiodothyronine", "triiodothyronine": "triiodothyronine",
+        "t4": "Thyroxine", "Thyroxine": "Thyroxine",
+        "ft3": "free triiodothyronine", "free triiodothyronine": "free triiodothyronine",
+        "ft4": "free thyroxine", "free thyroxine": "free thyroxine",
         
         # Electrolytes
-        "na": "Sodium", "sodium": "Sodium",
-        "k": "Potassium", "potassium": "Potassium",
-        "cl": "Chloride", "chloride": "Chloride",
-        "ca": "Calcium", "calcium": "Calcium",
-        "mg": "Magnesium", "magnesium": "Magnesium",
+        "na": "sodium", "sodium": "sodium", "sodium": "sodium",
+        "k": "Potassium", "Potassium": "Potassium", "potassium": "Potassium",
+        "cl": "chlorine", "chlorine": "chlorine", "chloride": "chlorine",
+        "ca": "calcium", "calcium": "calcium", "calcium": "calcium",
+        "mg": "magnesium", "magnesium": "magnesium", "magnesium": "magnesium",
         
         # Inflammation
-        "crp": "C-Reactive Protein",
-        "esr": "ESR", "erythrocyte sedimentation rate": "ESR",
+        "crp": "C-reactive protein", "c-reactive protein": "C-reactive protein",
+        "esr": "ESR", "ESR": "ESR", "erythrocyte sedimentation rate": "ESR",
     }
     
     # Standard reference ranges
     REFERENCE_RANGES = {
-        "White Blood Cell Count": {"min": 4.0, "max": 10.0, "unit": "10^9/L"},
-        "Red Blood Cell Count": {"min": 4.0, "max": 5.5, "unit": "10^12/L"},
-        "Hemoglobin": {"min": 120.0, "max": 160.0, "unit": "g/L"},
-        "Platelet Count": {"min": 100.0, "max": 300.0, "unit": "10^9/L"},
+        "white blood cell count": {"min": 4.0, "max": 10.0, "unit": "10^9/L"},
+        "red blood cell count": {"min": 4.0, "max": 5.5, "unit": "10^12/L"},
+        "hemoglobin": {"min": 120.0, "max": 160.0, "unit": "g/L"},
+        "platelet count": {"min": 100.0, "max": 300.0, "unit": "10^9/L"},
         "Hematocrit": {"min": 0.40, "max": 0.50, "unit": "L/L"},
-        "Total Cholesterol": {"min": 3.1, "max": 5.7, "unit": "mmol/L"},
-        "LDL Cholesterol": {"min": 0.0, "max": 3.4, "unit": "mmol/L"},
-        "HDL Cholesterol": {"min": 1.0, "max": 2.0, "unit": "mmol/L"},
+        "total cholesterol": {"min": 3.1, "max": 5.7, "unit": "mmol/L"},
+        "LDL cholesterol": {"min": 0.0, "max": 3.4, "unit": "mmol/L"},
+        "HDL cholesterol": {"min": 1.0, "max": 2.0, "unit": "mmol/L"},
         "Triglycerides": {"min": 0.0, "max": 1.7, "unit": "mmol/L"},
-        "Alanine Aminotransferase": {"min": 0.0, "max": 40.0, "unit": "U/L"},
-        "Aspartate Aminotransferase": {"min": 0.0, "max": 40.0, "unit": "U/L"},
-        "Alkaline Phosphatase": {"min": 40.0, "max": 150.0, "unit": "U/L"},
-        "Gamma-Glutamyl Transferase": {"min": 10.0, "max": 60.0, "unit": "U/L"},
-        "Total Bilirubin": {"min": 0.0, "max": 21.0, "unit": "μmol/L"},
-        "Total Protein": {"min": 60.0, "max": 80.0, "unit": "g/L"},
-        "Albumin": {"min": 35.0, "max": 55.0, "unit": "g/L"},
+        "alanine aminotransferase": {"min": 0.0, "max": 40.0, "unit": "U/L"},
+        "aspartate aminotransferase": {"min": 0.0, "max": 40.0, "unit": "U/L"},
+        "alkaline phosphatase": {"min": 40.0, "max": 150.0, "unit": "U/L"},
+        "γ-glutamyl transpeptidase": {"min": 10.0, "max": 60.0, "unit": "U/L"},
+        "total bilirubin": {"min": 0.0, "max": 21.0, "unit": "μmol/L"},
+        "total protein": {"min": 60.0, "max": 80.0, "unit": "g/L"},
+        "albumin": {"min": 35.0, "max": 55.0, "unit": "g/L"},
         "Creatinine": {"min": 44.0, "max": 133.0, "unit": "μmol/L"},
-        "Blood Urea Nitrogen": {"min": 2.6, "max": 7.5, "unit": "mmol/L"},
-        "Uric Acid": {"min": 208.0, "max": 428.0, "unit": "μmol/L"},
-        "Fasting Blood Glucose": {"min": 3.9, "max": 6.1, "unit": "mmol/L"},
-        "HbA1c": {"min": 4.0, "max": 6.0, "unit": "%"},
-        "TSH": {"min": 0.27, "max": 4.2, "unit": "mIU/L"},
-        "Sodium": {"min": 137.0, "max": 147.0, "unit": "mmol/L"},
+        "Urea nitrogen": {"min": 2.6, "max": 7.5, "unit": "mmol/L"},
+        "uric acid": {"min": 208.0, "max": 428.0, "unit": "μmol/L"},
+        "fasting blood glucose": {"min": 3.9, "max": 6.1, "unit": "mmol/L"},
+        "Glycated hemoglobin": {"min": 4.0, "max": 6.0, "unit": "%"},
+        "thyroid stimulating hormone": {"min": 0.27, "max": 4.2, "unit": "mIU/L"},
+        "sodium": {"min": 137.0, "max": 147.0, "unit": "mmol/L"},
         "Potassium": {"min": 3.5, "max": 5.3, "unit": "mmol/L"},
-        "Chloride": {"min": 99.0, "max": 110.0, "unit": "mmol/L"},
-        "Calcium": {"min": 2.1, "max": 2.6, "unit": "mmol/L"},
-        "C-Reactive Protein": {"min": 0.0, "max": 10.0, "unit": "mg/L"},
+        "chlorine": {"min": 99.0, "max": 110.0, "unit": "mmol/L"},
+        "calcium": {"min": 2.1, "max": 2.6, "unit": "mmol/L"},
+        "C-reactive protein": {"min": 0.0, "max": 10.0, "unit": "mg/L"},
     }
     
     def __init__(self):
-        self.disclaimer = "\n[Disclaimer] This interpretation is for reference only and cannot replace professional medical advice. Please consult a doctor if you have any questions."
+        self.disclaimer = "[Disclaimer] This interpretation is for reference only and cannot replace professional medical advice. If in doubt please consult your doctor."
     
     def normalize_test_name(self, name: str) -> str:
         """Normalize test name to standard form."""
@@ -124,7 +124,7 @@ class LabResultInterpreter:
     def parse_lab_line(self, line: str) -> Optional[LabResult]:
         """Parse a single line of lab result."""
         # Pattern 1: "Name: Value Unit (Ref: Min-Max)" or "Name: Value (Min-Max)" or "Name: Value Unit"
-        pattern1 = r"(.+?)[:\s]+([\d.]+)\s*(\S*)?(?:\s*[\(\（]?[^\d]*([\d.]+)?\s*[-~至]\s*([\d.]+)?[^\)]*[\)\）]?)?"
+        pattern1 = "(.+?)[:\\s]+([\\d.]+)\\s*(\\S*)?(?:\\s*[\\(\\(]?[^\\d]*([\\d.]+)?\\s*[-~to]\\s*([\\d.]+)?[^\\)]*[\\)\\)]?)?"
         
         # Pattern 2: "Name Value Unit" (simpler format)
         pattern2 = r"^(.+?)\s+([\d.]+)\s+(\S+)$"
@@ -192,74 +192,74 @@ class LabResultInterpreter:
     def generate_explanation(self, result: LabResult) -> str:
         """Generate patient-friendly explanation."""
         explanations = {
-            "White Blood Cell Count": {
-                "normal": "White blood cell count is within normal range, indicating normal immune system function.",
-                "low": "White blood cell count is low, which may indicate reduced immunity. Consult a doctor.",
-                "high": "White blood cell count is elevated, which may indicate infection or inflammation."
+            "white blood cell count": {
+                "normal": "A white blood cell count within the normal range indicates that the immune system is functioning normally.",
+                "low": "A low white blood cell count may indicate decreased immunity, so it is recommended to consult a doctor.",
+                "high": "A high white blood cell count may indicate infection or inflammation."
             },
-            "Red Blood Cell Count": {
-                "normal": "Red blood cell count is normal; blood oxygen-carrying capacity is good.",
-                "low": "Red blood cell count is low, which may indicate anemia. Further examination is recommended.",
-                "high": "Red blood cell count is elevated, which may indicate blood concentration or other conditions."
+            "red blood cell count": {
+                "normal": "The red blood cell count is normal and the blood's oxygen-carrying capacity is good.",
+                "low": "The red blood cell count is low, anemia may be present, and further examination is recommended.",
+                "high": "A high red blood cell count may indicate hemoconcentration or other conditions."
             },
-            "Hemoglobin": {
-                "normal": "Hemoglobin level is normal; blood oxygen-carrying function is good.",
-                "low": "Hemoglobin is low, which may indicate anemia symptoms such as fatigue and weakness.",
-                "high": "Hemoglobin is elevated, which may indicate dehydration or polycythemia."
+            "hemoglobin": {
+                "normal": "The hemoglobin level is normal and the blood's oxygen-carrying function is good.",
+                "low": "Low hemoglobin may indicate symptoms of anemia, such as fatigue and weakness.",
+                "high": "High hemoglobin may indicate dehydration or an increase in red blood cells."
             },
-            "Platelet Count": {
-                "normal": "Platelet count is normal; coagulation function is good.",
-                "low": "Platelet count is low, which may affect coagulation. Attention is needed.",
-                "high": "Platelet count is elevated, which may increase thrombosis risk."
+            "platelet count": {
+                "normal": "The platelet count was normal and the coagulation function was good.",
+                "low": "Low platelet count may affect coagulation function and requires attention.",
+                "high": "A high platelet count may increase the risk of blood clots."
             },
-            "Total Cholesterol": {
-                "normal": "Total cholesterol is within normal range; blood lipid control is good.",
-                "low": "Total cholesterol is low. Pay attention to balanced nutrition.",
-                "high": "Total cholesterol is elevated. Reduce high-fat food intake and increase exercise."
+            "total cholesterol": {
+                "normal": "Total cholesterol levels are within the normal range and blood lipids are well controlled.",
+                "low": "Total cholesterol is low, so you need to pay attention to nutritional balance.",
+                "high": "Total cholesterol is on the high side. It is recommended to reduce the intake of high-fat foods and increase exercise."
             },
-            "LDL Cholesterol": {
+            "LDL cholesterol": {
                 "normal": "LDL (bad cholesterol) is well controlled.",
-                "high": "LDL is elevated, which is a risk factor for cardiovascular disease. Improve diet and exercise."
+                "high": "Elevated low-density lipoprotein is a risk factor for cardiovascular disease. It is recommended to improve diet and exercise."
             },
-            "HDL Cholesterol": {
-                "normal": "HDL (good cholesterol) level is good.",
-                "low": "HDL is low. Increase aerobic exercise to protect cardiovascular health.",
-                "high": "HDL is high, which has a protective effect on cardiovascular health."
+            "HDL cholesterol": {
+                "normal": "HDL (good cholesterol) levels are good.",
+                "low": "HDL is low, so it is recommended to increase aerobic exercise to protect cardiovascular health.",
+                "high": "High-density lipoprotein is high and has a protective effect on cardiovascular disease."
             },
             "Triglycerides": {
-                "normal": "Triglyceride level is normal.",
-                "high": "Triglycerides are elevated. Reduce sugar and fat intake, and control weight."
+                "normal": "Triglyceride levels were normal.",
+                "high": "Triglycerides are on the high side. It is recommended to reduce sugar and fat intake and control weight."
             },
-            "Alanine Aminotransferase": {
-                "normal": "Liver function indicator is normal.",
-                "high": "ALT is elevated, which may indicate hepatocyte damage. Further liver function examination is recommended."
+            "alanine aminotransferase": {
+                "normal": "Liver function indicators were normal.",
+                "high": "A high alanine aminotransferase may indicate liver cell damage, and further examination of liver function is recommended."
             },
-            "Aspartate Aminotransferase": {
-                "normal": "Liver function indicator is normal.",
-                "high": "AST is elevated, which may indicate liver or myocardial damage."
+            "aspartate aminotransferase": {
+                "normal": "Liver function indicators were normal.",
+                "high": "Elevated aspartate aminotransferase may indicate liver or myocardial damage."
             },
             "Creatinine": {
-                "normal": "Kidney function indicator is normal.",
-                "high": "Creatinine is elevated, which may indicate reduced kidney function. Consult a nephrologist."
+                "normal": "Renal function indicators were normal.",
+                "high": "High creatinine may indicate decreased kidney function, and it is recommended to consult a nephrologist."
             },
-            "Uric Acid": {
-                "normal": "Uric acid level is normal.",
-                "high": "Uric acid is elevated, which may increase gout risk. Drink more water and reduce high-purine foods."
+            "uric acid": {
+                "normal": "Uric acid levels are normal.",
+                "high": "High uric acid may increase the risk of gout. It is recommended to drink more water and reduce high purine foods."
             },
-            "Fasting Blood Glucose": {
-                "normal": "Blood glucose level is normal.",
-                "high": "Fasting blood glucose is elevated, which may indicate impaired glucose metabolism. Control diet and retest."
+            "fasting blood glucose": {
+                "normal": "Blood sugar levels are normal.",
+                "high": "If fasting blood sugar is high, there may be abnormal glucose metabolism. It is recommended to control the diet and review."
             },
-            "HbA1c": {
-                "normal": "HbA1c is normal; blood glucose has been well controlled over the past 3 months.",
-                "high": "HbA1c is elevated, indicating poor recent blood glucose control."
+            "Glycated hemoglobin": {
+                "normal": "Glycated hemoglobin is normal, and blood sugar has been well controlled in the past 3 months.",
+                "high": "High glycosylated hemoglobin indicates recent poor blood sugar control."
             },
         }
         
         test_explanations = explanations.get(result.test_name, {
             "normal": f"{result.test_name} is within normal range.",
-            "low": f"{result.test_name} is low.",
-            "high": f"{result.test_name} is elevated."
+            "low": f"{result.test_name} is on the low side.",
+            "high": f"{result.test_name} is on the high side."
         })
         
         return test_explanations.get(result.status, test_explanations.get("normal", ""))
@@ -267,23 +267,23 @@ class LabResultInterpreter:
     def generate_recommendation(self, result: LabResult) -> str:
         """Generate health recommendations."""
         recommendations = {
-            "Total Cholesterol": {
-                "high": "Recommendation: Reduce animal fat intake, eat more vegetables and fruits, get at least 150 minutes of moderate-intensity exercise per week."
+            "total cholesterol": {
+                "high": "Recommendation: Reduce animal fat intake, eat more fruits and vegetables, and exercise at least 150 minutes of moderate intensity per week."
             },
-            "LDL Cholesterol": {
-                "high": "Recommendation: Limit saturated fat intake, choose healthy oils such as olive oil, and monitor blood lipids regularly."
+            "LDL cholesterol": {
+                "high": "Recommendation: Limit the intake of saturated fat, choose healthy oils such as olive oil, and monitor blood lipids regularly."
             },
             "Triglycerides": {
-                "high": "Recommendation: Control refined sugar and sweets, limit alcohol, and increase aerobic exercise."
+                "high": "Recommendations: Control refined sugar and sweets, limit alcohol consumption, and increase aerobic exercise."
             },
-            "Alanine Aminotransferase": {
-                "high": "Recommendation: Avoid alcohol, do not overuse medications, recheck liver function, and consider liver ultrasound if necessary."
+            "alanine aminotransferase": {
+                "high": "Recommendations: Avoid drinking alcohol, not abusing drugs, review liver function, and perform liver ultrasound if necessary."
             },
-            "Uric Acid": {
-                "high": "Recommendation: Drink more than 2000ml of water daily, reduce intake of high-purine foods such as seafood, organ meats, and rich meat soups."
+            "uric acid": {
+                "high": "Recommendation: Drink more than 2000ml of water every day, and eat less high-purine foods such as seafood, animal offal, and thick broth."
             },
-            "Fasting Blood Glucose": {
-                "high": "Recommendation: Control staple food portions, choose low glycemic index foods, exercise after meals, and recheck regularly."
+            "fasting blood glucose": {
+                "high": "Suggestions: Control the amount of staple food, choose low-glycemic index foods, exercise appropriately after meals, and review regularly."
             },
         }
         
@@ -317,9 +317,9 @@ class LabResultInterpreter:
     def format_output(self, results: List[LabResult]) -> str:
         """Format results as patient-friendly output."""
         if not results:
-            return "No valid lab results could be recognized. Please check the input format."
+            return "A valid test result could not be recognized, please check the input format."
         
-        output_lines = ["=== Lab Result Interpretation ===\n"]
+        output_lines = ["=== Interpretation of test results ==="]
         
         for r in results:
             # Status emoji
@@ -333,17 +333,17 @@ class LabResultInterpreter:
             
             # Status text
             status_text = {
-                "normal": "Normal",
-                "low": "Low",
-                "high": "High",
-                "critical": "Critical",
-                "unknown": "Unknown"
-            }.get(r.status, "Unknown")
+                "normal": "normal",
+                "low": "On the low side",
+                "high": "On the high side",
+                "critical": "critical",
+                "unknown": "unknown"
+            }.get(r.status, "unknown")
             
             ref_range = ""
             if r.reference_min is not None and r.reference_max is not None:
-                ref_range = f" (Reference: {r.reference_min}-{r.reference_max} {r.unit})"
-            
+                ref_range = f" (Ref: {r.reference_min}-{r.reference_max} {r.unit})"
+
             output_lines.append(f"{status_emoji} {r.test_name}: {r.value} {r.unit}{ref_range}")
             output_lines.append(f"   Status: {status_text}")
             output_lines.append(f"   Interpretation: {r.explanation}")
@@ -373,14 +373,14 @@ def main():
     interpreter = LabResultInterpreter()
     
     if args.interactive:
-        print("Lab Result Interpretation Tool - Interactive Mode")
-        print("Enter lab results (one per line, or comma-separated), type 'quit' to exit")
-        print("Example: Total Cholesterol: 5.8 mmol/L (Reference: 3.1-5.7)")
+        print("Test Results Interpretation Tool - Interactive Mode")
+        print("Enter the test results (one per line, or separated by commas), enter 'quit' to exit")
+        print("Example: Total cholesterol: 5.8 mmol/L (Reference: 3.1-5.7)")
         print("-" * 50)
         
         while True:
             try:
-                user_input = input("\nEnter lab result: ").strip()
+                user_input = input("Please enter the test results:").strip()
                 if user_input.lower() in ["quit", "exit", "q"]:
                     break
                 if not user_input:
@@ -389,7 +389,7 @@ def main():
                 results = interpreter.interpret(user_input)
                 print(interpreter.format_output(results))
             except KeyboardInterrupt:
-                print("\nGoodbye!")
+                print("goodbye!")
                 break
             except Exception as e:
                 print(f"Error: {e}")
@@ -405,7 +405,7 @@ def main():
             else:
                 print(interpreter.format_output(results))
         except FileNotFoundError:
-            print(f"Error: File not found: {args.file}")
+            print(f"Error: File not found {args.file}")
             sys.exit(1)
         except Exception as e:
             print(f"Error: {e}")
@@ -413,12 +413,12 @@ def main():
     
     else:
         # Read from stdin
-        print("Lab Result Interpretation Tool")
-        print("Usage:")
-        print("  python main.py --interactive    # Interactive mode")
-        print("  python main.py --file lab.txt   # Read from file")
-        print("  echo 'Total Cholesterol: 5.8' | python main.py  # Read from stdin")
-        print("\nEnter lab results (Ctrl+D to finish):")
+        print("Test result interpretation tools")
+        print("How to use:")
+        print("python main.py --interactive #Interactive mode")
+        print("python main.py --file lab.txt # Read from file")
+        print("echo 'Total cholesterol: 5.8' | python main.py # From standard input")
+        print("Please enter the test results (Ctrl+D to end):")
         
         try:
             content = sys.stdin.read()

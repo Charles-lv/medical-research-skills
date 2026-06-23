@@ -3,49 +3,49 @@
 **Patient Name:** [Last, First]  
 **Medical Record Number:** [MRN]  
 **Date of Birth:** [MM/DD/YYYY]  
-**Age:** [Years]  
-**Gender:** [M/F]
+**Age:** [years]  
+**Sex:** [M/F]
 
-**Date of Admission/Visit:** [MM/DD/YYYY]  
+**Date of Admission/Encounter:** [MM/DD/YYYY]  
 **Time:** [HH:MM]  
-**Location:** [Inpatient Ward, Clinic, Emergency Department]  
-**Admitting Service:** [Internal Medicine, Surgery, etc.]  
+**Location:** [Hospital floor, Clinic, ED]  
+**Admitting Service:** [Medicine, Surgery, etc.]  
 **Attending Physician:** [Name]
 
 ---
 
 ## Chief Complaint (CC)
 
-"[Patient's stated reason for seeking medical care, in quotes]"
+"[Patient's stated reason for seeking care, in quotes]"
 
 ---
 
 ## History of Present Illness (HPI)
 
-[Patient Name] is a [Age]-year-old [Gender] with a history of [Relevant PMH] who presents for [Chief Complaint].
+[Patient Name] is a [age]-year-old [sex] with a history of [relevant PMHx] who presents with [chief complaint].
 
-[Describe symptoms using OPQRST format, providing a chronological narrative]
+[Use OPQRST format for symptoms, provide chronological narrative]
 
-**Onset:** [When did the symptoms start? Sudden or gradual?]  
-**Location:** [Where is it located? Does it radiate?]  
-**Duration:** [How long has it lasted?]  
-**Character:** [Nature of symptom - sharp, dull, pressure, etc.]  
+**Onset:** [When did symptoms start? Sudden vs gradual onset?]  
+**Location:** [Where? Does it radiate?]  
+**Duration:** [How long?]  
+**Character:** [Quality - sharp, dull, pressure, etc.]  
 **Aggravating factors:** [What makes it worse?]  
 **Relieving factors:** [What makes it better?]  
-**Timing:** [Constant or intermittent? Any patterns?]  
-**Severity:** [Pain scale 0-10, impact on function]  
+**Timing:** [Constant or intermittent? Pattern?]  
+**Severity:** [0-10 scale for pain, functional impact]  
 **Associated symptoms:** [Other symptoms?]
 
-**Previous evaluations and treatments:**  
-**Reason for this visit:**
+**Prior evaluations and treatments:**  
+**Why presenting now:**
 
 ---
 
 ## Past Medical History (PMH)
 
-1. [Condition] - Diagnosed in [Year], [Current Status]
-2. [Condition] - Diagnosed in [Year], [Treatment status]
-3. [Other conditions]
+1. [Condition] - diagnosed [year], [current status]
+2. [Condition] - diagnosed [year], [treatment]
+3. [Additional conditions]
 
 [ ] No known medical problems
 
@@ -53,41 +53,41 @@
 
 ## Past Surgical History (PSH)
 
-1. [Procedure Name] ([Year]) - [Indication, note complications if any]
-2. [Procedure Name] ([Year])
+1. [Procedure] ([year]) - [indication, complications if any]
+2. [Procedure] ([year])
 
-[ ] No prior surgical history
+[ ] No prior surgeries
 
 ---
 
-## Medications (Medications)
+## Medications
 
-| Medication | Dosage | Route | Frequency | Indication |
+| Medication | Dose | Route | Frequency | Indication |
 |------------|------|-------|-----------|------------|
-| [Drug Name] | [mg] | [PO/IV, etc.] | [BID, etc.] | [Reason for prescription] |
+| [Drug name] | [mg] | [PO/IV/etc] | [BID/etc] | [Why prescribed] |
 
-[ ] Not currently taking medications
+[ ] No current medications
 
 ---
 
-## Allergies (Allergies)
+## Allergies
 
 | Allergen | Reaction |
 |----------|----------|
-| [Drug/Food/Environment] | [Type of reaction] |
+| [Drug/Food/Environmental] | [Type of reaction] |
 
-[ ] No Known Drug Allergies (NKDA)
+[ ] No known drug allergies (NKDA)
 
 ---
 
 ## Family History (FH)
 
-- **Father:** [Age/Age at death], [Medical conditions]
-- **Mother:** [Age/Age at death], [Medical conditions]
-- **Siblings:** [Number], [Relevant conditions]
-- **Children:** [Number], [Relevant conditions]
+- **Father:** [Age/deceased at age X], [medical conditions]
+- **Mother:** [Age/deceased at age X], [medical conditions]
+- **Siblings:** [Number], [relevant conditions]
+- **Children:** [Number], [relevant conditions]
 
-[Note hereditary conditions relevant to the patient's presentation]
+[Note hereditary conditions relevant to patient's presentation]
 
 [ ] Non-contributory
 
@@ -95,133 +95,133 @@
 
 ## Social History (SH)
 
-**Tobacco:** [Current/Former/Never], [Record pack-years if applicable]  
-**Alcohol:** [Frequency and amount, CAGE score if applicable]  
-**Illicit Drugs:** [Current/Former/Never, type, route of administration]  
+**Tobacco:** [Current/former/never], [pack-years if applicable]  
+**Alcohol:** [Frequency and amount, CAGE questions if indicated]  
+**Illicit drugs:** [Current/former/never, type, route]  
 **Occupation:** [Current or former occupation]  
-**Living Situation:** [Living alone/with family, type of housing]  
-**Marital Status:** [Single/Married/Divorced/Widowed]  
-**Sexual History:** [If relevant]  
+**Living situation:** [Lives alone/with family, housing type]  
+**Marital status:** [Single/married/divorced/widowed]  
+**Sexual history:** [If relevant]  
 **Exercise:** [Type and frequency]  
-**Diet:** [General dietary description]  
-**Functional Status:** [Independence in ADLs, baseline activity level]
+**Diet:** [General diet description]  
+**Functional status:** [ADL independence, baseline activity level]
 
 ---
 
 ## Review of Systems (ROS)
 
-[Systemic review - check relevant systems]
+[Systematic review - check relevant systems]
 
 **Constitutional:** [ ] Fever [ ] Chills [ ] Night sweats [ ] Weight loss [ ] Weight gain [ ] Fatigue  
 **Eyes:** [ ] Vision changes [ ] Eye pain [ ] Discharge  
 **ENT:** [ ] Hearing loss [ ] Tinnitus [ ] Sinus problems [ ] Sore throat  
-**Cardiovascular:** [ ] Chest pain [ ] Palpitations [ ] Edema [ ] Orthopnea [ ] PND [ ] Intermittent claudication  
+**Cardiovascular:** [ ] Chest pain [ ] Palpitations [ ] Edema [ ] Orthopnea [ ] PND [ ] Claudication  
 **Respiratory:** [ ] Dyspnea [ ] Cough [ ] Wheezing [ ] Hemoptysis  
 **Gastrointestinal:** [ ] Nausea [ ] Vomiting [ ] Diarrhea [ ] Constipation [ ] Abdominal pain [ ] Melena [ ] Hematochezia  
 **Genitourinary:** [ ] Dysuria [ ] Frequency [ ] Urgency [ ] Hematuria [ ] Incontinence  
 **Musculoskeletal:** [ ] Joint pain [ ] Swelling [ ] Stiffness [ ] Back pain [ ] Weakness  
-**Skin:** [ ] Rash [ ] Lesions [ ] Pruritus [ ] Changes in moles  
+**Skin:** [ ] Rash [ ] Lesions [ ] Itching [ ] Changes in moles  
 **Neurological:** [ ] Headache [ ] Dizziness [ ] Syncope [ ] Seizures [ ] Weakness [ ] Numbness [ ] Tingling  
-**Psychiatric:** [ ] Depression [ ] Anxiety [ ] Sleep disturbances  
-**Endocrine:** [ ] Cold/Heat intolerance [ ] Polyuria [ ] Polydipsia [ ] Polyphagia  
-**Hematologic/Lymphatic:** [ ] Easy bruising [ ] Bleeding [ ] Lymphadenopathy  
+**Psychiatric:** [ ] Depression [ ] Anxiety [ ] Sleep disturbance  
+**Endocrine:** [ ] Heat/cold intolerance [ ] Polyuria [ ] Polydipsia [ ] Polyphagia  
+**Hematologic/Lymphatic:** [ ] Easy bruising [ ] Bleeding [ ] Lymph node swelling  
 **Allergic/Immunologic:** [ ] Seasonal allergies [ ] Frequent infections
 
-**All other systems reviewed and are negative** [ ]
+**All other systems reviewed and negative** [ ]
 
 ---
 
 ## Physical Examination
 
 **Vital Signs:**
-- Temperature: _____ °F (Oral/Axillary/Tympanic)
-- Blood Pressure: _____/_____ mmHg ([Right arm, sitting])
-- Heart Rate: _____ bpm (Regular/Irregular)
+- Temperature: _____ °F (oral/axillary/tympanic)
+- Blood Pressure: _____/_____ mmHg ([right arm, sitting])
+- Heart Rate: _____ bpm (regular/irregular)
 - Respiratory Rate: _____ breaths/min
-- SpO2: _____% [Room Air / Oxygen ___ L/min]
+- Oxygen Saturation: _____% on [room air / O2 at ___ L/min]
 - Height: _____ cm / inches
 - Weight: _____ kg / lbs
 - BMI: _____ kg/m²
 - Pain Score: ___/10
 
 **General:**  
-[Overall appearance, apparent age vs. actual age, nutritional status, level of distress]
+[Overall appearance, apparent vs stated age, nutritional status, distress level]
 
 **HEENT:**
 - Head: [Normocephalic, atraumatic, scalp lesions]
-- Eyes: [PERRLA, EOMI, conjunctiva, sclera, funduscopic exam if performed]
-- Ears: [TMs, external canals, hearing]
+- Eyes: [PERRLA, EOMI, conjunctiva, sclera, fundoscopy if done]
+- Ears: [TMs, canals, hearing]
 - Nose: [Nares, septum, discharge, sinus tenderness]
 - Throat: [Oropharynx, tonsils, dentition, mucosa]
 
 **Neck:**  
-[Supple, lymphadenopathy, thyroid, JVP, carotid bruits]
+[Supple/stiff, lymphadenopathy, thyroid, JVP, carotid bruits]
 
 **Cardiovascular:**
-- Inspection: [PMI, precordial pulsations]
-- Palpation: [PMI location, thrills, heaves]
+- Inspection: [PMI, precordial movement]
+- Palpation: [PMI location, thrills, lifts]
 - Auscultation: [Rate, rhythm, S1/S2, murmurs/rubs/gallops, location and radiation]
-- Peripheral Pulses: [Radial, Femoral, Dorsalis Pedis, Posterior Tibial - rate and strength bilaterally]
+- Peripheral pulses: [Radial, femoral, DP, PT - rate quality bilaterally]
 - Extremities: [Edema, cyanosis, clubbing]
 
-**Lungs:**
-- Inspection: [Work of breathing, use of accessory muscles, chest wall deformity]
+**Pulmonary:**
+- Inspection: [Respiratory effort, use of accessory muscles, chest wall deformities]
 - Palpation: [Tactile fremitus, chest expansion]
 - Percussion: [Resonance, dullness]
-- Auscultation: [Breath sounds, adventitious sounds - location and character]
+- Auscultation: [Breath sounds, adventitious sounds - location and quality]
 
 **Abdomen:**
-- Inspection: [Contour, scars, distension, visible pulsations/peristalsis]
+- Inspection: [Contour, scars, distention, visible peristalsis]
 - Auscultation: [Bowel sounds - present, hyperactive, hypoactive, absent]
 - Percussion: [Tympany, dullness, liver span, spleen]
 - Palpation: [Soft/firm, tenderness, masses, organomegaly, rebound, guarding, Murphy's sign]
 
 **Musculoskeletal:**
-- Inspection: [Deformity, swelling, erythema]
+- Inspection: [Deformities, swelling, erythema]
 - Palpation: [Tenderness, warmth]
-- Range of Motion (ROM): [Active vs. Passive, limitations]
-- Strength: [5-point scale for major muscle groups]
+- Range of motion: [Active and passive, limitations]
+- Strength: [5-point scale by major muscle groups]
 - Gait: [Normal, antalgic, ataxic, spastic]
 
 **Skin:**  
 [Color, temperature, moisture, turgor, lesions, rashes, wounds]
 
 **Neurological:**
-- Mental Status: [Alert, Oriented x3 (Person, Place, Time), speech, memory]
-- Cranial Nerves: [II-XII - note abnormalities]
-- Motor: [Strength 5/5 scale, tone, bulk, fasciculations]
+- Mental Status: [Alert, oriented x3 (person, place, time), speech, memory]
+- Cranial Nerves: [II-XII - document abnormalities]
+- Motor: [Strength 5-point scale, tone, bulk, fasciculations]
 - Sensory: [Light touch, pinprick, proprioception, vibration]
-- Reflexes: [DTRs 0-4+ scale, Babinski sign]
+- Reflexes: [Deep tendon reflexes 0-4+ scale, Babinski]
 - Coordination: [Finger-to-nose, heel-to-shin, rapid alternating movements]
-- Gait: [Recorded above or described here]
+- Gait: [Already documented above or describe here]
 
 **Psychiatric:**  
 [Mood, affect, thought process, thought content, judgment, insight]
 
-**Genitourinary:** (If applicable)  
-[Deferred if not examined / record findings if examined]
+**Genitourinary:** (if applicable)  
+[Defer/document findings if examined]
 
-**Rectal Exam:** (If applicable)  
-[Deferred if not examined / record findings if examined]
+**Rectal:** (if applicable)  
+[Defer/document findings if examined]
 
 ---
 
-## Labs and Imaging Results
+## Laboratory and Imaging Results
 
-[Include all relevant results available at the time of H&P]
+[Include relevant results available at time of H&P]
 
-**Laboratory Results ([Date]):**
+**Labs ([Date]):**
 
 | Test | Result | Reference Range | Flag |
 |------|--------|----------------|------|
 | WBC | [Value] | [Range] | [H/L/-] |
 | Hemoglobin | [Value] | [Range] | [H/L/-] |
-| [Other Labs] | | | |
+| [Additional labs] | | | |
 
 **Imaging ([Study], [Date]):**  
 [Key findings]
 
-**EKG ([Date]):**  
+**ECG ([Date]):**  
 [Rate, rhythm, intervals, axis, ST-T changes, other findings]
 
 **Other Studies:**
@@ -232,55 +232,55 @@
 
 **Assessment:**
 
-[One-sentence summary of the patient's condition]
+[Patient summary statement in one sentence]
 
 **Problem List:**
 
-**1. [Primary Problem/Diagnosis] ([ICD-10 Code])**
+**1. [Primary Problem/Diagnosis] ([ICD-10 code])**
 
-**Assessment:** [Brief description of the problem, severity, stability]
+**Assessment:** [Brief description of problem, severity, stability]
 
 **Plan:**
-- **Diagnostic:** [Labs, imaging, consultations needed]
-- **Therapeutic:** [Medications, procedures, interventions]
-  - [Drug Name]: [Dosage, Route, Frequency] for [Indication]
-- **Monitoring:** [What to monitor, frequency]
-- **Follow-up:** [Timing and provider]
+- **Diagnostics:** [Labs, imaging, consultations needed]
+- **Therapeutics:** [Medications, procedures, interventions]
+  - [Medication]: [dose, route, frequency] for [indication]
+- **Monitoring:** [What to monitor, how often]
+- **Follow-up:** [When and with whom]
 - **Disposition:** [Admit to floor/ICU, discharge, observation]
 
-**2. [Secondary Problem] ([ICD-10 Code])**
+**2. [Secondary Problem] ([ICD-10 code])**
 
 **Assessment:** [Description]
 
 **Plan:**
-- [Diagnostic]
-- [Therapeutic]
+- [Diagnostics]
+- [Therapeutics]
 - [Monitoring]
 
-**3. [Other Problems]**
-[Continue listing for all active problems]
+**3. [Additional Problems]**
+[Continue for all active problems]
 
-**Code Status:** [Full Code / DNR / DNI / Other]
+**Code Status:** [Full code / DNR / DNI / Other]
 
 **Prophylaxis:**
-- DVT Prophylaxis: [Pharmacological and/or mechanical]
-- GI Prophylaxis: [If indicated]
-- Aspiration Prophylaxis: [If indicated]
+- DVT prophylaxis: [Pharmacologic and/or mechanical]
+- GI prophylaxis: [If indicated]
+- Aspiration precautions: [If indicated]
 
-**Disposition:** [Admitting service, location (Floor/ICU), level of care]
+**Disposition:** [Admit to service, location (floor/ICU), level of care]
 
 ---
 
-## Signatures
+## Signature
 
-**Physician:** [Name, Credentials]  
+**Physician:** [Name, credentials]  
 **Level:** [Intern, Resident, Attending]  
-**Date/Time:** [MM/DD/YYYY HH:MM]  
+**Date/Time:** [MM/DD/YYYY at HH:MM]  
 **Signature:** ____________________
 
 **Co-signature (if applicable):**  
-**Attending Physician:** [Name, Credentials]  
-**Date/Time:** [MM/DD/YYYY HH:MM]  
+**Attending:** [Name, credentials]  
+**Date/Time:** [MM/DD/YYYY at HH:MM]  
 **Signature:** ____________________
 
 ---
@@ -288,16 +288,18 @@
 ## Template Completion Checklist
 
 - [ ] Chief complaint documented
-- [ ] HPI is thorough (≥4 HPI elements for billing)
+- [ ] HPI comprehensive (≥4 HPI elements for billing)
 - [ ] PMH reviewed
 - [ ] Medications reconciled
 - [ ] Allergies documented
 - [ ] ROS performed (≥10 systems for comprehensive)
 - [ ] Complete physical exam documented (≥8 systems for comprehensive)
-- [ ] Labs/Imaging reviewed
+- [ ] Labs/imaging reviewed
 - [ ] Assessment and plan for each problem
 - [ ] Code status documented
 - [ ] Prophylaxis addressed
 - [ ] Disposition clear
 - [ ] Completed within 24 hours of admission (TJC requirement)
 - [ ] Signed and dated
+
+

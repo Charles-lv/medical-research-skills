@@ -4,13 +4,13 @@
 
 SOAP (Subjective, Objective, Assessment, Plan) is the standard format for progress notes in clinical practice.
 
-### Purpose and Uses
+### Purpose and Use
 
 **When to use SOAP notes:**
-- Daily progress notes in the hospital
-- Outpatient visit notes
-- Specialty consultations
-- Follow-up notes
+- Daily progress notes in hospital
+- Outpatient visit documentation
+- Subspecialty consultations
+- Follow-up visits
 - Documenting response to treatment
 
 **Benefits:**
@@ -18,41 +18,41 @@ SOAP (Subjective, Objective, Assessment, Plan) is the standard format for progre
 - Organized clinical reasoning
 - Facilitates communication
 - Supports billing and coding
-- Legal evidence documentation
+- Legal documentation
 
 ### SOAP Components
 
 #### S - Subjective
 
-**Definition:** Information reported by the patient (symptoms, concerns, history).
+**Definition:** Information reported by the patient (symptoms, concerns, history)
 
 **Elements to include:**
 - Chief complaint or reason for visit
-- History of Present Illness (HPI)
-- Review of Systems (ROS) relevant to the visit
+- History of present illness (HPI)
+- Review of systems (ROS) relevant to visit
 - Patient's description of symptoms
-- Response to previous treatments
-- Impact on function
-- Patient's concerns or questions
+- Response to prior treatments
+- Functional impact
+- Patient concerns or questions
 
-**HPI Elements (using the OPQRST method for pain/symptoms):**
-- **O**nset: When did it start? Was it sudden or gradual?
+**HPI Elements (use OPQRST for pain/symptoms):**
+- **O**nset: When did it start? Sudden or gradual?
 - **P**rovocation/Palliation: What makes it better or worse?
 - **Q**uality: What does it feel like? (sharp, dull, burning, etc.)
 - **R**egion/Radiation: Where is it? Does it spread?
-- **S**everity: How severe is it? (0-10 scale)
-- **T**iming: Is it constant or intermittent? How long does it last? How frequent?
+- **S**everity: How bad is it? (0-10 scale)
+- **T**iming: Constant or intermittent? Duration? Frequency?
 
-**Associated Symptoms:**
-- Other symptoms occurring with the chief complaint
+**Associated symptoms:**
+- Other symptoms occurring with primary complaint
 - Pertinent negatives (absence of expected symptoms)
 
-**Treatment Response:**
-- Medications taken and their effects
-- Previous interventions and their outcomes
-- Adherence to the treatment plan
+**Response to treatment:**
+- Medications taken and effect
+- Prior interventions and outcomes
+- Compliance with treatment plan
 
-**Subjective Section Example:**
+**Example Subjective section:**
 ```
 S: Patient reports persistent cough for 5 days, productive of yellow sputum. Associated
 with fever to 101.5°F, measured at home yesterday. Denies shortness of breath, chest
@@ -63,48 +63,48 @@ travel or sick contacts.
 
 #### O - Objective
 
-**Definition:** Measurable and observable clinical data.
+**Definition:** Measurable, observable clinical data
 
 **Elements to include:**
 
 **Vital Signs:**
 - Temperature (°F or °C)
-- Blood Pressure (mmHg)
-- Heart Rate (bpm)
-- Respiratory Rate (breaths/min)
-- Oxygen Saturation (%)
-- Height and Weight (calculate BMI)
-- Pain score (if applicable)
+- Blood pressure (mmHg)
+- Heart rate (bpm)
+- Respiratory rate (breaths/min)
+- Oxygen saturation (%)
+- Height and weight (calculate BMI)
+- Pain score if applicable
 
 **General Appearance:**
-- Overall appearance (well, ill-appearing, in distress)
-- Consistency with stated age
+- Overall appearance (well, ill, distressed)
+- Age appropriateness
 - Nutritional status
 - Hygiene
 - Affect and behavior
 
 **Physical Examination by System:**
-- Organized head-to-toe or by system
-- Findings relevant to the chief complaint
-- Include pertinent positive and negative signs
+- Organized head-to-toe or by systems
+- Relevant findings for presenting complaint
+- Include pertinent positives and negatives
 
-**Standard Examination Systems:**
+**Standard examination systems:**
 1. **HEENT** (Head, Eyes, Ears, Nose, Throat)
-2. **Neck** (Thyroid, lymph nodes, JVD, carotids)
-3. **Cardiovascular** (Heart sounds, murmurs, peripheral pulses, edema)
-4. **Pulmonary/Respiratory** (Breath sounds, work of breathing)
-5. **Abdomen** (Bowel sounds, tenderness, organomegaly, masses)
-6. **Extremities** (Edema, pulses, range of motion, deformities)
-7. **Neurological** (Mental status, cranial nerves, motor, sensory, reflexes, gait)
-8. **Skin** (Rashes, lesions, wounds)
-9. **Psychiatric** (Mood, affect, thought process/content)
+2. **Neck** (thyroid, lymph nodes, JVD, carotids)
+3. **Cardiovascular** (heart sounds, murmurs, peripheral pulses, edema)
+4. **Pulmonary/Respiratory** (breath sounds, work of breathing)
+5. **Abdomen** (bowel sounds, tenderness, organomegaly, masses)
+6. **Extremities** (edema, pulses, ROM, deformities)
+7. **Neurological** (mental status, cranial nerves, motor, sensory, reflexes, gait)
+8. **Skin** (rashes, lesions, wounds)
+9. **Psychiatric** (mood, affect, thought process/content)
 
 **Laboratory and Imaging Results:**
 - Relevant test results
 - Include reference ranges for abnormal values
-- Document the timing of tests relative to the visit
+- Note timing of tests relative to visit
 
-**Objective Section Example:**
+**Example Objective section:**
 ```
 O: Vitals: T 100.8°F, BP 128/82, HR 92, RR 18, SpO2 96% on room air
 General: Alert, mild respiratory distress, appears mildly ill
@@ -128,22 +128,22 @@ Chest X-ray: Right lower lobe consolidation consistent with pneumonia
 
 #### A - Assessment
 
-**Definition:** Clinical impression, diagnosis, and evaluation of the patient's condition.
+**Definition:** Clinical impression, diagnosis, and evaluation of patient status
 
 **Elements to include:**
 - Primary diagnosis or problem
 - Secondary diagnoses or problems
-- Differential diagnosis (if uncertain)
-- Assessment of severity
+- Differential diagnosis if uncertain
+- Severity assessment
 - Progress toward treatment goals
-- Complications or new issues
+- Complications or new problems
 
 **Format:**
-- Numbered problem list
-- Brief assessment for each problem
-- Include appropriate ICD-10 codes for billing
+- Problem list (numbered)
+- Each problem with brief assessment
+- Include ICD-10 codes when appropriate for billing
 
-**Assessment Section Example:**
+**Example Assessment section:**
 ```
 A: 
 1. Community-acquired pneumonia (CAP), right lower lobe (J18.1)
@@ -160,28 +160,28 @@ A:
 
 #### P - Plan
 
-**Definition:** Diagnostic and therapeutic interventions.
+**Definition:** Diagnostic and therapeutic interventions
 
 **Elements to include:**
-- Diagnostic plan (further tests, imaging, referrals)
-- Therapeutic plan (medications, surgery, therapy)
+- Diagnostic plan (further testing, imaging, referrals)
+- Therapeutic plan (medications, procedures, therapies)
 - Patient education and counseling
 - Follow-up arrangements
-- Specific instructions for the patient
-- Return precautions (when to seek emergency care)
+- Specific instructions for patient
+- Return precautions (when to seek urgent care)
 
-**Medication Documentation:**
+**Medication documentation:**
 - Drug name (generic preferred)
-- Dosage and route
+- Dose and route
 - Frequency
 - Duration
 - Indication
 
-**Plan Organization:**
-- Organized by problem (corresponding to the Assessment)
-- Organized by intervention type (Diagnostics, Therapeutics, Education)
+**Plan organization:**
+- By problem (matches assessment)
+- By intervention type (diagnostics, therapeutics, education)
 
-**Plan Section Example:**
+**Example Plan section:**
 ```
 P:
 1. Community-acquired pneumonia:
@@ -210,26 +210,26 @@ Patient verbalized understanding and agreement with plan.
 
 ### SOAP Note Best Practices
 
-**Documentation Standards:**
-- If handwritten, writing must be legible
-- Use only standard abbreviations
-- Date and time every entry
-- All entries must be signed with credentials
+**Documentation standards:**
+- Write legibly if handwritten
+- Use standard abbreviations only
+- Date and time each entry
+- Sign and credential all entries
 - Document in real-time or as soon as possible
-- Avoid "copy-paste" errors
-- Review and update the problem list
+- Avoid copy-forward errors
+- Review and update problem list
 
-**Billing Considerations:**
+**Billing considerations:**
 - Document medical necessity
-- Ensure documentation matches the level of billing
-- Include elements required for E/M coding
-- Document duration for time-based billing
+- Match documentation to billing level
+- Include required elements for E/M coding
+- Document time for time-based billing
 
-**Legal Considerations:**
-- Document facts, not opinions or judgments
-- Quote the patient directly when necessary
-- Document non-adherent behavior objectively
-- Never alter a record
+**Legal considerations:**
+- Document facts, not opinions or judgment
+- Quote patient when relevant
+- Document non-compliance objectively
+- Never alter records
 - Use addendums for corrections
 
 ## History and Physical (H&P)
@@ -237,35 +237,35 @@ Patient verbalized understanding and agreement with plan.
 ### Purpose
 
 - Comprehensive baseline assessment
-- Documenting the patient's status at admission or initial encounter
-- Guiding the diagnostic and treatment plan
-- Must be completed within 24 hours of admission (TJC requirement)
+- Document patient status at admission or initial encounter
+- Guide diagnosis and treatment planning
+- Required within 24 hours of admission (TJC requirement)
 
 ### H&P Components
 
 #### Header Information
 
-- Patient name, Date of Birth (DOB), Medical Record Number (MRN)
+- Patient name, DOB, MRN
 - Date and time of examination
 - Admitting diagnosis
 - Attending physician
-- Service/Department
-- Location (ED, Ward, ICU)
+- Service
+- Location (ED, floor, ICU)
 
 #### Chief Complaint (CC)
 
-**Definition:** A brief statement of the reason the patient is seeking medical care.
+**Definition:** Brief statement of why patient is seeking care
 
 **Format:**
 - One sentence
-- Use the patient's own words (in quotes)
+- Use patient's own words (in quotes)
 - Example: CC: "I can't catch my breath"
 
 #### History of Present Illness (HPI)
 
-**Purpose:** A detailed chronological narrative of the current problem.
+**Purpose:** Detailed chronological narrative of current problem
 
-**Required Elements (for billing):**
+**Required elements (for billing):**
 - Location
 - Quality
 - Severity
@@ -278,9 +278,9 @@ Patient verbalized understanding and agreement with plan.
 **Structure:**
 - Opening statement (demographics, presenting problem)
 - Chronological description
-- Characterization of symptoms
-- Previous evaluations or treatments
-- Triggers leading to the current visit
+- Symptom characterization
+- Prior workup or treatment
+- What prompted presentation now
 
 **Example:**
 ```
@@ -295,11 +295,11 @@ at home. Presented to ED today when dyspnea worsened and developed while at rest
 
 #### Past Medical History (PMH)
 
-**Includes:**
-- Chronic illnesses
+**Include:**
+- Chronic medical conditions
 - Previous hospitalizations
 - Major illnesses
-- Trauma
+- Injuries
 - Childhood illnesses (if relevant)
 
 **Format:**
@@ -315,10 +315,10 @@ PMH:
 
 #### Past Surgical History (PSH)
 
-**Includes:**
-- All surgical procedures and interventions
-- Dates (years are acceptable if specific dates are unknown)
-- Complications (if any)
+**Include:**
+- All surgeries and procedures
+- Dates (year acceptable if exact date unknown)
+- Complications if any
 
 **Format:**
 ```
@@ -330,13 +330,13 @@ PSH:
 
 #### Medications
 
-**Document:**
+**Documentation:**
 - Generic name preferred
 - Dose, route, frequency
 - Indication if not obvious
-- Include Over-the-Counter (OTC) drugs
+- Include over-the-counter medications
 - Herbal supplements
-- Note if the patient is unable to provide a list
+- Note if patient unable to provide list
 
 **Format:**
 ```
@@ -354,10 +354,10 @@ Medications:
 #### Allergies
 
 **Document:**
-- Drug allergies and reactions
+- Drug allergies with reaction
 - Food allergies
 - Environmental allergies
-- If no known allergies, record NKDA (No Known Drug Allergies)
+- NKDA if no known allergies
 
 **Format:**
 ```
@@ -369,11 +369,11 @@ Allergies:
 
 #### Family History (FH)
 
-**Includes:**
+**Include:**
 - First-degree relatives (parents, siblings, children)
-- Age and health status, or age and cause of death
-- Relevant hereditary diseases
-- Family history of the presenting illness, if relevant
+- Age and health status or age at death and cause
+- Relevant hereditary conditions
+- Family history of presenting condition if relevant
 
 **Format:**
 ```
@@ -387,12 +387,12 @@ Children: 2 sons, both healthy
 
 #### Social History (SH)
 
-**Includes:**
-- Tobacco use (current, former, never; record pack-years if applicable)
-- Alcohol use (amount per week, use CAGE questionnaire if necessary)
+**Include:**
+- Tobacco use (current, former, never; pack-years if applicable)
+- Alcohol use (drinks per week, CAGE questions if indicated)
 - Illicit drug use (current, former, never; type and route)
 - Occupation
-- Living situation (living alone, with family, nursing home, etc.)
+- Living situation (alone, with family, assisted living, etc.)
 - Marital status
 - Sexual history (if relevant)
 - Exercise habits
@@ -415,27 +415,27 @@ Functional status: Independent in ADLs at baseline
 
 #### Review of Systems (ROS)
 
-**Purpose:** A systematic screening for symptoms by body system.
+**Purpose:** Systematic screening for symptoms by body system
 
 **Requirements:**
-- Comprehensive review covering at least 10 systems
-- Pertinent positive and negative findings
-- "All other systems reviewed and negative" is acceptable if documented
+- Minimum 10 systems for comprehensive exam
+- Pertinent positives and negatives
+- "All other systems reviewed and negative" acceptable if documented
 
 **Systems:**
 1. **Constitutional**: Fever, chills, night sweats, weight change, fatigue
 2. **Eyes**: Vision changes, pain, discharge
-3. **ENT**: Hearing loss, tinnitus, sinus issues, sore throat
+3. **ENT**: Hearing loss, tinnitus, sinus problems, sore throat
 4. **Cardiovascular**: Chest pain, palpitations, edema, claudication
 5. **Respiratory**: Cough, dyspnea, wheezing, hemoptysis
 6. **Gastrointestinal**: Nausea, vomiting, diarrhea, constipation, abdominal pain
 7. **Genitourinary**: Dysuria, frequency, hematuria, incontinence
 8. **Musculoskeletal**: Joint pain, swelling, stiffness, weakness
-9. **Skin**: Rashes, lesions, pruritus, changes in moles
+9. **Skin**: Rashes, lesions, itching, changes in moles
 10. **Neurological**: Headache, dizziness, syncope, seizures, weakness, numbness
-11. **Psychiatric**: Mood changes, depression, anxiety, sleep disturbances
+11. **Psychiatric**: Mood changes, depression, anxiety, sleep disturbance
 12. **Endocrine**: Heat/cold intolerance, polyuria, polydipsia
-13. **Hematologic/Lymphatic**: Easy bruising, bleeding, lymphadenopathy
+13. **Hematologic/Lymphatic**: Easy bruising, bleeding, lymph node swelling
 14. **Allergic/Immunologic**: Seasonal allergies, frequent infections
 
 **Format:**
@@ -451,69 +451,69 @@ All other systems reviewed and negative.
 
 #### Physical Examination
 
-**General Organization:**
-- Record vital signs first
+**General organization:**
+- Vital signs first
 - General appearance
-- Head-to-toe systematic examination
+- Systematic examination head-to-toe
 
-**Vital Signs:**
+**Vital signs:**
 ```
 Vitals: T 98.2°F, BP 142/88, HR 105, RR 24, SpO2 88% on room air → 95% on 2L NC
 Height: 5'10", Weight: 195 lbs (baseline 187 lbs), BMI 28
 ```
 
-**Systematic Examination:**
+**System examinations:**
 
-**General:** Well-developed, obese male in moderate respiratory distress, sitting upright in bed.
+**General:** Well-developed, obese man in moderate respiratory distress, sitting upright in bed
 
 **HEENT:**
 - Head: Normocephalic, atraumatic
-- Eyes: PERRLA (Pupils Equal, Round, Reactive to Light and Accommodation), EOMI (Extraocular Movements Intact), no scleral icterus
+- Eyes: PERRLA, EOMI, no scleral icterus
 - Ears: TMs clear bilaterally
-- Nose: Patent, no discharge
+- Nose: Nares patent, no discharge
 - Throat: Oropharynx without erythema or exudates
 
-**Neck:** Supple, no lymphadenopathy, JVP elevated to 12 cm, no thyromegaly.
+**Neck:** Supple, no lymphadenopathy, JVP elevated to 12 cm, no thyromegaly
 
 **Cardiovascular:**
-- Inspection: No visible PMI (Point of Maximal Impulse)
-- Palpation: PMI displaced laterally
-- Auscultation: Tachycardic, regular rhythm, S3 gallop present, Grade 2/6 holosystolic murmur at the apex radiating to the axilla
-- Peripheral Pulses: 2+ radial, 1+ dorsalis pedis bilaterally
+- Inspection: No visible PMI
+- Palpation: PMI laterally displaced
+- Auscultation: Tachycardic regular rhythm, S3 gallop present, 2/6 holosystolic murmur at apex radiating to axilla
+- Peripheral pulses: 2+ radial, 1+ dorsalis pedis bilaterally
 
 **Pulmonary:**
-- Inspection: Increased work of breathing, use of accessory muscles
+- Inspection: Increased work of breathing, using accessory muscles
 - Palpation: Tactile fremitus symmetric
-- Percussion: Dullness to percussion at both bases
-- Auscultation: Bilateral crackles (rales) in the lower half of lung fields, no wheezing
+- Percussion: Dullness to percussion at bilateral bases
+- Auscultation: Bilateral crackles halfway up lung fields, no wheezes
 
 **Abdomen:**
-- Inspection: Obese, non-distended
-- Auscultation: Normal bowel sounds
+- Inspection: Obese, no distention
+- Auscultation: Normoactive bowel sounds
 - Percussion: Tympanic
 - Palpation: Soft, non-tender, no masses, no hepatosplenomegaly
 
-**Extremities:** 3+ pitting edema to the mid-calf bilaterally, no cyanosis or clubbing.
+**Extremities:** 3+ pitting edema to mid-calf bilaterally, no cyanosis or clubbing
 
-**Skin:** Warm and dry, no rashes.
+**Skin:** Warm and dry, no rashes
 
 **Neurological:**
-- Mental Status: Alert and oriented to person, place, and time
-- Cranial Nerves: II-XII intact
-- Motor: 5/5 strength in all extremities
+- Mental status: Alert and oriented to person, place, time
+- Cranial nerves: II-XII intact
+- Motor: 5/5 strength all extremities
 - Sensory: Intact to light touch
 - Reflexes: 2+ symmetric
-- Gait: Not performed due to respiratory distress
+- Gait: Deferred due to respiratory distress
 - Cerebellar: Finger-to-nose intact
 
-**Psychiatric:** Anxious affect consistent with condition, normal thought process.
+**Psychiatric:** Anxious affect appropriate to illness, normal thought process
 
-#### Labs and Imaging
+#### Laboratory and Imaging
 
-**Includes:**
-- All relevant laboratory tests and their reference ranges
-- Imaging studies and their key findings
-- Electrocardiogram (ECG) findings
+**Include:**
+- All relevant labs with reference ranges
+- Imaging studies with key findings
+- ECG findings
 - Other diagnostic tests
 
 **Example:**
@@ -533,7 +533,7 @@ ECG: Sinus tachycardia at 105 bpm, left ventricular hypertrophy, no acute ST-T c
 
 #### Assessment and Plan
 
-**Format:** Numbered problem list based on issues.
+**Format:** Problem-based with numbered problem list
 
 **Example:**
 ```
@@ -590,36 +590,36 @@ Disposition: Admit to telemetry floor
 
 ### Purpose
 
-- Communicate the care provided during hospitalization to outpatient providers
-- Document the hospital course and outcomes
+- Communicate hospital care to outpatient providers
+- Document hospital course and outcomes
 - Ensure continuity of care
 - Meet regulatory requirements (TJC, CMS)
 
-### Timing Requirements
+### Timing
 
 **Requirements:**
-- Must be completed within 30 days of discharge (CMS)
-- Many hospitals require completion within 24-48 hours
-- Should be available at the time of the follow-up appointment
+- Complete within 30 days of discharge (CMS)
+- Many hospitals require within 24-48 hours
+- Available at time of follow-up appointment
 
 ### Components
 
 #### Header
 
-- Patient demographic information
-- Admission and discharge dates
+- Patient demographics
+- Admission date and discharge date
 - Length of stay
 - Attending physician
 - Consulting services
-- Primary Care Physician (PCP)
+- Primary care physician
 
 #### Admission Diagnosis
 
-The primary reason for hospitalization.
+Principal reason for hospitalization
 
 #### Discharge Diagnosis
 
-**Format:** Numbered list, prioritized by importance.
+**Format:** Numbered list, prioritized
 
 **Example:**
 ```
@@ -635,15 +635,15 @@ Discharge Diagnoses:
 #### Hospital Course
 
 **Content:**
-- Narrative or problem-based chronological account
+- Chronological narrative or problem-based
 - Key events and interventions
 - Response to treatment
-- Procedures/interventions performed
+- Procedures performed
 - Consultations
 - Complications
 - Significant test results
 
-**Example (Brief):**
+**Example (brief):**
 ```
 Hospital Course:
 Mr. Smith was admitted with acute decompensated heart failure in the setting of
@@ -667,9 +667,9 @@ Procedures:
 
 **Format:**
 - Complete list with instructions
-- Highlight **NEW** medications
-- Note **ADJUSTED** medications
-- List **DISCONTINUED** medications
+- **NEW** medications highlighted
+- **CHANGED** medications noted
+- **DISCONTINUED** medications listed
 
 **Example:**
 ```
@@ -683,7 +683,7 @@ Discharge Medications:
 7. Aspirin 81 mg PO daily [UNCHANGED]
 ```
 
-#### Discharge Status
+#### Discharge Condition
 
 ```
 Discharge Condition:
@@ -698,12 +698,12 @@ Discharge Disposition:
 Home with self-care
 ```
 
-#### Follow-up Plan
+#### Follow-up Plans
 
-**Includes:**
-- Scheduled follow-up appointments
-- Recommended timing for follow-up
-- Pending test or study results at the time of discharge
+**Include:**
+- Appointments scheduled
+- Recommended follow-up timing
+- Pending tests or studies at discharge
 - Referrals made
 
 **Example:**
@@ -717,12 +717,12 @@ Follow-up:
 
 #### Patient Instructions
 
-**Includes:**
+**Include:**
 - Activity restrictions
 - Dietary restrictions
 - Wound care (if applicable)
 - Equipment or home services
-- Monitoring instructions (daily weight, glucose, blood pressure)
+- Monitoring instructions (daily weights, glucose, BP)
 - Return precautions
 
 **Example:**
@@ -740,4 +740,5 @@ Patient Instructions:
 
 ---
 
-This reference document provides comprehensive standards for clinical patient documentation, including SOAP notes, H&P, and discharge summaries. Use these guidelines to ensure clinical notes are complete, accurate, and compliant.
+This reference provides comprehensive standards for patient clinical documentation including SOAP notes, H&P, and discharge summaries. Use these guidelines to ensure complete, accurate, and compliant clinical documentation.
+

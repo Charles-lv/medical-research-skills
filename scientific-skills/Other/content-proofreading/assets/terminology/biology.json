@@ -2,7 +2,6 @@
   "molecular": {
     "dna": {
       "en": "DNA",
-      "zh": "脱氧核糖核酸",
       "abbrev": "DNA",
       "full_form": "deoxyribonucleic acid",
       "domain": "biology",
@@ -20,7 +19,6 @@
     },
     "rna": {
       "en": "RNA",
-      "zh": "核糖核酸",
       "abbrev": "RNA",
       "full_form": "ribonucleic acid",
       "domain": "biology",
@@ -38,7 +36,6 @@
     },
     "mrna": {
       "en": "mRNA",
-      "zh": "信使RNA",
       "abbrev": "mRNA",
       "full_form": "messenger RNA",
       "domain": "biology",
@@ -56,7 +53,6 @@
     },
     "trna": {
       "en": "tRNA",
-      "zh": "转运RNA",
       "abbrev": "tRNA",
       "full_form": "transfer RNA",
       "domain": "biology",
@@ -74,7 +70,6 @@
     },
     "rrna": {
       "en": "rRNA",
-      "zh": "核糖体RNA",
       "abbrev": "rRNA",
       "full_form": "ribosomal RNA",
       "domain": "biology",
@@ -92,7 +87,6 @@
     },
     "gene": {
       "en": "gene",
-      "zh": "基因",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -109,7 +103,6 @@
     },
     "protein": {
       "en": "protein",
-      "zh": "蛋白质",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -126,7 +119,6 @@
     },
     "enzyme": {
       "en": "enzyme",
-      "zh": "酶",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -143,7 +135,6 @@
     },
     "amino_acid": {
       "en": "amino acid",
-      "zh": "氨基酸",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -160,7 +151,6 @@
     },
     "nucleotide": {
       "en": "nucleotide",
-      "zh": "核苷酸",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -177,7 +167,6 @@
     },
     "polypeptide": {
       "en": "polypeptide",
-      "zh": "多肽",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -194,7 +183,6 @@
     },
     "peptide": {
       "en": "peptide",
-      "zh": "肽",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -211,7 +199,6 @@
     },
     "chromatin": {
       "en": "chromatin",
-      "zh": "染色质",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -227,7 +214,6 @@
     },
     "histone": {
       "en": "histone",
-      "zh": "组蛋白",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -244,7 +230,6 @@
     },
     "nucleosome": {
       "en": "nucleosome",
-      "zh": "核小体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -261,7 +246,6 @@
     },
     "plasmid": {
       "en": "plasmid",
-      "zh": "质粒",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -278,7 +262,6 @@
     },
     "vector": {
       "en": "vector",
-      "zh": "载体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -295,7 +278,6 @@
     },
     "polymerase": {
       "en": "polymerase",
-      "zh": "聚合酶",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -312,7 +294,6 @@
     },
     "ligase": {
       "en": "ligase",
-      "zh": "连接酶",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -329,7 +310,6 @@
     },
     "restriction_enzyme": {
       "en": "restriction enzyme",
-      "zh": "限制酶",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -348,7 +328,6 @@
   "cellular": {
     "cell": {
       "en": "cell",
-      "zh": "细胞",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -365,7 +344,6 @@
     },
     "organelle": {
       "en": "organelle",
-      "zh": "细胞器",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -382,7 +360,6 @@
     },
     "mitochondria": {
       "en": "mitochondrion",
-      "zh": "线粒体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -400,7 +377,6 @@
     },
     "nucleus": {
       "en": "nucleus",
-      "zh": "细胞核",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -417,7 +393,6 @@
     },
     "membrane": {
       "en": "membrane",
-      "zh": "膜",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -434,7 +409,6 @@
     },
     "cytoplasm": {
       "en": "cytoplasm",
-      "zh": "细胞质",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -451,7 +425,6 @@
     },
     "ribosome": {
       "en": "ribosome",
-      "zh": "核糖体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -468,7 +441,6 @@
     },
     "chromosome": {
       "en": "chromosome",
-      "zh": "染色体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -485,7 +457,6 @@
     },
     "endoplasmic_reticulum": {
       "en": "endoplasmic reticulum",
-      "zh": "内质网",
       "abbrev": "ER",
       "full_form": "endoplasmic reticulum",
       "domain": "biology",
@@ -502,7 +473,6 @@
     },
     "golgi": {
       "en": "Golgi apparatus",
-      "zh": "高尔基体",
       "abbrev": "Golgi",
       "full_form": "Golgi apparatus",
       "domain": "biology",
@@ -519,7 +489,6 @@
     },
     "lysosome": {
       "en": "lysosome",
-      "zh": "溶酶体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -536,7 +505,6 @@
     },
     "peroxisome": {
       "en": "peroxisome",
-      "zh": "过氧化物酶体",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -553,7 +521,6 @@
     },
     "cytoskeleton": {
       "en": "cytoskeleton",
-      "zh": "细胞骨架",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -569,7 +536,6 @@
     },
     "actin": {
       "en": "actin",
-      "zh": "肌动蛋白",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -587,7 +553,6 @@
     },
     "microtubule": {
       "en": "microtubule",
-      "zh": "微管",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -604,7 +569,6 @@
     },
     "cilium": {
       "en": "cilium",
-      "zh": "纤毛",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -621,7 +585,6 @@
     },
     "flagellum": {
       "en": "flagellum",
-      "zh": "鞭毛",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -638,7 +601,6 @@
     },
     "cell_wall": {
       "en": "cell wall",
-      "zh": "细胞壁",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -654,7 +616,6 @@
     },
     "extracellular_matrix": {
       "en": "extracellular matrix",
-      "zh": "细胞外基质",
       "abbrev": "ECM",
       "full_form": "extracellular matrix",
       "domain": "biology",
@@ -673,7 +634,6 @@
   "genetics": {
     "genome": {
       "en": "genome",
-      "zh": "基因组",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -690,7 +650,6 @@
     },
     "mutation": {
       "en": "mutation",
-      "zh": "突变",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -707,7 +666,6 @@
     },
     "allele": {
       "en": "allele",
-      "zh": "等位基因",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -724,7 +682,6 @@
     },
     "genotype": {
       "en": "genotype",
-      "zh": "基因型",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -741,7 +698,6 @@
     },
     "phenotype": {
       "en": "phenotype",
-      "zh": "表型",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -758,7 +714,6 @@
     },
     "transcription": {
       "en": "transcription",
-      "zh": "转录",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -774,7 +729,6 @@
     },
     "translation": {
       "en": "translation",
-      "zh": "翻译",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -790,7 +744,6 @@
     },
     "replication": {
       "en": "replication",
-      "zh": "复制",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -806,7 +759,6 @@
     },
     "recombination": {
       "en": "recombination",
-      "zh": "重组",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -822,7 +774,6 @@
     },
     "expression": {
       "en": "gene expression",
-      "zh": "基因表达",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -839,7 +790,6 @@
     },
     "regulation": {
       "en": "regulation",
-      "zh": "调控",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -855,7 +805,6 @@
     },
     "promoter": {
       "en": "promoter",
-      "zh": "启动子",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -872,7 +821,6 @@
     },
     "operon": {
       "en": "operon",
-      "zh": "操纵子",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -889,7 +837,6 @@
     },
     "epigenetics": {
       "en": "epigenetics",
-      "zh": "表观遗传学",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -905,7 +852,6 @@
     },
     "methylation": {
       "en": "methylation",
-      "zh": "甲基化",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -921,7 +867,6 @@
     },
     "silencing": {
       "en": "gene silencing",
-      "zh": "基因沉默",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -938,7 +883,6 @@
     },
     "knockout": {
       "en": "knockout",
-      "zh": "敲除",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -955,7 +899,6 @@
     },
     "knockin": {
       "en": "knockin",
-      "zh": "敲入",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -972,7 +915,6 @@
     },
     "crispr": {
       "en": "CRISPR",
-      "zh": "CRISPR",
       "abbrev": "CRISPR",
       "full_form": "clustered regularly interspaced short palindromic repeats",
       "domain": "biology",
@@ -989,7 +931,6 @@
     },
     "cas9": {
       "en": "Cas9",
-      "zh": "Cas9",
       "abbrev": "Cas9",
       "full_form": "CRISPR-associated protein 9",
       "domain": "biology",
@@ -1007,7 +948,6 @@
   "ecology": {
     "ecosystem": {
       "en": "ecosystem",
-      "zh": "生态系统",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1024,7 +964,6 @@
     },
     "habitat": {
       "en": "habitat",
-      "zh": "栖息地",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1041,7 +980,6 @@
     },
     "species": {
       "en": "species",
-      "zh": "物种",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1058,7 +996,6 @@
     },
     "biodiversity": {
       "en": "biodiversity",
-      "zh": "生物多样性",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1075,7 +1012,6 @@
     },
     "population": {
       "en": "population",
-      "zh": "种群",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1092,7 +1028,6 @@
     },
     "community": {
       "en": "community",
-      "zh": "群落",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1109,7 +1044,6 @@
     },
     "niche": {
       "en": "niche",
-      "zh": "生态位",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1126,7 +1060,6 @@
     },
     "succession": {
       "en": "succession",
-      "zh": "演替",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1136,13 +1069,13 @@
       "related_terms": [
         "ecosystem",
         "community",
-        "disturbance"
+        "primary",
+        "secondary"
       ],
       "source": "IUPAC"
     },
     "symbiosis": {
       "en": "symbiosis",
-      "zh": "共生",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1158,7 +1091,6 @@
     },
     "mutualism": {
       "en": "mutualism",
-      "zh": "互利共生",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1174,7 +1106,6 @@
     },
     "parasitism": {
       "en": "parasitism",
-      "zh": "寄生",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1190,7 +1121,6 @@
     },
     "predation": {
       "en": "predation",
-      "zh": "捕食",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1206,7 +1136,6 @@
     },
     "food_chain": {
       "en": "food chain",
-      "zh": "食物链",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1222,7 +1151,6 @@
     },
     "food_web": {
       "en": "food web",
-      "zh": "食物网",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1238,7 +1166,6 @@
     },
     "trophic": {
       "en": "trophic level",
-      "zh": "营养级",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1255,7 +1182,6 @@
     },
     "carrying_capacity": {
       "en": "carrying capacity",
-      "zh": "承载力",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1269,29 +1195,11 @@
         "resources"
       ],
       "source": "IUPAC"
-    },
-    "succession": {
-      "en": "succession",
-      "zh": "演替",
-      "abbrev": null,
-      "full_form": null,
-      "domain": "biology",
-      "variants": [
-        "Succession"
-      ],
-      "related_terms": [
-        "ecosystem",
-        "community",
-        "primary",
-        "secondary"
-      ],
-      "source": "IUPAC"
     }
   },
   "biochemistry": {
     "metabolism": {
       "en": "metabolism",
-      "zh": "代谢",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1308,7 +1216,6 @@
     },
     "catabolism": {
       "en": "catabolism",
-      "zh": "分解代谢",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1324,7 +1231,6 @@
     },
     "anabolism": {
       "en": "anabolism",
-      "zh": "合成代谢",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1340,7 +1246,6 @@
     },
     "atp": {
       "en": "ATP",
-      "zh": "腺苷三磷酸",
       "abbrev": "ATP",
       "full_form": "adenosine triphosphate",
       "domain": "biology",
@@ -1357,7 +1262,6 @@
     },
     "nad": {
       "en": "NAD",
-      "zh": "烟酰胺腺嘌呤二核苷酸",
       "abbrev": "NAD",
       "full_form": "nicotinamide adenine dinucleotide",
       "domain": "biology",
@@ -1375,7 +1279,6 @@
     },
     "fad": {
       "en": "FAD",
-      "zh": "黄素腺嘌呤二核苷酸",
       "abbrev": "FAD",
       "full_form": "flavin adenine dinucleotide",
       "domain": "biology",
@@ -1393,7 +1296,6 @@
     },
     "coenzyme": {
       "en": "coenzyme",
-      "zh": "辅酶",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1410,7 +1312,6 @@
     },
     "cofactor": {
       "en": "cofactor",
-      "zh": "辅因子",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1427,7 +1328,6 @@
     },
     "substrate": {
       "en": "substrate",
-      "zh": "底物",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1444,7 +1344,6 @@
     },
     "product": {
       "en": "product",
-      "zh": "产物",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1461,7 +1360,6 @@
     },
     "kinetics": {
       "en": "kinetics",
-      "zh": "动力学",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1477,7 +1375,6 @@
     },
     "inhibition": {
       "en": "inhibition",
-      "zh": "抑制",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1493,7 +1390,6 @@
     },
     "allosteric": {
       "en": "allosteric",
-      "zh": "别构",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1509,7 +1405,6 @@
     },
     "conformational": {
       "en": "conformational change",
-      "zh": "构象变化",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1526,7 +1421,6 @@
     },
     "glycolysis": {
       "en": "glycolysis",
-      "zh": "糖酵解",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1542,7 +1436,6 @@
     },
     "krebs": {
       "en": "Krebs cycle",
-      "zh": "三羧酸循环",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1560,7 +1453,6 @@
     },
     "oxidative_phosphorylation": {
       "en": "oxidative phosphorylation",
-      "zh": "氧化磷酸化",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1576,7 +1468,6 @@
     },
     "photosynthesis": {
       "en": "photosynthesis",
-      "zh": "光合作用",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",
@@ -1592,7 +1483,6 @@
     },
     "calvin_cycle": {
       "en": "Calvin cycle",
-      "zh": "卡尔文循环",
       "abbrev": null,
       "full_form": null,
       "domain": "biology",

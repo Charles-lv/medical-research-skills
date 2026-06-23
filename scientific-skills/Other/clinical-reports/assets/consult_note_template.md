@@ -1,18 +1,18 @@
-# Consultation Record Template
+# Consultation Note Template
 
 **Patient Name:** [Last, First]  
-**MRN:** [Medical Record Number]  
+**Medical Record Number:** [MRN]  
 **Date of Birth:** [MM/DD/YYYY]  
-**Age/Sex:** [Years, M/F]
+**Age/Sex:** [years, M/F]
 
-**Date of Consultation:** [MM/DD/YYYY]  
-**Time of Consultation:** [HH:MM]  
-**Location:** [Floor, Room Number]
+**Consultation Date:** [MM/DD/YYYY]  
+**Consultation Time:** [HH:MM]  
+**Location:** [Floor, Room number]
 
-**Requesting Service:** [Primary Team]  
+**Requesting Service:** [Primary team]  
 **Requesting Physician:** [Name]  
 **Consulting Service:** [Cardiology, Nephrology, etc.]  
-**Consulting Physician:** [Name and Credentials]
+**Consulting Physician:** [Name and credentials]
 
 ---
 
@@ -20,41 +20,41 @@
 
 [Specific clinical question or reason for consultation]
 
-Example: "Please evaluate and manage acute kidney injury in the setting of acute on chronic heart failure."
+Example: "Please evaluate and manage acute kidney injury in setting of heart failure exacerbation."
 
 ---
 
 ## History of Present Illness (Focused on Consultation Question)
 
-[Relevant history pertaining to the consultation question]
+[Relevant history focused on the consultation question]
 
-[Patient Name], a [Age]-year-old [Sex] with a history of [Relevant PMH], currently admitted to [Service] for [Admission Diagnosis], now seen for [Specific Issue].
+[Patient Name] is a [age]-year-old [sex] with a history of [relevant conditions] currently admitted to [service] for [admission diagnosis] who is being consulted for [specific issue].
 
-[Chronological narrative related to the consultation question]
+[Chronological narrative relevant to consultation question]
 
 **Timeline of Current Issue:**
 - [Key events leading to consultation]
 - [Current status]
-- [Interventions already attempted]
+- [Treatments tried]
 
 ---
 
 ## Relevant Past Medical History
 
-1. [Conditions relevant to the consultation]
-2. [Other relevant conditions]
+1. [Condition relevant to consultation]
+2. [Additional relevant conditions]
 
-[Include only PMH relevant to the consultation question]
+[Only include history pertinent to consultation question]
 
 ---
 
 ## Current Medications
 
-[List medications relevant to the consultation question]
+[List medications relevant to consultation question]
 
-| Medication | Dosage | Route | Frequency | Rationale/Relevance |
+| Medication | Dose | Route | Frequency | Relevant to: |
 |------------|------|-------|-----------|--------------|
-| [Name] | [mg] | [Route] | [Freq] | [Why it is relevant] |
+| [Drug] | [mg] | [route] | [freq] | [Why relevant] |
 
 ---
 
@@ -62,92 +62,92 @@ Example: "Please evaluate and manage acute kidney injury in the setting of acute
 
 | Allergen | Reaction |
 |----------|----------|
-| [Drug/Substance] | [Reaction details] |
+| [Drug/substance] | [Reaction] |
 
 ---
 
 ## Relevant Social/Family History
 
-[Provide only if relevant to the consultation]
+[Only include if pertinent to consultation]
 
 ---
 
-## Review of Systems (Targeted)
+## Review of Systems (Focused)
 
-[Focus on systems relevant to the consultation question]
+[Focus on systems relevant to consultation question]
 
-**[Relevant System]:** [Findings]  
-**[Other Relevant System]:** [Findings]
+**[Relevant system]:** [Findings]  
+**[Additional relevant systems]:** [Findings]
 
 ---
 
 ## Physical Examination
 
 **Vital Signs:**
-- Temp: _____ °F/°C
-- BP: _____/_____ mmHg
-- HR: _____ bpm
-- RR: _____ breaths/min
-- SpO2: _____% ([Oxygen status])
+- Temperature: _____ °F
+- Blood Pressure: _____/_____ mmHg
+- Heart Rate: _____ bpm
+- Respiratory Rate: _____ breaths/min
+- Oxygen Saturation: _____% on [O2 status]
 - Weight: _____ kg (if relevant)
 
 **General:**  
-[Overall appearance, color, level of distress]
+[Overall appearance, distress level]
 
-**[Targeted Examination Relevant to Consultation]:**
+**[Focused Examination Relevant to Consultation]:**
 
-**Cardiology Consultation Example:**
+**Example for Cardiology Consult:**
 - **Cardiovascular:**
-  - JVP (Jugular Venous Pressure): [cm H2O]
-  - PMI (Point of Maximal Impulse): [Location]
-  - Heart Sounds: [S1, S2, Murmurs, Gallops, Rubs]
-  - Peripheral Pulses: [Pulse quality]
-  - Edema: [Location and severity]
+  - JVP: [cm H2O]
+  - PMI: [location]
+  - Heart sounds: [S1, S2, murmurs, gallops, rubs]
+  - Peripheral pulses: [quality]
+  - Edema: [location and severity]
 
-**Pulmonology Consultation Example:**
-- **Lungs:**
-  - Work of Breathing: [Description]
-  - Auscultation: [Breath sounds, Wheezing, Crackles]
-  - Percussion: [Findings]
+**Example for Pulmonary Consult:**
+- **Pulmonary:**
+  - Respiratory effort: [description]
+  - Auscultation: [breath sounds, wheezes, crackles]
+  - Percussion: [findings]
 
-[Include other relevant systems; irrelevant systems may be brief or omitted]
+[Include other relevant systems, may abbreviate or defer non-pertinent systems]
 
 ---
 
-## Relevant Laboratory and Imaging Data
+## Pertinent Laboratory and Imaging Data
 
-**Laboratory Studies ([Date]):**
+**Labs ([Date]):**
 
-[Include only lab values relevant to the consultation]
+[Include only labs relevant to consultation]
 
-| Item | Result | Reference Range | Trend |
+| Test | Result | Reference Range | Trend |
 |------|--------|----------------|-------|
-| [Relevant Metric] | [Value] | [Range] | [↑/↓/→] |
+| [Relevant lab] | [Value] | [Range] | [↑/↓/→] |
 
-**Imaging/Diagnostic Studies:**
+**Imaging/Diagnostics:**
 
-**[Study Name] ([Date]):** [Relevant findings]
+**[Study] ([Date]):** [Relevant findings]
 
 **ECG ([Date]):** [Relevant findings]
 
-**Other Tests:** [Relevant results]
+**Other Studies:** [Relevant results]
 
 ---
 
 ## Assessment
 
-**Consultant's Assessment of [Specific Issue]:**
+**Consultant's Assessment of [Specific Problem]:**
 
-[Detailed assessment regarding the consultation question]
+[Detailed assessment of the consultation question]
 
 **Differential Diagnosis:**
-1. [Most likely diagnosis] - [Supporting evidence]
-2. [Other possibilities] - [Supporting or refuting evidence]
-3. [Other considerations]
+1. [Most likely diagnosis] - [supporting evidence]
+2. [Alternative diagnosis] - [evidence for/against]
+3. [Additional considerations]
 
-**Severity/Urgency:** [Assessment of severity]
+**Severity/Acuity:** [Assessment of severity]
 
-**Precipitating Factors:** [Factors contributing to the issue]
+**Contributing Factors:** [What is contributing to the problem]
 
 **Prognosis:** [Short-term and long-term outlook]
 
@@ -158,8 +158,8 @@ Example: "Please evaluate and manage acute kidney injury in the setting of acute
 **[Problem Being Addressed]:**
 
 **Diagnostic Recommendations:**
-1. [Specific tests] - [Rationale/Reasoning]
-2. [Supplemental studies] - [Necessity]
+1. [Specific test] - [Rationale]
+2. [Additional studies] - [Why needed]
 
 **Therapeutic Recommendations:**
 1. **[Intervention/Medication]:**
@@ -168,90 +168,90 @@ Example: "Please evaluate and manage acute kidney injury in the setting of acute
    - [Rationale]
    - [Monitoring parameters]
 
-2. **[Other Treatments]**
+2. **[Additional treatments]**
 
-3. **[Recommended Procedures]:**
+3. **[Procedures if recommended]:**
    - [Procedure name]
    - [Indication]
    - [Timing]
 
 **Monitoring Recommendations:**
-- [Parameters to monitor]
-- [Frequency]
-- [Goal parameters]
+- [What to monitor]
+- [How often]
+- [Target parameters]
 
 **Follow-up Recommendations:**
-- [ ] Will follow during inpatient stay
-- [ ] Recommend outpatient follow-up with [Specialty] in [Timeframe]
-- [ ] Please re-consult if [Specific circumstances] occur
-- [ ] No further consultation needed unless [Specific conditions]
+- [ ] Will follow along as consultant during hospitalization
+- [ ] Recommend follow-up in [Specialty] clinic in [timeframe]
+- [ ] Recommend re-consultation if [specific circumstances]
+- [ ] No further consultation needed unless [conditions]
 
-**Other Recommendations:**
+**Additional Recommendations:**
 - [Lifestyle modifications]
 - [Patient education points]
 - [Precautions]
 
-**Summary of Recommendations for Primary Team:**
-[Concise list of key recommendations for quick review]
-1. [Action Item 1]
-2. [Action Item 2]
-3. [Action Item 3]
+**Recommendations Summary for Primary Team:**
+[Concise bulleted list of key recommendations that can be quickly reviewed]
+1. [Action item 1]
+2. [Action item 2]
+3. [Action item 3]
 
 ---
 
-## Discussion with Primary Team
+## Consultantdiscussion with Primary Team
 
-**Discussed with:** [Name, Position]  
-**Date/Time:** [MM/DD/YYYY HH:MM]  
-**Discussion Topics:** [Key points of discussion]  
-**Agreed-upon Plan:** [Agreed plan or modifications]
+**Discussed with:** [Name, role]  
+**Date/Time:** [MM/DD/YYYY at HH:MM]  
+**Topics discussed:** [Key points discussed]  
+**Plan agreed upon:** [Agreement or modifications]
 
 ---
 
 ## Follow-up Plan
 
 **Consultant will:**
-- [ ] Round daily until [Condition met or discharge]
+- [ ] Round daily until [condition met or discharge]
 - [ ] Re-evaluate in [X] days
-- [ ] Be available for questions or changes in clinical status
-- [ ] Recommend outpatient follow-up in [Timeframe]
+- [ ] Available for questions or changes in clinical status
+- [ ] Recommend outpatient follow-up in [timeframe]
 
-**Primary Team to:**
-- [ ] Implement the above recommendations
-- [ ] Notify consultant if [Specific events] occur
-- [ ] Monitor [Specific parameters]
+**Primary team to:**
+- [ ] Implement above recommendations
+- [ ] Notify consultant if [specific circumstances]
+- [ ] Monitor [specific parameters]
 
 ---
 
-## Signatures
+## Signature
 
-**Consulting Physician:** [Name, Title, Credentials]  
-**Department:** [Consulting Service]  
-**Date/Time:** [MM/DD/YYYY HH:MM]  
+**Consultant:** [Name, MD/DO, credentials]  
+**Service:** [Consulting service]  
+**Date/Time:** [MM/DD/YYYY at HH:MM]  
 **Pager/Contact:** [Number]  
 **Signature:** ____________________
 
-**Attending/Supervising Physician Signature (if Fellow/Resident):**  
-**Attending Physician:** [Name, Credentials]  
-**Date/Time:** [MM/DD/YYYY HH:MM]  
+**Co-signature (if fellow or resident):**  
+**Attending:** [Name, credentials]  
+**Date/Time:** [MM/DD/YYYY at HH:MM]  
 **Signature:** ____________________
 
 ---
 
 ## Template Notes
 
-**Key Principles of Consultation Notes:**
+**Key Principles for Consultation Notes:**
 
-1. **Answer the Question:** Directly address the specific consultation request.
-2. **Focused:** Include only information relevant to the consultation.
-3. **Specific:** Provide clear, actionable recommendations.
-4. **Concise:** Respect the primary team's time.
-5. **Communicate:** Clearly define the follow-up plan.
+1. **Answer the question:** Directly address the specific consultation request
+2. **Be focused:** Include only information relevant to the consultation
+3. **Be specific:** Provide clear, actionable recommendations
+4. **Be concise:** Respect primary team's time
+5. **Be available:** Make follow-up plan clear
 
 **Common Consultation Types:**
 
 **Cardiology:**
-- Preoperative risk assessment
+- Pre-operative risk assessment
 - Arrhythmia management
 - Heart failure management
 - Chest pain evaluation
@@ -272,32 +272,34 @@ Example: "Please evaluate and manage acute kidney injury in the setting of acute
 - Diabetes management
 - Thyroid disorders
 - Adrenal insufficiency
-- Calcium metabolism abnormalities
+- Calcium disorders
 
 **Psychiatry:**
 - Capacity assessment
-- Depression/Anxiety management
+- Depression/anxiety management
 - Agitation management
-- Withdrawal syndromes
+- Substance withdrawal
 
 **Pain Management:**
 - Chronic pain consultation
-- Postoperative pain control
+- Post-operative pain control
 - Cancer pain management
 
 **Palliative Care:**
 - Goals of care discussion
 - Symptom management
-- End-of-life planning
+- End-of-life care planning
 
 **Tips for Effective Consultations:**
 
-- Call the requesting physician before seeing the patient to clarify the question.
-- Introduce yourself to the patient and explain your role.
-- Review the medical record thoroughly before the physical exam.
-- Respect the primary team's ongoing management.
-- Provide specific recommendations rather than vague suggestions.
-- Complete and file the note on the same day as the consultation.
-- Communicate recommendations verbally when necessary.
-- Be available to answer follow-up questions.
-- Maintain consistency in follow-up if ongoing consultation is required.
+- Call the referring provider before seeing patient to clarify question
+- Introduce yourself to patient and explain your role
+- Review chart thoroughly before examination
+- Be respectful of primary team's care
+- Make specific recommendations, not vague suggestions
+- Document same day as consultation
+- Communicate recommendations verbally when appropriate
+- Be available for questions
+- Follow up consistently if ongoing consultation
+
+

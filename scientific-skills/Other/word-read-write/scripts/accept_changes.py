@@ -8,12 +8,13 @@ import logging
 import shutil
 import subprocess
 from pathlib import Path
+from tempfile import gettempdir
 
 from office.soffice import get_soffice_env
 
 logger = logging.getLogger(__name__)
 
-LIBREOFFICE_PROFILE = "/tmp/libreoffice_docx_profile"
+LIBREOFFICE_PROFILE = str(Path(gettempdir()) / "libreoffice_docx_profile")
 MACRO_DIR = f"{LIBREOFFICE_PROFILE}/user/basic/Standard"
 
 ACCEPT_CHANGES_MACRO = """<?xml version="1.0" encoding="UTF-8"?>
@@ -55,10 +56,11 @@ def accept_changes(
     if not _setup_libreoffice_macro():
         return None, "Error: Failed to setup LibreOffice macro"
 
+    profile_uri = Path(LIBREOFFICE_PROFILE).resolve().as_uri()
     cmd = [
         "soffice",
         "--headless",
-        f"-env:UserInstallation=file://{LIBREOFFICE_PROFILE}",
+        f"-env:UserInstallation={profile_uri}",
         "--norestore",
         "vnd.sun.star.script:Standard.Module1.AcceptAllTrackedChanges?language=Basic&location=application",
         str(output_path.absolute()),
@@ -92,15 +94,16 @@ def _setup_libreoffice_macro() -> bool:
     macro_dir = Path(MACRO_DIR)
     macro_file = macro_dir / "Module1.xba"
 
-    if macro_file.exists() and "AcceptAllTrackedChanges" in macro_file.read_text():
+    if macro_file.exists() and "AcceptAllTrackedChanges" in macro_file.read_text(encoding="utf-8"):
         return True
 
     if not macro_dir.exists():
+        profile_uri = Path(LIBREOFFICE_PROFILE).resolve().as_uri()
         subprocess.run(
             [
                 "soffice",
                 "--headless",
-                f"-env:UserInstallation=file://{LIBREOFFICE_PROFILE}",
+                f"-env:UserInstallation={profile_uri}",
                 "--terminate_after_init",
             ],
             capture_output=True,
@@ -111,7 +114,7 @@ def _setup_libreoffice_macro() -> bool:
         macro_dir.mkdir(parents=True, exist_ok=True)
 
     try:
-        macro_file.write_text(ACCEPT_CHANGES_MACRO)
+        macro_file.write_text(ACCEPT_CHANGES_MACRO, encoding="utf-8")
         return True
     except Exception as e:
         logger.warning(f"Failed to setup LibreOffice macro: {e}")

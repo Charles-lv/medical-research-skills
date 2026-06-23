@@ -3,112 +3,112 @@
 ## General Quality Standards
 
 ### Completeness
-- [ ] All required sections are present
+- [ ] All required sections present
 - [ ] No blank fields or missing information
-- [ ] Includes all relevant clinical information
-- [ ] Event timeline is clear and complete
-- [ ] All diagnostic tests and results are documented
-- [ ] All treatments and interventions are documented
-- [ ] Follow-up plan is clearly defined
+- [ ] All relevant clinical information included
+- [ ] Timeline of events clear and complete
+- [ ] All diagnostic tests and results documented
+- [ ] All treatments and interventions documented
+- [ ] Follow-up plan specified
 
 ### Accuracy
-- [ ] Patient demographic information is correct
-- [ ] Dates and times are accurate
-- [ ] Laboratory values include correct units and reference ranges
-- [ ] Medication names, dosages, and administration frequencies are correct
-- [ ] Diagnostic coding is correct (ICD-10)
-- [ ] Procedure coding is correct (CPT, if applicable)
+- [ ] Patient demographics correct
+- [ ] Dates and times accurate
+- [ ] Laboratory values with correct units and reference ranges
+- [ ] Medication names, doses, and frequencies correct
+- [ ] Diagnoses coded correctly (ICD-10)
+- [ ] Procedures coded correctly (CPT if applicable)
 - [ ] No contradictory information
 
 ### Clarity
-- [ ] Language is clear and professional
-- [ ] Medical terminology is used appropriately
-- [ ] Abbreviations are defined or only standard abbreviations are used
-- [ ] Organizational structure and logical flow are reasonable
-- [ ] Handwriting is legible (if handwritten)
+- [ ] Clear, professional language
+- [ ] Medical terminology used appropriately
+- [ ] Abbreviations defined or standard only
+- [ ] Logical organization and flow
+- [ ] Legible (if handwritten)
 - [ ] No ambiguous statements
-- [ ] Clinical reasoning is clearly explained
+- [ ] Clinical reasoning clearly explained
 
 ### Timeliness
-- [ ] Recorded in real-time or shortly after the visit
+- [ ] Documented in real-time or shortly after encounter
 - [ ] Discharge summary completed within 24-48 hours
 - [ ] Critical results communicated immediately
-- [ ] Complies with regulatory reporting deadlines
+- [ ] Regulatory reporting deadlines met
 
 ---
 
 ## Case Report Quality Checklist
 
 ### CARE Guidelines Compliance
-- [ ] Title contains "case report"
+- [ ] Title includes "case report"
 - [ ] Keywords provided (2-5 MeSH terms)
-- [ ] Structured abstract contains all elements
+- [ ] Structured abstract with all elements
 - [ ] Introduction explains novelty
-- [ ] Patient information is complete and de-identified
-- [ ] Clinical findings are documented
+- [ ] Patient information present and de-identified
+- [ ] Clinical findings documented
 - [ ] Timeline provided (table or figure)
-- [ ] Diagnostic assessment is thorough
-- [ ] Therapeutic interventions are described
-- [ ] Follow-up and outcomes are reported
-- [ ] Discussion includes literature review
-- [ ] Patient perspective included (where possible)
-- [ ] Informed consent statement included
+- [ ] Diagnostic assessment detailed
+- [ ] Therapeutic interventions described
+- [ ] Follow-up and outcomes reported
+- [ ] Discussion with literature review
+- [ ] Patient perspective included (if possible)
+- [ ] Informed consent statement present
 
 ### Privacy and Ethics
 - [ ] Informed consent obtained and documented
 - [ ] All 18 HIPAA identifiers removed
 - [ ] Dates removed or approximated
-- [ ] Age reported appropriately (aggregated for >89 years)
-- [ ] Geographic information limited to state/province level
-- [ ] Images de-identified or informed consent obtained
-- [ ] IRB approval obtained, if applicable
+- [ ] Ages reported appropriately (>89 aggregated)
+- [ ] Geographic information limited to state
+- [ ] Images de-identified or consented
+- [ ] IRB approval if applicable
 
 ### Scientific Quality
 - [ ] Novelty clearly established
-- [ ] Literature search is comprehensive
+- [ ] Literature search comprehensive
 - [ ] Differential diagnosis considered
-- [ ] Causality explored
+- [ ] Causality addressed
 - [ ] Limitations acknowledged
-- [ ] Learning points are actionable
-- [ ] References are current and relevant
+- [ ] Learning points actionable
+- [ ] References current and relevant
 
 ---
 
 ## Clinical Trial Report Quality Checklist
 
-### SAE Reporting Checklist
-- [ ] All administrative information is complete
+### SAE Report Checklist
+- [ ] All administrative information complete
 - [ ] Subject de-identified (ID number only)
-- [ ] Detailed event description
+- [ ] Event description detailed
 - [ ] MedDRA coding applied
 - [ ] Seriousness criteria documented
 - [ ] Severity assessed
-- [ ] Outcome clearly defined
+- [ ] Outcome specified
 - [ ] Causality assessment completed with rationale
 - [ ] Expectedness determined
-- [ ] Actions taken regarding study drug documented
-- [ ] Treatment for the event described
-- [ ] Narrative is comprehensive and chronological
-- [ ] Critical findings communicated, if applicable
-- [ ] Complies with regulatory timelines (7-day, 15-day reports)
+- [ ] Action taken with study drug documented
+- [ ] Treatment for event described
+- [ ] Narrative comprehensive and chronological
+- [ ] Critical findings communicated if applicable
+- [ ] Regulatory timelines met (7-day, 15-day)
 
 ### Clinical Study Report (CSR) Checklist
-- [ ] Follows ICH-E3 structure
-- [ ] Synopsis is complete and accurate
+- [ ] ICH-E3 structure followed
+- [ ] Synopsis complete and accurate
 - [ ] All sections numbered correctly
 - [ ] Abbreviations defined
-- [ ] Ethical approval documented
-- [ ] List of investigators is complete
+- [ ] Ethics approvals documented
+- [ ] Investigator list complete
 - [ ] Study design clearly described
-- [ ] Sample size justification provided
-- [ ] Statistical methods clearly defined
-- [ ] CONSORT flow diagram included
-- [ ] Baseline demographics table included
+- [ ] Sample size justified
+- [ ] Statistical methods specified
+- [ ] CONSORT diagram included
+- [ ] Baseline demographics table
 - [ ] Primary endpoint results
 - [ ] All secondary endpoints reported
-- [ ] Adverse event summary
+- [ ] Adverse events summarized
 - [ ] Individual SAE narratives included
-- [ ] Discussion and conclusions included
+- [ ] Discussion and conclusions present
 - [ ] Appendices complete (protocol, CRFs, etc.)
 
 ---
@@ -118,41 +118,41 @@
 ### Radiology Report
 - [ ] Patient demographics complete
 - [ ] Clinical indication documented
-- [ ] Contrast studies noted
-- [ ] Examination technique described
-- [ ] Findings described systematically and comprehensively
+- [ ] Comparison studies noted
+- [ ] Technique described
+- [ ] Findings systematic and comprehensive
 - [ ] Measurements provided for abnormalities
-- [ ] Diagnostic conclusion summarizes key findings
-- [ ] Clinical question answered
-- [ ] Recommendations clearly stated
+- [ ] Impression summarizes key findings
+- [ ] Answers clinical question
+- [ ] Recommendations specified
 - [ ] Critical results communicated
 - [ ] Structured reporting used if applicable (BI-RADS, Lung-RADS, etc.)
 - [ ] Report signed and dated
 
 ### Pathology Report
-- [ ] Specimen correctly labeled
+- [ ] Specimen labeled correctly
 - [ ] Clinical history provided
-- [ ] Gross description is detailed
-- [ ] Microscopic description is comprehensive
-- [ ] Diagnosis is clear and specific
+- [ ] Gross description detailed
+- [ ] Microscopic description comprehensive
+- [ ] Diagnosis clear and specific
 - [ ] Cancer staging complete (if applicable)
-- [ ] Margin status documented
-- [ ] Lymph node count
-- [ ] Synoptic reporting used for cancer (CAP protocols)
+- [ ] Margins documented
+- [ ] Lymph nodes quantified
+- [ ] Synoptic reporting used for cancer (CAP protocol)
 - [ ] Immunohistochemistry results included
-- [ ] Molecular testing results included, if applicable
+- [ ] Molecular results included if applicable
 - [ ] Report signed by pathologist
 
 ### Laboratory Report
 - [ ] Specimen type documented
 - [ ] Collection time documented
-- [ ] Results accompanied by units
+- [ ] Results with units
 - [ ] Reference ranges provided
 - [ ] Critical values flagged
 - [ ] Critical values communicated
 - [ ] Specimen quality noted
 - [ ] Methodology specified (if relevant)
-- [ ] Rationale/interpretation provided (when applicable)
+- [ ] Interpretation provided (when applicable)
 - [ ] LOINC codes assigned (for interoperability)
 - [ ] Report signed and dated
 
@@ -160,54 +160,54 @@
 
 ## Patient Documentation Quality Checklist
 
-### SOAP Notes
+### SOAP Note
 - [ ] Chief complaint documented
-- [ ] HPI is comprehensive (≥4 elements)
-- [ ] Review of Systems (ROS) performed
+- [ ] HPI comprehensive (≥4 elements)
+- [ ] Review of systems performed
 - [ ] Vital signs recorded
 - [ ] Physical exam documented (relevant systems)
-- [ ] Assessment includes differential diagnosis
-- [ ] Plan is specific and actionable
+- [ ] Assessment with differential diagnosis
+- [ ] Plan specific and actionable
 - [ ] Return precautions provided
-- [ ] Follow-up scheduled
+- [ ] Follow-up arranged
 - [ ] Documentation supports billing level
 - [ ] Signed, dated, and timed
 
 ### History and Physical (H&P)
 - [ ] Chief complaint
 - [ ] Detailed HPI
-- [ ] Past Medical History (PMH)
-- [ ] Past Surgical History (PSH)
-- [ ] Medication reconciliation
+- [ ] Past medical history
+- [ ] Past surgical history
+- [ ] Medications reconciled
 - [ ] Allergies documented
 - [ ] Family history
 - [ ] Social history
-- [ ] Review of Systems (comprehensive exam requires ≥10 systems)
+- [ ] Review of systems (≥10 systems for comprehensive)
 - [ ] Complete physical exam (≥8 systems)
-- [ ] Lab and imaging results
+- [ ] Laboratory and imaging results
 - [ ] Assessment and plan for each problem
-- [ ] Advance directives documented (Code status)
+- [ ] Code status documented
 - [ ] Completed within 24 hours of admission
-- [ ] Signed and co-signed as required
+- [ ] Signed and cosigned (if required)
 
 ### Discharge Summary
 - [ ] Admission and discharge dates
 - [ ] Length of stay
 - [ ] Admission diagnosis
-- [ ] Discharge diagnosis (ICD-10 codes)
+- [ ] Discharge diagnoses (ICD-10 coded)
 - [ ] Hospital course narrative
-- [ ] Procedures/surgeries performed
-- [ ] Discharge medication reconciliation
-- [ ] New, changed, or discontinued medications clearly marked
-- [ ] Condition at discharge
+- [ ] Procedures performed
+- [ ] Discharge medications reconciled
+- [ ] New/changed/discontinued medications clearly marked
+- [ ] Discharge condition
 - [ ] Discharge disposition
 - [ ] Follow-up appointments
 - [ ] Patient instructions
 - [ ] Return precautions
 - [ ] Pending tests documented
-- [ ] Advance directives (Code status)
+- [ ] Code status
 - [ ] Completed within 24-48 hours
-- [ ] Sent to outpatient primary care provider
+- [ ] Sent to outpatient providers
 
 ---
 
@@ -215,10 +215,10 @@
 
 ### HIPAA Compliance
 - [ ] Only minimum necessary PHI disclosed
-- [ ] PHI encrypted and protected
+- [ ] PHI secured and protected
 - [ ] Patient authorization obtained (if required)
-- [ ] Business Associate Agreements (if applicable)
-- [ ] Audit trails maintained (electronic records)
+- [ ] Business associate agreement (if applicable)
+- [ ] Audit trail maintained (electronic records)
 - [ ] Breach notification procedures followed
 - [ ] De-identification performed correctly
 
@@ -227,9 +227,9 @@
 - [ ] Informed consent documented
 - [ ] IRB approval current
 - [ ] Protocol adherence documented
-- [ ] Source documentation is adequate
-- [ ] Complies with ALCOA-CCEA principles
-- [ ] Complies with 21 CFR Part 11 standards (electronic records)
+- [ ] Source documentation adequate
+- [ ] ALCOA-CCEA principles met
+- [ ] 21 CFR Part 11 compliance (electronic records)
 - [ ] Safety reporting timelines met
 - [ ] Essential documents maintained
 
@@ -239,55 +239,55 @@
 
 ### Grammar and Style
 - [ ] Correct spelling
-- [ ] Correct grammar
+- [ ] Proper grammar
 - [ ] Appropriate punctuation
 - [ ] Consistent verb tense
 - [ ] Professional tone
 - [ ] Objective language
 - [ ] No personal pronouns in formal reports
-- [ ] Appropriate use of active voice
+- [ ] Active voice used appropriately
 
-### Formatting and Presentation
+### Format and Presentation
 - [ ] Consistent formatting
 - [ ] Appropriate font and size
-- [ ] Proper margins
-- [ ] Page numbering (if applicable)
-- [ ] Appropriate headers/footers
-- [ ] Tables formatted and labeled correctly
-- [ ] High-quality images with captions
+- [ ] Adequate margins
+- [ ] Page numbers (if applicable)
+- [ ] Headers/footers appropriate
+- [ ] Tables properly formatted with labels
+- [ ] Figures high quality with legends
 - [ ] References formatted correctly
 
 ### Medical Terminology
-- [ ] Accurate terminology
-- [ ] Only standard abbreviations used
-- [ ] Abbreviations defined at first use
-- [ ] Correct units of measurement
-- [ ] Correct drug names (generic preferred)
-- [ ] Correct anatomical terms
-- [ ] Accurate coding (ICD-10, CPT, MedDRA)
+- [ ] Terminology accurate
+- [ ] Abbreviations standard only
+- [ ] Abbreviations defined on first use
+- [ ] Units of measurement correct
+- [ ] Drug names correct (generic preferred)
+- [ ] Anatomical terms correct
+- [ ] Coding accurate (ICD-10, CPT, MedDRA)
 
 ---
 
 ## Documentation Integrity Checklist
 
 ### Legal and Ethical Standards
-- [ ] Records facts, not opinions
-- [ ] Quotes patient directly when relevant
-- [ ] Objectively documents non-compliance
-- [ ] No alterations to original records
-- [ ] Corrections made using addendums
-- [ ] Addendums clearly marked
+- [ ] Facts documented, not opinions
+- [ ] Patient quotes when relevant
+- [ ] Non-compliance documented objectively
+- [ ] No alterations to original record
+- [ ] Addendums used for corrections
+- [ ] Addendums clearly labeled
 - [ ] All entries signed and dated
-- [ ] Authorship is clear
+- [ ] Authorship clear
 
 ### Billing and Coding Support
 - [ ] Medical necessity documented
 - [ ] Complexity of care documented
 - [ ] Time documented (if time-based billing)
-- [ ] ICD-10 codes are appropriate and specific
+- [ ] ICD-10 codes appropriate and specific
 - [ ] CPT codes match documented services
-- [ ] Modifiers used correctly
-- [ ] Documentation supports the level of service billed
+- [ ] Modifiers appropriate
+- [ ] Documentation supports level of service billed
 
 ---
 
@@ -295,28 +295,28 @@
 
 Before finalizing any clinical report:
 
-- [ ] Read through the entire document
+- [ ] Read through entire document
 - [ ] Check for completeness
-- [ ] Verify accuracy of all data
+- [ ] Verify all data accuracy
 - [ ] Ensure logical flow
 - [ ] Check spelling and grammar
-- [ ] Verify patient identifiers are correct (or removed in de-identified reports)
-- [ ] Ensure regulatory requirements are met
-- [ ] Confirm all required signatures are present
-- [ ] Verify correct distribution path
-- [ ] File copies appropriately
+- [ ] Verify patient identifiers correct (or removed if de-identified)
+- [ ] Ensure compliance with regulations
+- [ ] Confirm all required signatures
+- [ ] Verify proper distribution
+- [ ] Archive copy appropriately
 
 ---
 
 ## Quality Metrics to Track
 
 - [ ] Report turnaround time
-- [ ] Revision/Addendum rate
+- [ ] Amendment/addendum rate
 - [ ] Critical value communication time
 - [ ] Completeness score
 - [ ] Accuracy rate (errors per report)
 - [ ] Compliance rate
-- [ ] Documentation-related patient safety events
+- [ ] Patient safety events related to documentation
 - [ ] Peer review feedback
 
 ---
@@ -329,8 +329,10 @@ Before finalizing any clinical report:
 
 **Quality Score:** _____ / 100
 
-**Findings:**
-1. [Issue and Recommendation]
-2. [Issue and Recommendation]
+**Issues Identified:**
+1. [Issue and recommendation]
+2. [Issue and recommendation]
 
 **Follow-up Required:** [ ] Yes  [ ] No
+
+

@@ -662,28 +662,28 @@ class DeviationClassifier:
         
         if critical_count > 0:
             recommendations.append(
-                f"⚠️ Discover{critical_count}key deviation，Recommend immediate root cause analysis"
+                f"Found {critical_count} critical deviation(s), recommend immediate root cause analysis"
             )
-        
+
         if total > 0:
             major_rate = major_count / total * 100
             if major_rate > 20:
                 recommendations.append(
-                    f"significant deviation rate({major_rate:.1f}%)On the high side，It is recommended to strengthen research center training"
+                    f"Major deviation rate ({major_rate:.1f}%) is high, recommend strengthening research site training"
                 )
             elif major_rate > 10:
                 recommendations.append(
-                    f"significant deviation rate({major_rate:.1f}%)medium，It is recommended to pay close attention to"
+                    f"Major deviation rate ({major_rate:.1f}%) is moderate, recommend close monitoring"
                 )
-        
+
         # Check trends
         safety_issues = sum(
-            1 for r in results 
+            1 for r in results
             if r.safety_risk in [RiskLevel.HIGH, RiskLevel.MEDIUM]
         )
         if safety_issues > 3:
             recommendations.append(
-                f"Discover{safety_issues}deviations involving safety issues，Recommend evaluation of subject protection measures"
+                f"Found {safety_issues} deviations involving safety issues, recommend evaluating subject protection measures"
             )
         
         if not recommendations:
@@ -789,7 +789,7 @@ def main():
             if args.output:
                 with open(args.output, 'w', encoding='utf-8') as f:
                     json.dump(output, f, ensure_ascii=False, indent=2)
-                print(f"English: {args.output}")
+            print(f"Results saved to: {args.output}")
             else:
                 print(json.dumps(output, ensure_ascii=False, indent=2))
         
@@ -827,7 +827,7 @@ def main():
             _run_demo(classifier)
     
     except Exception as e:
-        print(f"mistake: {e}", file=sys.stderr)
+        print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 
@@ -843,8 +843,8 @@ def _print_table_result(result: ClassificationResult):
     print("-" * 60)
     print("risk assessment:")
     print(f"  - Subject safety: {result.safety_risk}")
-    print(f"  - data integrity: {result.data_integrity_risk}")
-    print(f"  - Experimental science: {result.scientific_validity_risk}")
+    print(f"  - Data integrity: {result.data_integrity_risk}")
+    print(f"  - Scientific validity: {result.scientific_validity_risk}")
     print("-" * 60)
     print("Reason for classification:")
     print(result.rationale)
@@ -926,19 +926,19 @@ def _run_demo(classifier: DeviationClassifier):
     
     results = []
     for case in demo_cases:
-        print(f"\n【Case {case['id']}】")
-        print(f"describe: {case['description']}")
-        print(f"type: {case['type']}")
-        
+        print(f"\n[Case {case['id']}]")
+        print(f"Description: {case['description']}")
+        print(f"Type: {case['type']}")
+
         result = classifier.classify(
             description=case['description'],
             deviation_type=case['type'],
             event_id=case['id']
         )
         results.append(result)
-        
-        print(f"→ Classification results: {result.classification} (Confidence: {result.confidence*100:.0f}%)")
-        print(f"   risk score: {result.risk_score}")
+
+        print(f"-> Classification: {result.classification} (Confidence: {result.confidence*100:.0f}%)")
+        print(f"   Risk score: {result.risk_score}")
     
     # Generate summary report
     print("\n" + "=" * 60)
@@ -949,11 +949,11 @@ def _run_demo(classifier: DeviationClassifier):
     summary = report['summary']
     
     print(f"Total deviations: {summary['total_deviations']}")
-    print(f"critical deviation: {summary['critical_count']}")
-    print(f"significant deviation: {summary['major_count']} ({summary['major_rate']}%)")
-    print(f"small deviation: {summary['minor_count']} ({summary['minor_rate']}%)")
-    
-    print("suggestion:")
+    print(f"Critical deviations: {summary['critical_count']}")
+    print(f"Major deviations: {summary['major_count']} ({summary['major_rate']}%)")
+    print(f"Minor deviations: {summary['minor_count']} ({summary['minor_rate']}%)")
+
+    print("Recommendations:")
     for rec in report['recommendations']:
         print(f"  • {rec}")
 

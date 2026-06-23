@@ -2,32 +2,32 @@
 
 ## Overview
 
-Tissue masks are binary representations that identify tissue regions in Whole Slide Images (WSI). They are essential during the tile extraction process for filtering out background, artifacts, and non-tissue areas. Histolab provides several mask classes to meet different tissue segmentation needs.
+Tissue masks are binary representations that identify tissue regions within whole slide images. They are essential for filtering out background, artifacts, and non-tissue areas during tile extraction. Histolab provides several mask classes to accommodate different tissue segmentation needs.
 
 ## Mask Classes
 
 ### BinaryMask
 
-**Purpose:** A general base class used for creating custom binary masks.
+**Purpose:** Generic base class for creating custom binary masks.
 
 ```python
 from histolab.masks import BinaryMask
 
 class CustomMask(BinaryMask):
     def _mask(self, obj):
-        # Implement custom mask logic
-        # Return binarized numpy array
+        # Implement custom masking logic
+        # Return binary numpy array
         pass
 ```
 
-**Use Cases:**
+**Use cases:**
 - Custom tissue segmentation algorithms
-- Specific area analysis (e.g., excluding annotated regions)
+- Region-specific analysis (e.g., excluding annotations)
 - Integration with external segmentation models
 
 ### TissueMask
 
-**Purpose:** Segments all tissue regions in a slide using automated filters.
+**Purpose:** Segments all tissue regions in the slide using automated filters.
 
 ```python
 from histolab.masks import TissueMask
@@ -40,18 +40,18 @@ mask_array = tissue_mask(slide)
 ```
 
 **How it works:**
-1. Converts the image to grayscale
-2. Applies Otsu's thresholding to separate tissue from background
-3. Performs binary dilation to connect adjacent tissue regions
+1. Converts image to grayscale
+2. Applies Otsu thresholding to separate tissue from background
+3. Performs binary dilation to connect nearby tissue regions
 4. Removes small holes within tissue regions
-5. Filters out tiny objects (artifacts)
+5. Filters out small objects (artifacts)
 
-**Returns:** A binarized NumPy array where:
+**Returns:** Binary NumPy array where:
 - `True` (or 1): Tissue pixels
 - `False` (or 0): Background pixels
 
 **Best for:**
-- Slides containing multiple separate tissue sections
+- Slides with multiple separate tissue sections
 - Comprehensive tissue analysis
 - When all tissue regions are important
 
@@ -62,7 +62,7 @@ mask_array = tissue_mask(slide)
 ```python
 from histolab.masks import BiggestTissueBoxMask
 
-# Create a mask for the largest tissue region
+# Create mask for largest tissue region
 biggest_mask = BiggestTissueBoxMask()
 
 # Apply to slide
@@ -70,15 +70,15 @@ mask_array = biggest_mask(slide)
 ```
 
 **How it works:**
-1. Applies the same filtering pipeline as TissueMask
+1. Applies same filtering pipeline as TissueMask
 2. Identifies all connected tissue components
 3. Selects the largest connected component
-4. Returns the bounding box covering that region
+4. Returns bounding box encompassing that region
 
 **Best for:**
-- Slides containing a single primary tissue section
+- Slides with a single primary tissue section
 - Excluding small artifacts or tissue fragments
-- Focusing on the main tissue area (default behavior for most tile extractors)
+- Focusing on main tissue area (default for most tilers)
 
 ## Customizing Masks with Filters
 
@@ -89,7 +89,7 @@ from histolab.masks import TissueMask
 from histolab.filters.image_filters import RgbToGrayscale, OtsuThreshold
 from histolab.filters.morphological_filters import BinaryDilation, RemoveSmallHoles
 
-# Define custom filter combination
+# Define custom filter composition
 custom_mask = TissueMask(
     filters=[
         RgbToGrayscale(),
@@ -111,11 +111,11 @@ from histolab.masks import TissueMask
 slide = Slide("slide.svs", processed_path="output/")
 mask = TissueMask()
 
-# Visualize mask boundaries on the thumbnail
+# Visualize mask boundaries on thumbnail
 slide.locate_mask(mask)
 ```
 
-This will display the mask boundaries as a contrasting overlay on the slide thumbnail.
+This displays the slide thumbnail with mask boundaries overlaid in a contrasting color.
 
 ### Manual Visualization
 
@@ -129,7 +129,7 @@ tissue_mask = TissueMask()
 # Generate mask
 mask_array = tissue_mask(slide)
 
-# Plot side-by-side
+# Plot side by side
 fig, axes = plt.subplots(1, 2, figsize=(15, 7))
 
 axes[0].imshow(slide.thumbnail)
@@ -145,7 +145,7 @@ plt.show()
 
 ## Creating Custom Rectangular Masks
 
-Define specific Regions of Interest (ROI):
+Define specific regions of interest:
 
 ```python
 from histolab.masks import BinaryMask
@@ -159,7 +159,7 @@ class RectangularMask(BinaryMask):
         self.height = height
 
     def _mask(self, obj):
-        # Create mask in specified rectangular area
+        # Create mask with specified rectangular region
         thumb = obj.thumbnail
         mask = np.zeros(thumb.shape[:2], dtype=bool)
         mask[self.y_start:self.y_start+self.height,
@@ -170,9 +170,9 @@ class RectangularMask(BinaryMask):
 roi_mask = RectangularMask(x_start=1000, y_start=500, width=2000, height=1500)
 ```
 
-## Excluding Annotated Regions
+## Excluding Annotations
 
-Pathology slides often contain pen marks or digital annotations. Use custom masks to exclude them:
+Pathology slides often contain pen markings or digital annotations. Exclude them using custom masks:
 
 ```python
 from histolab.masks import TissueMask
@@ -183,14 +183,14 @@ class AnnotationExclusionMask(BinaryMask):
     def _mask(self, obj):
         thumb = obj.thumbnail
 
-        # Convert to HSV to detect pen marks (usually blue/green)
+        # Convert to HSV to detect pen marks (often blue/green)
         hsv = cv2.cvtColor(np.array(thumb), cv2.COLOR_RGB2HSV)
 
-        # Define color range for pen marks
+        # Define color ranges for pen marks
         lower_blue = np.array([100, 50, 50])
         upper_blue = np.array([130, 255, 255])
 
-        # Create mask to exclude pen marks
+        # Create mask excluding pen marks
         pen_mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
         # Apply standard tissue detection
@@ -204,13 +204,13 @@ class AnnotationExclusionMask(BinaryMask):
 
 ## Integration with Tile Extraction
 
-Masks integrate seamlessly with tile extractors via the `extraction_mask` parameter:
+Masks integrate seamlessly with tilers through the `extraction_mask` parameter:
 
 ```python
 from histolab.tiler import RandomTiler
 from histolab.masks import TissueMask, BiggestTissueBoxMask
 
-# Extract from all tissue using TissueMask
+# Use TissueMask to extract from all tissue
 random_tiler = RandomTiler(
     tile_size=(512, 512),
     n_tiles=100,
@@ -218,7 +218,7 @@ random_tiler = RandomTiler(
     extraction_mask=TissueMask()  # Extract from all tissue regions
 )
 
-# Or use the default BiggestTissueBoxMask
+# Or use default BiggestTissueBoxMask
 random_tiler = RandomTiler(
     tile_size=(512, 512),
     n_tiles=100,
@@ -229,23 +229,23 @@ random_tiler = RandomTiler(
 
 ## Best Practices
 
-1. **Preview masks before extraction**: Use `locate_mask()` or manual visualization to verify mask quality.
-2. **Choose the appropriate mask type**: Use `TissueMask` for multiple tissue sections and `BiggestTissueBoxMask` for a single main part.
-3. **Customize for specific stains**: Different stains (e.g., H&E, IHC) may require adjusting threshold parameters.
-4. **Handle artifacts**: Use custom filters or masks to exclude pen marks, bubbles, or folds.
-5. **Test on different slides**: Validate mask performance on slides with varying quality and artifacts.
-6. **Consider computational cost**: `TissueMask` is more comprehensive than `BiggestTissueBoxMask` but also more computationally intensive.
+1. **Preview masks before extraction**: Use `locate_mask()` or manual visualization to verify mask quality
+2. **Choose appropriate mask type**: Use `TissueMask` for multiple tissue sections, `BiggestTissueBoxMask` for single main sections
+3. **Customize for specific stains**: Different stains (H&E, IHC) may require adjusted threshold parameters
+4. **Handle artifacts**: Use custom filters or masks to exclude pen marks, bubbles, or folds
+5. **Test on diverse slides**: Validate mask performance across slides with varying quality and artifacts
+6. **Consider computational cost**: `TissueMask` is more comprehensive but computationally intensive than `BiggestTissueBoxMask`
 
 ## Common Issues and Solutions
 
-### Issue: Mask contains too much background
-**Solution:** Adjust Otsu threshold or increase the threshold for small object removal.
+### Issue: Mask includes too much background
+**Solution:** Adjust Otsu threshold or increase small object removal threshold
 
 ### Issue: Mask excludes valid tissue
-**Solution:** Lower the threshold for small object removal or modify dilation parameters.
+**Solution:** Reduce small object removal threshold or modify dilation parameters
 
-### Issue: Multiple tissue parts exist, but only the largest is captured
-**Solution:** Switch from `BiggestTissueBoxMask` to `TissueMask`.
+### Issue: Multiple tissue sections, but only largest is captured
+**Solution:** Switch from `BiggestTissueBoxMask` to `TissueMask`
 
-### Issue: Pen annotations are included in the mask
-**Solution:** Implement a custom annotation exclusion mask (see example above).
+### Issue: Pen annotations included in mask
+**Solution:** Implement custom annotation exclusion mask (see example above)

@@ -2,26 +2,26 @@
 
 ## Overview
 
-Tile extraction is the process of cropping smaller, manageable regions from large Whole Slide Images (WSIs). Histolab provides three main extraction strategies, each suited for different analysis needs. All tilers share common parameters and provide methods for previewing and extracting tiles.
+Tile extraction is the process of cropping smaller, manageable regions from large whole slide images. Histolab provides three main extraction strategies, each suited for different analysis needs. All tilers share common parameters and provide methods for previewing and extracting tiles.
 
 ## Common Parameters
 
-All tiler classes accept the following parameters:
+All tiler classes accept these parameters:
 
 ```python
 tile_size: tuple = (512, 512)           # Tile dimensions in pixels (width, height)
-level: int = 0                          # Extraction pyramid level (0=highest resolution)
-check_tissue: bool = True               # Filter tiles based on tissue content
+level: int = 0                          # Pyramid level for extraction (0=highest resolution)
+check_tissue: bool = True               # Filter tiles by tissue content
 tissue_percent: float = 80.0            # Minimum tissue coverage (0-100)
-pixel_overlap: int = 0                  # Overlapping pixels between adjacent tiles (GridTiler only)
+pixel_overlap: int = 0                  # Overlap between adjacent tiles (GridTiler only)
 prefix: str = ""                        # Prefix for saved tile filenames
 suffix: str = ".png"                    # File extension for saved tiles
-extraction_mask: BinaryMask = BiggestTissueBoxMask()  # Mask defining the extraction area
+extraction_mask: BinaryMask = BiggestTissueBoxMask()  # Mask defining extraction region
 ```
 
 ## RandomTiler
 
-**Purpose:** Extract a fixed number of tiles from random positions within tissue regions.
+**Purpose:** Extract a fixed number of randomly positioned tiles from tissue regions.
 
 ```python
 from histolab.tiler import RandomTiler
@@ -40,30 +40,30 @@ random_tiler.extract(slide, extraction_mask=TissueMask())
 ```
 
 **Key Parameters:**
-- `n_tiles`: Number of random tiles to extract.
-- `seed`: Random seed for reproducible tile selection.
-- `max_iter`: Maximum number of attempts to find valid tiles (default is 1000).
+- `n_tiles`: Number of random tiles to extract
+- `seed`: Random seed for reproducible tile selection
+- `max_iter`: Maximum attempts to find valid tiles (default 1000)
 
-**Usage Scenarios:**
-- Exploratory analysis of slide content.
-- Sampling diverse regions for training data.
-- Rapid assessment of tissue characteristics.
-- Creating balanced datasets from multiple slides.
+**Use cases:**
+- Exploratory analysis of slide content
+- Sampling diverse regions for training data
+- Quick assessment of tissue characteristics
+- Balanced dataset creation from multiple slides
 
-**Pros:**
-- Computationally efficient.
-- Good for sampling diverse tissue morphologies.
-- Reproducible results via the seed parameter.
-- Fast execution.
+**Advantages:**
+- Computationally efficient
+- Good for sampling diverse tissue morphologies
+- Reproducible with seed parameter
+- Fast execution
 
-**Cons:**
-- May miss rare tissue patterns.
-- No guarantee of coverage.
-- Random distribution might not capture structural features.
+**Limitations:**
+- May miss rare tissue patterns
+- No guarantee of coverage
+- Random distribution may not capture structured features
 
 ## GridTiler
 
-**Purpose:** Systematically extract tiles across the entire tissue area in a grid pattern.
+**Purpose:** Extract tiles systematically across tissue regions following a grid pattern.
 
 ```python
 from histolab.tiler import GridTiler
@@ -73,7 +73,7 @@ grid_tiler = GridTiler(
     level=0,
     check_tissue=True,
     tissue_percent=80.0,
-    pixel_overlap=0             # Overlapping pixels between adjacent tiles
+    pixel_overlap=0             # Overlap in pixels between adjacent tiles
 )
 
 # Extract tiles
@@ -81,28 +81,28 @@ grid_tiler.extract(slide)
 ```
 
 **Key Parameters:**
-- `pixel_overlap`: Number of pixels to overlap between adjacent tiles.
-  - `pixel_overlap=0`: Non-overlapping tiles.
-  - `pixel_overlap=128`: 128-pixel overlap on each side.
-  - Useful for sliding window approaches.
+- `pixel_overlap`: Number of overlapping pixels between adjacent tiles
+  - `pixel_overlap=0`: Non-overlapping tiles
+  - `pixel_overlap=128`: 128-pixel overlap on each side
+  - Can be used for sliding window approaches
 
-**Usage Scenarios:**
-- Comprehensive slide coverage.
-- Spatial analysis requiring positional information.
-- Image reconstruction from tiles.
-- Semantic segmentation tasks.
-- Region-based analysis.
+**Use cases:**
+- Comprehensive slide coverage
+- Spatial analysis requiring positional information
+- Image reconstruction from tiles
+- Semantic segmentation tasks
+- Region-based analysis
 
-**Pros:**
-- Complete tissue coverage.
-- Preserves spatial relationships.
-- Predictable tile locations.
-- Suitable for whole-slide analysis.
+**Advantages:**
+- Complete tissue coverage
+- Preserves spatial relationships
+- Predictable tile positions
+- Suitable for whole-slide analysis
 
-**Cons:**
-- Computationally intensive for large slides.
-- May generate many tiles with high background (mitigated by `check_tissue`).
-- Large output datasets.
+**Limitations:**
+- Computationally intensive for large slides
+- May generate many background-heavy tiles (mitigated by `check_tissue`)
+- Larger output datasets
 
 **Grid Pattern:**
 ```
@@ -111,7 +111,7 @@ grid_tiler.extract(slide)
 [Tile 7][Tile 8][Tile 9]
 ```
 
-When `pixel_overlap=64`:
+With `pixel_overlap=64`:
 ```
 [Tile 1-overlap-Tile 2-overlap-Tile 3]
 [    overlap       overlap       overlap]
@@ -120,7 +120,7 @@ When `pixel_overlap=64`:
 
 ## ScoreTiler
 
-**Purpose:** Extract top-ranked tiles based on a custom scoring function.
+**Purpose:** Extract top-ranked tiles based on custom scoring functions.
 
 ```python
 from histolab.tiler import ScoreTiler
@@ -139,26 +139,26 @@ score_tiler.extract(slide)
 ```
 
 **Key Parameters:**
-- `n_tiles`: Number of top-scoring tiles to extract.
-- `scorer`: Scoring function (e.g., `NucleiScorer`, `CellularityScorer`, or a custom scorer).
+- `n_tiles`: Number of top-scoring tiles to extract
+- `scorer`: Scoring function (e.g., `NucleiScorer`, `CellularityScorer`, custom scorer)
 
-**Usage Scenarios:**
-- Extracting the most informative regions.
-- Prioritizing tiles with specific features (nuclei, cells, etc.).
-- Quality-based tile selection.
-- Focusing on areas with diagnostic relevance.
-- Training data curation.
+**Use cases:**
+- Extracting most informative regions
+- Prioritizing tiles with specific features (nuclei, cells, etc.)
+- Quality-based tile selection
+- Focusing on diagnostically relevant areas
+- Training data curation
 
-**Pros:**
-- Focuses on the most informative tiles.
-- Reduces dataset size while maintaining quality.
-- Customizable with different scorers.
-- Efficient for targeted analysis.
+**Advantages:**
+- Focuses on most informative tiles
+- Reduces dataset size while maintaining quality
+- Customizable with different scorers
+- Efficient for targeted analysis
 
-**Cons:**
-- Slower than RandomTiler (must score all candidate tiles).
-- Requires a suitable scorer for the task.
-- May miss low-scoring but relevant regions.
+**Limitations:**
+- Slower than RandomTiler (must score all candidate tiles)
+- Requires appropriate scorer for task
+- May miss low-scoring but relevant regions
 
 ## Available Scorers
 
@@ -173,16 +173,16 @@ nuclei_scorer = NucleiScorer()
 ```
 
 **How it works:**
-1. Converts the tile to grayscale.
-2. Applies thresholding to detect nuclei.
-3. Counts nuclei-like structures.
-4. Assigns a score based on nuclei density.
+1. Converts tile to grayscale
+2. Applies thresholding to detect nuclei
+3. Counts nuclei-like structures
+4. Assigns score based on nuclei density
 
 **Best for:**
-- Cell-rich tissue areas.
-- Tumor detection.
-- Mitotic analysis.
-- High cellularity regions.
+- Cell-rich tissue regions
+- Tumor detection
+- Mitosis analysis
+- Areas with high cellular content
 
 ### CellularityScorer
 
@@ -195,9 +195,9 @@ cellularity_scorer = CellularityScorer()
 ```
 
 **Best for:**
-- Distinguishing cellular regions from stroma.
-- Tumor cell abundance assessment.
-- Isolating dense vs. sparse tissue areas.
+- Identifying cellular vs. stromal regions
+- Tumor cellularity assessment
+- Separating dense from sparse tissue areas
 
 ### Custom Scorers
 
@@ -209,7 +209,7 @@ import numpy as np
 
 class ColorVarianceScorer(Scorer):
     def __call__(self, tile):
-        """Score tile based on color variance."""
+        """Score tiles based on color variance."""
         tile_array = np.array(tile.image)
         # Calculate color variance
         variance = np.var(tile_array, axis=(0, 1)).sum()
@@ -224,9 +224,9 @@ score_tiler = ScoreTiler(
 )
 ```
 
-## Previewing Tiles with locate_tiles()
+## Tile Preview with locate_tiles()
 
-Preview tile positions before extraction to verify tiler configuration:
+Preview tile locations before extraction to validate tiler configuration:
 
 ```python
 # Preview random tile locations
@@ -237,7 +237,7 @@ random_tiler.locate_tiles(
 )
 ```
 
-This displays a thumbnail of the slide with colored rectangles indicating tile positions.
+This displays the slide thumbnail with colored rectangles indicating tile positions.
 
 ## Extraction Workflow
 
@@ -258,7 +258,7 @@ tiler = RandomTiler(
     seed=42
 )
 
-# Extract tiles (saves to processed_path)
+# Extract tiles (saved to processed_path)
 tiler.extract(slide)
 ```
 
@@ -270,7 +270,7 @@ import logging
 # Enable logging
 logging.basicConfig(level=logging.INFO)
 
-# Extract tiles with progress info
+# Extract tiles with progress information
 tiler.extract(slide)
 # Output: INFO: Tile 1/100 saved...
 # Output: INFO: Tile 2/100 saved...
@@ -279,7 +279,7 @@ tiler.extract(slide)
 ### Extraction with Report
 
 ```python
-# Generate a CSV report with tile information
+# Generate CSV report with tile information
 score_tiler = ScoreTiler(
     tile_size=(512, 512),
     n_tiles=50,
@@ -289,7 +289,7 @@ score_tiler = ScoreTiler(
 # Extract and save report
 score_tiler.extract(slide, report_path="tiles_report.csv")
 
-# Report contains: tile_name, coordinates, score, tissue percentage
+# Report contains: tile name, coordinates, score, tissue percentage
 ```
 
 Report format:
@@ -302,7 +302,7 @@ tile_002.png,15360,7680,0,0.85,91.7
 
 ## Advanced Extraction Patterns
 
-### Multi-level Extraction
+### Multi-Level Extraction
 
 Extract tiles at different magnification levels:
 
@@ -322,10 +322,10 @@ low_res_tiler.extract(slide)
 
 ### Hierarchical Extraction
 
-Extract tiles from the same location at multiple scales:
+Extract at multiple scales from same locations:
 
 ```python
-# Extract random positions at level 0
+# Extract random locations at level 0
 random_tiler_l0 = RandomTiler(
     tile_size=(512, 512),
     n_tiles=30,
@@ -335,7 +335,7 @@ random_tiler_l0 = RandomTiler(
 )
 random_tiler_l0.extract(slide)
 
-# Extract same positions at level 1 (using same seed)
+# Extract same locations at level 1 (use same seed)
 random_tiler_l1 = RandomTiler(
     tile_size=(512, 512),
     n_tiles=30,
@@ -373,49 +373,49 @@ filter_blurry_tiles("output/tiles/")
 
 ## Best Practices
 
-1. **Preview before extracting**: Always use `locate_tiles()` to verify tile placement.
-2. **Use appropriate levels**: Match the extraction level to your analysis resolution requirements.
-3. **Set tissue_percent thresholds**: Adjust based on staining and tissue type (typically 70-90%).
-4. **Choose the right tiler**:
-   - RandomTiler for sampling and exploration.
-   - GridTiler for comprehensive coverage.
-   - ScoreTiler for targeted, quality-driven extraction.
-5. **Enable logging**: Monitor extraction progress for large datasets.
-6. **Use seeds for reproducibility**: Set random seeds in RandomTiler.
-7. **Consider storage space**: GridTiler can generate thousands of tiles per slide.
-8. **Verify tile quality**: Check extracted tiles for artifacts, blur, or focus issues.
+1. **Preview before extraction**: Always use `locate_tiles()` to verify tile placement
+2. **Use appropriate level**: Match extraction level to analysis resolution requirements
+3. **Set tissue_percent threshold**: Adjust based on staining and tissue type (70-90% typical)
+4. **Choose right tiler**:
+   - RandomTiler for sampling and exploration
+   - GridTiler for comprehensive coverage
+   - ScoreTiler for targeted, quality-driven extraction
+5. **Enable logging**: Monitor extraction progress for large datasets
+6. **Use seeds for reproducibility**: Set random seeds in RandomTiler
+7. **Consider storage**: GridTiler can generate thousands of tiles per slide
+8. **Validate tile quality**: Check extracted tiles for artifacts, blur, or focus issues
 
 ## Performance Optimization
 
-1. **Extract at appropriate levels**: Lower levels (1, 2) are faster to extract.
-2. **Adjust tissue_percent**: Higher thresholds can reduce attempts for invalid tiles.
-3. **Use BiggestTissueBoxMask**: Faster than TissueMask for single tissue sections.
-4. **Limit n_tiles**: For RandomTiler and ScoreTiler.
-5. **Use pixel_overlap=0**: For non-overlapping GridTiler extraction.
+1. **Extract at appropriate level**: Lower levels (1, 2) extract faster
+2. **Adjust tissue_percent**: Higher thresholds reduce invalid tile attempts
+3. **Use BiggestTissueBoxMask**: Faster than TissueMask for single tissue sections
+4. **Limit n_tiles**: For RandomTiler and ScoreTiler
+5. **Use pixel_overlap=0**: For non-overlapping GridTiler extraction
 
 ## Troubleshooting
 
 ### Issue: No tiles extracted
 **Solutions:**
-- Lower the `tissue_percent` threshold.
-- Verify the WSI contains tissue (check thumbnail).
-- Ensure the `extraction_mask` captures the tissue area.
-- Check if `tile_size` is appropriate for the slide's resolution.
+- Lower `tissue_percent` threshold
+- Verify slide contains tissue (check thumbnail)
+- Ensure extraction_mask captures tissue regions
+- Check that tile_size is appropriate for slide resolution
 
-### Issue: Too many background tiles
+### Issue: Many background tiles extracted
 **Solutions:**
-- Enable `check_tissue=True`.
-- Increase the `tissue_percent` threshold.
-- Use an appropriate mask (TissueMask vs. BiggestTissueBoxMask).
+- Enable `check_tissue=True`
+- Increase `tissue_percent` threshold
+- Use appropriate mask (TissueMask vs. BiggestTissueBoxMask)
 
 ### Issue: Extraction is very slow
 **Solutions:**
-- Extract at a lower pyramid level (level=1 or 2).
-- Reduce `n_tiles` for RandomTiler/ScoreTiler.
-- Use RandomTiler instead of GridTiler for sampling.
-- Use BiggestTissueBoxMask instead of TissueMask.
+- Extract at lower pyramid level (level=1 or 2)
+- Reduce `n_tiles` for RandomTiler/ScoreTiler
+- Use RandomTiler instead of GridTiler for sampling
+- Use BiggestTissueBoxMask instead of TissueMask
 
-### Issue: Tiles overlap too much (GridTiler)
+### Issue: Tiles have too much overlap (GridTiler)
 **Solutions:**
-- Set `pixel_overlap` to 0 for non-overlapping tiles.
-- Decrease the `pixel_overlap` value.
+- Set `pixel_overlap=0` for non-overlapping tiles
+- Reduce `pixel_overlap` value

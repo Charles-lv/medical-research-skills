@@ -2,7 +2,8 @@ import re
 
 def rank_journals_by_if(journals_text: str, top_k: int = 5) -> str:
     """Parses journal text containing 'impact factor', sorts by IF descending, and returns top_k.
-    Expected format: "## Journal Name ... Impact Factor: 10.5 ...""""
+    Expected format: "## Journal Name ... Impact Factor: 10.5 ..."
+    """
     blocks = re.split(r'(?=## )', journals_text)
     
     journal_data = []

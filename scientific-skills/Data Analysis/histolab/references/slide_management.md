@@ -2,25 +2,25 @@
 
 ## Overview
 
-The `Slide` class is the main interface for handling Whole Slide Images (WSI) in histolab. It provides methods for loading, inspecting, and processing large histopathological images stored in various formats.
+The `Slide` class is the primary interface for working with whole slide images (WSI) in histolab. It provides methods to load, inspect, and process large histopathology images stored in various formats.
 
 ## Initialization
 
 ```python
 from histolab.slide import Slide
 
-# Initialize Slide object with WSI file and output directory
+# Initialize a slide with a WSI file and output directory
 slide = Slide(processed_path="path/to/processed/output",
               slide_path="path/to/slide.svs")
 ```
 
 **Parameters:**
-- `slide_path`: Path to the Whole Slide Image file (supports multiple formats: SVS, TIFF, NDPI, etc.)
-- `processed_path`: Directory to save processed output results (tiles, thumbnails, etc.)
+- `slide_path`: Path to the whole slide image file (supports multiple formats: SVS, TIFF, NDPI, etc.)
+- `processed_path`: Directory where processed outputs (tiles, thumbnails, etc.) will be saved
 
 ## Loading Sample Data
 
-Histolab provides built-in TCGA sample datasets for testing and demonstration:
+Histolab provides built-in sample datasets from TCGA for testing and demonstration:
 
 ```python
 from histolab.data import prostate_tissue, ovarian_tissue, breast_tissue, heart_tissue, kidney_tissue
@@ -44,15 +44,15 @@ Available sample datasets:
 # Get slide dimensions at level 0 (highest resolution)
 width, height = slide.dimensions
 
-# Get dimensions for specific pyramid levels
+# Get dimensions at specific pyramid level
 level_dimensions = slide.level_dimensions
-# Returns a (width, height) tuple for each level
+# Returns tuple of (width, height) for each level
 ```
 
 ### Magnification Information
 ```python
 # Get base magnification (e.g., 40x, 20x)
-base_mag = slide.base_mpp  # Microns per pixel (MPP) at level 0
+base_mag = slide.base_mpp  # Microns per pixel at level 0
 
 # Get all available levels
 num_levels = slide.levels  # Number of pyramid levels
@@ -65,19 +65,19 @@ properties = slide.properties
 
 # Common properties include:
 # - slide.properties['openslide.objective-power']: Objective power
-# - slide.properties['openslide.mpp-x']: Microns per pixel in X-axis
-# - slide.properties['openslide.mpp-y']: Microns per pixel in Y-axis
+# - slide.properties['openslide.mpp-x']: Microns per pixel in X
+# - slide.properties['openslide.mpp-y']: Microns per pixel in Y
 # - slide.properties['openslide.vendor']: Scanner vendor
 ```
 
 ## Thumbnail Generation
 
 ```python
-# Get thumbnail of a specific size
+# Get thumbnail at specific size
 thumbnail = slide.thumbnail
 
 # Save thumbnail to disk
-slide.save_thumbnail()  # Saved to processed_path
+slide.save_thumbnail()  # Saves to processed_path
 
 # Get scaled thumbnail
 scaled_thumbnail = slide.scaled_image(scale_factor=32)
@@ -86,7 +86,7 @@ scaled_thumbnail = slide.scaled_image(scale_factor=32)
 ## Slide Visualization
 
 ```python
-# Display slide thumbnail using matplotlib
+# Display slide thumbnail with matplotlib
 import matplotlib.pyplot as plt
 
 plt.figure(figsize=(10, 10))
@@ -101,7 +101,7 @@ plt.show()
 ```python
 # Extract region at specific coordinates and level
 region = slide.extract_region(
-    location=(x, y),  # Top-left corner coordinates at level 0
+    location=(x, y),  # Top-left coordinates at level 0
     size=(width, height),  # Region size
     level=0  # Pyramid level
 )
@@ -109,9 +109,9 @@ region = slide.extract_region(
 
 ## Working with Pyramid Levels
 
-WSI files use a pyramid structure with multiple resolution levels:
+WSI files use a pyramidal structure with multiple resolution levels:
 - Level 0: Highest resolution (native scan resolution)
-- Level 1 and above: Progressively lower resolution for fast access
+- Level 1+: Progressively lower resolutions for faster access
 
 ```python
 # Check available levels
@@ -127,17 +127,17 @@ for level in range(slide.levels):
 # Get slide filename without extension
 slide_name = slide.name
 
-# Get full path of the slide file
+# Get full path to slide file
 slide_path = slide.scaled_image
 ```
 
 ## Best Practices
 
-1. **Always specify processed_path**: Manage output results in a dedicated directory.
-2. **Check dimensions before processing**: Extremely large slides may exceed memory limits.
-3. **Use appropriate pyramid levels**: Extract tiles at the corresponding level based on analysis resolution.
-4. **Preview via thumbnails**: Use thumbnails for quick visualization before performing heavy processing.
-5. **Monitor memory usage**: Operating at level 0 of very large slides requires significant RAM.
+1. **Always specify processed_path**: Organize outputs in dedicated directories
+2. **Check dimensions before processing**: Large slides can exceed memory limits
+3. **Use appropriate pyramid levels**: Extract tiles at levels matching your analysis resolution
+4. **Preview with thumbnails**: Use thumbnails for quick visualization before heavy processing
+5. **Monitor memory usage**: Level 0 operations on large slides require significant RAM
 
 ## Common Workflows
 
@@ -148,16 +148,16 @@ from histolab.slide import Slide
 # Load slide
 slide = Slide("slide.svs", processed_path="output/")
 
-# Check properties
+# Inspect properties
 print(f"Dimensions: {slide.dimensions}")
 print(f"Levels: {slide.levels}")
 print(f"Magnification: {slide.properties.get('openslide.objective-power', 'N/A')}")
 
-# Save thumbnail for viewing
+# Save thumbnail for review
 slide.save_thumbnail()
 ```
 
-### Multi-slide Processing
+### Multi-Slide Processing
 ```python
 import os
 from pathlib import Path

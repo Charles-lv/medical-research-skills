@@ -1,45 +1,45 @@
-# Clinical Report HIPAA Compliance Checklist
+# HIPAA Compliance Checklist for Clinical Reports
 
 ## 18 HIPAA Identifiers - De-identification Checklist
 
-Please verify that **all** of the following identifiers have been removed or altered:
+Verify that ALL of the following identifiers have been removed or altered:
 
-- [ ] **1. Names** - Patient names, names of relatives, healthcare providers (unless necessary and consented)
+- [ ] **1. Names** - Patient name, family members, healthcare providers (unless necessary and consented)
 
-- [ ] **2. Geographic subdivisions smaller than a State**
+- [ ] **2. Geographic subdivisions smaller than state**
   - No street addresses
-  - No city names (unless population >20,000; acceptable if the geographic unit formed by the first 3 digits of the zip code has a population >20,000)
-  - No county names
-  - Acceptable only if the geographic unit formed by the first 3 digits of the zip code has a population >20,000
-  - Remove all other parts of the zip code
+  - No cities (unless >20,000 population and part of ZIP can be kept if >20,000)
+  - No counties  
+  - First 3 digits of ZIP code acceptable only if geographic unit >20,000 people
+  - All other portions of ZIP codes removed
 
 - [ ] **3. Dates** (except year)
-  - No exact dates of birth (only year is acceptable; birth years for those over age 89 must be aggregated)
+  - No exact dates of birth (year only acceptable; year of birth for those >89 must be aggregated)
   - No admission dates
   - No discharge dates
-  - No visit dates
+  - No dates of service
   - No dates of death
-  - Use relative time periods (e.g., "3 months prior to admission") or only the year
+  - Use relative time periods (e.g., "3 months prior") or years only
 
 - [ ] **4. Telephone numbers**
-  - No telephone numbers of any kind
-  - Includes contact numbers for patients, relatives, or medical facilities
+  - No phone numbers of any kind
+  - Including patient, family, provider contact numbers
 
 - [ ] **5. Fax numbers**
   - No fax numbers
 
 - [ ] **6. Email addresses**
-  - No email addresses of patients or associated individuals
+  - No email addresses for patient or related individuals
 
-- [ ] **7. Social Security Numbers (SSN)**
+- [ ] **7. Social Security numbers**
   - No SSN or partial SSN
 
-- [ ] **8. Medical Record Numbers (MRN)**
+- [ ] **8. Medical record numbers**
   - No MRN, hospital ID, or clinic numbers
-  - Use coded research IDs or case numbers if necessary
+  - Use coded study ID or case number if needed
 
 - [ ] **9. Health plan beneficiary numbers**
-  - No health insurance ID numbers
+  - No insurance ID numbers
   - No policy numbers
 
 - [ ] **10. Account numbers**
@@ -48,20 +48,20 @@ Please verify that **all** of the following identifiers have been removed or alt
 
 - [ ] **11. Certificate/license numbers**
   - No driver's license numbers
-  - No professional license numbers (unless used for author credentials)
+  - No professional license numbers (unless for author credentials)
 
 - [ ] **12. Vehicle identifiers and serial numbers**
   - No license plate numbers
-  - No vehicle identification numbers (VIN)
+  - No VIN numbers
 
 - [ ] **13. Device identifiers and serial numbers**
   - No pacemaker serial numbers
-  - No implanted device serial numbers
-  - Generic device descriptions are acceptable (e.g., "implantable cardioverter-defibrillator")
+  - No implant device serial numbers
+  - Generic device description acceptable (e.g., "implantable cardioverter-defibrillator")
 
 - [ ] **14. Web URLs**
   - No personal websites
-  - No URLs that could identify an individual
+  - No URLs identifying individuals
 
 - [ ] **15. IP addresses**
   - No IP addresses
@@ -73,99 +73,99 @@ Please verify that **all** of the following identifiers have been removed or alt
   - No other biometric data
 
 - [ ] **17. Full-face photographs and comparable images**
-  - No full-face photos without consent
-  - If the face is shown, it must be cropped or blurred
-  - Remove identifying features (jewelry, tattoos, birthmarks, if clinically irrelevant)
-  - Black bars over the eyes alone are **not sufficient**
-  - Ensure no reflections or backgrounds identify the individual
+  - No full-face photographs without consent
+  - Crop or blur faces if showing
+  - Remove identifying features (jewelry, tattoos, birthmarks if not clinically relevant)
+  - Black bars over eyes NOT sufficient
+  - Ensure no reflection or background identification
 
 - [ ] **18. Any other unique identifying characteristic or code**
-  - No unique characteristics that could identify the individual
-  - No rare combinations of diseases that could lead to identification
-  - Consider if the combination of remaining data points could potentially identify the individual
+  - No unique characteristics that could identify individual
+  - No rare disease combinations that could identify
+  - Consider if combination of remaining data points could identify individual
 
 ---
 
-## Other De-identification Considerations
+## Additional De-identification Considerations
 
-### Age and Dates
+### Ages and Dates
 
-- [ ] Patients aged ≤89: Exact age or age range is acceptable
-- [ ] Patients aged >89: Must be aggregated as "90 or older" or ">89 years old"
-- [ ] Dates: Use only the year or relative time periods
-  - Example: Use "3 months before visit" instead of "January 15, 2023"
-  - Example: Use "Admitted in 2023" instead of "Admitted on March 10, 2023"
+- [ ] Patients aged ≤89: Exact age or age range acceptable
+- [ ] Patients aged >89: Must be aggregated to "90 or older" or ">89 years"
+- [ ] Dates: Use only years OR use relative time periods
+  - Example: "3 months prior to presentation" instead of "on January 15, 2023"
+  - Example: "admitted in 2023" instead of "admitted on March 10, 2023"
 
 ### Geographic Information
 
-- [ ] State or Country is acceptable
-- [ ] Remove specific cities (unless population >20,000 and no other identifying info)
-- [ ] Remove hospital/clinic names
-- [ ] Use generic descriptions: "A community hospital in the Midwest" or "A tertiary care center"
+- [ ] State or country is acceptable
+- [ ] Removed specific cities (unless population >20,000 and no other identifying information)
+- [ ] Removed hospital/clinic names
+- [ ] Use general descriptors: "a community hospital in the Midwest" or "a tertiary care center"
 
 ### Rare Conditions and Combinations
 
-- [ ] Consider if an extremely rare disease itself could identify the patient
-- [ ] Consider if the following combinations could identify the patient:
-  - Age + Diagnosis + Geographic area + Timeframe
-- [ ] Some unique details may need to be obscured
-- [ ] Balance providing clinical information with protecting privacy
+- [ ] Consider if very rare disease alone could identify patient
+- [ ] Consider if combination of:
+  - Age + diagnosis + geographic area + timeframe could identify patient
+- [ ] May need to be vague about certain unique details
+- [ ] Balance between providing clinical information and protecting privacy
 
-### Images and Charts
+### Images and Figures
 
 - [ ] All patient identifiers removed from image headers/metadata
-- [ ] DICOM data cleared
+- [ ] DICOM data stripped
 - [ ] Dates removed from images
 - [ ] Medical record numbers removed
-- [ ] Faces cropped, blurred, or masked
+- [ ] Faces cropped, blurred, or obscured
 - [ ] Identifying marks removed or obscured:
   - Tattoos
   - Jewelry
-  - Birthmarks or unique scars (if clinically irrelevant)
-- [ ] Scales and annotations do not contain identifying information
-- [ ] Background environment de-identified (room numbers, name tags, etc.)
+  - Birthmarks or unique scars (if not clinically relevant)
+- [ ] Scale bars and annotations do not contain identifying information
+- [ ] Background environment de-identified (room numbers, nameplates, etc.)
 
 ### Voice and Video
 
-- [ ] No recordings with the patient's voice (unless consent is obtained)
-- [ ] No videos showing identifiable features (unless consent is obtained)
-- [ ] If video is necessary, the face must be masked
+- [ ] No audio recordings with patient voice (unless consent obtained)
+- [ ] No video showing identifiable features (unless consent obtained)
+- [ ] If video necessary, face must be obscured
 
 ---
 
-## Informed Consent Checklist (For Case Reports/Publications)
+## Informed Consent Checklist (for Case Reports/Publications)
 
 ### Consent Requirements
 
-- [ ] Informed consent obtained **before** submission for publication
-- [ ] Consent obtained directly from the patient (if they have capacity)
-- [ ] If the patient is deceased or lacks capacity, consent signed by a legal representative or next of kin
-- [ ] For pediatric cases, consent obtained from parents/guardians
+- [ ] Informed consent obtained BEFORE publication submission
+- [ ] Consent obtained from patient directly (if capable)
+- [ ] If patient deceased or incapacitated, consent from legal representative or next of kin
+- [ ] For pediatric cases, parental/guardian consent obtained
 
 ### Consent Form Elements
 
 The informed consent form must include:
 
 - [ ] Purpose of publication (education, medical knowledge)
-- [ ] What will be published (case details, images, results)
+- [ ] What will be published (case details, images, outcomes)
 - [ ] Journal or publication venue (if known)
-- [ ] Open access vs. subscription (public accessibility)
-- [ ] Explanation of de-identification efforts
-- [ ] Notification of potential risk of re-identification
-- [ ] Statement that clinical care is not affected
-- [ ] Right to withdraw consent (and time limits)
-- [ ] Contact information for inquiries
+- [ ] Open access vs. subscription (public availability)
+- [ ] De-identification efforts explained
+- [ ] Potential for re-identification acknowledged
+- [ ] No effect on clinical care
+- [ ] Right to withdraw consent (timing limitations)
+- [ ] Contact information for questions
 - [ ] Patient signature and date
 - [ ] Witness signature (if required)
 
 ### Consent Documentation
 
-- [ ] Signed consent form archived
-- [ ] Copy provided to the patient
-- [ ] Consent form available for review by editors
-- [ ] Statement in the manuscript confirming consent was obtained
+- [ ] Signed consent form on file
+- [ ] Copy provided to patient
+- [ ] Consent available for editor review
+- [ ] Statement in manuscript confirming consent obtained
 
-**Example Manuscript Statement:**
+**Example statement for manuscript:**
 "Written informed consent was obtained from the patient for publication of this case report and any accompanying images. A copy of the written consent is available for review by the Editor-in-Chief of this journal on request."
 
 ---
@@ -174,21 +174,21 @@ The informed consent form must include:
 
 ### Safe Harbor Method
 
-- [ ] Removal of all 18 identifiers
-- [ ] No actual knowledge that the remaining information could identify the individual
-- [ ] The most straightforward method
+- [ ] All 18 identifiers removed
+- [ ] No actual knowledge that remaining information could identify individual
+- [ ] Most straightforward method
 - [ ] Recommended for most clinical reports
 
 ### Expert Determination Method
 
-- [ ] Determination by a senior statistician/expert that the risk of re-identification is very small
-- [ ] Methodology is documented
-- [ ] Analytical methods are specified
-- [ ] Conclusions are documented
-- [ ] May allow for the retention of certain data elements
+- [ ] Qualified statistician/expert determined very small re-identification risk
+- [ ] Methodology documented
+- [ ] Analysis methods specified
+- [ ] Conclusion documented
+- [ ] May allow retention of some data elements
 - [ ] Requires statistical expertise
 
-**Method Used:** [ ] Safe Harbor  [ ] Expert Determination
+**Method used:** [ ] Safe Harbor  [ ] Expert Determination
 
 ---
 
@@ -196,74 +196,74 @@ The informed consent form must include:
 
 ### Use and Disclosure
 
-- [ ] Use only the minimum PHI (Protected Health Information) necessary to achieve the purpose
+- [ ] Only minimum PHI necessary for purpose is used
 - [ ] Purpose of disclosure clearly defined
-- [ ] Limited to relevant information
-- [ ] Consider using de-identified data or a limited data set as an alternative
+- [ ] Limited to relevant information only
+- [ ] Consider de-identified data or limited data set as alternatives
 
-### Exceptions to the Minimum Necessary Standard
+### Exceptions to Minimum Necessary
 
-The minimum necessary standard **does not apply** to:
+Minimum necessary does NOT apply to:
 - Treatment purposes (providers may need full information)
-- Disclosures authorized by the patient
+- Patient-authorized disclosures
 - Disclosures required by law
-- Disclosures to HHS (U.S. Department of Health and Human Services) for compliance investigations
+- Disclosures to HHS for compliance investigation
 
 ---
 
-## PHI Use/Disclosure Authorization
+## Authorization for Use/Disclosure of PHI
 
-### When Authorization is Needed
+### When Authorization Required
 
-Authorization is required for:
-- [ ] Research (unless an IRB waiver is obtained)
+Authorization needed for:
+- [ ] Research (unless IRB waiver granted)
 - [ ] Marketing purposes
 - [ ] Sale of PHI
 - [ ] Psychotherapy notes
-- [ ] Uses outside of Treatment, Payment, and Operations (TPO)
+- [ ] Uses beyond treatment, payment, operations (TPO)
 
 ### Authorization Elements
 
-If authorization is required, it must include:
+If authorization required, it must include:
 
-- [ ] Specific description of the PHI to be used/disclosed
-- [ ] Persons authorized to make the disclosure
-- [ ] Persons to whom the information will be disclosed
-- [ ] Purpose of the disclosure
+- [ ] Specific description of PHI to be used/disclosed
+- [ ] Person(s) authorized to make disclosure
+- [ ] Person(s) to receive information
+- [ ] Purpose of disclosure
 - [ ] Expiration date or event
-- [ ] Right to revoke and how to revoke
+- [ ] Right to revoke and how
 - [ ] Right to refuse to sign
-- [ ] Potential risk of re-disclosure by the recipient
+- [ ] Potential for re-disclosure by recipient
 - [ ] Patient signature and date
 
 ---
 
 ## Limited Data Set
 
-### Limited Data Set Options
+### Limited Data Set Option
 
-A limited data set removes 16 of the 18 identifiers but may retain:
-- [ ] Dates (Admission, discharge, visit, birth, death)
-- [ ] Geographic information (City, State, Zip code)
+A limited data set removes 16 of 18 identifiers but may retain:
+- [ ] Dates (admission, discharge, service, birth, death)
+- [ ] Geographic information (city, state, ZIP code)
 
-### Requirements for Limited Data Sets
+### Requirements for Limited Data Set
 
-- [ ] Data Use Agreement (DUA) must be signed
+- [ ] Data Use Agreement (DUA) required
 - [ ] DUA specifies permitted uses
-- [ ] Used only for research, public health, or healthcare operations
-- [ ] Recipient agrees not to re-identify the individuals
-- [ ] Recipient agrees to protect data security
+- [ ] Only for research, public health, or healthcare operations
+- [ ] Recipient agrees not to re-identify
+- [ ] Recipient agrees to safeguard data
 
 ---
 
-## Safeguards Checklist
+## Security Safeguards Checklist
 
 ### Administrative Safeguards
 
-- [ ] Establish security management processes
+- [ ] Security management process in place
 - [ ] Workforce security measures
 - [ ] Access management (role-based)
-- [ ] Security training for staff
+- [ ] Security training for workforce
 - [ ] Incident response procedures
 
 ### Physical Safeguards
@@ -288,49 +288,49 @@ A limited data set removes 16 of the 18 identifiers but may retain:
 
 ### If Unauthorized Disclosure Occurs
 
-- [ ] Determine if a breach occurred (unauthorized access/use/disclosure)
-- [ ] Assess the risk of harm to the individual
-- [ ] If the breach affects <500 individuals:
-  - Notify individuals within 60 days
+- [ ] Determine if breach occurred (unauthorized access/use/disclosure)
+- [ ] Assess risk of harm to individual
+- [ ] If breach affects <500 individuals:
+  - Notify individual within 60 days
   - Report to HHS annually
-- [ ] If the breach affects ≥500 individuals:
+- [ ] If breach affects ≥500 individuals:
   - Notify individuals within 60 days
   - Notify HHS within 60 days
-  - Notify the media if it affects ≥500 individuals in a single state/jurisdiction
-- [ ] Document the breach and response actions
-- [ ] Implement corrective measures
+  - Notify media if affects ≥500 in a state/jurisdiction
+- [ ] Document breach and response
+- [ ] Implement corrective action
 
 ### Breach Notification Content
 
-The notification must include:
-- [ ] Description of the breach
+Notification must include:
+- [ ] Description of breach
 - [ ] Types of information involved
 - [ ] Steps individuals should take
-- [ ] Actions the institution is taking
-- [ ] Contact information for inquiries
+- [ ] What organization is doing
+- [ ] Contact for questions
 
 ---
 
-## Research-Related Compliance
+## Research-Specific Compliance
 
 ### IRB/Privacy Board Considerations
 
 - [ ] IRB approval obtained (if research)
-- [ ] HIPAA authorization obtained or waiver granted
-- [ ] Justification for waiver documented:
+- [ ] HIPAA authorization obtained OR waiver granted
+- [ ] Waiver justification documented:
   - Minimal risk to privacy
-  - Research could not practicably be conducted without the waiver
-  - Research could not practicably be conducted without the PHI
+  - Research cannot practically be conducted without waiver
+  - Research cannot practically be conducted without PHI
   - Plan to protect identifiers
-  - Plan to destroy identifiers at the appropriate time
+  - Plan to destroy identifiers when appropriate
 
 ### Clinical Trial Reporting
 
-- [ ] Subjects identified only by ID numbers
+- [ ] Subject identified by ID number only
 - [ ] No names in regulatory submissions
-- [ ] Use initials only if required by regulatory agencies
+- [ ] Initials only if required by regulatory authority
 - [ ] Dates limited to year or relative time
-- [ ] Protocol includes privacy protection measures
+- [ ] Protocol includes privacy protections
 
 ---
 
@@ -338,56 +338,58 @@ The notification must include:
 
 ### Pediatric Cases
 
-- [ ] Consent obtained from parents/guardians
-- [ ] Assent obtained from the child (if age-appropriate)
-- [ ] Extra attention given to identifiable photographs
+- [ ] Parent/guardian consent obtained
+- [ ] Child assent obtained (if age-appropriate)
+- [ ] Extra care with identifiable photos
 - [ ] School information removed
 
 ### Deceased Patients
 
-- [ ] HIPAA protections continue for 50 years after death
-- [ ] Publication requires consent from next of kin
+- [ ] HIPAA protections apply for 50 years post-death
+- [ ] Next of kin consent for publication
 - [ ] Autopsy information de-identified
 
 ### Mental Health and Substance Abuse
 
-- [ ] Additional protections under 42 CFR Part 2
+- [ ] Extra protections under 42 CFR Part 2
 - [ ] Explicit consent for disclosure
-- [ ] No re-disclosure without consent
+- [ ] Cannot re-disclose without consent
 
 ---
 
 ## Final Compliance Verification
 
-**Reviewer:** ____________________  
+**Reviewed by:** ____________________  
 **Date:** ____________________  
 **Signature:** ____________________
 
-**Compliance Status:** [ ] Compliant  [ ] Revision Required  [ ] Non-compliant
+**Compliance Status:** [ ] Compliant  [ ] Needs revision  [ ] Not compliant
 
-**Identified Issues:**
+**Issues identified:**
 1. [Issue]
 2. [Issue]
 
-**Corrective Actions:**
+**Corrective actions:**
 1. [Action]
 2. [Action]
 
-**Re-review Required:** [ ] Yes  [ ] No  
-**Re-review Date:** ____________________
+**Re-review required:** [ ] Yes  [ ] No  
+**Re-review date:** ____________________
 
 ---
 
-## Documentation to Retain
+## Documentation to Maintain
 
-Archive for reference:
-- [ ] Signed patient consent forms (if applicable)
-- [ ] IRB approval letters (if research)
-- [ ] HIPAA waivers (if applicable)
-- [ ] Proof of de-identification verification
-- [ ] Data Use Agreements (if limited data set)
+Keep on file:
+- [ ] Signed patient consent (if applicable)
+- [ ] IRB approval (if research)
+- [ ] HIPAA waiver (if applicable)
+- [ ] De-identification verification
+- [ ] Data use agreement (if limited data set)
 - [ ] Authorization forms (if applicable)
 - [ ] Training records for personnel handling PHI
 - [ ] Audit logs
 
-**Retention Period:** Retain for at least 6 years per HIPAA requirements.
+**Retention period:** Minimum 6 years per HIPAA requirement
+
+

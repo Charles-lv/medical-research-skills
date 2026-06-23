@@ -2,55 +2,55 @@
 
 ## Patient and Specimen Information
 
-**Patient Name:** [Last Name, First Name]  
-**Medical Record Number (MRN):** [MRN]  
+**Patient Name:** [Last, First]  
+**Medical Record Number:** [MRN]  
 **Date of Birth:** [MM/DD/YYYY]  
-**Age:** [Years]  
-**Gender:** [Male/Female]
+**Age:** [years]  
+**Sex:** [M/F]
 
 **Accession Number:** [PathologyAccessionNumber]  
-**Date Received:** [Date and Time]  
-**Date of Report:** [Date]
+**Specimen Received:** [Date and time]  
+**Report Date:** [Date]
 
-**Requesting Physician:** [Name]  
-**Clinical Department:** [Department Name]
+**Ordering Physician:** [Name]  
+**Clinical Service:** [Department]
 
 ---
 
-## Specimens Submitted
+## Specimen(s) Submitted
 
-**Specimen A:** [Specimen Description]  
+**Specimen A:** [Description of specimen]  
 Example: "Skin, left forearm, excisional biopsy"
 
 **Specimen B:** [If multiple specimens]
 
 ---
 
-## Clinical History / Indications
+## Clinical History / Indication
 
-[Relevant clinical information provided by the clinician]
+[Relevant clinical information provided by clinician]
 
-Example: "72-year-old female with an enlarging pigmented lesion on the left forearm. Clinically suspicious for melanoma. Previous biopsy showed atypical melanocytic proliferation."
+Example: "72-year-old woman with enlarging pigmented lesion on left forearm. Clinical concern for melanoma. Previous biopsy showed atypical melanocytic proliferation."
 
 ---
 
 ## Gross Description
 
-**Specimen A labeled "[Specimen Label]":**
+**Specimen A labeled "[Specimen label]":**
 
 **Description:**
-- Received [fresh / in formalin]
-- Consists of [specimen type] measuring [dimensions, units: cm]
-- [Description of external surface]
-- [Description of cut surface/sections]
-- [Description of lesion, if applicable]
-- [Orientation markers, if present]
-- [Margin inking]
+- Received [fresh/in formalin]
+- Consists of [specimen type] measuring [dimensions in cm]
+- [External surface description]
+- [Cut surface/sectioning description]
+- [Lesion description if applicable]
+- [Orientation markers if present]
+- [Inking for margins]
 
 **Sampling:**
-- [Sectioning method]
+- [How specimen was sectioned]
 - [Cassette labeling]
-- [Proportion of tissue submitted]
+- [Percent of tissue submitted]
 
 **Example:**
 ```
@@ -70,16 +70,16 @@ axis into 10 slices. Entirely submitted in cassettes A1-A4.
 [Detailed histological findings]
 
 **Architecture:**
-[Observed structural patterns]
+[Structural patterns observed]
 
 **Cytology:**
-[Cell types, nuclear features, cytoplasm, pleomorphism]
+[Cell type, nuclear features, cytoplasm, pleomorphism]
 
 **Special Features:**
 [Necrosis, mitoses, invasion, margins]
 
 **Stains/Immunohistochemistry Results:**
-[Special stains or immunostaining results]
+[Results of special stains or immunostains]
 
 **Example:**
 ```
@@ -98,7 +98,7 @@ No ulceration identified. The lesion extends to a Breslow depth of 1.8 mm
 
 **Specimen A, Skin, left forearm, excisional biopsy:**
 
-**[DIAGNOSIS IN ALL CAPS]**
+**[DIAGNOSIS IN CAPITAL LETTERS]**
 
 **Example Format:**
 ```
@@ -117,7 +117,7 @@ Pathologic features:
 - Microsatellites: Absent
 ```
 
-**Cancer Specimen - Synoptic Format (CAP Protocol):**
+**For Cancer Specimens - Synoptic Format (CAP Protocol):**
 
 ```
 SYNOPTIC REPORT FOR [CANCER TYPE]
@@ -149,7 +149,7 @@ Additional Findings: [Other relevant findings]
 
 | Antibody | Result | Interpretation |
 |----------|--------|----------------|
-| [Marker Name] | [Positive/Negative, pattern] | [Clinical Significance] |
+| [Marker name] | [Positive/Negative, pattern] | [Clinical significance] |
 
 **Example:**
 | Antibody | Result | Interpretation |
@@ -157,18 +157,18 @@ Additional Findings: [Other relevant findings]
 | S100 | Positive, diffuse | Supports melanocytic lineage |
 | Melan-A | Positive, diffuse | Supports melanocytic lineage |
 | HMB-45 | Positive, patchy | Supports melanoma |
-| Ki-67 | 30% | High proliferation index |
+| Ki-67 | 30% | High proliferative index |
 
 **Molecular/Genetic Testing:**
-[Molecular testing results, if performed]
-- BRAF Mutation: [Detected/Not detected]
+[Results of molecular tests if performed]
+- BRAF mutation: [Detected/Not detected]
 - [Other relevant tests]
 
 ---
 
-## Comments
+## Comment
 
-[Additional explanatory information, differential diagnosis, recommendations]
+[Additional interpretive information, differential diagnosis, recommendations]
 
 **Example:**
 ```
@@ -180,17 +180,17 @@ considered for treatment planning. Close clinical follow-up is recommended.
 
 ---
 
-## Signatures
+## Signature
 
 **Pathologist:**  
-[Name, MD/DO]  
-[Credentials]  
-[License Number]
+[Name, MD]  
+[Board Certification]  
+[License number]
 
-**Electronic Signature:** [Date and Time]
+**Electronically signed:** [Date and time]
 
-**Grossed by:** [Name, Credentials]  
-**Microscopic examination by:** [Name, MD/DO]
+**Gross examination by:** [Name, credentials]  
+**Microscopic examination by:** [Name, MD]
 
 ---
 
@@ -199,15 +199,15 @@ considered for treatment planning. Close clinical follow-up is recommended.
 ### Breast Biopsy
 
 **Key Elements:**
-- Histologic type (Invasive ductal carcinoma, lobular carcinoma, etc.)
-- Nottingham grade (Tubule formation, nuclear grade, mitotic count)
+- Histologic type (invasive ductal, lobular, etc.)
+- Nottingham grade (tubule formation, nuclear grade, mitotic count)
 - Size of invasive component
-- DCIS (if present) (grade, extent)
+- DCIS if present (grade, extent)
 - ER/PR/HER2 status
-- Margin status for all components
-- Lymph nodes (if present)
+- Margins for all components
+- Lymph nodes if present
 
-### Colectomy
+### Colon Resection
 
 **Key Elements:**
 - Tumor site and size
@@ -222,26 +222,28 @@ considered for treatment planning. Close clinical follow-up is recommended.
 ### Prostate Biopsy/Resection
 
 **Key Elements:**
-- Gleason score (Pattern 1 + Pattern 2 = Total score)
-- Grade Group (1-5)
-- Percentage of involvement per core/specimen
-- Extraprostatic extension (for radical prostatectomy)
+- Gleason score (pattern 1 + pattern 2 = total)
+- Grade group (1-5)
+- Percent involvement per core/specimen
+- Extraprostatic extension (if radical prostatectomy)
 - Seminal vesicle invasion
 - Margins
 - Perineural invasion
 
 ---
 
-## Intraoperative Frozen Section Report (if applicable)
+## Frozen Section Report (if applicable)
 
 **Frozen Section Diagnosis:**
 
 **Specimen:** [Description]  
-**Clinical Question:** [Reason for frozen section]  
+**Clinical Question:** [Reason for frozen]  
 **Frozen Section Diagnosis:** [Diagnosis given intraoperatively]  
-**Time:** [Report time]  
+**Time:** [Time reported]  
 **Pathologist:** [Name]
 
-**Note:** To be followed by permanent paraffin section report.
+**Note:** Permanent sections to follow.
 
-**Final Diagnosis:** [Note correlation with frozen section results]
+**Final Diagnosis:** [State if concordant or discordant with frozen]
+
+
