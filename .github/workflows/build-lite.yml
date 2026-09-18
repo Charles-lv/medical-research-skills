@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "inventory = 只生成清单(只读,不写仓库); prune = 构建 lite 分支(需写权限)"
+        description: "inventory = 生成清单(只读,含 description 与真实体积); prune = 构建 lite 分支(需写权限)"
         required: true
         default: inventory
         type: choice
@@ -31,33 +31,41 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
+          # 体积从 git 对象库读(blob size),不依赖工作区 —— v2 用 du 对 4 个顶层目录返回空,此法可绕开
+          git ls-tree -r -l HEAD | awk '$4!="-"{print $4"\t"$5}' > /tmp/blobs.tsv
           git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/dirs.txt
           total=$(wc -l < /tmp/dirs.txt)
-          {
-            echo "# INVENTORY  生成时间: $(date -u +%FT%TZ)"
-            echo "# skill 目录总数: $total"
-            echo "# 列: 体积  目录名  完整路径"
-            while read -r d; do
-              printf '%-8s %-50s %s\n' "$(du -sh "$d" | cut -f1)" "$(basename "$d")" "$d"
-            done < /tmp/dirs.txt
-          } > INVENTORY.txt
 
+          printf 'path\tname\tsize_KB\tdescription\n' > INVENTORY.tsv
+          while read -r d; do
+            kb=$(awk -F'\t' -v p="$d/" 'index($2,p)==1{s+=$1} END{printf "%.0f", s/1024}' /tmp/blobs.tsv)
+            desc=$(git show "HEAD:$d/SKILL.md" 2>/dev/null \
+                   | awk '/^description:/{sub(/^description:[[:space:]]*/,""); if($0=="|"||$0==">"){getline; sub(/^[[:space:]]+/,"")}; print; exit}' \
+                   | tr -d '\r' | cut -c1-200)
+            printf '%s\t%s\t%s\t%s\n' "$d" "$(basename "$d")" "$kb" "$desc" >> INVENTORY.tsv
+          done < /tmp/dirs.txt
+
+          git archive --format=zip -o /tmp/full.zip HEAD
           echo "=============================================="
           echo "  skill 目录总数: $total"
-          echo "  完整 tree 打包体积: $(git archive --format=zip -o /tmp/full.zip HEAD && du -h /tmp/full.zip | cut -f1)"
+          echo "  完整 tree zipball 体积: $(du -h /tmp/full.zip | cut -f1)   (importer 上限 100MB)"
           echo "=============================================="
-          echo "--- 体积 top 30 ---"
-          tail -n +4 INVENTORY.txt | sort -h -k1 | tail -30
+          echo "--- 顶层目录体积分布 ---"
+          git ls-tree -r -l HEAD | awk '$4!="-"{split($5,a,"/"); s[a[1]]+=$4} END{for(t in s) printf "%-40s %8.2f MB\n", t, s[t]/1048576}' | sort -k2 -rn
           echo
-          echo "--- 全部目录名(可直接复制进 keep.txt) ---"
-          sed 's|.*/||' /tmp/dirs.txt
+          echo "--- 单个 skill 体积 top 30 ---"
+          tail -n +2 INVENTORY.tsv | sort -t$'\t' -k3 -rn | head -30 | awk -F'\t' '{printf "%8s KB  %s\n", $3, $1}'
+          echo
+          echo "--- 各顶层目录的 skill 数 ---"
+          awk -F'/' 'NR>1{print $1}' /tmp/dirs.txt | sort | uniq -c | sort -rn
 
       - name: Upload inventory
         if: ${{ inputs.mode == 'inventory' }}
         uses: actions/upload-artifact@v4
         with:
           name: inventory
-          path: INVENTORY.txt
+          path: INVENTORY.tsv
 
       # ---------- 写分支:需要 contents: write ----------
       - name: Prune to lite
