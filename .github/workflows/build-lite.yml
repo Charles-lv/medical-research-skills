@@ -1,0 +1,111 @@
+name: build-lite
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "inventory = 只生成清单(只读,不写仓库); prune = 构建 lite 分支(需写权限)"
+        required: true
+        default: inventory
+        type: choice
+        options: [inventory, prune]
+      max_mb:
+        description: "prune 模式下,大于该 MB 的残留文件一并删除"
+        required: false
+        default: "1"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ---------- 只读:不写仓库,不需要任何权限 ----------
+      - name: Inventory
+        if: ${{ inputs.mode == 'inventory' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/dirs.txt
+          total=$(wc -l < /tmp/dirs.txt)
+          {
+            echo "# INVENTORY  生成时间: $(date -u +%FT%TZ)"
+            echo "# skill 目录总数: $total"
+            echo "# 列: 体积  目录名  完整路径"
+            while read -r d; do
+              printf '%-8s %-50s %s\n' "$(du -sh "$d" | cut -f1)" "$(basename "$d")" "$d"
+            done < /tmp/dirs.txt
+          } > INVENTORY.txt
+
+          echo "=============================================="
+          echo "  skill 目录总数: $total"
+          echo "  完整 tree 打包体积: $(git archive --format=zip -o /tmp/full.zip HEAD && du -h /tmp/full.zip | cut -f1)"
+          echo "=============================================="
+          echo "--- 体积 top 30 ---"
+          tail -n +4 INVENTORY.txt | sort -h -k1 | tail -30
+          echo
+          echo "--- 全部目录名(可直接复制进 keep.txt) ---"
+          sed 's|.*/||' /tmp/dirs.txt
+
+      - name: Upload inventory
+        if: ${{ inputs.mode == 'inventory' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: inventory
+          path: INVENTORY.txt
+
+      # ---------- 写分支:需要 contents: write ----------
+      - name: Prune to lite
+        if: ${{ inputs.mode == 'prune' }}
+        shell: bash
+        env:
+          MAXMB: ${{ inputs.max_mb }}
+        run: |
+          set -euo pipefail
+          test -f keep.txt || { echo "::error::仓库根目录缺少 keep.txt"; exit 1; }
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B lite
+
+          sed -e 's/\r$//' -e 's/#.*//' -e 's|/*[[:space:]]*$||' -e 's/^[[:space:]]*//' keep.txt \
+            | grep -v '^$' | sort -u > /tmp/keep.norm
+          echo "[info] 保留清单条目: $(wc -l < /tmp/keep.norm)"
+
+          git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/alldirs.txt
+          sed 's|.*/||' /tmp/alldirs.txt | sort -u > /tmp/allnames.txt
+          echo "[info] skill 目录总数: $(wc -l < /tmp/alldirs.txt)"
+
+          kept=0; dropped=0
+          while read -r d; do
+            n=$(basename "$d")
+            if grep -qxF "$n" /tmp/keep.norm; then kept=$((kept+1)); else git rm -rq "$d"; dropped=$((dropped+1)); fi
+          done < /tmp/alldirs.txt
+          echo "[info] 保留 $kept 个 / 删除 $dropped 个"
+
+          miss=$(comm -23 /tmp/keep.norm /tmp/allnames.txt || true)
+          if [ -n "$miss" ]; then
+            echo "[warn] 以下清单条目在仓库内无匹配目录(拼写错误?):"
+            echo "$miss" | sed 's/^/  - /'
+          else
+            echo "[info] 清单条目全部命中"
+          fi
+
+          echo "[info] 清理 > ${MAXMB}MB 的残留文件:"
+          git ls-files > /tmp/files.txt
+          while read -r f; do
+            sz=$(stat -c%s "$f" 2>/dev/null || echo 0)
+            if [ "$sz" -gt $((MAXMB*1024*1024)) ]; then echo "  [drop] $f ($((sz/1024/1024))MB)"; git rm -q "$f"; fi
+          done < /tmp/files.txt
+
+          git commit -m "lite: curated subset ($kept skills) [skip ci]" || echo "[info] 无变化"
+          git archive --format=zip -o /tmp/lite.zip lite
+          echo "=============================================="
+          echo "  lite zipball 体积: $(du -h /tmp/lite.zip | cut -f1)   (importer 上限 100MB)"
+          echo "  剩余文件数: $(git ls-files | wc -l)"
+          echo "=============================================="
+          git push -f origin lite
