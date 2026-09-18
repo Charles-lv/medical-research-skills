@@ -34,7 +34,7 @@ jobs:
 
           # 体积从 git 对象库读(blob size),不依赖工作区 —— v2 用 du 对 4 个顶层目录返回空,此法可绕开
           git ls-tree -r -l HEAD | awk '$4!="-"{print $4"\t"$5}' > /tmp/blobs.tsv
-          git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/dirs.txt
+          git ls-files '*SKILL.md' | sed 's|/SKILL\.md$||' | sort -u > /tmp/dirs.txt
           total=$(wc -l < /tmp/dirs.txt)
 
           printf 'path\tname\tsize_KB\tdescription\n' > INVENTORY.tsv
@@ -84,7 +84,7 @@ jobs:
             | grep -v '^$' | sort -u > /tmp/keep.norm
           echo "[info] 保留清单条目: $(wc -l < /tmp/keep.norm)"
 
-          git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/alldirs.txt
+          git ls-files '*SKILL.md' | sed 's|/SKILL\.md$||' | sort -u > /tmp/alldirs.txt
           sed 's|.*/||' /tmp/alldirs.txt | sort -u > /tmp/allnames.txt
           echo "[info] skill 目录总数: $(wc -l < /tmp/alldirs.txt)"
 
