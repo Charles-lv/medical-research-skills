@@ -13,6 +13,12 @@ on:
         description: "prune 模式下,大于该 MB 的残留文件一并删除"
         required: false
         default: "1"
+      flatten:
+        description: "prune 模式下,把保留的 skill 扁平化到 skills/<name>/ (消除路径空格,贴合 importer 期望布局)"
+        required: false
+        default: "true"
+        type: choice
+        options: ["true", "false"]
 
 permissions:
   contents: write
@@ -98,6 +104,7 @@ jobs:
         shell: bash
         env:
           MAXMB: ${{ inputs.max_mb }}
+          FLATTEN: ${{ inputs.flatten }}
         run: |
           set -uo pipefail
           test -f keep.txt || { echo "::error::仓库根目录缺少 keep.txt"; exit 1; }
@@ -128,11 +135,28 @@ jobs:
             echo "[info] 清单条目全部命中"
           fi
 
+          if [ "$FLATTEN" = "true" ]; then
+            echo "[info] 扁平化到 skills/<name>/ :"
+            moved=0; clash=0
+            while IFS= read -r d; do
+              n=$(basename "$d")
+              grep -qxF "$n" /tmp/keep.norm || continue
+              [ "$d" = "skills/$n" ] && continue
+              if [ -e "skills/$n" ]; then echo "  [clash] skills/$n 已存在,跳过 $d"; clash=$((clash+1)); continue; fi
+              mkdir -p skills
+              if git mv "$d" "skills/$n" 2>/dev/null; then moved=$((moved+1)); else echo "  [fail] $d"; fi
+            done < /tmp/alldirs.txt
+            echo "[info] 已移动 $moved 个 / 同名冲突跳过 $clash 个"
+            echo "[info] skills/ 下现有: $(ls -1 skills 2>/dev/null | wc -l) 个目录"
+          else
+            echo "[info] flatten=false,保持原有目录结构"
+          fi
+
           echo "[info] 清理 > ${MAXMB}MB 的残留文件:"
           git ls-files > /tmp/files.txt
           while IFS= read -r f; do
             sz=$(stat -c%s "$f" 2>/dev/null || echo 0)
-            if [ "$sz" -gt $((MAXMB*1024*1024)) ]; then echo "  [drop] $f ($((sz/1024/1024))MB)"; git rm -q "$f"; fi
+            if [ "$sz" -gt $((MAXMB*1024*1024)) ]; then echo "  [drop] $f ($((sz/1024/1024))MB)"; git rm -qf "$f"; fi
           done < /tmp/files.txt
 
           git commit -m "lite: curated subset ($kept skills) [skip ci]" || echo "[info] 无变化"
