@@ -80,12 +80,13 @@ jobs:
           awk -F'\t' 'NR>1{n=split($1,a,"/"); print (n==1)?a[1]:a[1]}' INVENTORY.tsv | sort | uniq -c | sort -rn
           echo
           echo "--- 单个 skill 体积 top 30 ---"
-          tail -n +2 INVENTORY.tsv | sort -t$'\t' -k3 -rn | head -30 | awk -F'\t' '{printf "%10s KB  %s\n", $3, $1}'
+          tail -n +2 INVENTORY.tsv | sort -t$'\t' -k3 -rn > /tmp/by_size.txt
+          head -30 /tmp/by_size.txt | awk -F'\t' '{printf "%10s KB  %s\n", $3, $1}'
           echo
           echo "注: 自身带 SKILL.md 的父目录(如 scientific-skills)其体积为整棵子树合计,非该 skill 本身。"
 
       - name: Upload inventory
-        if: ${{ inputs.mode == 'inventory' }}
+        if: ${{ always() && inputs.mode == 'inventory' }}
         uses: actions/upload-artifact@v4
         with:
           name: inventory
