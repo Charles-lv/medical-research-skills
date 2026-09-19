@@ -1,0 +1,43 @@
+# medical-research-skills lite 保留清单
+# 一行一个 skill 目录名（不带路径、不带斜杠）；# 开头为注释
+# 32 条，合计约 1.54 MB
+
+# --- A. 研究设计模板 (15) ---
+comorbidity-common-immune-biomarker-research-planner
+dual-disease-shared-transcriptome-biomarker-research-planner
+pcd-immune-oncology-research-planner
+tumor-immune-infiltration-diagnostic-ml-research-planner
+process-related-diagnostic-biomarker-nomogram-research-planner
+mr-scrna-research-planner
+single-cell-research-planner
+multi-omics-clinical-integration-planner
+qtl-colocalization-study-planner
+prognostic-biomarker-protocol-designer
+mechanism-to-validation-planner
+animal-and-cell-validation-planner
+confounder-and-bias-control-planner
+medical-research-gap-to-study-planner
+clinical-cohort-protocol-designer
+
+# --- B. 写作 / 基金 / 伦理 (8) ---
+nsfc-grant-writer
+grant-specific-aims-writer
+irb-application-assistant
+consistency-checker-across-manuscript
+reference-integrity-checker
+claim-strength-calibrator
+reporting-guideline-compliance-checker
+revision-strategy-planner
+
+# --- C. 创新性与可靠性核验 (7) ---
+medical-topic-saturation-and-whitespace-checker
+novelty-vs-feasibility-assessor
+paper-to-claim-verifier
+retraction-watcher
+result-reliability-checker
+method-gap-detector
+contradictory-findings-resolver
+
+# --- D. 模型评估 (2) ---
+probast-quality-assessment-for-prediction-model-studies
+external-model-validation
