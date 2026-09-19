@@ -1,6 +1,6 @@
 # medical-research-skills lite 保留清单
 # 一行一个 skill 目录名（不带路径、不带斜杠）；# 开头为注释
-# 32 条，合计约 1.54 MB
+# 30 条（2026-09-19 删 nsfc-grant-writer、irb-application-assistant：模板损坏 / 引用文件缺失）
 
 # --- A. 研究设计模板 (15) ---
 comorbidity-common-immune-biomarker-research-planner
@@ -19,10 +19,8 @@ confounder-and-bias-control-planner
 medical-research-gap-to-study-planner
 clinical-cohort-protocol-designer
 
-# --- B. 写作 / 基金 / 伦理 (8) ---
-nsfc-grant-writer
+# --- B. 写作 / 基金 / 审查 (6) ---
 grant-specific-aims-writer
-irb-application-assistant
 consistency-checker-across-manuscript
 reference-integrity-checker
 claim-strength-calibrator
