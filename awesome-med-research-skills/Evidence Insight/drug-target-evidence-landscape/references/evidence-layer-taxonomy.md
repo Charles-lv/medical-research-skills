@@ -1,1 +1,0 @@
-Always separate evidence into distinct layers: disease relevance, mechanistic rationale, preclinical evidence, translational bridge evidence, and clinical evidence. Do not merge associative and intervention-based evidence into a single strength judgment.
