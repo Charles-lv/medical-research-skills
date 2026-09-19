@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "inventory = 生成清单(只读,含 description 与真实体积); prune = 构建 lite 分支(需写权限)"
+        description: "inventory = 生成清单(只读,含 description/体积/诊断); prune = 构建 lite 分支(需写权限)"
         required: true
         default: inventory
         type: choice
@@ -26,39 +26,63 @@ jobs:
           fetch-depth: 0
 
       # ---------- 只读:不写仓库,不需要任何权限 ----------
+      # v4: 路径来源统一为 ls-tree(+quotePath=false),与 git show HEAD: 同源;
+      #     去掉 set -e,单条失败只记账不杀进程;体积从 blob size 累加,不用 du。
       - name: Inventory
         if: ${{ inputs.mode == 'inventory' }}
         shell: bash
         run: |
-          set -euo pipefail
+          set -uo pipefail
+          GIT="git -c core.quotePath=false"
 
-          # 体积从 git 对象库读(blob size),不依赖工作区 —— v2 用 du 对 4 个顶层目录返回空,此法可绕开
-          git ls-tree -r -l HEAD | awk '$4!="-"{print $4"\t"$5}' > /tmp/blobs.tsv
-          git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/dirs.txt
+          $GIT ls-tree -r -l HEAD \
+            | awk -F'\t' '{split($1,m," "); if(m[2]=="blob") printf "%s\t%s\n", m[4], $2}' > /tmp/blobs.tsv
+          echo "[info] blob 条目: $(wc -l < /tmp/blobs.tsv)"
+
+          $GIT ls-tree -r --name-only HEAD | grep 'SKILL\.md$' \
+            | sed 's|SKILL\.md$||; s|/$||' | sort -u > /tmp/dirs.txt
           total=$(wc -l < /tmp/dirs.txt)
+          echo "[info] skill 目录总数: $total"
 
           printf 'path\tname\tsize_KB\tdescription\n' > INVENTORY.tsv
-          while read -r d; do
-            kb=$(awk -F'\t' -v p="$d/" 'index($2,p)==1{s+=$1} END{printf "%.0f", s/1024}' /tmp/blobs.tsv)
-            desc=$(git show "HEAD:$d/SKILL.md" 2>/dev/null \
-                   | awk '/^description:/{sub(/^description:[[:space:]]*/,""); if($0=="|"||$0==">"){getline; sub(/^[[:space:]]+/,"")}; print; exit}' \
-                   | tr -d '\r' | cut -c1-200)
-            printf '%s\t%s\t%s\t%s\n' "$d" "$(basename "$d")" "$kb" "$desc" >> INVENTORY.tsv
+          : > /tmp/failed.txt
+          ok=0; bad=0
+          while IFS= read -r d; do
+            if [ -z "$d" ]; then p="SKILL.md"; nm="(repo-root)"; pre=""
+            else p="$d/SKILL.md"; nm=$(basename "$d"); pre="$d/"; fi
+            if body=$($GIT show "HEAD:$p" 2>/dev/null); then
+              ok=$((ok+1))
+              desc=$(printf '%s' "$body" \
+                | awk '/^description:/{sub(/^description:[[:space:]]*/,""); if($0=="|"||$0==">"){getline; sub(/^[[:space:]]+/,"")}; print; exit}' \
+                | tr -d '\r' | cut -c1-200)
+            else
+              bad=$((bad+1)); echo "$p" >> /tmp/failed.txt; desc="[READ-FAILED]"
+            fi
+            kb=$(awk -F'\t' -v p="$pre" 'p=="" || index($2,p)==1 {s+=$1} END{printf "%.0f", s/1024}' /tmp/blobs.tsv)
+            printf '%s\t%s\t%s\t%s\n' "${d:-.}" "$nm" "$kb" "$desc" >> INVENTORY.tsv
           done < /tmp/dirs.txt
 
-          git archive --format=zip -o /tmp/full.zip HEAD
+          echo "[info] description 读取成功 $ok / 失败 $bad"
+          if [ "$bad" -gt 0 ]; then
+            echo "[warn] 以下路径无法从 HEAD 读取(最多列 30 条) —— 这是 v2 中 du 返空的同一批,请把本段贴回:"
+            head -30 /tmp/failed.txt
+          fi
+
+          git archive --format=zip -o /tmp/full.zip HEAD 2>/dev/null || echo "[warn] git archive 失败"
           echo "=============================================="
           echo "  skill 目录总数: $total"
-          echo "  完整 tree zipball 体积: $(du -h /tmp/full.zip | cut -f1)   (importer 上限 100MB)"
+          echo "  完整 tree zipball 体积: $(du -h /tmp/full.zip 2>/dev/null | cut -f1)   (importer 上限 100MB)"
           echo "=============================================="
           echo "--- 顶层目录体积分布 ---"
-          git ls-tree -r -l HEAD | awk '$4!="-"{split($5,a,"/"); s[a[1]]+=$4} END{for(t in s) printf "%-40s %8.2f MB\n", t, s[t]/1048576}' | sort -k2 -rn
-          echo
-          echo "--- 单个 skill 体积 top 30 ---"
-          tail -n +2 INVENTORY.tsv | sort -t$'\t' -k3 -rn | head -30 | awk -F'\t' '{printf "%8s KB  %s\n", $3, $1}'
+          awk -F'\t' '{n=split($2,a,"/"); t=(n==1)?"(root files)":a[1]; s[t]+=$1} END{for(k in s) printf "%-40s %8.2f MB\n", k, s[k]/1048576}' /tmp/blobs.tsv | sort -k2 -rn
           echo
           echo "--- 各顶层目录的 skill 数 ---"
-          awk -F'/' 'NR>1{print $1}' /tmp/dirs.txt | sort | uniq -c | sort -rn
+          awk -F'\t' 'NR>1{n=split($1,a,"/"); print (n==1)?a[1]:a[1]}' INVENTORY.tsv | sort | uniq -c | sort -rn
+          echo
+          echo "--- 单个 skill 体积 top 30 ---"
+          tail -n +2 INVENTORY.tsv | sort -t$'\t' -k3 -rn | head -30 | awk -F'\t' '{printf "%10s KB  %s\n", $3, $1}'
+          echo
+          echo "注: 自身带 SKILL.md 的父目录(如 scientific-skills)其体积为整棵子树合计,非该 skill 本身。"
 
       - name: Upload inventory
         if: ${{ inputs.mode == 'inventory' }}
@@ -74,7 +98,7 @@ jobs:
         env:
           MAXMB: ${{ inputs.max_mb }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
           test -f keep.txt || { echo "::error::仓库根目录缺少 keep.txt"; exit 1; }
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -84,28 +108,28 @@ jobs:
             | grep -v '^$' | sort -u > /tmp/keep.norm
           echo "[info] 保留清单条目: $(wc -l < /tmp/keep.norm)"
 
-          git ls-files | grep 'SKILL\.md$' | xargs -n1 dirname | sort -u > /tmp/alldirs.txt
+          git -c core.quotePath=false ls-tree -r --name-only HEAD | grep 'SKILL\.md$' \
+            | sed 's|/SKILL\.md$||' | grep -v '^SKILL\.md$' | sort -u > /tmp/alldirs.txt
           sed 's|.*/||' /tmp/alldirs.txt | sort -u > /tmp/allnames.txt
           echo "[info] skill 目录总数: $(wc -l < /tmp/alldirs.txt)"
 
           kept=0; dropped=0
-          while read -r d; do
+          while IFS= read -r d; do
             n=$(basename "$d")
-            if grep -qxF "$n" /tmp/keep.norm; then kept=$((kept+1)); else git rm -rq "$d"; dropped=$((dropped+1)); fi
+            if grep -qxF "$n" /tmp/keep.norm; then kept=$((kept+1)); else git rm -rq "$d" && dropped=$((dropped+1)); fi
           done < /tmp/alldirs.txt
           echo "[info] 保留 $kept 个 / 删除 $dropped 个"
 
-          miss=$(comm -23 /tmp/keep.norm /tmp/allnames.txt || true)
+          miss=$(comm -23 /tmp/keep.norm /tmp/allnames.txt)
           if [ -n "$miss" ]; then
-            echo "[warn] 以下清单条目在仓库内无匹配目录(拼写错误?):"
-            echo "$miss" | sed 's/^/  - /'
+            echo "[warn] 以下清单条目在仓库内无匹配目录(拼写错误?):"; echo "$miss" | sed 's/^/  - /'
           else
             echo "[info] 清单条目全部命中"
           fi
 
           echo "[info] 清理 > ${MAXMB}MB 的残留文件:"
           git ls-files > /tmp/files.txt
-          while read -r f; do
+          while IFS= read -r f; do
             sz=$(stat -c%s "$f" 2>/dev/null || echo 0)
             if [ "$sz" -gt $((MAXMB*1024*1024)) ]; then echo "  [drop] $f ($((sz/1024/1024))MB)"; git rm -q "$f"; fi
           done < /tmp/files.txt
