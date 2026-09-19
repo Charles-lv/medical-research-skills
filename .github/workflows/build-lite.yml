@@ -107,7 +107,11 @@ jobs:
           FLATTEN: ${{ inputs.flatten }}
         run: |
           set -uo pipefail
-          test -f keep.txt || { echo "::error::仓库根目录缺少 keep.txt"; exit 1; }
+          if [ ! -f keep.txt ]; then
+            echo "::error::仓库根目录缺少 keep.txt。当前分支: $(git rev-parse --abbrev-ref HEAD)"
+            echo "根目录内容:"; ls -la
+            exit 1
+          fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B lite
